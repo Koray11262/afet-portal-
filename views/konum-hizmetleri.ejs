@@ -1,0 +1,56 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero: {
+      title: "Risk ve Toplanma Alanları",
+      lead: "İl bazında afet risk profilinizi görün ve size en yakın toplanma alanlarını haritada bulun.",
+      crumbs: [
+        { label: "Anasayfa", href: "/" },
+        { label: "Risk & Toplanma" },
+      ],
+    },
+    extraScripts: `
+      <script src="/il-risk.js"></script>
+      <script src="/toplanma.js"></script>
+    `,
+    body: `
+      <div class="hubSplit">
+        <section class="hubBlock panel panel--tight" id="il-riskleri">
+          <h2>İle Göre Afet Riskleri</h2>
+          <p class="muted">İl adını yazın; tüm afet türleri için risk puanlarını ve haritayı görün.</p>
+          <form id="ilRiskForm" class="ilRiskForm">
+            <label class="ilRiskForm__field">
+              <span class="muted">İl</span>
+              <input id="ilRiskInput" name="il" type="search" list="ilRiskList" placeholder="Örn. Ankara" required />
+              <datalist id="ilRiskList"></datalist>
+            </label>
+            <button type="submit" class="btn btn--primary">Riskleri Göster</button>
+          </form>
+          <p id="ilRiskStatus" class="ilRiskStatus muted"></p>
+          <div id="ilRiskMap" class="leafletMap leafletMap--compact"></div>
+          <div id="ilRiskCards" class="ilRiskCards" hidden></div>
+        </section>
+
+        <section class="hubBlock panel panel--tight" id="toplanma-alanlari">
+          <h2>Toplanma Alanları</h2>
+          <p class="muted">Konumunuza en yakın toplanma alanları (Kocaeli ve İzmir demo verisi).</p>
+          <div id="toplanmaMap" class="leafletMap leafletMap--compact"></div>
+          <p id="toplanmaStatus" class="toplanmaStatus muted"></p>
+          <div class="toplanmaToolbar">
+            <label class="toplanmaFilter">
+              <span class="muted">İl</span>
+              <select id="toplanmaIlFilter">
+                <option value="">Tümü</option>
+                <option value="Kocaeli">Kocaeli</option>
+                <option value="İzmir">İzmir</option>
+              </select>
+            </label>
+            <button type="button" class="btn btn--ghost" id="toplanmaLocate">Konumumu göster</button>
+          </div>
+          <div id="toplanmaList" class="toplanmaList"></div>
+        </section>
+      </div>
+    `,
+  })
+%>

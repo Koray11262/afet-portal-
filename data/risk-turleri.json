@@ -1,0 +1,8 @@
+[
+  { "key": "deprem", "label": "Deprem", "slug": "deprem" },
+  { "key": "sel", "label": "Sel / Taşkın", "slug": "sel-taskin" },
+  { "key": "heyelan", "label": "Heyelan", "slug": "heyelan" },
+  { "key": "yangin", "label": "Orman yangını", "slug": "orman-yangini" },
+  { "key": "cig", "label": "Çığ", "slug": "cig" },
+  { "key": "kuraklik", "label": "Kuraklık", "slug": "kuraklik" }
+]

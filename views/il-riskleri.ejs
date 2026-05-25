@@ -1,0 +1,42 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    extraScripts: `<script src="/il-risk.js"></script>`,
+    body: `
+      <div class="panel panel--tight">
+        <form id="ilRiskForm" class="ilRiskForm">
+          <label class="ilRiskForm__field">
+            <span class="muted">İl</span>
+            <input
+              id="ilRiskInput"
+              name="il"
+              type="search"
+              list="ilRiskList"
+              placeholder="Örn. Ankara, İzmir, Kocaeli"
+              autocomplete="off"
+              required
+            />
+            <datalist id="ilRiskList"></datalist>
+          </label>
+          <button type="submit" class="btn btn--primary">Riskleri Göster</button>
+        </form>
+        <p id="ilRiskStatus" class="ilRiskStatus muted"></p>
+      </div>
+
+      <div class="ilRiskLayout">
+        <div class="panel panel--tight">
+          <h3 id="ilRiskTitle">İl seçin</h3>
+          <p id="ilRiskHint" class="ilRiskHint muted" hidden></p>
+          <div id="ilRiskMap" class="leafletMap leafletMap--compact"></div>
+        </div>
+        <div class="panel panel--tight">
+          <h3>Risk özeti</h3>
+          <p class="muted">Puanlar 1 (düşük) – 10 (yüksek). Karta tıklayarak ilgili afet sayfasına gidebilirsiniz.</p>
+          <div id="ilRiskCards" class="ilRiskCards" hidden></div>
+        </div>
+      </div>
+    `,
+  })
+%>

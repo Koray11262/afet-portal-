@@ -1,0 +1,259 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    body: `
+      <div class="grid">
+        <section class="panel">
+          <h2>Hızlı Özet</h2>
+          ${
+            disaster.content?.summaryBlocks?.length
+              ? disaster.content.summaryBlocks
+                  .map((b) => {
+                    if (b.type === "p") return `<p>${b.text || ""}</p>`;
+                    if (b.type === "list")
+                      return `
+                        <div class="subsection">
+                          ${b.title ? `<h3>${b.title}</h3>` : ``}
+                          ${
+                            b.bullets?.length
+                              ? `<ul>${b.bullets.map((x) => `<li>${x}</li>`).join("")}</ul>`
+                              : ``
+                          }
+                        </div>
+                      `;
+                    return ``;
+                  })
+                  .join("")
+              : `
+                ${
+                  disaster.content?.summaryParagraphs?.length
+                    ? disaster.content.summaryParagraphs.map((p) => `<p>${p}</p>`).join("")
+                    : `<p class="muted">İçerik eklenecek (halk için kısa açıklama).</p>`
+                }
+                ${
+                  disaster.content?.summaryLists?.length
+                    ? disaster.content.summaryLists
+                        .map(
+                          (l) => `
+                            <div class="subsection">
+                              ${l.title ? `<h3>${l.title}</h3>` : ``}
+                              ${
+                                l.bullets?.length
+                                  ? `<ul>${l.bullets.map((x) => `<li>${x}</li>`).join("")}</ul>`
+                                  : ``
+                              }
+                            </div>
+                          `
+                        )
+                        .join("")
+                    : ``
+                }
+              `
+          }
+        </section>
+
+        ${
+          disaster.content?.hidePanels?.map
+            ? ``
+            : `
+              <section class="panel">
+                <h2>Türkiye’de Riskli Bölgeler (Harita)</h2>
+                ${
+                  disaster.slug === "deprem"
+                    ? `
+                      <div
+                        class="leafletMap leafletMap--compact disasterMap"
+                        id="disasterMap-deprem"
+                        data-mode="choropleth"
+                        data-risk="/api/risk/deprem"
+                        data-geojson="/turkey.geojson"
+                        data-title="Deprem riski"
+                      ></div>
+                      <div class="mapLegend">
+                        <span class="badge badge--high">Yüksek</span>
+                        <span class="badge badge--mid">Orta</span>
+                        <span class="badge badge--low">Düşük</span>
+                      </div>
+                    `
+                    : disaster.slug === "heyelan"
+                      ? `
+                        <div
+                          class="leafletMap leafletMap--compact disasterMap"
+                          id="disasterMap-heyelan"
+                          data-mode="choropleth"
+                          data-risk="/api/risk/heyelan"
+                          data-geojson="/turkey.geojson"
+                          data-title="Heyelan riski"
+                        ></div>
+                        <div class="mapLegend">
+                          <span class="badge badge--high">Yüksek</span>
+                          <span class="badge badge--mid">Orta</span>
+                          <span class="badge badge--low">Düşük</span>
+                        </div>
+                      `
+                      : disaster.slug === "sel-taskin"
+                        ? `
+                          <div
+                            class="leafletMap leafletMap--compact disasterMap"
+                            id="disasterMap-sel"
+                            data-mode="choropleth"
+                            data-risk="/api/risk/sel"
+                            data-geojson="/turkey.geojson"
+                            data-title="Sel / Taşkın riski"
+                          ></div>
+                          <div class="mapLegend">
+                            <span class="badge badge--high">Yüksek</span>
+                            <span class="badge badge--mid">Orta</span>
+                            <span class="badge badge--low">Düşük</span>
+                          </div>
+                        `
+                        : disaster.slug === "cig"
+                          ? `
+                            <div
+                              class="leafletMap leafletMap--compact disasterMap"
+                              id="disasterMap-cig"
+                              data-mode="choropleth"
+                              data-risk="/api/risk/cig"
+                              data-geojson="/turkey.geojson"
+                              data-title="Çığ riski"
+                            ></div>
+                            <div class="mapLegend">
+                              <span class="badge badge--high">Yüksek</span>
+                              <span class="badge badge--mid">Orta</span>
+                              <span class="badge badge--low">Düşük</span>
+                            </div>
+                          `
+                          : disaster.slug === "kuraklik"
+                            ? `
+                              <div
+                                class="leafletMap leafletMap--compact disasterMap"
+                                id="disasterMap-kuraklik"
+                                data-mode="choropleth"
+                                data-risk="/api/risk/kuraklik"
+                                data-geojson="/turkey.geojson"
+                                data-title="Kuraklık riski"
+                              ></div>
+                              <div class="mapLegend">
+                                <span class="badge badge--high">Yüksek</span>
+                                <span class="badge badge--mid">Orta</span>
+                                <span class="badge badge--low">Düşük</span>
+                              </div>
+                            `
+                            : disaster.slug === "orman-yangini"
+                              ? `
+                                <div
+                                  class="leafletMap leafletMap--compact disasterMap"
+                                  id="disasterMap-yangin"
+                                  data-mode="choropleth"
+                                  data-risk="/api/risk/yangin"
+                                  data-geojson="/turkey.geojson"
+                                  data-title="Orman yangını riski"
+                                ></div>
+                                <div class="mapLegend">
+                                  <span class="badge badge--high">Yüksek</span>
+                                  <span class="badge badge--mid">Orta</span>
+                                  <span class="badge badge--low">Düşük</span>
+                                </div>
+                              `
+                    : `
+                      <p class="muted">Bu bölümde risk bölgelerini harita üzerinde göstereceğiz (sonraki adım).</p>
+                      <div class="mapPlaceholder">Harita alanı (Leaflet) — daha sonra eklenecek</div>
+                    `
+                }
+              </section>
+            `
+        }
+      </div>
+
+      ${
+        disaster.content?.hideSections?.before
+          ? ``
+          : `
+            <section class="panel">
+              <h2>Öncesinde Ne Yapmalı?</h2>
+              ${
+                disaster.content?.beforeIntro
+                  ? `<p>${disaster.content.beforeIntro}</p>`
+                  : `<p class="muted">İçerik eklenecek.</p>`
+              }
+              ${
+                disaster.content?.beforeSections?.length
+                  ? disaster.content.beforeSections
+                      .map(
+                        (s) => `
+                          <div class="subsection">
+                            <h3>${s.title}</h3>
+                            <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                          </div>
+                        `
+                      )
+                      .join("")
+                  : ``
+              }
+            </section>
+          `
+      }
+
+      ${
+        disaster.content?.hideSections?.during
+          ? ``
+          : `
+            <section class="panel">
+              <h2>Sırasında Ne Yapmalı?</h2>
+              ${
+                disaster.content?.duringIntro
+                  ? `<p>${disaster.content.duringIntro}</p>`
+                  : `<p class="muted">İçerik eklenecek.</p>`
+              }
+              ${
+                disaster.content?.duringSections?.length
+                  ? disaster.content.duringSections
+                      .map(
+                        (s) => `
+                          <div class="subsection">
+                            <h3>${s.title}</h3>
+                            <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                          </div>
+                        `
+                      )
+                      .join("")
+                  : ``
+              }
+            </section>
+          `
+      }
+
+      ${
+        disaster.content?.hideSections?.after
+          ? ``
+          : `
+            <section class="panel">
+              <h2>Sonrasında Ne Yapmalı?</h2>
+              ${
+                disaster.content?.afterIntro
+                  ? `<p>${disaster.content.afterIntro}</p>`
+                  : `<p class="muted">İçerik eklenecek.</p>`
+              }
+              ${
+                disaster.content?.afterSections?.length
+                  ? disaster.content.afterSections
+                      .map(
+                        (s) => `
+                          <div class="subsection">
+                            <h3>${s.title}</h3>
+                            <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                          </div>
+                        `
+                      )
+                      .join("")
+                  : ``
+              }
+            </section>
+          `
+      }
+    `,
+  })
+%>
+

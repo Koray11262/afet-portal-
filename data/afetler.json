@@ -1,0 +1,750 @@
+{
+  "siteTitle": "Afet Portalı",
+  "categories": [
+    {
+      "slug": "jeolojik",
+      "title": "Jeolojik Kökenli Afetler",
+      "items": [
+        {
+          "slug": "deprem",
+          "title": "Deprem",
+          "content": {
+            "summaryParagraphs": [
+              "Yer kabuğu içindeki kırılmalar nedeniyle ani olarak ortaya çıkan titreşimlerin geçtikleri ortamları ve yer yüzeyini sarsması olayına \"DEPREM\" denir.",
+              "Depremlerin yeryüzündeki hasar derecesi sadece depremin şiddetine bağlı değildir. Ayrıca yerin yapısı, depremin merkezinin şehir merkezine olan uzaklığı ve binalarda kullanılan yapı malzemesi de etkilidir.",
+              "Depremler büyük ölçüde can ve mal kaybına yol açar.",
+              "Yurdumuz yeryüzünün aktif deprem deprem kuşaklarından biri olan Alp-Himalaya kıvrım sisteminin Akdeniz deprem kuşağında yer almaktadır. Türkiye’de deprem bölgelerinin dağılışı ile fay (Kırık) hatlarının dağılışı arasında paralellik vardır. Bu fay hatlarının oluşmasında Anadolu Yarımadasının Avrasya, Arap ve Afrika levhaları arasında bulunması önemli bir etkendir. Ülkemizdeki ana fay hatlarının oluşmasında özellikle Arap levhasının Anadolu Yarımadasını sıkıştırması etkili olmuştur."
+            ],
+            "summaryLists": [
+              {
+                "title": "TÜRKİYE'DE DEPREM BÖLGELERİ",
+                "bullets": [
+                  "Kuzey Anadolu Deprem Kuşağı: Saros Körfezinden başlar, Marmara denizinden geçtikten sonra Kuzey Anadolu Dağlarının güneyini takip ederek Van Gölünün kuzeyine doğru uzanır.",
+                  "Batı Anadolu Deprem Kuşağı: Güney Marmara’dan başlar Ege Bölgesindeki çöküntü ovalarını takip eder.",
+                  "Güney Anadolu Deprem Kuşağı: Hatay’dan başlar, Güney Anadolu Toroslarını takip ederek Van gölünün güneyine doğru devam eder."
+                ]
+              }
+            ],
+            "beforeIntro": "Deprem olmadan önce hazırlık yapmak en kritik adımdır.",
+            "beforeSections": [
+              {
+                "title": "Ev ve ortam güvenliği",
+                "bullets": [
+                  "Dolap, kitaplık, televizyon gibi devrilebilecek eşyaları duvara sabitle.",
+                  "Yatak üstüne ağır eşya koyma.",
+                  "Gaz, elektrik ve su vanalarının yerini öğren."
+                ]
+              },
+              {
+                "title": "Acil durum çantası hazırla",
+                "bullets": [
+                  "Su ve uzun ömürlü gıda",
+                  "Fener ve yedek pil",
+                  "İlk yardım kiti",
+                  "Powerbank",
+                  "Kimlik fotokopileri"
+                ]
+              },
+              {
+                "title": "Plan yap",
+                "bullets": [
+                  "Aile ile toplanma noktası belirle.",
+                  "Acil durumda kimi arayacağını önceden kararlaştır.",
+                  "Ev içinde güvenli alanları belirle (sağlam masa altı, koltuk yanı gibi)."
+                ]
+              }
+            ],
+            "duringIntro": "Deprem anında panik yapmadan doğru pozisyon almak gerekir.",
+            "duringSections": [
+              {
+                "title": "Kapalı alandaysan",
+                "bullets": [
+                  "Çök, kapan ve tutun hareketini uygula.",
+                  "Başını ve boynunu koru.",
+                  "Pencerelerden ve camlardan uzak dur.",
+                  "Asansör kullanma."
+                ]
+              },
+              {
+                "title": "Açık alandaysan",
+                "bullets": [
+                  "Binalardan, direklerden ve duvarlardan uzaklaş.",
+                  "Açık bir alana geç."
+                ]
+              },
+              {
+                "title": "Araçtaysan",
+                "bullets": [
+                  "Aracı güvenli bir yerde durdur.",
+                  "Köprü, tünel ve viyadüklerden uzak dur."
+                ]
+              }
+            ],
+            "afterIntro": "Deprem bittikten sonra artçı sarsıntılar nedeniyle dikkatli olunmalıdır.",
+            "afterSections": [
+              {
+                "title": "Hemen yapılacaklar",
+                "bullets": [
+                  "Sakin ol ve çevreni kontrol et.",
+                  "Gaz, su ve elektriği kapat.",
+                  "Hasarlı binadan uzaklaş."
+                ]
+              },
+              {
+                "title": "Güvenlik ve iletişim",
+                "bullets": [
+                  "Telefonu sadece acil durumlar için kullan.",
+                  "Yetkililerin uyarılarını takip et (örneğin AFAD)."
+                ]
+              },
+              {
+                "title": "Enkaz altındaysan",
+                "bullets": [
+                  "Bağırmak yerine enerjini koru.",
+                  "Duvara veya boruya vurarak ses çıkar.",
+                  "Düdük varsa kullan."
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "slug": "heyelan",
+          "title": "Heyelan",
+          "content": {
+            "summaryParagraphs": [
+              "Heyelan, eğimli arazilerde toprağın ve kayaçların yerçekimi etkisiyle aşağı doğru kaymasıdır. Türkiye’de özellikle yağışın fazla olduğu ve eğimin yüksek olduğu bölgelerde sık görülür."
+            ],
+            "summaryLists": [
+              {
+                "title": "Türkiye’de heyelan riski en çok",
+                "bullets": [
+                  "Doğu Karadeniz (Rize, Trabzon, Artvin)",
+                  "Batı Karadeniz (Zonguldak, Bartın)",
+                  "Marmara’nın bazı kesimleri (özellikle eğimli ve yapılaşmanın yoğun olduğu alanlar)"
+                ]
+              },
+              {
+                "title": "Heyelanı tetikleyen başlıca faktörler",
+                "bullets": [
+                  "Yoğun ve uzun süreli yağış",
+                  "Kar erimeleri",
+                  "Depremler",
+                  "Plansız yapılaşma ve ağaç kesimi"
+                ]
+              }
+            ],
+            "beforeIntro": "Heyelan öncesi riskleri fark etmek ve önlem almak çok önemlidir.",
+            "beforeSections": [
+              {
+                "title": "Çevresel işaretleri takip et",
+                "bullets": [
+                  "Toprakta, yollarda veya duvarlarda çatlaklar oluşması",
+                  "Ağaçların veya direklerin eğilmesi",
+                  "Kapı ve pencerelerin sıkışması"
+                ]
+              },
+              {
+                "title": "Yapısal önlemler al",
+                "bullets": [
+                  "Evin etrafında su birikmesini önleyecek drenaj sistemi kur",
+                  "Yamaç bölgelerde ağaçlandırma yap",
+                  "Riskli alanlarda yapılaşmadan kaçın"
+                ]
+              },
+              {
+                "title": "Planlama yap",
+                "bullets": [
+                  "Aile ile acil durum planı oluştur",
+                  "Güvenli tahliye yollarını belirle",
+                  "Yetkili kurumların uyarılarını takip et"
+                ]
+              }
+            ],
+            "duringIntro": "Heyelan anında hızlı ve doğru hareket etmek gerekir.",
+            "duringSections": [
+              {
+                "title": "Açık alandaysan",
+                "bullets": [
+                  "Hemen heyelanın geldiği yönün tersine ve mümkünse yüksek bir noktaya doğru uzaklaş",
+                  "Akan toprak ve taşlardan uzak dur"
+                ]
+              },
+              {
+                "title": "Kapalı alandaysan",
+                "bullets": [
+                  "Eğer güvenliyse hızlıca binayı terk et",
+                  "Çıkış mümkün değilse sağlam bir eşya yanında kendini koru"
+                ]
+              },
+              {
+                "title": "Araçtaysan",
+                "bullets": [
+                  "Aracı durdur ve güvenli bir şekilde terk et",
+                  "Toprak akıntısının olduğu bölgeden uzaklaş"
+                ]
+              }
+            ],
+            "afterIntro": "Heyelan sonrası da risk devam edebilir, dikkatli olunmalıdır.",
+            "afterSections": [
+              {
+                "title": "Güvenlik kontrolü yap",
+                "bullets": [
+                  "Bölgeden uzak dur, ikinci bir kayma olabilir",
+                  "Hasarlı yapılara girme"
+                ]
+              },
+              {
+                "title": "Yardım ve iletişim",
+                "bullets": [
+                  "Yaralı varsa ilk yardım uygula ve yetkililere haber ver",
+                  "Telefonu gereksiz kullanmaktan kaçın"
+                ]
+              },
+              {
+                "title": "Resmi uyarıları takip et",
+                "bullets": [
+                  "Yetkililerin yönlendirmelerine uy",
+                  "Bölgeye geri dönüş için izin bekle"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "slug": "kaya-dusmesi",
+          "title": "Kaya Düşmesi",
+          "content": {
+            "hidePanels": { "map": true },
+            "summaryParagraphs": [
+              "Kaya düşmesi, dik yamaçlardan kopan kaya parçalarının yerçekimi etkisiyle aşağıya doğru düşmesi olayıdır. Türkiye’de özellikle dağlık ve eğimli arazilerde sık görülür."
+            ],
+            "summaryLists": [
+              {
+                "title": "Türkiye’de kaya düşmesi riski en çok",
+                "bullets": [
+                  "Karadeniz Bölgesi (dik yamaçlar ve yoğun yağış nedeniyle)",
+                  "Doğu Anadolu Bölgesi (dağlık yapı ve don çözülme etkisi)",
+                  "Akdeniz Bölgesi’nin Toros Dağları çevresi"
+                ]
+              },
+              {
+                "title": "Kaya düşmesini tetikleyen başlıca faktörler",
+                "bullets": [
+                  "Donma ve çözülme (kaya çatlaklarının genişlemesi)",
+                  "Şiddetli yağış",
+                  "Depremler",
+                  "Yol çalışmaları ve insan müdahalesi"
+                ]
+              }
+            ],
+            "beforeIntro": "Kaya düşmesi öncesinde riskleri fark etmek ve önlem almak önemlidir.",
+            "beforeSections": [
+              {
+                "title": "Çevresel işaretleri takip et",
+                "bullets": [
+                  "Yamaçlarda çatlaklar ve gevşek kaya parçaları",
+                  "Daha önce düşmüş taşların bulunması",
+                  "Yollarda “kaya düşmesi” uyarı levhaları"
+                ]
+              },
+              {
+                "title": "Yapısal önlemler al",
+                "bullets": [
+                  "Riskli yamaçların altına yapı kurmaktan kaçın",
+                  "Koruyucu bariyer ve tel sistemlerinin bulunduğu alanları tercih et",
+                  "Yolculuklarda riskli bölgelerde dikkatli ilerle"
+                ]
+              },
+              {
+                "title": "Planlama yap",
+                "bullets": [
+                  "Alternatif güzergahları önceden belirle",
+                  "Yetkili kurumların uyarılarını takip et"
+                ]
+              }
+            ],
+            "duringIntro": "Kaya düşmesi anında hızlı hareket etmek gerekir.",
+            "duringSections": [
+              {
+                "title": "Açık alandaysan",
+                "bullets": [
+                  "Hemen kaya düşmesinin olduğu yamaçtan uzaklaş",
+                  "Mümkünse yana doğru kaç, düşme hattından çık",
+                  "Başını koruyacak şekilde eğil veya sağlam bir engel arkasına geç"
+                ]
+              },
+              {
+                "title": "Araçtaysan",
+                "bullets": [
+                  "Aracı durdur ve mümkünse terk et",
+                  "Kayaların geldiği hattan uzaklaş",
+                  "Köprü, tünel girişleri ve dik yamaç altlarından uzak dur"
+                ]
+              },
+              {
+                "title": "Kapalı alandaysan",
+                "bullets": [
+                  "Pencerelerden uzak dur",
+                  "Sağlam bir eşya yanında korun"
+                ]
+              }
+            ],
+            "afterIntro": "Kaya düşmesi sonrasında da tehlike devam edebilir.",
+            "afterSections": [
+              {
+                "title": "Güvenlik kontrolü yap",
+                "bullets": [
+                  "Bölgeden uzak dur, yeni düşmeler olabilir",
+                  "Hasarlı alanlara yaklaşma"
+                ]
+              },
+              {
+                "title": "Yardım ve iletişim",
+                "bullets": [
+                  "Yaralı varsa ilk yardım uygula",
+                  "Yetkililere haber ver ve yönlendirmelere uy"
+                ]
+              },
+              {
+                "title": "Resmi uyarıları takip et",
+                "bullets": [
+                  "Yol kapatma ve güvenlik uyarılarını dikkate al",
+                  "Bölgeye geri dönmek için izin bekle"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "slug": "volkanik-riskler",
+          "title": "Volkanik Riskler",
+          "content": {
+            "hidePanels": { "map": true },
+            "hideSections": { "before": true, "during": true, "after": true },
+            "summaryBlocks": [
+              {
+                "type": "p",
+                "text": "Volkanik olaylar, yer kabuğunun derinliklerinden gelen magma, gaz ve külün yeryüzüne çıkmasıyla oluşur. Türkiye aktif olarak sürekli patlayan volkanlara sahip bir ülke değildir, ancak geçmişte aktif olmuş ve potansiyel risk barındıran volkanik alanlara sahiptir."
+              },
+              {
+                "type": "list",
+                "title": "Türkiye’deki başlıca volkanik dağlar:",
+                "bullets": ["Nemrut Dağı", "Erciyes Dağı", "Hasan Dağı"]
+              },
+              {
+                "type": "p",
+                "text": "Bu volkanlar günümüzde aktif patlama göstermese de “sönmüş” değil, “uyuyan” (dormant) olarak değerlendirilir. Bu da uzun zaman aralıklarında yeniden aktif hale gelebilme ihtimali olduğu anlamına gelir."
+              },
+              {
+                "type": "list",
+                "title": "Volkanik riskler doğrudan lav akıntısından çok:",
+                "bullets": [
+                  "Kül yağışı",
+                  "Zehirli gaz salınımı",
+                  "Yerel patlamalar",
+                  "Deprem ve yer kabuğu hareketleri"
+                ]
+              },
+              { "type": "p", "text": "şeklinde ortaya çıkabilir." },
+              {
+                "type": "list",
+                "title": "Türkiye’de volkanik riskin düşük olmasının başlıca nedenleri:",
+                "bullets": [
+                  "Aktif magma hareketlerinin sınırlı olması",
+                  "Büyük ölçekli son patlamaların çok eski tarihlerde gerçekleşmiş olması",
+                  "Sürekli izleme ve bilimsel çalışmalar"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Buna rağmen özellikle Orta Anadolu ve Doğu Anadolu’daki volkanik alanlar bilim insanları tarafından izlenmektedir. Olası bir aktivite durumunda erken uyarı sistemleri ve kurumlar (örneğin AFAD) devreye girerek halkı bilgilendirir."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "iklim",
+      "title": "İklim Kaynaklı (Meteorolojik/Hidrolojik) Afetler",
+      "items": [
+        {
+          "slug": "sel-taskin",
+          "title": "Sel / Taşkın",
+          "content": {
+            "summaryParagraphs": [
+              "Sel ve taşkın, yoğun yağışlar veya su kaynaklarının taşması sonucu suyun yerleşim alanlarına kontrolsüz şekilde yayılmasıdır. Türkiye’de en sık görülen afet türlerinden biridir."
+            ],
+            "summaryLists": [
+              {
+                "title": "Türkiye’de sel ve taşkın riski en çok",
+                "bullets": [
+                  "Karadeniz Bölgesi (yoğun ve sürekli yağışlar nedeniyle)",
+                  "Marmara ve Ege’de şehirleşmenin yoğun olduğu alanlar",
+                  "Akdeniz Bölgesi (kısa sürede yoğun yağışlar)",
+                  "Dere yataklarına kurulan yerleşim alanları"
+                ]
+              },
+              {
+                "title": "Sel ve taşkınları tetikleyen başlıca faktörler",
+                "bullets": [
+                  "Kısa sürede aşırı yağış (ani sağanaklar)",
+                  "Dere ve nehir yataklarının taşması",
+                  "Yetersiz altyapı ve drenaj sistemleri",
+                  "Betonlaşma ve yeşil alanların azalması",
+                  "Orman tahribatı"
+                ]
+              }
+            ],
+            "beforeIntro": "Sel öncesinde riskleri azaltmak mümkündür.",
+            "beforeSections": [
+              {
+                "title": "Çevresel ve yapısal önlemler",
+                "bullets": [
+                  "Dere yataklarına ve taşkın alanlarına yapılaşmadan kaçın",
+                  "Yağmur suyu giderlerinin açık ve çalışır durumda olmasını sağla",
+                  "Bodrum katlarda değerli eşyaları bulundurmamaya dikkat et"
+                ]
+              },
+              {
+                "title": "Bilgi ve takip",
+                "bullets": [
+                  "Hava durumu ve yağış uyarılarını takip et (örneğin Meteoroloji Genel Müdürlüğü)",
+                  "Riskli bölgelerde yaşıyorsan erken tahliye planı yap"
+                ]
+              },
+              {
+                "title": "Hazırlık",
+                "bullets": [
+                  "Acil durum çantası hazır bulundur",
+                  "Elektrik ve gaz sistemlerini kapatma yöntemlerini öğren"
+                ]
+              }
+            ],
+            "duringIntro": "Sel anında en önemli konu suyun gücünü hafife almamaktır.",
+            "duringSections": [
+              {
+                "title": "Açık alandaysan",
+                "bullets": [
+                  "Hemen yüksek bir yere çık",
+                  "Akan sudan uzak dur, suyun derinliği ve akış hızı yanıltıcı olabilir"
+                ]
+              },
+              {
+                "title": "Araçtaysan",
+                "bullets": [
+                  "Su basmış yollara kesinlikle girme",
+                  "Araçta kalmak riskliyse güvenli bir yere çık"
+                ]
+              },
+              {
+                "title": "Kapalı alandaysan",
+                "bullets": [
+                  "Elektrik kaynaklarından uzak dur",
+                  "Üst katlara çık",
+                  "Gerekirse binayı terk et"
+                ]
+              }
+            ],
+            "afterIntro": "Sel sonrası da sağlık ve güvenlik riskleri devam eder.",
+            "afterSections": [
+              {
+                "title": "Güvenlik kontrolü",
+                "bullets": [
+                  "Su çekilmeden binalara girme",
+                  "Elektrik sistemlerini kontrol etmeden kullanma"
+                ]
+              },
+              {
+                "title": "Sağlık önlemleri",
+                "bullets": [
+                  "Kirli suyla temas etmekten kaçın",
+                  "İçme suyu olarak güvenli kaynakları kullan"
+                ]
+              },
+              {
+                "title": "İletişim ve destek",
+                "bullets": [
+                  "Yetkililerin uyarılarını takip et (örneğin AFAD)",
+                  "Hasar tespiti ve yardım süreçlerine başvur"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "slug": "firtina",
+          "title": "Fırtına / Şiddetli Rüzgâr",
+          "content": {
+            "hideSections": { "before": true, "during": true, "after": true },
+            "hidePanels": { "map": true },
+            "summaryParagraphs": [
+              "Fırtına ve şiddetli rüzgar, basınç farkları nedeniyle oluşan ve özellikle Marmara, Ege, Akdeniz ve Karadeniz kıyılarında etkili olan hava olaylarıdır; çatı uçması, ağaç devrilmesi ve enerji hatlarının zarar görmesi gibi riskler oluşturur. Bu tür durumlara karşı öncesinde balkon ve bahçedeki eşyalar sabitlenmeli, kapı ve pencereler kapatılmalı ve Meteoroloji Genel Müdürlüğü uyarıları takip edilmelidir. Fırtına sırasında mümkün olduğunca kapalı alanlarda kalınmalı, pencerelerden ve dış ortamlardan uzak durulmalı, açık alandaysa bina ve ağaçlardan uzaklaşılarak güvenli bir yere geçilmelidir. Araç kullanırken hız azaltılmalı ve gerekirse güvenli bir noktada durulmalıdır. Fırtına sonrasında ise kopmuş elektrik hatlarına yaklaşılmamalı, hasarlı yapılardan uzak durulmalı ve yetkili kurumların, özellikle AFAD yönlendirmeleri takip edilmelidir."
+            ]
+          }
+        },
+        {
+          "slug": "dolu",
+          "title": "Dolu",
+          "content": {
+            "hidePanels": { "map": true },
+            "hideSections": { "before": true, "during": true, "after": true },
+            "summaryBlocks": [
+              {
+                "type": "p",
+                "text": "Dolu, güçlü fırtına bulutları içinde oluşan buz parçacıklarının yeryüzüne düşmesiyle meydana gelen bir hava olayıdır. Türkiye’de özellikle ilkbahar ve yaz aylarında, ani gelişen fırtınalarla birlikte görülür."
+              },
+              {
+                "type": "list",
+                "title": "Dolu riski en çok:",
+                "bullets": [
+                  "İç Anadolu Bölgesi",
+                  "Marmara ve Ege bölgeleri",
+                  "Tarım alanlarının yoğun olduğu bölgeler"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Dolu olayları; araçlarda hasar, cam kırılması, çatı zararları ve özellikle tarım ürünlerinde büyük kayıplara yol açabilir."
+              },
+              {
+                "type": "p",
+                "text": "Doluya karşı öncesinde araçlar kapalı alanlara alınmalı, dışarıdaki eşyalar korunmalı ve Meteoroloji Genel Müdürlüğü uyarıları takip edilmelidir. Dolu sırasında açık alanda bulunuluyorsa sağlam bir kapalı alana geçilmeli, baş korunmalı ve camlardan uzak durulmalıdır. Araç kullanırken görüş azalabileceği için dikkatli olunmalı ve mümkünse güvenli bir yerde beklenmelidir. Dolu sonrasında ise hasar kontrolü yapılmalı, kırık cam ve tehlikeli alanlardan uzak durulmalı ve gerekli durumlarda yetkililere başvurulmalıdır."
+              }
+            ]
+          }
+        },
+        {
+          "slug": "cig",
+          "title": "Çığ",
+          "content": {
+            "summaryParagraphs": [
+              "Çığ, dağlık ve eğimli arazilerde biriken kar kütlesinin çeşitli nedenlerle aniden kayarak aşağıya doğru hareket etmesidir. Türkiye’de özellikle kış aylarında etkili olur."
+            ],
+            "summaryLists": [
+              {
+                "title": "Türkiye’de çığ riski en çok",
+                "bullets": [
+                  "Doğu Anadolu Bölgesi (Erzurum, Van, Hakkari)",
+                  "Doğu Karadeniz’in yüksek kesimleri",
+                  "İç Anadolu’nun yüksek ve eğimli alanları"
+                ]
+              },
+              {
+                "title": "Çığı tetikleyen başlıca faktörler",
+                "bullets": [
+                  "Yoğun kar yağışı ve kar birikimi",
+                  "Ani sıcaklık artışı",
+                  "Rüzgarla taşınan kar yığınları",
+                  "İnsan hareketleri veya titreşimler"
+                ]
+              }
+            ],
+            "beforeIntro": "Çığ öncesinde riskleri bilmek ve hazırlık yapmak önemlidir.",
+            "beforeSections": [
+              {
+                "title": "Risk analizi yap",
+                "bullets": [
+                  "Çığ tehlikesi olan bölgeleri önceden öğren",
+                  "Hava ve kar durumu raporlarını takip et"
+                ]
+              },
+              {
+                "title": "Ekipman ve hazırlık",
+                "bullets": [
+                  "Çığ dedektörü, prob ve kürek gibi ekipmanlar kullan",
+                  "Tek başına riskli alanlara gitme"
+                ]
+              },
+              {
+                "title": "Planlama",
+                "bullets": [
+                  "Güvenli güzergahlar belirle",
+                  "Yetkili kurumların uyarılarını takip et (örneğin AFAD)"
+                ]
+              }
+            ],
+            "duringIntro": "Çığ anında hızlı ve doğru hareket etmek hayati önem taşır.",
+            "duringSections": [
+              {
+                "title": "Açık alandaysan",
+                "bullets": [
+                  "Çığın yönünden yana doğru kaçmaya çalış",
+                  "Kayak veya ağır ekipmanları bırak",
+                  "Mümkünse yüksek bir noktaya ulaş"
+                ]
+              },
+              {
+                "title": "Çığa yakalanırsan",
+                "bullets": [
+                  "Yüzme hareketi yaparak yüzeye yakın kalmaya çalış",
+                  "Ağız ve burnunu koruyarak nefes alabileceğin bir boşluk oluştur"
+                ]
+              }
+            ],
+            "afterIntro": "Çığ sonrası arama kurtarma süreci çok kritiktir.",
+            "afterSections": [
+              {
+                "title": "Güvenlik",
+                "bullets": [
+                  "Yeni çığ riski olabileceği için dikkatli ol",
+                  "Bölgeden uzaklaş veya güvenli alana geç"
+                ]
+              },
+              {
+                "title": "Yardım",
+                "bullets": [
+                  "Çığ altında kalanları hızlıca tespit etmeye çalış",
+                  "Profesyonel ekipleri bilgilendir"
+                ]
+              },
+              {
+                "title": "İletişim",
+                "bullets": [
+                  "Yetkililerin yönlendirmelerini takip et",
+                  "Kurtarma ekiplerine yardımcı ol"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "slug": "kuraklik",
+          "title": "Kuraklık",
+          "content": {
+            "hideSections": { "before": true, "during": true, "after": true },
+            "summaryBlocks": [
+              {
+                "type": "p",
+                "text": "Kuraklık, uzun süreli yağış azlığı ve su kaynaklarının yetersiz kalması sonucu ortaya çıkan bir doğal afettir. Türkiye’de iklim değişikliği, artan su tüketimi ve düzensiz yağışlar nedeniyle kuraklık riski giderek artmaktadır."
+              },
+              {
+                "type": "list",
+                "title": "Türkiye’de kuraklık riski en çok:",
+                "bullets": [
+                  "İç Anadolu Bölgesi",
+                  "Güneydoğu Anadolu Bölgesi",
+                  "Ege ve Akdeniz’in iç kesimleri"
+                ]
+              },
+              {
+                "type": "list",
+                "title": "Kuraklığı tetikleyen başlıca faktörler:",
+                "bullets": [
+                  "Yağışların azalması ve düzensizleşmesi",
+                  "Sıcaklık artışları ve buharlaşma",
+                  "Yeraltı sularının aşırı kullanımı",
+                  "Yanlış sulama yöntemleri"
+                ]
+              },
+              {
+                "type": "p",
+                "text": "Kuraklık; tarımsal üretimde düşüş, içme suyu sıkıntısı, enerji üretiminde azalma ve ekosistemlerin zarar görmesi gibi geniş kapsamlı etkilere yol açar."
+              },
+              {
+                "type": "p",
+                "text": "Kuraklığa karşı su tasarrufu büyük önem taşır. Evlerde ve tarımda suyun bilinçli kullanılması, damla sulama gibi verimli yöntemlerin tercih edilmesi gerekir. Ayrıca baraj ve su kaynaklarının durumu düzenli olarak takip edilmeli, resmi kurumların uyarıları dikkate alınmalıdır (örneğin Devlet Su İşleri ve Meteoroloji Genel Müdürlüğü)."
+              },
+              {
+                "type": "p",
+                "text": "Kısa değerlendirme olarak kuraklık, ani değil yavaş gelişen ancak etkisi uzun süren ve geniş alanları etkileyen bir afettir; bu nedenle erken önlem ve sürdürülebilir su yönetimi kritik öneme sahiptir."
+              }
+            ]
+          }
+        },
+        {
+          "slug": "orman-yangini",
+          "title": "Orman Yangını",
+          "content": {
+            "summaryParagraphs": [
+              "Orman yangınları, ormanlık alanlarda kontrolsüz şekilde yayılan yangınlardır. Türkiye’de özellikle yaz aylarında sıcaklıkların artması ve nemin düşmesiyle birlikte sık görülür.",
+              "Orman yangınları; doğal yaşamın yok olması, hava kirliliği, yerleşim alanlarının zarar görmesi ve ekonomik kayıplar gibi ciddi sonuçlara yol açar."
+            ],
+            "summaryLists": [
+              {
+                "title": "Türkiye’de orman yangını riski en çok",
+                "bullets": ["Akdeniz Bölgesi", "Ege Bölgesi", "Marmara’nın güney kesimleri"]
+              },
+              {
+                "title": "Yangınları tetikleyen başlıca faktörler",
+                "bullets": [
+                  "Yüksek sıcaklık ve kuraklık",
+                  "Şiddetli rüzgar",
+                  "İnsan kaynaklı hatalar (izmarit, anız yakma, kontrolsüz ateş)",
+                  "Elektrik hatları ve teknik arızalar"
+                ]
+              }
+            ],
+            "beforeIntro": "Yangınları önlemek en etkili korunma yöntemidir.",
+            "beforeSections": [
+              {
+                "title": "Çevresel önlemler",
+                "bullets": [
+                  "Ormanlık alanlarda ateş yakma",
+                  "Sigara izmaritini doğaya atma",
+                  "Anız yakmaktan kaçın"
+                ]
+              },
+              {
+                "title": "Bilgi ve takip",
+                "bullets": [
+                  "Yangın risk uyarılarını takip et",
+                  "Yetkili kurumların açıklamalarını dikkate al (örneğin Orman Genel Müdürlüğü)"
+                ]
+              },
+              {
+                "title": "Hazırlık",
+                "bullets": [
+                  "Orman yakınında yaşıyorsan tahliye planı oluştur",
+                  "Acil durum çantası hazır bulundur"
+                ]
+              }
+            ],
+            "duringIntro": "Yangın sırasında en önemli konu hızlı ve güvenli şekilde uzaklaşmaktır.",
+            "duringSections": [
+              {
+                "title": "Açık alandaysan",
+                "bullets": [
+                  "Rüzgarın ters yönüne doğru uzaklaş",
+                  "Yangının ilerleme yönünü takip et",
+                  "Duman solumamaya dikkat et"
+                ]
+              },
+              {
+                "title": "Yerleşim alanındaysan",
+                "bullets": [
+                  "Yetkililerin tahliye çağrılarına uy",
+                  "Kapı ve pencereleri kapatarak çık",
+                  "Elektrik ve gazı kapat"
+                ]
+              }
+            ],
+            "afterIntro": "Yangın sonrasında da riskler devam edebilir.",
+            "afterSections": [
+              {
+                "title": "Güvenlik",
+                "bullets": [
+                  "Yetkililer izin vermeden bölgeye dönme",
+                  "Soğutma çalışmaları bitmeden alana girme"
+                ]
+              },
+              {
+                "title": "Sağlık ve çevre",
+                "bullets": [
+                  "Duman ve kül kalıntılarından korun",
+                  "İçme suyu ve gıda güvenliğine dikkat et"
+                ]
+              },
+              {
+                "title": "İletişim ve destek",
+                "bullets": ["Resmi kurumların yönlendirmelerini takip et (örneğin AFAD)"]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

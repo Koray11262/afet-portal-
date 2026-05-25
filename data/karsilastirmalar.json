@@ -1,0 +1,805 @@
+{
+  "title": "Afet Karşılaştırmaları",
+  "description": "Türkiye ile diğer ülkelerin afetlere karşı hazırlık, müdahale ve toplumsal davranışlarını karşılaştırın.",
+  "items": [
+    {
+      "slug": "deprem-turkiye-japonya",
+      "afet": "deprem",
+      "afetLabel": "Deprem",
+      "title": "Türkiye ve Japonya: Deprem Karşılaştırması",
+      "menuLabel": "Deprem — Türkiye & Japonya",
+      "subtitle": "Türkiye ve Japonya arasındaki deprem farklılıkları",
+      "countries": ["Türkiye", "Japonya"],
+      "lead": "Bu sayfada Türkiye ve Japonya'nın deprem riski, hazırlık kültürü ve afet anı davranışları karşılaştırılacaktır.",
+      "sections": [
+        {
+          "title": "Genel bakış",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Türkiye ile Japonya arasında deprem konusunda en büyük fark; hazırlık kültürü, yapı standartlarının uygulanışı, erken uyarı sistemleri ve toplumun deprem bilincidir. Her iki ülke de aktif fay hatları üzerinde bulunmasına rağmen, depreme yaklaşım biçimleri oldukça farklıdır."
+            }
+          ]
+        },
+        {
+          "title": "Karşılaştırma başlıkları",
+          "blocks": [
+            {
+              "type": "list",
+              "bullets": [
+                "Yapı Standartları ve Bina Güvenliği",
+                "Erken Uyarı Sistemleri",
+                "Toplumun Deprem Bilinci",
+                "Deprem Sonrası Müdahale",
+                "Teknoloji Kullanımı"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Yapı Standartları ve Bina Güvenliği",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Deprem yönetmelikleri özellikle 1999 İzmit Depremi sonrası önemli ölçüde geliştirildi.",
+                "Ancak sorun çoğu zaman yönetmelikten değil, uygulamadan kaynaklanıyor.",
+                "Kaçak yapılaşma, denetim eksikliği, düşük kaliteli malzeme kullanımı ve eski bina stoku büyük risk oluşturuyor.",
+                "Özellikle eski şehirleşmiş bölgelerde çok sayıda dayanıksız bina bulunuyor."
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Japonya",
+              "paragraphs": [
+                "Dünyanın en sıkı deprem yönetmeliklerinden bazılarına sahip.",
+                "Binalarda sismik izolatörler, esnek çelik sistemler ve titreşim sönümleyiciler kullanılıyor.",
+                "Yeni yapılan binaların çoğu şiddetli sallantıda bile ayakta kalabilecek şekilde tasarlanıyor.",
+                "Eski binalar sürekli güçlendirme programlarına alınıyor."
+              ],
+              "list": [
+                "Sismik izolatörler",
+                "Esnek çelik sistemler",
+                "Titreşim sönümleyiciler"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/deprem-yapi-turleri.png",
+                  "alt": "Depreme dayanıklı, sönümleyici ve sismik izolatörlü yapı türleri karşılaştırması",
+                  "caption": "Japonya'da kullanılan deprem yapı sistemleri: depreme dayanıklı, titreşim kontrollü ve sismik izolatörlü yapı"
+                },
+                {
+                  "src": "/images/karsilastirma/deprem-turkiye-oncesi-sonra.png",
+                  "alt": "Deprem öncesi ve sonrası şehir görünümü",
+                  "caption": "Deprem sonrası yıkım ve ardından geçici/kalıcı yapılaşma (örnek kent görünümü)"
+                },
+                {
+                  "src": "/images/karsilastirma/deprem-titresim-sonumleyici.png",
+                  "alt": "Bina içi titreşim sönümleyici ve çelik braket bağlantıları",
+                  "caption": "Titreşim sönümleyici ve güçlendirilmiş çelik bağlantı örneği"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Erken Uyarı Sistemleri",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "AFAD ve Kandilli tarafından deprem izleme sistemleri kullanılıyor.",
+                "Mobil uygulamalar ve SMS tabanlı uyarılar gelişmeye başladı.",
+                "Ancak sistemler henüz ülke genelinde tam entegre ve yaygın değil.",
+                "Deprem birkaç saniye önce algılansa bile bunu halka hızlı ulaştırma konusunda eksikler bulunuyor."
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Japonya",
+              "paragraphs": [
+                "Çok gelişmiş ulusal erken uyarı sistemi mevcut.",
+                "Deprem dalgaları ulaşmadan birkaç saniye önce telefonlara bildirim gider, televizyon ve radyo yayını kesilir, trenler otomatik durur, fabrikalarda makineler kapanır.",
+                "Özellikle Japan Railways Group hızlı tren sistemlerinde otomatik güvenlik mekanizmaları çok gelişmiştir."
+              ],
+              "list": [
+                "Telefon bildirimleri",
+                "TV / radyo acil yayın kesintisi",
+                "Trenlerin otomatik durması",
+                "Fabrika makinelerinin kapanması"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Toplumun Deprem Bilinci",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Deprem bilinci son yıllarda artsa da günlük yaşamın doğal bir parçası haline tam gelmiş değil.",
+                "Tatbikatlar sınırlı kalabiliyor."
+              ],
+              "list": [
+                "Birçok kişi acil durum çantası hazırlamıyor",
+                "Toplanma alanını bilmiyor",
+                "Aile afet planı oluşturmuyor"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Japonya",
+              "paragraphs": [
+                "Deprem eğitimi çocuk yaşta başlıyor.",
+                "Okullarda düzenli tahliye tatbikatları yapılıyor.",
+                "İnsanlar evlerinde afet çantası, su stoku, acil yiyecek ve taşınabilir radyo bulunduruyor.",
+                "Toplum genelinde “deprem olacakmış gibi hazır yaşama” kültürü var."
+              ],
+              "list": [
+                "Afet çantası",
+                "Su stoku",
+                "Acil yiyecek",
+                "Taşınabilir radyo"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/deprem-okul-tatbikat.png",
+                  "alt": "Okulda çök-kapan-tutun deprem tatbikatı",
+                  "caption": "Japonya'da okullarda düzenli deprem ve tahliye tatbikatları"
+                },
+                {
+                  "src": "/images/karsilastirma/deprem-afet-cantasi.png",
+                  "alt": "Acil durum afet çantası içeriği",
+                  "caption": "Evde bulundurulan acil durum çantası ve temel malzemeler"
+                },
+                {
+                  "src": "/images/karsilastirma/deprem-kurtarma-tatbikat.png",
+                  "alt": "Toplumsal deprem kurtarma tatbikatı",
+                  "caption": "Toplum genelinde afet ve kurtarma tatbikatları"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Deprem Sonrası Müdahale",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Büyük depremlerde iletişim altyapısı çökebiliyor, yollar zarar görebiliyor ve koordinasyon sorunları yaşanabiliyor.",
+                "Arama kurtarma ekipleri son yıllarda gelişse de afetin büyüklüğüne göre yetersiz kalabiliyor.",
+                "Yardımlar bazen bölgelere geç ulaşabiliyor."
+              ],
+              "list": [
+                "İletişim altyapısının çökmesi",
+                "Yolların zarar görmesi",
+                "Koordinasyon sorunları"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Japonya",
+              "paragraphs": [
+                "Afet sonrası kriz yönetimi çok organize yürütülüyor.",
+                "Geçici barınma alanları önceden planlanmış durumda; halk hangi merkeze gideceğini biliyor.",
+                "Elektrik, su ve ulaşım sistemleri hızlı toparlanacak şekilde tasarlanıyor.",
+                "Yerel yönetimler ile merkezi yönetim arasında koordinasyon oldukça güçlü."
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Teknoloji Kullanımı",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Teknoloji kullanımı gelişiyor ancak halen süreçlerin önemli kısmı insan koordinasyonuna bağlı.",
+                "Deprem sonrası veri toplama ve hasar analizi süreçleri zaman alabiliyor."
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Japonya",
+              "paragraphs": [
+                "Yapay zekâ, sensör ağları, robotlar ve dronelar aktif kullanılıyor.",
+                "Bazı robotlar enkaz altında yaşam belirtisi arayabiliyor.",
+                "Akıllı şehir sistemleri deprem anında otomatik tepki verebiliyor."
+              ],
+              "list": [
+                "Yapay zekâ ve sensör ağları",
+                "Arama kurtarma robotları",
+                "Drone destekli müdahale",
+                "Akıllı şehir otomasyonu"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/deprem-afad-arama-kurtarma.png",
+                  "alt": "AFAD arama kurtarma ekipleri ve ekipmanları",
+                  "caption": "Türkiye'de AFAD arama kurtarma ekipleri ve kullanılan teknik ekipmanlar"
+                },
+                {
+                  "src": "/images/karsilastirma/deprem-japonya-izleme-merkezi.png",
+                  "alt": "Japonya deprem izleme ve erken uyarı merkezi",
+                  "caption": "Japonya'da deprem izleme ve erken uyarı kontrol merkezi"
+                },
+                {
+                  "src": "/images/karsilastirma/deprem-kurtarma-robotu.png",
+                  "alt": "Japonya enkaz kaldırma kurtarma robotu",
+                  "caption": "Japonya'da afet müdahalesinde kullanılan kurtarma robotları"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "orman-yangini-turkiye-avustralya",
+      "afet": "orman-yangini",
+      "afetLabel": "Orman Yangını",
+      "title": "Türkiye ve Avustralya: Orman Yangını Karşılaştırması",
+      "menuLabel": "Orman Yangını — Türkiye & Avustralya",
+      "subtitle": "Türkiye ve Avustralya arasındaki orman yangını farklılıkları",
+      "countries": ["Türkiye", "Avustralya"],
+      "lead": "Bu sayfada Türkiye ve Avustralya'nın orman yangını riski, önleme politikaları, müdahale kapasitesi ve toplumsal hazırlık düzeyleri karşılaştırılacaktır.",
+      "sections": [
+        {
+          "title": "Genel bakış",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Avustralya’nın en büyük farkı, orman yangınlarını sadece “söndürülmesi gereken bir afet” olarak değil; önceden tahmin edilmesi, toplumun hazırlanması ve ekosistemin yönetilmesi gereken sürekli bir doğal risk olarak ele almasıdır. Türkiye’de ise son yıllarda önemli gelişmeler olsa da özellikle önleyici planlama ve toplumsal hazırlık alanlarında hâlâ gelişime açık noktalar bulunmaktadır."
+            }
+          ]
+        },
+        {
+          "title": "Karşılaştırma başlıkları",
+          "blocks": [
+            {
+              "type": "list",
+              "bullets": [
+                "Yangın Riskine Hazırlık",
+                "Erken Tespit ve Teknoloji Kullanımı",
+                "Toplumun Bilinç Seviyesi",
+                "Yangına Müdahale Kapasitesi",
+                "Yangın Sonrası Süreç"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Yangın Riskine Hazırlık",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Özellikle yaz aylarında Ege, Akdeniz ve Güney Marmara bölgelerinde yüksek risk oluşuyor.",
+                "Riskli bölgelerde bazı önlemler alınsa da orman içi yerleşimler, elektrik hatları ve insan kaynaklı ihmaller büyük tehlike oluşturuyor.",
+                "Yangın önleme çalışmaları çoğu zaman yangın başladıktan sonra daha görünür hale geliyor."
+              ],
+              "list": [
+                "Ege",
+                "Akdeniz",
+                "Güney Marmara",
+                "Orman içi yerleşimler",
+                "Elektrik hatları",
+                "İnsan kaynaklı ihmaller"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Avustralya",
+              "paragraphs": [
+                "Orman yangınları ülkenin doğal yaşam döngüsünün bir parçası kabul ediliyor.",
+                "Risk haritaları sürekli güncelleniyor.",
+                "Yüksek riskli bölgelerde kontrollü yakma, kuru ot temizliği ve yangın koridorları oluşturma çalışmaları düzenli yapılıyor.",
+                "Evlerin çevresindeki bitki yoğunluğu bile yasal kurallarla kontrol edilebiliyor."
+              ],
+              "list": [
+                "Kontrollü yakma (controlled burning)",
+                "Kuru ot temizliği",
+                "Yangın koridorları oluşturma",
+                "Bitki yoğunluğu yasal düzenlemeleri"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/orman-turkiye-onleme-infografik.png",
+                  "alt": "Orman yangınlarını önlemek için yapılabilecekler infografiği",
+                  "caption": "Türkiye'de orman yangınlarını önlemeye yönelik temel kurallar ve önlemler",
+                  "fit": "natural"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-bushfire-politikasi.png",
+                  "alt": "Avustralya ulusal bushfire yönetim politikası belgesi",
+                  "caption": "Avustralya ulusal bushfire yönetim politikası ve koordinasyon çerçevesi"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-yangin-riski.png",
+                  "alt": "Avustralya ormanlık alanda yangın riski ve müdahale",
+                  "caption": "Avustralya'da yangın riski ve kontrollü müdahale çalışmaları"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Erken Tespit ve Teknoloji Kullanımı",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Son yıllarda gözetleme kuleleri, dronelar ve termal kameralar kullanılmaya başlandı.",
+                "Ancak bazı bölgelerde yangınların geç fark edilmesi büyüme riskini artırabiliyor.",
+                "Teknolojik altyapı gelişiyor fakat ülke genelinde tam standart hale gelmiş değil."
+              ],
+              "list": [
+                "Gözetleme kuleleri",
+                "Dronelar",
+                "Termal kameralar"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Avustralya",
+              "paragraphs": [
+                "Uydu sistemleri ve yapay zekâ destekli izleme sistemleri aktif kullanılıyor.",
+                "Yangın riski meteorolojik verilerle önceden tahmin ediliyor.",
+                "Bazı bölgelerde otomatik sensör ağları, sıcaklık analiz sistemleri ve gerçek zamanlı yangın haritaları kullanılıyor.",
+                "Halk mobil uygulamalar üzerinden anlık risk seviyelerini görebiliyor."
+              ],
+              "list": [
+                "Uydu ve yapay zekâ destekli izleme",
+                "Otomatik sensör ağları",
+                "Sıcaklık analiz sistemleri",
+                "Gerçek zamanlı yangın haritaları",
+                "Mobil risk uygulamaları"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/orman-turkiye-drone-termal.png",
+                  "alt": "Termal kamera donanımlı yangın gözetleme dronu",
+                  "caption": "Türkiye'de yangın tespiti için drone ve termal kamera kullanımı"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-bushfire-arastirma.png",
+                  "alt": "Avustralya bushfire araştırma ve erken tespit çerçevesi",
+                  "caption": "Avustralya'da yangın önleme, tespit ve söndürme teknoloji çerçevesi"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-komuta-merkezi.png",
+                  "alt": "NSW Rural Fire Service yangın komuta merkezi",
+                  "caption": "Gerçek zamanlı yangın haritaları ve koordinasyon merkezi"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-gozetleme-kulesi.png",
+                  "alt": "Orman gözetleme kulesi ve sensör ağı",
+                  "caption": "Otomatik sensör ve kamera donanımlı gözetleme kulesi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Toplumun Bilinç Seviyesi",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Orman yangınlarının büyük kısmı insan kaynaklıdır; anız yakma, izmarit, kamp ateşi ve ihmal gibi nedenlerle çıkabiliyor.",
+                "Toplumda farkındalık artsa da yangın önleme kültürü tam oturmuş değil.",
+                "Tahliye planları çoğu bölgede yeterince bilinmiyor."
+              ],
+              "list": [
+                "Anız yakma",
+                "İzmarit",
+                "Kamp ateşi",
+                "İhmal"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Avustralya",
+              "paragraphs": [
+                "İnsanlar “yangın sezonu” kavramıyla yaşamaya alışkın.",
+                "Birçok aile tahliye planı, acil durum çantası ve yangın senaryosu hazırlıyor.",
+                "Okullarda ve yerel topluluklarda düzenli eğitimler veriliyor.",
+                "Halk hangi risk seviyesinde bölgeyi terk etmesi gerektiğini biliyor."
+              ],
+              "list": [
+                "Tahliye planı",
+                "Acil durum çantası",
+                "Yangın senaryosu",
+                "Yangın sezonu bilinci"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Yangına Müdahale Kapasitesi",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Orman Genel Müdürlüğü ve itfaiye ekipleri müdahaleyi yürütüyor.",
+                "Son yıllarda yangın söndürme uçakları ve helikopter sayısı artırıldı.",
+                "Ancak çoklu büyük yangınlarda ekipman yetersizliği, koordinasyon sorunları ve hava şartları nedeniyle müdahale zorlaşabiliyor."
+              ],
+              "list": [
+                "Ekipman yetersizliği",
+                "Koordinasyon sorunları",
+                "Hava şartları"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Avustralya",
+              "paragraphs": [
+                "Çok büyük ve profesyonel bir yangın yönetim sistemi bulunuyor.",
+                "Gönüllü itfaiye sistemi oldukça gelişmiş.",
+                "Yangın söndürme uçak filoları geniş kapasiteye sahip.",
+                "Eyaletler arası destek sistemi hızlı çalışıyor.",
+                "Yangın davranışı bilimsel modellerle analiz edilerek müdahale planı oluşturuluyor."
+              ],
+              "list": [
+                "Gönüllü itfaiye sistemi",
+                "Yangın söndürme uçak filoları",
+                "Eyaletler arası destek",
+                "Bilimsel müdahale planlaması"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-cfa-ekipleri.png",
+                  "alt": "Avustralya CFA yangın söndürme ekipleri",
+                  "caption": "Avustralya'da profesyonel ve gönüllü yangın söndürme ekipleri"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-sondurme-ucagi.png",
+                  "alt": "Yangın söndürme uçağı ile havadan müdahale",
+                  "caption": "Geniş kapasiteli yangın söndürme uçak filoları"
+                },
+                {
+                  "src": "/images/karsilastirma/orman-avustralya-mudahale-koordinasyon.png",
+                  "alt": "Yangın müdahale koordinasyon merkezi ve harita planlaması",
+                  "caption": "Bilimsel modeller ve müdahale planı ile koordinasyon merkezi"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Yangın Sonrası Süreç",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Yanan alanların yeniden ağaçlandırılması için kampanyalar düzenleniyor.",
+                "Ancak erozyon, habitat kaybı ve ekosistem hasarı uzun süre devam edebiliyor.",
+                "Bazı bölgelerde yapılaşma tartışmaları yaşanabiliyor."
+              ],
+              "list": [
+                "Erozyon",
+                "Habitat kaybı",
+                "Ekosistem hasarı",
+                "Yapılaşma tartışmaları"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Avustralya",
+              "paragraphs": [
+                "Yangın sonrası ekosistem restorasyonu bilimsel programlarla yürütülüyor.",
+                "Yaban hayatı kurtarma ekipleri aktif çalışıyor.",
+                "Toprak yapısı ve biyolojik çeşitlilik uzun vadeli takip ediliyor.",
+                "Yangın sonrası veri analizi gelecek sezon hazırlıklarında kullanılıyor."
+              ],
+              "list": [
+                "Ekosistem restorasyonu",
+                "Yaban hayatı kurtarma",
+                "Toprak ve biyolojik çeşitlilik takibi",
+                "Gelecek sezon hazırlık verileri"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sel-taskin-turkiye-hollanda",
+      "afet": "sel-taskin",
+      "afetLabel": "Sel / Taşkın",
+      "title": "Türkiye ve Hollanda: Sel ve Taşkın Karşılaştırması",
+      "menuLabel": "Sel / Taşkın — Türkiye & Hollanda",
+      "subtitle": "Türkiye ve Hollanda arasındaki sel ve taşkın farklılıkları",
+      "countries": ["Türkiye", "Hollanda"],
+      "lead": "Bu sayfada Türkiye ve Hollanda'nın sel ve taşkın riski, su yönetimi altyapısı, erken uyarı sistemleri ve toplumsal hazırlık düzeyleri karşılaştırılacaktır.",
+      "sections": [
+        {
+          "title": "Genel bakış",
+          "blocks": [
+            {
+              "type": "p",
+              "text": "Hollanda'nın en büyük farkı, sel ve taşkını ülke güvenliğinin temel unsuru olarak görmesi; altyapıyı, planlamayı ve toplumu buna göre organize etmesidir. Türkiye'de ise sel ve taşkın sık görülse de önleyici altyapı, risk haritalaması ve toplumsal hazırlık alanlarında gelişime açık noktalar bulunmaktadır."
+            }
+          ]
+        },
+        {
+          "title": "Karşılaştırma başlıkları",
+          "blocks": [
+            {
+              "type": "list",
+              "bullets": [
+                "Sel Riskine Yaklaşım",
+                "Altyapı ve Mühendislik Çözümleri",
+                "Erken Uyarı ve Teknoloji",
+                "Toplum Bilinci ve Şehir Planlaması",
+                "Sel Sonrası Müdahale"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Sel Riskine Yaklaşım",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Sel olayları özellikle Karadeniz Bölgesi, İstanbul, Akdeniz ve Doğu Karadeniz vadilerinde sık görülüyor.",
+                "Ani yağışlar ve dere taşmaları büyük hasarlara neden olabiliyor.",
+                "Şehirleşme sırasında dere yataklarının kapatılması, betonlaşma ve yetersiz altyapı sel riskini artırıyor.",
+                "Önlemler çoğu zaman afet sonrası güçleniyor."
+              ],
+              "list": [
+                "Karadeniz Bölgesi",
+                "İstanbul",
+                "Akdeniz",
+                "Doğu Karadeniz vadileri",
+                "Dere yataklarının kapatılması",
+                "Betonlaşma"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Hollanda",
+              "paragraphs": [
+                "Sel riski ülkenin temel ulusal güvenlik konularından biri.",
+                "Ülkenin önemli kısmı deniz seviyesinin altında olduğu için su yönetimi günlük yaşamın merkezinde.",
+                "Şehirler sel riskine göre planlanıyor.",
+                "“Suyla mücadele” yerine “suyla birlikte yaşama” yaklaşımı uygulanıyor."
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-su-haritasi.png",
+                  "alt": "Hollanda nehir ve kıyı koruma noktaları haritası",
+                  "caption": "Hollanda'da su yönetimi ve kıyı koruma noktaları"
+                },
+                {
+                  "src": "/images/karsilastirma/sel-turkiye-kentsel-taskin.png",
+                  "alt": "Türkiye'de kentsel alanda sel ve su baskını",
+                  "caption": "Türkiye'de ani yağış ve yetersiz altyapı kaynaklı kentsel sel"
+                },
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-maeslantkering.png",
+                  "alt": "Hollanda Maeslantkering fırtına surge bariyeri",
+                  "caption": "Hollanda'da sel riskine karşı ulusal ölçekte su yönetimi yaklaşımı"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Altyapı ve Mühendislik Çözümleri",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Yağmur suyu altyapısı bazı şehirlerde yetersiz kalabiliyor.",
+                "Dere yataklarına yapılan yapılaşmalar taşkın riskini artırıyor.",
+                "Köprü ve yollar yoğun yağışlarda zarar görebiliyor.",
+                "Kırsal bölgelerde taşkın koruma sistemleri sınırlı olabiliyor."
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Hollanda",
+              "paragraphs": [
+                "Dünyanın en gelişmiş taşkın mühendisliği sistemlerinden birine sahip.",
+                "Büyük setler, taşkın bariyerleri, pompalar ve su tahliye kanalları kullanılıyor.",
+                "Delta Works dünyanın en büyük sel koruma projelerinden biridir.",
+                "Bazı bölgelerde fazla su kontrollü şekilde özel alanlara yönlendiriliyor."
+              ],
+              "list": [
+                "Setler",
+                "Taşkın bariyerleri",
+                "Pompalar",
+                "Su tahliye kanalları",
+                "Delta Works"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/sel-turkiye-yol-hasari.png",
+                  "alt": "Yoğun yağış sonrası yol ve altyapı hasarı",
+                  "caption": "Türkiye'de yoğun yağışlarda köprü ve yol hasarları"
+                },
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-delta-works.png",
+                  "alt": "Hollanda Delta Works fırtına surge bariyeri",
+                  "caption": "Delta Works kapsamında taşkın bariyerleri"
+                },
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-su-yonetimi.png",
+                  "alt": "Hollanda su yönetimi ve kontrollü su alanları",
+                  "caption": "Kontrollü su yönlendirme ve gelişmiş su yönetimi altyapısı"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Erken Uyarı ve Teknoloji",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Meteoroloji ve AFAD tarafından uyarılar yayınlanıyor.",
+                "Ancak ani sellerde vatandaşların geç haberdar olması, iletişim eksikliği ve altyapı sorunları risk oluşturabiliyor.",
+                "Bazı bölgelerde sensör ve izleme sistemleri sınırlı."
+              ],
+              "list": [
+                "Geç haberdar olma",
+                "İletişim eksikliği",
+                "Altyapı sorunları",
+                "Sınırlı sensör ve izleme"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Hollanda",
+              "paragraphs": [
+                "Gerçek zamanlı su seviyesi izleme sistemleri kullanılıyor.",
+                "Uydu verileri ve sensör ağları sürekli analiz yapıyor.",
+                "Risk oluşmadan önce tahliye planları devreye alınabiliyor.",
+                "Mobil sistemlerle halka anlık bildirim gönderiliyor."
+              ],
+              "list": [
+                "Gerçek zamanlı su seviyesi izleme",
+                "Uydu ve sensör ağları",
+                "Önceden tahliye planları",
+                "Mobil anlık bildirimler"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Toplum Bilinci ve Şehir Planlaması",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Sel bilinci deprem kadar yaygın değil.",
+                "Vatandaşların önemli kısmı tahliye rotalarını ve güvenli bölgeleri bilmiyor.",
+                "Şehir planlamasında su taşkın riskleri bazen ikinci planda kalabiliyor."
+              ],
+              "list": [
+                "Tahliye rotaları bilinmiyor",
+                "Güvenli bölgeler bilinmiyor",
+                "Taşkın riski planlamada ikinci planda"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Hollanda",
+              "paragraphs": [
+                "Çocuklara küçük yaşta su yönetimi ve sel eğitimi veriliyor.",
+                "Şehir planları doğrudan taşkın riskine göre hazırlanıyor.",
+                "Bazı parklar ve açık alanlar gerektiğinde su toplama alanına dönüşebiliyor.",
+                "Evler ve yollar su baskınına dayanıklı tasarlanabiliyor."
+              ],
+              "list": [
+                "Su yönetimi ve sel eğitimi",
+                "Taşkın riskine göre şehir planı",
+                "Su toplama alanına dönüşen parklar",
+                "Dayanıklı ev ve yol tasarımı"
+              ]
+            },
+            {
+              "type": "gallery",
+              "images": [
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-waterplein.png",
+                  "alt": "Rotterdam Waterplein Benthemplein su toplama meydanı",
+                  "caption": "Park ve açık alanların gerektiğinde su toplama alanına dönüşmesi"
+                },
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-taskin-parki.png",
+                  "alt": "Taşkın parkında su üzerinde yürüyüş yolu",
+                  "caption": "Taşkın riskine göre tasarlanmış kentsel yeşil alan ve yürüyüş alanı"
+                },
+                {
+                  "src": "/images/karsilastirma/sel-hollanda-pompa-istasyonu.png",
+                  "alt": "Hollanda entegre pompa ve su yönetimi tesisi",
+                  "caption": "Şehir planlamasına entegre su yönetimi altyapısı"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Sel Sonrası Müdahale",
+          "blocks": [
+            {
+              "type": "country",
+              "name": "Türkiye",
+              "paragraphs": [
+                "Büyük sellerde ulaşım, elektrik ve iletişim altyapısı zarar görebiliyor.",
+                "Temizlik ve yeniden yapılanma süreçleri zaman alabiliyor.",
+                "Özellikle kırsal bölgelerde yardım erişimi gecikebiliyor."
+              ],
+              "list": [
+                "Ulaşım altyapısı hasarı",
+                "Elektrik kesintileri",
+                "İletişim altyapısı hasarı",
+                "Kırsal bölgelerde geciken yardım"
+              ]
+            },
+            {
+              "type": "country",
+              "name": "Hollanda",
+              "paragraphs": [
+                "Kriz yönetimi çok önceden planlanmış durumda.",
+                "Tahliye merkezleri ve acil durum sistemleri hazır tutuluyor.",
+                "Su tahliye sistemleri hızlı çalıştığı için toparlanma süresi daha kısa olabiliyor.",
+                "Afet sonrası analizler sonraki planlamalara entegre ediliyor."
+              ],
+              "list": [
+                "Önceden planlanmış kriz yönetimi",
+                "Hazır tahliye merkezleri",
+                "Hızlı su tahliye sistemleri",
+                "Afet sonrası planlama entegrasyonu"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

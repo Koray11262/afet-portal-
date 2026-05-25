@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><%= pageTitle %> | <%= nav.siteTitle %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+  </head>
+  <body>
+    <div class="app">
+      <%- include("partials/site-header", { nav }) %>
+
+      <main class="main">
+        <%- include("partials/page-hero", { pageTitle, pageHero: typeof pageHero !== "undefined" ? pageHero : null }) %>
+        <div class="main__inner">
+          <%- body %>
+        </div>
+      </main>
+
+      <footer class="siteFooter">
+        <div class="siteFooter__inner">
+          <span><%= nav.siteTitle %> — Afetlere hazırlık ve bilinçlendirme portalı</span>
+        </div>
+      </footer>
+    </div>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <script src="/site-nav.js"></script>
+    <script src="/app.js"></script>
+    <% if (typeof extraScripts !== "undefined" && extraScripts) { %>
+      <%- extraScripts %>
+    <% } %>
+  </body>
+</html>

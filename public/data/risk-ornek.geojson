@@ -1,0 +1,54 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Marmara (örnek)", "risk": "yuksek" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [26.0, 41.3],
+            [30.2, 41.3],
+            [30.2, 40.3],
+            [26.0, 40.3],
+            [26.0, 41.3]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Ege (örnek)", "risk": "orta" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [26.0, 39.8],
+            [29.6, 39.8],
+            [29.6, 37.2],
+            [26.0, 37.2],
+            [26.0, 39.8]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "İç Anadolu (örnek)", "risk": "dusuk" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [31.2, 40.0],
+            [35.8, 40.0],
+            [35.8, 37.2],
+            [31.2, 37.2],
+            [31.2, 40.0]
+          ]
+        ]
+      }
+    }
+  ]
+}
+

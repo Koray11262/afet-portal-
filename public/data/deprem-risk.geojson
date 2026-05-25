@@ -1,0 +1,70 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Kuzey Anadolu Fay Zonu çevresi (örnek)", "risk": "yuksek" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [26.0, 41.6],
+            [42.0, 41.6],
+            [42.0, 40.2],
+            [26.0, 40.2],
+            [26.0, 41.6]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Batı Anadolu (Ege grabenleri) (örnek)", "risk": "orta" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [25.6, 39.9],
+            [30.4, 39.9],
+            [30.4, 36.6],
+            [25.6, 36.6],
+            [25.6, 39.9]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Doğu Anadolu Fay Zonu çevresi (örnek)", "risk": "yuksek" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [35.6, 39.4],
+            [42.4, 39.4],
+            [42.4, 36.8],
+            [35.6, 36.8],
+            [35.6, 39.4]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "İç kesimler (örnek)", "risk": "dusuk" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [30.4, 40.2],
+            [35.6, 40.2],
+            [35.6, 36.8],
+            [30.4, 36.8],
+            [30.4, 40.2]
+          ]
+        ]
+      }
+    }
+  ]
+}
+

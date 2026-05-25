@@ -1,0 +1,13 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    body: `
+      <div class="note note--warn">
+        ${message}
+      </div>
+      <a class="btn" href="/">Anasayfa’ya dön</a>
+    `,
+  })
+%>
+

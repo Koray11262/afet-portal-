@@ -1,0 +1,399 @@
+{
+  "title": "Mikrobölgeleme",
+  "topicLabel": "Deprem / Zemin",
+  "lead": "Bu sayfada mikrobölgelemenin ne olduğu, neden önemli olduğu, Türkiye'deki uygulamaları ve haritaların nasıl okunacağı ele alınacaktır.",
+  "relatedAfet": "deprem",
+  "relatedAfetLabel": "Deprem",
+  "sections": [
+    {
+      "title": "Genel bakış",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Mikrobölgeleme, aynı bölgede yer alan farklı noktalarda deprem etkisinin zemin yapısı, topoğrafya ve yer altı koşullarına göre değişebileceğini gösteren çalışmalardır. Şehir planlaması, bina güvenliği ve afet bilinci için önemli bir teknik araçtır."
+        }
+      ]
+    },
+    {
+      "title": "İçerik başlıkları",
+      "blocks": [
+        {
+          "type": "list",
+          "bullets": [
+            "Mikrobölgeleme Nedir?",
+            "Mikrobölgelemede İncelenen Başlıca Unsurlar",
+            "Mikrobölgeleme Nasıl Yapılır?",
+            "Mikrobölgeleme Haritaları Ne Gösterir?",
+            "Türkiye’de Mikrobölgeleme Çalışmaları"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Mikrobölgeleme Nedir?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Mikrobölgeleme, bir bölgenin afet risklerini özellikle zemin özelliklerine göre detaylı şekilde inceleyen bilimsel analiz çalışmasıdır. En çok deprem riski için kullanılır. Aynı şehir içinde bile bazı mahallelerin daha güvenli, bazılarının ise daha riskli olmasının nedenlerini ortaya çıkarır."
+        },
+        {
+          "type": "p",
+          "text": "Örneğin bir deprem sırasında:"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Kaya zemindeki yapılar daha az sallanabilir",
+            "Yumuşak ve gevşek zeminli bölgelerde sarsıntı büyüyebilir",
+            "Bazı alanlarda zemin sıvılaşması meydana gelebilir"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Bu farklılıkları belirlemek için yapılan detaylı incelemelere mikrobölgeleme denir."
+        },
+        {
+          "type": "subsection",
+          "title": "Mikrobölgelemenin Amacı",
+          "text": "Mikrobölgeleme çalışmaları sayesinde:"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Güvenli yapılaşma alanları belirlenir",
+            "Riskli bölgeler tespit edilir",
+            "Kentsel dönüşüm planları hazırlanır",
+            "Deprem zararları azaltılır",
+            "Afet yönetimi ve şehir planlaması güçlendirilir"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Özellikle deprem kuşağındaki ülkelerde şehir planlamasının en önemli parçalarından biridir."
+        }
+      ]
+    },
+    {
+      "title": "Mikrobölgelemede İncelenen Başlıca Unsurlar",
+      "blocks": [
+        {
+          "type": "subsection",
+          "title": "1. Zemin Türü"
+        },
+        {
+          "type": "p",
+          "text": "Her zemin deprem dalgalarını farklı şekilde etkiler."
+        },
+        {
+          "type": "subsection",
+          "title": "Kaya Zemin"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Daha sağlamdır",
+            "Sarsıntıyı daha az büyütür",
+            "Genellikle daha güvenlidir"
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "Yumuşak Zemin"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Deprem dalgalarını büyütebilir",
+            "Binaların daha fazla sallanmasına neden olabilir"
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/mikroboleme/mikro-zemin-kaya-yumusak.png",
+              "alt": "Kaya zemin ve yumuşak zemin deprem etkisi karşılaştırması",
+              "caption": "Kaya zemin ile yumuşak zeminde deprem dalgalarının farklı etkisi"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-zemin-sivilasma-karsilastirma.png",
+              "alt": "Sağlam zemin ve sıvılaşmış zemin kesiti",
+              "caption": "Sağlam zemin ile sıvılaşma sonrası zemin davranışı karşılaştırması"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-zemin-deprem-yikimi.png",
+              "alt": "Deprem sonrası yapı hasarı",
+              "caption": "Zemin koşullarına bağlı yapısal hasar örneği"
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "2. Sıvılaşma Riski"
+        },
+        {
+          "type": "p",
+          "text": "Deprem sırasında suya doygun gevşek zeminlerin sıvı gibi davranmasına “sıvılaşma” denir."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Binalar eğilebilir",
+            "Yollar çökebilir",
+            "Zeminde yarıklar oluşabilir"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Özellikle deniz kenarı ve alüvyonlu bölgelerde daha sık görülür."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/mikroboleme/mikro-sivilasma-zemin-yariklari.png",
+              "alt": "Sıvılaşma sonrası zemin yarıkları ve eğilen ağaçlar",
+              "caption": "Sıvılaşma sonrası zeminde yarıklar ve zemin hareketi"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-sivilasma-infografik.png",
+              "alt": "Sıvılaşma süreci infografiği",
+              "caption": "Deprem öncesi ve sonrası sıvılaşma etkisi"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-sivilasma-surec.png",
+              "alt": "Depremde sıvılaşma aşamaları",
+              "caption": "Sıvılaşmanın deprem sırasında oluşum süreci"
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "3. Fay Hatlarına Yakınlık"
+        },
+        {
+          "type": "p",
+          "text": "Fay hatlarına yakın bölgelerde deprem etkisi daha güçlü hissedilebilir ve yüzey kırıkları oluşabilir."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Deprem etkisi daha güçlü hissedilebilir",
+            "Yüzey kırıkları oluşabilir"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Türkiye'de özellikle Kuzey Anadolu Fay Hattı çevresindeki şehirlerde bu analizler büyük önem taşır."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/mikroboleme/mikro-fay-kaf-haritasi.png",
+              "alt": "Kuzey Anadolu Fay Hattı ve 1999 deprem yüzey kırıkları haritası",
+              "caption": "KAF çevresi fay hatları ve yüzey kırıkları (1999 İzmit ve Düzce depremleri)"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-fay-deprem-merkezi.png",
+              "alt": "Deprem odağı, epicentrum ve yüzey kırığı şeması",
+              "caption": "Deprem odağı, epicentrum ve yüzeyde oluşan fay kırığı ilişkisi"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-fay-turleri.png",
+              "alt": "Normal, reverse, thrust ve strike-slip fay türleri",
+              "caption": "Başlıca fay türleri ve hareket yönleri"
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "4. Heyelan Riski"
+        },
+        {
+          "type": "p",
+          "text": "Eğimli bölgelerde deprem sonrası toprak kaymaları meydana gelebilir. Mikrobölgeleme çalışmaları hangi bölgelerin kayma riski taşıdığını ve nerelerde yapılaşmanın riskli olduğunu belirler."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/mikroboleme/mikro-heyelan-gercek.png",
+              "alt": "Heyelan sonrası yerleşim hasarı",
+              "caption": "Eğimli arazide heyelan sonrası yapı hasarı örneği"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-heyelan-kesit.png",
+              "alt": "Heyelan kesiti ve kayma yüzeyi şeması",
+              "caption": "Heyelan anatomisi: kayma yüzeyi ve birikim alanı"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-heyelan-yagmur.png",
+              "alt": "Yağış kaynaklı heyelan illüstrasyonu",
+              "caption": "Yağış ve eğimli zemin koşullarında heyelan riski"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Mikrobölgeleme Nasıl Yapılır?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Bu çalışmalar birçok bilim dalının birlikte çalışmasıyla gerçekleştirilir."
+        },
+        {
+          "type": "subsection",
+          "title": "Kullanılan Yöntemler"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Sondaj çalışmaları",
+            "Zemin örnekleri alma",
+            "Sismik ölçümler",
+            "Yer altı suyu incelemeleri",
+            "Uydu görüntüleri ve haritalar",
+            "Bilgisayar destekli analizler"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Uzmanlar bu verileri kullanarak risk haritaları oluşturur."
+        }
+      ]
+    },
+    {
+      "title": "Mikrobölgeleme Haritaları Ne Gösterir?",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Hazırlanan haritalarda genellikle güvenli bölgeler, orta riskli alanlar, yüksek riskli bölgeler, sıvılaşma alanları ve heyelan bölgeleri renklerle gösterilir."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Güvenli bölgeler",
+            "Orta riskli alanlar",
+            "Yüksek riskli bölgeler",
+            "Sıvılaşma alanları",
+            "Heyelan bölgeleri"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Örneğin:"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Yeşil → düşük risk",
+            "Sarı → orta risk",
+            "Kırmızı → yüksek risk"
+          ]
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/mikroboleme/mikro-harita-yer-sarsinti.png",
+              "alt": "İstanbul yer sarsıntısı mikrobölgeleme haritası",
+              "caption": "Yer sarsıntısı haritası: kısa ve ortalama periyot spektral ivmeler"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-harita-risk-bolgeleri.png",
+              "alt": "Mikrobölgeleme risk bölgeleri haritası örneği",
+              "caption": "Renk kodlu mikrobölgeleme haritası ile risk bölgeleri"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-harita-sivilasma.png",
+              "alt": "İstanbul sıvılaşma tehlikesi haritası",
+              "caption": "Sıvılaşma tehlikesi haritası örneği"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Türkiye’de Mikrobölgeleme Çalışmaları",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Türkiye aktif fay hatları üzerinde bulunduğu için mikrobölgeleme oldukça önemlidir."
+        },
+        {
+          "type": "p",
+          "text": "Özellikle İstanbul, İzmir, Bursa ve Kocaeli gibi yüksek deprem riski taşıyan şehirlerde detaylı çalışmalar yapılmaktadır."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "İstanbul",
+            "İzmir",
+            "Bursa",
+            "Kocaeli"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Bu çalışmalar belediyeler, üniversiteler, AFAD ve jeoloji ile inşaat mühendisleri tarafından yürütülmektedir."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Belediyeler",
+            "Üniversiteler",
+            "AFAD",
+            "Jeoloji ve inşaat mühendisleri"
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "Neden Hayati Öneme Sahiptir?"
+        },
+        {
+          "type": "p",
+          "text": "Doğru yapılmış mikrobölgeleme çalışmaları deprem kaynaklı can kaybını azaltabilir, güvensiz yapılaşmayı önleyebilir ve afetlere dirençli şehirler oluşturabilir."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Deprem kaynaklı can kaybını azaltabilir",
+            "Güvensiz yapılaşmayı önleyebilir",
+            "Afetlere dirençli şehirler oluşturabilir"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Bir şehrin sadece deprem büyüklüğünü değil, zeminin depremi nasıl davranış göstereceğini anlaması gerekir. Mikrobölgeleme tam olarak bunu sağlar."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/mikroboleme/mikro-tr-istanbul-risk.png",
+              "alt": "İstanbul deprem risk bölgeleri haritası",
+              "caption": "İstanbul'un deprem riski taşıyan bölgeleri"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-tr-zemin-buyutme.png",
+              "alt": "İstanbul Anadolu yakası zemin büyütme haritası",
+              "caption": "Zemin büyütme dağılım haritası (Anadolu yakası örneği)"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-tr-jeoloji-haritasi.png",
+              "alt": "İstanbul Anadolu yakası jeoloji dağılım haritası",
+              "caption": "Jeoloji dağılım haritası — mikrobölgeleme çalışması"
+            },
+            {
+              "src": "/images/mikroboleme/mikro-tr-yer-sarsinti-anadolu.png",
+              "alt": "İstanbul Anadolu yakası yer sarsıntısı haritası",
+              "caption": "Yer sarsıntısı haritası (Anadolu yakası)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

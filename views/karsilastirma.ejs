@@ -1,0 +1,89 @@
+<%-
+  include("layout", {
+    pageTitle: item.title,
+    nav,
+    pageHero: {
+      title: item.title,
+      lead: item.lead,
+      crumbs: [
+        { label: "Anasayfa", href: "/" },
+        { label: karsilastirmalar.title, href: "/karsilastirmalar" },
+        { label: item.menuLabel || item.title },
+      ],
+    },
+    body: `
+      <div class="compareMeta">
+        <span class="compareMeta__tag">${item.afetLabel}</span>
+        ${(item.countries || []).map((c) => `<span class="compareMeta__country">${c}</span>`).join("")}
+      </div>
+
+      <div class="compareContent">
+        ${(item.sections || [])
+          .map(
+            (sec) => `
+          <section class="panel compareSection">
+            <h2>${sec.title}</h2>
+            ${(sec.blocks || [])
+              .map((b) => {
+                if (b.type === "p") return `<p>${b.text || ""}</p>`;
+                if (b.type === "list")
+                  return `<ul>${(b.bullets || []).map((x) => `<li>${x}</li>`).join("")}</ul>`;
+                if (b.type === "country")
+                  return `
+                    <div class="compareCountry">
+                      <h3 class="compareCountry__name">${b.name || ""}</h3>
+                      ${(b.paragraphs || []).map((p) => `<p>${p}</p>`).join("")}
+                      ${
+                        b.list?.length
+                          ? `<ul>${b.list.map((x) => `<li>${x}</li>`).join("")}</ul>`
+                          : ""
+                      }
+                    </div>
+                  `;
+                if (b.type === "gallery") {
+                  const imgCount = (b.images || []).length;
+                  const galleryClass =
+                    imgCount === 4
+                      ? "compareGallery compareGallery--4"
+                      : imgCount === 2
+                        ? "compareGallery compareGallery--2"
+                        : "compareGallery";
+                  return `
+                    <div class="${galleryClass}">
+                      ${(b.images || [])
+                        .map(
+                          (img) => `
+                        <figure class="compareGallery__item${img.fit === "natural" ? " compareGallery__item--natural" : ""}">
+                          <div class="compareGallery__media${img.fit === "natural" ? " compareGallery__media--natural" : ""}">
+                            <img src="${img.src}" alt="${img.alt || ""}" loading="lazy" />
+                          </div>${img.caption ? `<figcaption>${img.caption}</figcaption>` : ""}
+                        </figure>
+                      `
+                        )
+                        .join("")}
+                    </div>
+                  `;
+                }
+                if (b.type === "subsection")
+                  return `
+                    <div class="subsection">
+                      ${b.title ? `<h3>${b.title}</h3>` : ""}
+                      ${b.text ? `<p>${b.text}</p>` : ""}
+                    </div>
+                  `;
+                return "";
+              })
+              .join("")}
+          </section>
+        `
+          )
+          .join("")}
+      </div>
+
+      <div class="compareNav panel">
+        <a class="btn btn--ghost" href="/karsilastirmalar">← Tüm karşılaştırmalar</a>
+        ${item.afet ? `<a class="btn btn--ghost" href="/afet/${item.afet}">${item.afetLabel} rehberi</a>` : ""}
+      </div>
+    `,
+  })
+%>

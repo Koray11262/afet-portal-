@@ -1,0 +1,96 @@
+{
+  "categories": [
+    {
+      "id": "ev-guvenligi",
+      "name": "Ev Güvenliği",
+      "recommendations": [
+        "Ağır dolap, kitaplık ve televizyonu duvara sabitleyin; üst raflara ağır eşya koymayın.",
+        "Gaz, elektrik ve su vanalarının yerini aile bireylerine gösterin; kapatma talimatını görünür yere asın.",
+        "Tahliye yollarını ve bina çıkışlarını pratik yapın; engelleri kaldırın."
+      ]
+    },
+    {
+      "id": "acil-durum",
+      "name": "Acil Durum Hazırlığı",
+      "recommendations": [
+        "Deprem/afet çantanızı su, gıda, ilaç, fener ve düdük ile güncel tutun.",
+        "Kişi başı en az 3 gün yetecek su ve dayanıklı gıda stoğu bulundurun.",
+        "El feneri, powerbank, yedek pil ve ilk yardım çantasını erişilebilir yerde saklayın."
+      ]
+    },
+    {
+      "id": "iletisim",
+      "name": "İletişim ve Planlama",
+      "recommendations": [
+        "Ailenizle acil toplanma noktası ve alternatif iletişim planı belirleyin.",
+        "AFAD, MGM veya yerel afet uygulamalarını yükleyin; bildirimleri açın."
+      ]
+    },
+    {
+      "id": "bilinc",
+      "name": "Bilinç ve Eğitim",
+      "recommendations": [
+        "Çök-kapan-tutun hareketini evde ve okulda düzenli pratik yapın.",
+        "Sel, yangın ve heyelan için temel davranış kurallarını öğrenin; AFAD eğitimlerine katılın."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "categoryId": "ev-guvenligi",
+      "text": "Evinizde devrilebilecek dolap, kitaplık ve televizyon gibi eşyalar sabitlenmiş mi?"
+    },
+    {
+      "id": 2,
+      "categoryId": "ev-guvenligi",
+      "text": "Gaz, elektrik ve su vanalarının yerini ve nasıl kapatılacağını biliyor musunuz?"
+    },
+    {
+      "id": 3,
+      "categoryId": "ev-guvenligi",
+      "text": "Acil durumda kullanacağınız tahliye yolu ve bina çıkışlarını biliyor musunuz?"
+    },
+    {
+      "id": 4,
+      "categoryId": "acil-durum",
+      "text": "Deprem / afet çantanız hazır mı?"
+    },
+    {
+      "id": 5,
+      "categoryId": "acil-durum",
+      "text": "Evinizde en az 72 saat yetecek su ve temel gıda stoğu bulunuyor mu?"
+    },
+    {
+      "id": 6,
+      "categoryId": "acil-durum",
+      "text": "El feneri, powerbank, pil ve ilk yardım çantası gibi acil durum ekipmanlarınız hazır mı?"
+    },
+    {
+      "id": 7,
+      "categoryId": "iletisim",
+      "text": "Ailenizle belirlediğiniz bir acil toplanma noktası var mı?"
+    },
+    {
+      "id": 8,
+      "categoryId": "iletisim",
+      "text": "Telefonunuzda AFAD, MGM veya benzeri afet uygulamaları yüklü mü?"
+    },
+    {
+      "id": 9,
+      "categoryId": "bilinc",
+      "text": "Deprem sırasında “çök-kapan-tutun” hareketini doğru şekilde biliyor musunuz?"
+    },
+    {
+      "id": 10,
+      "categoryId": "bilinc",
+      "text": "Sel, yangın veya heyelan gibi afetlerde nasıl davranılması gerektiğini biliyor musunuz?"
+    }
+  ],
+  "scores": {
+    "evet": 10,
+    "kismen": 5,
+    "hayir": 0
+  },
+  "weakThreshold": 7
+}

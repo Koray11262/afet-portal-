@@ -1,0 +1,34 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    extraScripts: `<script src="/toplanma.js"></script>`,
+    body: `
+      <div class="panel panel--tight">
+        <div class="toplanmaToolbar">
+          <label class="toplanmaFilter">
+            <span class="muted">İl filtresi</span>
+            <select id="toplanmaIlFilter">
+              <option value="">Tümü (Kocaeli + İzmir)</option>
+              <option value="Kocaeli">Kocaeli</option>
+              <option value="İzmir">İzmir</option>
+            </select>
+          </label>
+          <button type="button" class="btn btn--ghost" id="toplanmaLocate">Konumumu göster</button>
+        </div>
+        <p id="toplanmaStatus" class="muted toplanmaStatus"></p>
+      </div>
+
+      <div class="toplanmaPageGrid">
+        <div class="panel panel--tight">
+          <div id="toplanmaMap" class="leafletMap leafletMap--compact"></div>
+        </div>
+        <div class="panel panel--tight">
+          <h3>Alan listesi</h3>
+          <div id="toplanmaList" class="toplanmaList"></div>
+        </div>
+      </div>
+    `,
+  })
+%>

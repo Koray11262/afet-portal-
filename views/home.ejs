@@ -1,0 +1,84 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    extraScripts: `<script src="/home-hero.js"></script>`,
+    body: `
+      <section class="homeHero" aria-label="Tanıtım">
+        <div class="homeHero__slides">
+          <article class="homeHero__slide is-active" data-slide="0">
+            <p class="homeHero__tag">Köklü bilgi</p>
+            <h2 class="homeHero__title">Afetlere Hazırlıklı Ol,<br/>Hayatını Koru!</h2>
+            <p class="homeHero__text">Türkiye'deki afet risklerini öğren, hazırlık seviyeni ölç ve güvenli alanları keşfet.</p>
+            <a class="btn btn--primary" href="/hazirlik-skoru">Hazırlık Testine Başla</a>
+          </article>
+          <article class="homeHero__slide" data-slide="1">
+            <p class="homeHero__tag">Jeolojik riskler</p>
+            <h2 class="homeHero__title">Deprem, heyelan ve daha fazlası</h2>
+            <p class="homeHero__text">Jeolojik kökenli afetler için detaylı rehberler ve risk haritaları.</p>
+            <a class="btn btn--primary" href="/afetler/jeolojik">Jeolojik Afetler →</a>
+          </article>
+          <article class="homeHero__slide" data-slide="2">
+            <p class="homeHero__tag">Meteorolojik riskler</p>
+            <h2 class="homeHero__title">Sel, yangın, kuraklık</h2>
+            <p class="homeHero__text">İklim kaynaklı afetlerde öncesi, sırası ve sonrası bilgileri.</p>
+            <a class="btn btn--primary" href="/afetler/iklim">Meteorolojik Afetler →</a>
+          </article>
+        </div>
+        <div class="homeHero__dots" aria-hidden="true">
+          <button type="button" class="homeHero__dot is-active" data-go="0"></button>
+          <button type="button" class="homeHero__dot" data-go="1"></button>
+          <button type="button" class="homeHero__dot" data-go="2"></button>
+        </div>
+      </section>
+
+      <section class="homeIntro panel">
+        <h2 class="homeIntro__title">Afet Portalı ile neler yapabilirsiniz?</h2>
+        <p class="muted homeIntro__lead">
+          Üst menüdeki 8 başlıktan afet türlerine, hazırlık testine ve konum tabanlı hizmetlere ulaşabilirsiniz.
+        </p>
+      </section>
+
+      <section class="stats" id="istatistikler">
+        <div class="statCard">
+          <div class="statCard__title">Deprem Riski</div>
+          <div class="statCard__value">%70</div>
+          <div class="statCard__desc">Türkiye'nin %70'i deprem riski altındadır.</div>
+        </div>
+        <div class="statCard">
+          <div class="statCard__title">En Yaygın Afet</div>
+          <div class="statCard__value">Sel</div>
+          <div class="statCard__desc">Son yıllarda en sık görülen afet türlerindendir.</div>
+        </div>
+        <div class="statCard">
+          <div class="statCard__title">Yangın Riski</div>
+          <div class="statCard__value">Artıyor</div>
+          <div class="statCard__desc">Yaz aylarında orman yangını riski artmaktadır.</div>
+        </div>
+        <div class="statCard">
+          <div class="statCard__title">Toplanma Alanları</div>
+          <div class="statCard__value">30000+</div>
+          <div class="statCard__desc">Türkiye'deki toplanma alanlarının yaklaşık sayısı.</div>
+        </div>
+      </section>
+
+      <section class="homeCards">
+        <a class="homeCard" href="/hazirlik-skoru">
+          <h3>Hazırlık Testi</h3>
+          <p>10 soruda hazırlık seviyeni ölç.</p>
+          <span class="homeCard__more">Teste git →</span>
+        </a>
+        <a class="homeCard" href="/konum-hizmetleri">
+          <h3>Risk & Toplanma</h3>
+          <p>İl riskleri ve toplanma alanları bir arada.</p>
+          <span class="homeCard__more">Sayfaya git →</span>
+        </a>
+        <a class="homeCard" href="/afet/deprem">
+          <h3>Deprem Rehberi</h3>
+          <p>Öncesi, sırası ve sonrası.</p>
+          <span class="homeCard__more">Oku →</span>
+        </a>
+      </section>
+    `,
+  })
+%>

@@ -1,0 +1,26 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    body: `
+      <div class="lead">
+        Bu kategorideki afet türlerine aşağıdaki kartlardan veya üst menüden ulaşabilirsiniz.
+      </div>
+
+      <div class="cards">
+        ${category.items
+          .map(
+            (item) => `
+              <a class="card" href="/afet/${item.slug}">
+                <div class="card__title">${item.title}</div>
+                <div class="card__desc">İçerik eklenecek.</div>
+              </a>
+            `
+          )
+          .join("")}
+      </div>
+    `,
+  })
+%>
+

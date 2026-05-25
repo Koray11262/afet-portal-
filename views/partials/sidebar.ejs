@@ -1,0 +1,25 @@
+<aside class="sidebar">
+  <div class="brand">
+    <a href="/" class="brand__link"><%= nav.siteTitle %></a>
+  </div>
+
+  <nav class="nav">
+    <a class="nav__toplink" href="/">Anasayfa</a>
+
+    <div class="nav__sectionTitle">Kategoriler</div>
+
+    <% nav.categories.forEach((cat) => { %>
+      <details class="nav__group" open>
+        <summary class="nav__groupTitle">
+          <a href="/afetler/<%= cat.slug %>"><%= cat.title %></a>
+        </summary>
+        <div class="nav__items">
+          <% cat.items.forEach((item) => { %>
+            <a class="nav__item" href="/afet/<%= item.slug %>"><%= item.title %></a>
+          <% }) %>
+        </div>
+      </details>
+    <% }) %>
+  </nav>
+</aside>
+

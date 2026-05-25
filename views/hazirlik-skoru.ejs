@@ -1,0 +1,65 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    extraScripts: `
+      <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+      <script src="/hazirlik.js"></script>
+    `,
+    body: `
+      <div id="hazirlikTest" class="hazirlik">
+        <section id="hazirlikIntro" class="panel hazirlikPanel">
+          <p class="muted">
+            10 soruluk test; 4 kategoride ev güvenliği, acil durum hazırlığı, iletişim ve bilinç düzeyinizi ölçer.
+            Her soruya <strong>Evet</strong> (10), <strong>Kısmen</strong> (5) veya <strong>Hayır</strong> (0) ile yanıt verin.
+          </p>
+          <ul class="hazirlikMeta muted">
+            <li>Ev Güvenliği — 3 soru</li>
+            <li>Acil Durum Hazırlığı — 3 soru</li>
+            <li>İletişim ve Planlama — 2 soru</li>
+            <li>Bilinç ve Eğitim — 2 soru</li>
+          </ul>
+          <button type="button" class="btn btn--primary" data-action="start" disabled>Teste Başla</button>
+        </section>
+
+        <section id="hazirlikQuiz" class="panel hazirlikPanel" hidden>
+          <p id="hazirlikProgress" class="hazirlikProgress muted"></p>
+          <p id="hazirlikCategory" class="hazirlikCategory"></p>
+          <h3 id="hazirlikQuestion" class="hazirlikQuestion">Yükleniyor…</h3>
+          <div class="hazirlikAnswers">
+            <button type="button" class="btn hazirlikBtn hazirlikBtn--yes" data-answer="evet">Evet</button>
+            <button type="button" class="btn hazirlikBtn hazirlikBtn--mid" data-answer="kismen">Kısmen</button>
+            <button type="button" class="btn hazirlikBtn hazirlikBtn--no" data-answer="hayir">Hayır</button>
+          </div>
+        </section>
+
+        <section id="hazirlikResult" class="hazirlikResult" hidden>
+          <div class="panel hazirlikPanel">
+            <h2>Sonuçlarınız</h2>
+            <div id="hazirlikOverall" class="hazirlikOverall"></div>
+          </div>
+          <div class="hazirlikResultGrid">
+            <div class="panel hazirlikPanel">
+              <h3>Kategori profili</h3>
+              <p class="muted">Radar grafiği; her eksen bir kategorinin ortalama puanını gösterir (0–10).</p>
+              <div class="hazirlikChartWrap">
+                <canvas id="hazirlikRadar" aria-label="Kategori radar grafiği"></canvas>
+              </div>
+              <div id="hazirlikCategoryScores" class="hazirlikCategoryScores"></div>
+            </div>
+            <div class="panel hazirlikPanel">
+              <h3>Öneriler</h3>
+              <p class="muted">7 puanın altındaki kategoriler için geliştirme önerileri.</p>
+              <div id="hazirlikRecommendations" class="hazirlikRecommendations"></div>
+            </div>
+          </div>
+          <div class="hazirlikActions">
+            <button type="button" class="btn btn--primary" data-action="restart">Testi Tekrarla</button>
+            <a class="btn btn--ghost" href="/">Anasayfa</a>
+          </div>
+        </section>
+      </div>
+    `,
+  })
+%>

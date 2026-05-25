@@ -1,0 +1,138 @@
+<%
+  const categories = nav.categories || [];
+  const jeolojik = categories.find((c) => c.slug === "jeolojik") || categories[0];
+  const iklim = categories.find((c) => c.slug === "iklim") || categories[1];
+  const iklimTitle = "Meteorolojik Kökenli Afetler";
+
+  const compareData = typeof karsilastirmalar !== "undefined" ? karsilastirmalar : { title: "Afet Karşılaştırmaları", items: [] };
+  const compareLinks = (compareData.items || []).map((item) => ({
+    label: item.menuLabel || item.title,
+    href: `/karsilastirmalar/${item.slug}`,
+  }));
+  compareLinks.unshift({ label: "Tüm karşılaştırmalar", href: "/karsilastirmalar" });
+
+  const rightNav = [
+    {
+      title: compareData.title || "Afet Karşılaştırmaları",
+      desc: compareData.description || "Türkiye ile diğer ülkeleri karşılaştırın",
+      links: compareLinks.length > 1 ? compareLinks : [{ label: "Yakında", href: "/karsilastirmalar", muted: false }],
+    },
+    {
+      title: "Duyurular",
+      desc: "İçerik yakında eklenecek",
+      links: [{ label: "Yakında", href: "#", muted: true }],
+    },
+    {
+      title: "Kaynaklar",
+      desc: "İçerik yakında eklenecek",
+      links: [{ label: "Yakında", href: "#", muted: true }],
+    },
+  ];
+%>
+
+<header class="siteHeader">
+  <div class="siteHeader__bar">
+    <a href="/" class="siteHeader__logo">
+      <span class="siteHeader__logoMark"></span>
+      <span class="siteHeader__logoText"><%= nav.siteTitle %></span>
+    </a>
+    <label class="siteHeader__search search">
+      <span class="srOnly">Ara</span>
+      <input
+        id="globalSearch"
+        class="search__input"
+        type="search"
+        placeholder="Afet veya sayfa ara..."
+        autocomplete="off"
+      />
+    </label>
+  </div>
+
+  <nav class="siteHeader__nav" aria-label="Ana menü">
+    <div class="siteHeader__row siteHeader__row--left">
+      <% if (jeolojik) { %>
+        <div class="siteNav siteNav--mega">
+          <button type="button" class="siteNav__trigger" aria-expanded="false">
+            <span class="siteNav__title"><%= jeolojik.title %></span>
+            <span class="siteNav__chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="siteNav__panel">
+            <a class="siteNav__panelHead" href="/afetler/<%= jeolojik.slug %>">Kategori sayfası →</a>
+            <ul class="siteNav__list">
+              <% jeolojik.items.forEach((item) => { %>
+                <li>
+                  <a class="siteNav__link" href="/afet/<%= item.slug %>"><%= item.title %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      <% } %>
+
+      <% if (iklim) { %>
+        <div class="siteNav siteNav--mega">
+          <button type="button" class="siteNav__trigger" aria-expanded="false">
+            <span class="siteNav__title"><%= iklimTitle %></span>
+            <span class="siteNav__chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="siteNav__panel">
+            <a class="siteNav__panelHead" href="/afetler/<%= iklim.slug %>">Kategori sayfası →</a>
+            <ul class="siteNav__list">
+              <% iklim.items.forEach((item) => { %>
+                <li>
+                  <a class="siteNav__link" href="/afet/<%= item.slug %>"><%= item.title %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      <% } %>
+
+      <a class="siteNav siteNav--link" href="/hazirlik-skoru">
+        <span class="siteNav__title">Hazırlık Testi</span>
+      </a>
+
+      <div class="siteNav siteNav--mega">
+        <button type="button" class="siteNav__trigger" aria-expanded="false">
+          <span class="siteNav__title">Risk & Toplanma</span>
+          <span class="siteNav__chev" aria-hidden="true">▾</span>
+        </button>
+        <div class="siteNav__panel">
+          <a class="siteNav__panelHead" href="/konum-hizmetleri">Birleşik sayfa →</a>
+          <ul class="siteNav__list">
+            <li><a class="siteNav__link" href="/il-riskleri">İle Göre Riskler</a></li>
+            <li><a class="siteNav__link" href="/toplanma-alanlari">Toplanma Alanları</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="siteHeader__row siteHeader__row--right">
+      <a class="siteNav siteNav--link" href="/mikroboleme">
+        <span class="siteNav__title">Mikrobölgeleme</span>
+      </a>
+
+      <% rightNav.forEach((block) => { %>
+        <div class="siteNav siteNav--mega">
+          <button type="button" class="siteNav__trigger" aria-expanded="false">
+            <span class="siteNav__title"><%= block.title %></span>
+            <span class="siteNav__chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="siteNav__panel">
+            <p class="siteNav__panelDesc"><%= block.desc %></p>
+            <ul class="siteNav__list">
+              <% block.links.forEach((link) => { %>
+                <li>
+                  <a
+                    class="siteNav__link<%= link.muted ? ' siteNav__link--muted' : '' %>"
+                    href="<%= link.href %>"
+                  ><%= link.label %></a>
+                </li>
+              <% }) %>
+            </ul>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </nav>
+</header>

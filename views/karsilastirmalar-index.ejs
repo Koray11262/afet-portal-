@@ -1,0 +1,28 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero: {
+      title: karsilastirmalar.title,
+      lead: karsilastirmalar.description,
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: karsilastirmalar.title }],
+    },
+    body: `
+      <div class="compareIndex">
+        ${karsilastirmalar.items
+          .map(
+            (item) => `
+          <a class="compareCard" href="/karsilastirmalar/${item.slug}">
+            <span class="compareCard__tag">${item.afetLabel}</span>
+            <h2 class="compareCard__title">${item.title}</h2>
+            <p class="compareCard__desc">${item.subtitle}</p>
+            <span class="compareCard__countries">${(item.countries || []).join(" · ")}</span>
+            <span class="compareCard__more">Karşılaştırmayı oku →</span>
+          </a>
+        `
+          )
+          .join("")}
+      </div>
+    `,
+  })
+%>

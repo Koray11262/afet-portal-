@@ -1,0 +1,20 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    body: `
+      <div class="panel panel--tight">
+        <h2>Risk Bölgeleri Haritası</h2>
+        <p class="muted">
+          Bu sayfa Leaflet ile hazırlanmıştır. Şu an örnek bir GeoJSON katmanı gösteriyoruz.
+          Sonraki adımda deprem/sel/yangın gibi katmanları aç-kapa yapacağız.
+        </p>
+      </div>
+
+      <div class="panel panel--tight">
+        <div id="riskMap" class="leafletMap"></div>
+      </div>
+    `,
+  })
+%>
+

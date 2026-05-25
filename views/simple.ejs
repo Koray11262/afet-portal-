@@ -1,0 +1,16 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero: {
+      title: title,
+      lead: description,
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: title }],
+    },
+    body: `
+      <div class="panel">
+        ${cta ? `<a class="btn btn--ghost" href="${cta.href}">${cta.label}</a>` : ``}
+      </div>
+    `,
+  })
+%>

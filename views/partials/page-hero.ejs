@@ -1,0 +1,20 @@
+<% if (typeof pageHero !== "undefined" && pageHero) { %>
+  <div class="pageHero">
+    <% if (pageHero.crumbs && pageHero.crumbs.length) { %>
+      <nav class="pageHero__crumbs" aria-label="Breadcrumb">
+        <% pageHero.crumbs.forEach((c, i) => { %>
+          <% if (i > 0) { %><span class="pageHero__sep">/</span><% } %>
+          <% if (c.href) { %>
+            <a href="<%= c.href %>"><%= c.label %></a>
+          <% } else { %>
+            <span><%= c.label %></span>
+          <% } %>
+        <% }) %>
+      </nav>
+    <% } %>
+    <h1 class="pageHero__title"><%= pageHero.title || pageTitle %></h1>
+    <% if (pageHero.lead) { %>
+      <p class="pageHero__lead"><%= pageHero.lead %></p>
+    <% } %>
+  </div>
+<% } %>
