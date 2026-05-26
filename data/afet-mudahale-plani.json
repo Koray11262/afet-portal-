@@ -1,0 +1,365 @@
+{
+  "title": "Afet Müdahale Planı",
+  "topicLabel": "Afet Yönetimi",
+  "lead": "Bu sayfada afet müdahale planının ne olduğu, aşamaları, kurumların rolleri ve toplumun bilmesi gereken temel hususlar ele alınacaktır.",
+  "moreInfo": {
+    "text": "Daha fazlası için ziyaret edebilirsiniz",
+    "url": "https://www.afad.gov.tr/turkiye-afet-mudahale-plani"
+  },
+  "sections": [
+    {
+      "title": "Genel bakış",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "Afet müdahale planı, bir afet öncesinde, sırasında ve sonrasında yapılacak işleri önceden belirleyen resmi ve kurumsal bir yol haritasıdır. Amaç; can ve mal kaybını azaltmak, müdahaleyi hızlandırmak ve koordinasyonu güçlendirmektir."
+        }
+      ]
+    },
+    {
+      "title": "İçerik başlıkları",
+      "blocks": [
+        {
+          "type": "list",
+          "bullets": [
+            "Afet Müdahale Planı Nedir?",
+            "Sistem Yapısı: Yerel ve Ulusal Koordinasyon",
+            "Afet Müdahale Seviyeleri (S1–S4)",
+            "Afet Çalışma Grupları",
+            "Kurumlar Arası İş Birliği",
+            "TAMP'ın İşleyiş Mantığı",
+            "Neden Bu Plan Önemli?",
+            "Genel Değerlendirme"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Afet Müdahale Planı Nedir?",
+      "blocks": [
+        {
+          "type": "subsection",
+          "title": "Türkiye Afet Müdahale Planı (TAMP)",
+          "text": "AFAD tarafından oluşturulan Türkiye Afet Müdahale Planı (TAMP), Türkiye'de meydana gelebilecek her türlü afet ve acil durum için müdahale süreçlerini önceden planlayan ulusal bir organizasyon sistemidir."
+        },
+        {
+          "type": "p",
+          "text": "Bu planın temel amacı, afet anında ortaya çıkabilecek karmaşayı en aza indirmek, tüm kurumların görevlerini netleştirmek ve müdahaleyi tek bir koordinasyon yapısı altında hızlı ve etkili şekilde gerçekleştirmektir."
+        },
+        {
+          "type": "p",
+          "text": "Özellikle büyük ölçekli afetlerde zamanla yarışıldığı için, TAMP aslında \"afet anında ülkenin nasıl hareket edeceğini önceden yazan bir senaryo planı\" olarak düşünülebilir."
+        }
+      ]
+    },
+    {
+      "title": "Sistem Yapısı: Yerel ve Ulusal Koordinasyon",
+      "blocks": [
+        {
+          "type": "subsection",
+          "title": "TAMP'ın Temel Yaklaşımı",
+          "text": "TAMP sadece bir \"müdahale planı\" değil, aynı zamanda bir koordinasyon felsefesidir. Afet gerçekleştiği anda tüm kurumların ayrı ayrı hareket etmesi yerine, önceden belirlenmiş bir sistem içinde birlikte çalışması hedeflenir."
+        },
+        {
+          "type": "p",
+          "text": "Bu yaklaşım sayesinde:"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Kurumlar arası görev karmaşası ortadan kalkar",
+            "Kaynaklar daha hızlı ve doğru yönlendirilir",
+            "Müdahale süresi ciddi şekilde kısalır",
+            "Can ve mal kaybı azaltılır"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Afet yönetimi bu sistemde bireysel çabalarla değil, tamamen organize bir yapı ile yürütülür. TAMP'ın en önemli özelliklerinden biri çok katmanlı yönetim yapısıdır."
+        },
+        {
+          "type": "p",
+          "text": "Afet küçük çaplıysa müdahale doğrudan olayın yaşandığı ilde başlar. Bu aşamada vali başkanlığında İl Afet ve Acil Durum Koordinasyon Merkezi devreye girer. Yerel ekipler ilk müdahaleyi yapar ve durum kontrol altına alınmaya çalışılır."
+        },
+        {
+          "type": "p",
+          "text": "Ancak afet büyüdükçe sistem genişler ve ulusal düzeye geçilir. Bu noktada Türkiye genelindeki tüm ilgili kurumlar devreye girerek bölgeye destek sağlar."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/afet-mudahale-plani/il-afet-koordinasyon-merkezi.png",
+              "alt": "İl afet koordinasyon merkezinde canlı izleme ve müdahale ekranları",
+              "caption": "İl Afet ve Acil Durum Koordinasyon Merkezi — yerel düzeyde izleme ve koordinasyon"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/afad-acil-uygulama.png",
+              "alt": "AFAD Acil mobil uygulaması acil çağrı ve bildirim ekranları",
+              "caption": "AFAD Acil uygulaması — vatandaşların acil durum bildirimi ve iletişimi"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/gamer-afad-koordinasyon.png",
+              "alt": "GAMER ve AFAD personelinin koordinasyon merkezinde toplantısı",
+              "caption": "GAMER / AFAD koordinasyon merkezi — kurumlar arası ortak çalışma"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/kizilay-ulusal-koordinasyon.png",
+              "alt": "Türk Kızılay lojistik ekibinin afet koordinasyon merkezinde çalışması",
+              "caption": "Türk Kızılay — ulusal düzeyde lojistik ve koordinasyon desteği"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Afet Müdahale Seviyeleri (S1–S4)",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "TAMP içinde her afet, büyüklüğüne göre dört farklı seviyede değerlendirilir. Bu sınıflandırma, müdahalenin kapsamını ve hangi kaynakların kullanılacağını belirler."
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "S1 Seviyesi, yalnızca yerel imkânların yeterli olduğu durumları ifade eder.",
+            "S2 Seviyesi, komşu illerden destek gerektiren olaylardır.",
+            "S3 Seviyesi, ulusal ölçekte müdahale gerektiren büyük afetlerdir.",
+            "S4 Seviyesi ise, Türkiye'nin kapasitesinin yetersiz kaldığı ve uluslararası yardımın devreye girdiği en üst seviyedir."
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Bu sistem sayesinde müdahale \"rastgele değil\", tamamen planlı ve ölçeklenebilir şekilde yürütülür."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/afet-mudahale-plani/tamp-seviye-piramidi.png",
+              "alt": "Olay seviyesine göre koordinasyon düzeyleri ve fonksiyonları piramit şeması",
+              "caption": "Şekil 3 — Olay seviyesine göre koordinasyon düzeyleri ve fonksiyonları (S1–S4)",
+              "fit": "natural"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/jak-112-arama-kurtarma.png",
+              "alt": "Jandarma arama kurtarma ve 112 acil sağlık ekiplerinin enkaz alanında çalışması",
+              "caption": "JAK ve 112 ekipleri — afet bölgesinde koordineli arama kurtarma müdahalesi"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/arama-kurtarma-kopek.png",
+              "alt": "Enkaz üzerinde arama kurtarma köpeği ve görevli",
+              "caption": "Arama kurtarma köpekli ekip — yüksek seviye afetlerde özel kaynak kullanımı"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/ulusal-lojistik-tasima.png",
+              "alt": "Askeri kargo uçağına yardım malzemesi yüklenmesi",
+              "caption": "Ulusal düzey lojistik — S3 ve S4 seviyelerinde büyük ölçekli kaynak sevkiyatı"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Afet Çalışma Grupları",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "TAMP'ın en kritik bileşenlerinden biri Afet Çalışma Gruplarıdır. Bu yapı, afet anında tüm müdahale sürecinin tek merkezden değil, uzmanlaşmış birden fazla ekip tarafından eş zamanlı olarak yürütülmesini sağlar. Böylece hem hız hem de verimlilik artar ve afet yönetimi daha kontrollü bir hale gelir."
+        },
+        {
+          "type": "p",
+          "text": "Afet meydana geldiğinde sahada aynı anda birçok farklı ihtiyaç ortaya çıkar: enkaz altında kalanların kurtarılması, yaralıların tedavi edilmesi, gıda ve su ihtiyacının karşılanması, güvenli barınma alanlarının oluşturulması ve iletişimin devam ettirilmesi gibi. İşte bu noktada çalışma grupları devreye girer ve her biri kendi alanında koordineli şekilde görev yapar."
+        },
+        {
+          "type": "subsection",
+          "title": "Arama ve Kurtarma Çalışmaları",
+          "text": "Bu grup, afet sonrası en kritik aşamayı yürütür. Özellikle deprem gibi yıkıcı olaylarda enkaz altında kalan vatandaşların hızlı bir şekilde tespit edilmesi ve kurtarılması hedeflenir. Arama kurtarma ekipleri, özel ekipmanlar ve eğitimli personel ile sahada aktif olarak çalışır. Zamanla yarışıldığı için bu grubun çalışması hayati önem taşır."
+        },
+        {
+          "type": "subsection",
+          "title": "Sağlık Hizmetleri Çalışma Grubu",
+          "text": "Sağlık ekipleri, afet anında yaralıların ilk müdahalesini yapmak, hastanelere sevkini organize etmek ve sahra hastanelerini kurmakla sorumludur. Aynı zamanda salgın risklerine karşı önlemler alınır ve psikolojik destek hizmetleri de bu grup kapsamında yürütülür. Büyük afetlerde sağlık sisteminin çökmesini engellemek için bu grup kritik bir rol üstlenir."
+        },
+        {
+          "type": "subsection",
+          "title": "Beslenme ve Barınma Hizmetleri",
+          "text": "Afet sonrası insanların en temel ihtiyaçlarından biri güvenli barınma ve düzenli beslenmedir. Bu grup, çadır kentlerin kurulması, sıcak yemek dağıtımı, içme suyu temini ve temel ihtiyaç malzemelerinin ulaştırılmasını organize eder. Özellikle Kızılay bu süreçte aktif rol oynar ve lojistik destek sağlar."
+        },
+        {
+          "type": "subsection",
+          "title": "Lojistik ve Ulaştırma Hizmetleri",
+          "text": "Afet bölgesine gönderilecek tüm yardım malzemelerinin planlanması, depolanması ve ulaştırılması bu grup tarafından koordine edilir. Kara, hava ve deniz yolları kullanılarak malzeme akışı sağlanır. Bu sistem sayesinde yardım malzemeleri doğru zamanda doğru yere ulaştırılır ve kaynak israfı önlenir."
+        },
+        {
+          "type": "subsection",
+          "title": "Haberleşme ve Bilgi Yönetimi",
+          "text": "Afet anında iletişim altyapısının zarar görmesi en büyük sorunlardan biridir. Bu nedenle haberleşme grubu, mobil iletişim sistemlerini devreye sokar, kriz merkezleri arasında veri akışını sağlar ve sahadan gelen bilgilerin doğru şekilde yönetilmesini üstlenir. Bu grup aynı zamanda karar vericilerin güncel ve doğru bilgiye ulaşmasını sağlar."
+        },
+        {
+          "type": "subsection",
+          "title": "Güvenlik ve Trafik Yönetimi",
+          "text": "Afet bölgelerinde hem vatandaşların güvenliği hem de müdahale ekiplerinin rahat çalışabilmesi için güvenlik önemlidir. Bu grup, afet alanına giriş-çıkışları kontrol eder, trafik akışını düzenler ve olası güvenlik risklerini minimize eder. Özellikle büyük afetlerde koordinasyonun bozulmaması için kritik bir görev üstlenir."
+        },
+        {
+          "type": "p",
+          "text": "Genel olarak Afet Çalışma Grupları, TAMP'ın \"dağınık bir müdahale yerine organize bir sistem\" olmasını sağlayan temel yapı taşlarından biridir. Her grup kendi görev alanında uzmanlaşmış şekilde çalışırken, tüm sistem tek bir koordinasyon merkezine bağlı olarak senkronize biçimde ilerler."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/afet-mudahale-plani/pak-arama-kurtarma.png",
+              "alt": "PAK polis arama kurtarma ekibinin enkaz alanında çalışması",
+              "caption": "Arama ve Kurtarma — PAK ekipleri enkazda koordineli müdahale"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/sahra-hastaneleri-saglik.png",
+              "alt": "Afet bölgesine kurulan sahra hastaneleri ve sağlık personeli istatistikleri",
+              "caption": "Sağlık Hizmetleri — sahra hastaneleri, UMKE ve acil sağlık personeli"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/beslenme-sicak-icecek.png",
+              "alt": "Mobil mutfaktan sıcak içecek dağıtımı",
+              "caption": "Beslenme ve Barınma — sıcak yemek ve içecek dağıtımı"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/afet-calisma-gruplari-tablo.png",
+              "alt": "Olay türüne göre yer alması gereken afet çalışma grupları tablosu",
+              "caption": "Olay türüne göre devreye giren afet çalışma grupları",
+              "fit": "natural"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Kurumlar Arası İş Birliği",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "TAMP'ın en önemli güçlerinden biri, afet yönetimini tek bir kurumun sorumluluğuna bırakmak yerine çok sayıda kurumun birlikte ve koordineli şekilde çalışmasını sağlamasıdır. Bu yapı sayesinde afet anında ortaya çıkan çok boyutlu ihtiyaçlar (sağlık, barınma, güvenlik, iletişim, lojistik vb.) farklı kurumlar tarafından eş zamanlı olarak karşılanır."
+        },
+        {
+          "type": "p",
+          "text": "Sistemin merkezinde AFAD yer alır. AFAD, tüm müdahale sürecinin genel koordinasyonundan sorumludur ve hangi kurumun nerede, ne zaman ve nasıl görev alacağını organize eder. Ancak bu süreçte AFAD tek başına hareket etmez; birçok kamu kurumu ve kuruluş sürece aktif olarak dahil olur."
+        },
+        {
+          "type": "p",
+          "text": "Afet anında bakanlıklar kendi uzmanlık alanlarına göre görev üstlenir. Örneğin sağlık hizmetleri Sağlık Bakanlığı tarafından, ulaşım ve altyapı çalışmaları Ulaştırma ve Altyapı Bakanlığı tarafından, enerji ve iletişim altyapısı ise ilgili kurumlar tarafından yönetilir. Bu görev paylaşımı sayesinde müdahale süreci daha düzenli ve hızlı ilerler."
+        },
+        {
+          "type": "p",
+          "text": "Yerel düzeyde ise valilikler ve belediyeler önemli bir rol oynar. Afetin yaşandığı bölgede ilk organizasyon genellikle yerel yönetimler tarafından başlatılır ve sahadaki ihtiyaçlar hızlı şekilde tespit edilerek ulusal düzeye bildirilir. Bu sayede yerel bilgi ile ulusal kaynaklar birleştirilmiş olur."
+        },
+        {
+          "type": "p",
+          "text": "Sivil toplum kuruluşları da sistemin önemli bir parçasıdır. Özellikle yardım dağıtımı, gönüllü organizasyonu ve sahadaki destek faaliyetlerinde aktif rol oynarlar. Bu noktada Kızılay gibi kuruluşlar, beslenme ve barınma desteği sağlayarak sürecin en kritik aşamalarından birini yürütür."
+        },
+        {
+          "type": "p",
+          "text": "Tüm bu kurumların ortak noktası, önceden belirlenmiş görev tanımlarına sahip olmalarıdır. Bu sayede afet anında \"kim ne yapacak?\" sorusu ortadan kalkar ve herkes kendi sorumluluk alanına odaklanarak sürece katkı sağlar."
+        },
+        {
+          "type": "p",
+          "text": "Genel olarak kurumlar arası iş birliği, TAMP'ın en güçlü yönlerinden biridir ve sistemin başarısını doğrudan etkileyen temel faktörlerden birini oluşturur."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/afet-mudahale-plani/afad-sakarya-isyeri.png",
+              "alt": "AFAD Sakarya personeli ve yerel yöneticilerin bir arada olduğu resmi fotoğraf",
+              "caption": "AFAD ve yerel yönetim — il düzeyinde ortak koordinasyon"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/valilik-afad-protokol.png",
+              "alt": "Bingöl Valiliği ve AFAD arasında imzalanan kurumlar arası iş birliği protokolü",
+              "caption": "Valilik ve AFAD — afet bilinci için kurumlar arası iş birliği protokolü"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/kizilay-lojistik-yardim.png",
+              "alt": "Türk Kızılay lojistik ekibinin yardım malzemesi sevkiyatı",
+              "caption": "Türk Kızılay — sivil toplum kuruluşlarıyla lojistik ve yardım dağıtımı"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/yetkililer-saha-koordinasyon.png",
+              "alt": "Yetkililerin saha ekipleriyle koordinasyon toplantısı",
+              "caption": "Merkez ve saha ekipleri — karar vericiler ile müdahale personeli arasında koordinasyon"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "TAMP'ın İşleyiş Mantığı",
+      "blocks": [
+        {
+          "type": "p",
+          "text": "TAMP'ın çalışma sistemi oldukça net ve döngüsel bir yapıya sahiptir. Bir afet meydana geldiğinde süreç şu şekilde işler:"
+        },
+        {
+          "type": "list",
+          "bullets": [
+            "Afet gerçekleşir",
+            "Seviye belirlenir",
+            "İlgili kurumlar devreye girer",
+            "Çalışma grupları görev alır",
+            "Müdahale başlar",
+            "Ardından iyileştirme süreci başlar"
+          ]
+        },
+        {
+          "type": "p",
+          "text": "Bu yapı sadece anlık müdahaleyi değil, aynı zamanda afet sonrası normal hayata dönüş sürecini de kapsar."
+        },
+        {
+          "type": "subsection",
+          "title": "Neden Bu Plan Önemli?",
+          "text": "TAMP'ın en önemli katkısı, afet anında oluşabilecek belirsizliği ortadan kaldırmasıdır. Normal şartlarda afetler sırasında en büyük sorunlardan biri iletişim ve koordinasyon eksikliğidir. Ancak bu plan sayesinde her kurumun rolü önceden bellidir ve müdahale gecikmeden başlar."
+        },
+        {
+          "type": "p",
+          "text": "Bu da özellikle Türkiye gibi deprem riski yüksek bir ülkede hayati önem taşır."
+        },
+        {
+          "type": "gallery",
+          "images": [
+            {
+              "src": "/images/afet-mudahale-plani/afet-yonetim-sistemi-dongusu.png",
+              "alt": "Afet yönetim sistemi döngüsü: risk azaltma, hazırlık, afet anı, müdahale ve iyileştirme",
+              "caption": "Afet yönetim sistemi — döngüsel müdahale ve iyileştirme süreci",
+              "fit": "natural"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/tamp-paydaslar.png",
+              "alt": "TAMP merkezinde kamu, özel sektör, STK ve gerçek kişiler paydaş şeması",
+              "caption": "TAMP paydaşları — kamu, özel sektör, sivil toplum ve vatandaşlar"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/afet-yonetimi-cercevesi.png",
+              "alt": "Türkiye'de yeni afet yönetimi çerçevesi infografiği",
+              "caption": "Türkiye'de yeni afet yönetimi çerçevesi — müdahale ve yönetim merkezleri",
+              "fit": "natural"
+            },
+            {
+              "src": "/images/afet-mudahale-plani/ulusal-afet-mudahale-organizasyon.png",
+              "alt": "Ulusal afet müdahale organizasyon şeması",
+              "caption": "Şekil 4 — Ulusal Afet Müdahale Organizasyon Şeması",
+              "fit": "natural"
+            }
+          ]
+        },
+        {
+          "type": "subsection",
+          "title": "Genel Değerlendirme",
+          "text": "Türkiye Afet Müdahale Planı (TAMP), sadece bir belge değil; ülke çapında afet yönetimini organize eden büyük bir sistemdir. Yerel ve ulusal düzeyde çalışan yapısı, çok sayıda kurumun koordinasyonu ve önceden belirlenmiş görev dağılımı sayesinde afetlere karşı hızlı ve etkili bir müdahale imkânı sunar."
+        },
+        {
+          "type": "p",
+          "text": "Bu yönüyle TAMP, modern afet yönetiminin en önemli örneklerinden biri olarak kabul edilir."
+        }
+      ]
+    }
+  ]
+}

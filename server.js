@@ -19,6 +19,7 @@ const ilKoordinat = require("./data/il-koordinat.json");
 const riskTurleri = require("./data/risk-turleri.json");
 const karsilastirmalar = require("./data/karsilastirmalar.json");
 const mikroboleme = require("./data/mikroboleme.json");
+const afetMudahalePlani = require("./data/afet-mudahale-plani.json");
 
 app.locals.karsilastirmalar = karsilastirmalar;
 
@@ -306,6 +307,17 @@ app.get("/mikroboleme", (req, res) => {
     page: mikroboleme,
   });
 });
+
+app.get("/afet-mudahale-plani", (req, res) => {
+  res.render("afet-mudahale-plani", {
+    pageTitle: afetMudahalePlani.title,
+    nav: afetler,
+    page: afetMudahalePlani,
+  });
+});
+
+app.get("/duyurular", (req, res) => res.redirect(301, "/afet-mudahale-plani"));
+app.get("/duyurular/:slug", (req, res) => res.redirect(301, "/afet-mudahale-plani"));
 
 app.get(/^\/mikrob[oö]lgeleme\/?$/i, (req, res) => res.redirect(301, "/mikroboleme"));
 app.get("/acil-rehber", (req, res) => res.redirect(301, "/mikroboleme"));

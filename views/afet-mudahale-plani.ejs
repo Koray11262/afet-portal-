@@ -1,0 +1,84 @@
+<%-
+  include("layout", {
+    pageTitle: page.title,
+    nav,
+    pageHero: {
+      title: page.title,
+      lead: page.lead,
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: page.title }],
+    },
+    body: `
+      <div class="compareMeta">
+        <span class="compareMeta__tag">${page.topicLabel || "Afet Yönetimi"}</span>
+      </div>
+
+      <div class="compareContent">
+        ${(page.sections || [])
+          .map(
+            (sec) => `
+          <section class="panel compareSection">
+            <h2>${sec.title}</h2>
+            ${(sec.blocks || [])
+              .map((b) => {
+                if (b.type === "p") return `<p>${b.text || ""}</p>`;
+                if (b.type === "list")
+                  return `<ul>${(b.bullets || []).map((x) => `<li>${x}</li>`).join("")}</ul>`;
+                if (b.type === "gallery") {
+                  const imgCount = (b.images || []).length;
+                  const galleryClass =
+                    imgCount === 4
+                      ? "compareGallery compareGallery--4"
+                      : imgCount === 2
+                        ? "compareGallery compareGallery--2"
+                        : "compareGallery";
+                  return `
+                    <div class="${galleryClass}">
+                      ${(b.images || [])
+                        .map(
+                          (img) => `
+                        <figure class="compareGallery__item${img.fit === "natural" ? " compareGallery__item--natural" : ""}">
+                          <div class="compareGallery__media${img.fit === "natural" ? " compareGallery__media--natural" : ""}">
+                            <img src="${img.src}" alt="${img.alt || ""}" loading="lazy" />
+                          </div>${img.caption ? `<figcaption>${img.caption}</figcaption>` : ""}
+                        </figure>
+                      `
+                        )
+                        .join("")}
+                    </div>
+                  `;
+                }
+                if (b.type === "subsection")
+                  return `
+                    <div class="subsection">
+                      ${b.title ? `<h3>${b.title}</h3>` : ""}
+                      ${b.text ? `<p>${b.text}</p>` : ""}
+                    </div>
+                  `;
+                return "";
+              })
+              .join("")}
+          </section>
+        `
+          )
+          .join("")}
+      </div>
+
+      ${
+        page.moreInfo
+          ? `
+      <div class="compareMoreInfo panel">
+        <p>
+          ${page.moreInfo.text}
+          <a href="${page.moreInfo.url}" target="_blank" rel="noopener noreferrer">${page.moreInfo.url}</a>
+        </p>
+      </div>
+      `
+          : ""
+      }
+
+      <div class="compareNav panel">
+        ${page.relatedAfet ? `<a class="btn btn--ghost" href="/afet/${page.relatedAfet}">${page.relatedAfetLabel || "Afet"} rehberi</a>` : ""}
+      </div>
+    `,
+  })
+%>
