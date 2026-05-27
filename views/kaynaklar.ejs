@@ -1,0 +1,601 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    extraScripts: `
+      <script src="/farkindalik.js"></script>
+    `,
+    body: `
+      <div class="awareness">
+        <section class="panel awarenessIntro">
+          <div class="awarenessIntro__grid">
+            <div>
+              <h2>Yaşa göre afet eğitimi</h2>
+              <p class="muted">
+                Her yaş grubunun öğrenme biçimi farklıdır. Bu merkez; çocuklar için görsel-oyunlaştırılmış içerikleri, gençler için quiz ve rozetleri,
+                yetişkinler için planlayıcıları, 40+ için sade ve okunabilir önerileri bir araya getirir.
+              </p>
+              <div class="awarenessIntro__chips" aria-label="Hızlı geçiş">
+                <a class="chip" href="#yas-2-10">2–10 yaş</a>
+                <a class="chip" href="#yas-10-18">10–18 yaş</a>
+                <a class="chip" href="#yas-18-40">18–40 yaş</a>
+                <a class="chip" href="#yas-40-plus">40+</a>
+              </div>
+            </div>
+            <div class="awarenessIntro__viz" aria-hidden="true">
+              <div class="awarenessVizCard">
+                <div class="awarenessVizCard__icon">🧠</div>
+                <div class="awarenessVizCard__text">
+                  <strong>Hedef</strong>
+                  <span>Bilgi → davranış → hazırlık</span>
+                </div>
+              </div>
+              <div class="awarenessVizCard">
+                <div class="awarenessVizCard__icon">🧰</div>
+                <div class="awarenessVizCard__text">
+                  <strong>Pratik</strong>
+                  <span>Acil çanta ve aile planı</span>
+                </div>
+              </div>
+              <div class="awarenessVizCard">
+                <div class="awarenessVizCard__icon">📍</div>
+                <div class="awarenessVizCard__text">
+                  <strong>Yerel</strong>
+                  <span>Konuma göre öneriler</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="yas-2-10" class="awarenessSection">
+          <div class="awarenessSection__head">
+            <h2>2–10 Yaş</h2>
+            <p class="muted">Kısa, görsel ve tekrar edilebilir öğrenme: oyunlar, animasyonlar ve boyama sayfaları.</p>
+          </div>
+
+          <div class="awarenessGrid">
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🎮</div>
+                <h3>Mini oyunlar</h3>
+              </div>
+              <p class="muted">
+                Amaç; “hazırlık = küçük adımlar” fikrini oyunla öğretmek. Aşağıdaki mini oyunda doğru malzemeleri acil çantaya koymaya çalışın.
+                (Çocuklar için: birlikte oynayın, her seçimin nedenini konuşun.)
+              </p>
+
+              <div class="kidsGame" data-kids-game="bag">
+                <div class="kidsGame__head">
+                  <strong>Acil Çanta: Doğru malzemeyi seç</strong>
+                  <span class="muted small" data-kids-score>0 / 6</span>
+                </div>
+
+                <div class="kidsGame__grid" aria-label="Mini oyun alanı">
+                  <div class="kidsGame__bag" aria-label="Acil çanta">
+                    <div class="kidsGame__bagTop">
+                      <span class="kidsGame__bagIcon" aria-hidden="true">🎒</span>
+                      <span><strong>Çanta</strong> <span class="muted small">(buraya bırak)</span></span>
+                    </div>
+                    <div class="kidsGame__drop" data-kids-drop></div>
+                    <div class="kidsGame__actions">
+                      <button type="button" class="btn btn--primary btn--sm" data-kids-action="check">Kontrol et</button>
+                      <button type="button" class="btn btn--ghost btn--sm" data-kids-action="reset">Sıfırla</button>
+                    </div>
+                    <div class="kidsGame__feedback" data-kids-feedback hidden></div>
+                  </div>
+
+                  <div class="kidsGame__items" aria-label="Malzemeler">
+                    <p class="muted small">Sürükle-bırak (veya tıkla) ile çantaya ekle:</p>
+                    <div class="kidsGame__itemGrid" data-kids-items>
+                      <button type="button" class="kidsItem" data-kids-item="water" data-kids-correct="1">💧 Su</button>
+                      <button type="button" class="kidsItem" data-kids-item="flashlight" data-kids-correct="1">🔦 El feneri</button>
+                      <button type="button" class="kidsItem" data-kids-item="whistle" data-kids-correct="1">📣 Düdük</button>
+                      <button type="button" class="kidsItem" data-kids-item="snack" data-kids-correct="1">🥫 Bozulmayan gıda</button>
+                      <button type="button" class="kidsItem" data-kids-item="bandage" data-kids-correct="1">🩹 İlk yardım</button>
+                      <button type="button" class="kidsItem" data-kids-item="blanket" data-kids-correct="1">🧣 Battaniye</button>
+
+                      <button type="button" class="kidsItem kidsItem--trap" data-kids-item="toy" data-kids-correct="0">🧸 Oyuncak</button>
+                      <button type="button" class="kidsItem kidsItem--trap" data-kids-item="perfume" data-kids-correct="0">🧴 Parfüm</button>
+                      <button type="button" class="kidsItem kidsItem--trap" data-kids-item="chips" data-kids-correct="0">🍟 Cips</button>
+                    </div>
+                    <p class="muted small">İpucu: AFAD çanta listesinde su, bozulmayan gıda, fener, düdük ve ilk yardım gibi temel kalemler öne çıkar.</p>
+                    <a class="btn btn--ghost btn--sm" href="https://www.afad.gov.tr/afet-ve-acil-durum-cantasi-nasil-hazirlanmali" target="_blank" rel="noopener noreferrer">AFAD çanta rehberi →</a>
+                  </div>
+                </div>
+              </div>
+              <a class="btn btn--ghost btn--sm" href="#cocuk-kaynaklari">Çocuk kaynakları →</a>
+            </article>
+
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🎬</div>
+                <h3>Animasyonlar</h3>
+              </div>
+              <p class="muted">
+                Çocuklar için en etkili format; kısa, tek mesajlı, tekrar edilebilir animasyonlardır. Aşağıdaki kaynaklar çocuklarla birlikte izlenip
+                ardından 2–3 dakikalık “ne öğrendik?” sohbetiyle pekiştirilebilir.
+              </p>
+              <div class="awarenessInline">
+                <div class="awarenessInline__pill">60–120 sn</div>
+                <div class="awarenessInline__pill">Sesli anlatım</div>
+                <div class="awarenessInline__pill">Tek mesaj</div>
+              </div>
+
+              <div class="kidsAnimGrid" aria-label="Çocuk animasyonları (SVG)">
+                <div class="kidsAnimCard">
+                  <div class="kidsAnimCard__frame" aria-label="Deprem animasyonu">
+                    <div class="kidsScene" data-kids-scene aria-label="Deprem animasyonu (3 sahne)">
+                      <div class="kidsScene__stage">
+                        <svg class="kidsAnim" viewBox="0 0 400 220" role="img" aria-label="Deprem: Çök-Kapan-Tutun">
+                          <rect width="400" height="220" rx="14" fill="#f8fafc"/>
+                          <line x1="40" y1="185" x2="360" y2="185" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round"/>
+                          <rect x="280" y="95" width="72" height="12" rx="4" fill="#94a3b8"/>
+                          <rect x="298" y="107" width="10" height="78" rx="3" fill="#64748b"/>
+                          <rect x="324" y="107" width="10" height="78" rx="3" fill="#64748b"/>
+
+                          <g class="kidsScene__pose is-active" data-scene-pose="0" data-scene-label="Çök" data-scene-desc="Dizlerinin üzerine in.">
+                            <circle cx="175" cy="118" r="22" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M155 140 Q175 155 195 140 L200 175 Q175 188 150 175 Z" fill="#3b82f6"/>
+                            <ellipse cx="165" cy="178" rx="14" ry="8" fill="#1d4ed8"/>
+                            <ellipse cx="185" cy="178" rx="14" ry="8" fill="#1d4ed8"/>
+                          </g>
+
+                          <g class="kidsScene__pose" data-scene-pose="1" data-scene-label="Kapan" data-scene-desc="Başını ve enseni koru.">
+                            <circle cx="175" cy="128" r="22" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M148 128 Q175 118 202 128 L195 175 Q175 188 155 175 Z" fill="#3b82f6"/>
+                            <path d="M148 125 Q175 105 202 125" fill="none" stroke="#fde68a" stroke-width="14" stroke-linecap="round"/>
+                            <ellipse cx="165" cy="178" rx="14" ry="8" fill="#1d4ed8"/>
+                            <ellipse cx="185" cy="178" rx="14" ry="8" fill="#1d4ed8"/>
+                          </g>
+
+                          <g class="kidsScene__pose" data-scene-pose="2" data-scene-label="Tutun" data-scene-desc="Sabit bir yere tutun (masa ayağı vb.).">
+                            <circle cx="175" cy="128" r="22" fill="#fde68a" stroke="#f59e0b" stroke-width="2"/>
+                            <path d="M148 128 Q175 118 202 128 L195 175 Q175 188 155 175 Z" fill="#3b82f6"/>
+                            <path d="M148 125 Q175 105 202 125" fill="none" stroke="#fde68a" stroke-width="14" stroke-linecap="round"/>
+                            <path d="M210 155 L298 120" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                            <ellipse cx="165" cy="178" rx="14" ry="8" fill="#1d4ed8"/>
+                            <ellipse cx="185" cy="178" rx="14" ry="8" fill="#1d4ed8"/>
+                          </g>
+                        </svg>
+                        <p class="kidsScene__caption">
+                          <strong data-scene-label>Çök</strong>
+                          <span class="muted" data-scene-desc>Dizlerinin üzerine in.</span>
+                        </p>
+                      </div>
+                      <div class="kidsScene__dots" aria-hidden="true">
+                        <span class="kidsScene__dot is-active"></span>
+                        <span class="kidsScene__dot"></span>
+                        <span class="kidsScene__dot"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="kidsAnimCard__meta">
+                    <strong>Deprem: Çök – Kapan – Tutun</strong>
+                    <p class="muted small">3 sahneli kısa demo: sırayla adımların ne olduğunu gösterir.</p>
+                    <button type="button" class="btn btn--ghost btn--sm kidsAnimZoom" data-kids-anim-zoom>Büyüt</button>
+                  </div>
+                </div>
+
+                <div class="kidsAnimCard">
+                  <div class="kidsAnimCard__frame" aria-label="Sel animasyonu">
+                    <div class="kidsScene" data-kids-scene aria-label="Sel animasyonu (3 sahne)">
+                      <div class="kidsScene__stage">
+                        <svg class="kidsAnim" viewBox="0 0 400 220" role="img" aria-label="Sel: güvenli davranışlar">
+                          <rect width="400" height="220" rx="14" fill="#f8fafc"/>
+                          <rect x="60" y="92" width="130" height="108" rx="12" fill="#c7d2fe" stroke="#818cf8" stroke-width="3"/>
+                          <rect x="88" y="122" width="34" height="78" rx="8" fill="#ffffff" stroke="#a5b4fc" stroke-width="3"/>
+                          <rect x="132" y="122" width="34" height="34" rx="8" fill="#ffffff" stroke="#a5b4fc" stroke-width="3"/>
+
+                          <g class="kidsScene__pose is-active" data-scene-pose="0" data-scene-label="Uyarı" data-scene-desc="Su yükseliyorsa sakin ol ve yetişkinine haber ver.">
+                            <rect x="0" y="150" width="400" height="80" fill="#3b82f6" opacity="0.28"/>
+                            <path d="M16 162 C56 150 88 172 128 162 C168 150 200 172 240 162 C280 150 312 172 352 162 C376 154 392 162 400 160"
+                                  fill="none" stroke="#dbeafe" stroke-width="6" stroke-linecap="round" opacity="0.9"/>
+                            <circle cx="320" cy="88" r="18" fill="#fee2e2" stroke="#fecaca"/>
+                            <path d="M320 78 L320 92" stroke="#dc2626" stroke-width="6" stroke-linecap="round"/>
+                            <circle cx="320" cy="98" r="3" fill="#dc2626"/>
+                          </g>
+
+                          <g class="kidsScene__pose" data-scene-pose="1" data-scene-label="Yükseğe çık" data-scene-desc="Güvenli-yüksek bir yere yönel.">
+                            <rect x="0" y="165" width="400" height="55" fill="#3b82f6" opacity="0.38"/>
+                            <path d="M280 190 L280 120" stroke="#f97316" stroke-width="10" stroke-linecap="round"/>
+                            <path d="M280 110 L255 135" stroke="#f97316" stroke-width="10" stroke-linecap="round"/>
+                            <path d="M280 110 L305 135" stroke="#f97316" stroke-width="10" stroke-linecap="round"/>
+                          </g>
+
+                          <g class="kidsScene__pose" data-scene-pose="2" data-scene-label="Akıntıya girme" data-scene-desc="Suya/akıntıya adım atma, güvenli çıkışı izle.">
+                            <rect x="0" y="160" width="400" height="60" fill="#3b82f6" opacity="0.32"/>
+                            <circle cx="300" cy="100" r="18" fill="#fff7ed" stroke="#fed7aa"/>
+                            <path d="M290 90 L310 110" stroke="#ea580c" stroke-width="6" stroke-linecap="round"/>
+                            <path d="M310 90 L290 110" stroke="#ea580c" stroke-width="6" stroke-linecap="round"/>
+                          </g>
+                        </svg>
+                        <p class="kidsScene__caption">
+                          <strong data-scene-label>Uyarı</strong>
+                          <span class="muted" data-scene-desc>Su yükseliyorsa sakin ol ve yetişkinine haber ver.</span>
+                        </p>
+                      </div>
+                      <div class="kidsScene__dots" aria-hidden="true">
+                        <span class="kidsScene__dot is-active"></span>
+                        <span class="kidsScene__dot"></span>
+                        <span class="kidsScene__dot"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="kidsAnimCard__meta">
+                    <strong>Sel: Yükseğe çık</strong>
+                    <p class="muted small">3 sahneli demo: uyarı → yükseğe çık → akıntıya girme.</p>
+                    <button type="button" class="btn btn--ghost btn--sm kidsAnimZoom" data-kids-anim-zoom>Büyüt</button>
+                  </div>
+                </div>
+
+                <div class="kidsAnimCard">
+                  <div class="kidsAnimCard__frame" aria-label="Yangın animasyonu">
+                    <div class="kidsScene" data-kids-scene aria-label="Yangın animasyonu (3 sahne)">
+                      <div class="kidsScene__stage">
+                        <svg class="kidsAnim" viewBox="0 0 400 220" role="img" aria-label="Yangın: güvenli davranışlar">
+                          <rect width="400" height="220" rx="14" fill="#f8fafc"/>
+                          <g class="kidsAnim__flameBase">
+                            <path d="M210 200 C260 170 250 120 210 90 C190 120 160 140 170 175 C175 195 190 205 210 200 Z" fill="#f97316"/>
+                            <path d="M210 195 C235 175 232 145 210 125 C200 145 185 155 190 175 C193 188 200 198 210 195 Z" fill="#fde68a"/>
+                          </g>
+
+                          <g class="kidsScene__pose is-active" data-scene-pose="0" data-scene-label="Duman" data-scene-desc="Duman varsa yukarıdan kaçın.">
+                            <g opacity="0.75" fill="#334155">
+                              <circle cx="150" cy="90" r="26"/>
+                              <circle cx="190" cy="78" r="32"/>
+                              <circle cx="235" cy="92" r="28"/>
+                            </g>
+                          </g>
+
+                          <g class="kidsScene__pose" data-scene-pose="1" data-scene-label="Eğil" data-scene-desc="Alçaktan ilerle (temiz hava altta).">
+                            <g opacity="0.78" fill="#334155">
+                              <circle cx="150" cy="90" r="26"/>
+                              <circle cx="190" cy="78" r="32"/>
+                              <circle cx="235" cy="92" r="28"/>
+                            </g>
+                            <g fill="none" stroke="#0b4d8f" stroke-width="8" stroke-linecap="round" opacity="0.9">
+                              <path d="M90 195 L155 195"/>
+                              <path d="M155 195 L175 178"/>
+                            </g>
+                          </g>
+
+                          <g class="kidsScene__pose" data-scene-pose="2" data-scene-label="Çıkış" data-scene-desc="Güvenli çıkışa yönel, kapıyı kapat.">
+                            <g opacity="0.65" fill="#334155">
+                              <circle cx="150" cy="90" r="26"/>
+                              <circle cx="190" cy="78" r="32"/>
+                              <circle cx="235" cy="92" r="28"/>
+                            </g>
+                            <rect x="300" y="120" width="54" height="84" rx="10" fill="#bfdbfe" stroke="#60a5fa" stroke-width="3"/>
+                            <circle cx="342" cy="162" r="5" fill="#0b4d8f"/>
+                            <path d="M270 188 L310 188" stroke="#f97316" stroke-width="8" stroke-linecap="round"/>
+                            <path d="M300 178 L310 188 L300 198" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                          </g>
+                        </svg>
+                        <p class="kidsScene__caption">
+                          <strong data-scene-label>Duman</strong>
+                          <span class="muted" data-scene-desc>Duman varsa yukarıdan kaçın.</span>
+                        </p>
+                      </div>
+                      <div class="kidsScene__dots" aria-hidden="true">
+                        <span class="kidsScene__dot is-active"></span>
+                        <span class="kidsScene__dot"></span>
+                        <span class="kidsScene__dot"></span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="kidsAnimCard__meta">
+                    <strong>Yangın: Duman varsa eğil</strong>
+                    <p class="muted small">3 sahneli demo: duman → eğil → çıkış.</p>
+                    <button type="button" class="btn btn--ghost btn--sm kidsAnimZoom" data-kids-anim-zoom>Büyüt</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="awarenessMiniList">
+                <a class="refLink" href="https://www.afad.gov.tr/deprem-aninda-neler-yapmalisiniz" target="_blank" rel="noopener noreferrer">AFAD: Deprem anında ne yapmalı? →</a>
+                <a class="refLink" href="https://www.afad.gov.tr/afadem/sel" target="_blank" rel="noopener noreferrer">AFAD: Sel/taşkın temel önlemler →</a>
+                <a class="refLink" href="https://www.afad.gov.tr/ormanlarimiz-kul-olmasin" target="_blank" rel="noopener noreferrer">AFAD: Orman yangınları farkındalığı →</a>
+              </div>
+              <p class="muted small">
+                Görsel/animasyon indirip sayfaya gömmek istersen: bu sayfalardaki afiş/infografik/medya içeriklerini indirip
+                <code>public/assets/</code> altına koyabiliriz (sen indir, dosya adını söyle; ben sayfaya ekleyeyim).
+              </p>
+            </article>
+
+            <article class="panel awarenessCard awarenessCard--full">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🖍️</div>
+                <h3>Boyama sayfaları</h3>
+              </div>
+              <p class="muted">
+                Boyama sayfaları, küçük yaşta “afet konuşmayı” kolaylaştırır. Bir sayfayı boyarken şu 3 soruyu sorabilirsiniz:
+                “Bu ne?”, “Ne işe yarar?”, “Evde nerede durmalı?”
+              </p>
+              <div class="awarenessMiniList">
+                <a class="refLink" href="https://www.kizilay.org.tr/kizilayhaftasi/kitaplar.html" target="_blank" rel="noopener noreferrer">Türk Kızılay: boyama kitabı ve çocuk kitapları →</a>
+                <a class="refLink" href="https://orgm.meb.gov.tr/www/ozel-egitim-ihtiyaci-olan-ogrenciler-icin-afet-sonrasi-uyum-etkinlikleri-kitabi-yayimlandi/icerik/2336" target="_blank" rel="noopener noreferrer">MEB: afet sonrası uyum etkinlikleri kitabı →</a>
+              </div>
+
+              <div class="boyamaEmbed">
+                <p class="muted small">
+                  İlk 3 sayfa: renk seçip alana <strong>tıklayarak</strong> boyayın (kova doldurma). Daha rahat için
+                  <strong>Tam ekran boya</strong>. Son 2 sayfa tıklanınca büyütülür.
+                </p>
+
+                <div class="boyamaEmbed__grid">
+                  <div class="boyamaEmbed__item boyamaEmbed__item--wide">
+                    <div class="boyamaEmbed__cap"><strong>Boyama 1</strong> <span class="muted small">(çizim)</span></div>
+                    <div class="coloring" data-coloring-src="/assets/boyama/sivas/img/sivas-1.png" data-coloring-title="Afet ve Acil Durum Çantası"></div>
+                  </div>
+                  <div class="boyamaEmbed__item boyamaEmbed__item--wide">
+                    <div class="boyamaEmbed__cap"><strong>Boyama 2</strong> <span class="muted small">(çizim)</span></div>
+                    <div class="coloring" data-coloring-src="/assets/boyama/sivas/img/sivas-2.png" data-coloring-title="Afetlerde Asansör Kullanmayoruz"></div>
+                  </div>
+                  <div class="boyamaEmbed__item boyamaEmbed__item--wide">
+                    <div class="boyamaEmbed__cap"><strong>Boyama 3</strong> <span class="muted small">(çizim)</span></div>
+                    <div class="coloring" data-coloring-src="/assets/boyama/sivas/img/sivas-3.png" data-coloring-title="Değişim Eğitimle Başlar"></div>
+                  </div>
+                  <div class="boyamaEmbed__item">
+                    <div class="boyamaEmbed__cap"><strong>Görsel 1</strong> <span class="muted small">(poster)</span></div>
+                    <img class="boyamaImg" src="/assets/boyama/sivas/img/sivas-4.png" alt="Afet bilinci posteri" loading="lazy"/>
+                  </div>
+                  <div class="boyamaEmbed__item">
+                    <div class="boyamaEmbed__cap"><strong>Görsel 2</strong> <span class="muted small">(poster)</span></div>
+                    <img class="boyamaImg" src="/assets/boyama/sivas/img/sivas-5.png" alt="Yaşama sevinci posteri" loading="lazy"/>
+                  </div>
+                </div>
+              </div>
+
+              <p class="muted small">
+                Eğer “indirilebilir PDF” dosyasını yerel olarak sayfaya eklemek istersen: ilgili sayfadan PDF’yi indirip
+                <code>public/assets/boyama/</code> altına koy (ör. <code>kizilay-boyama.pdf</code>). Ben de bu kartın altına “İndir” butonu ekleyeyim.
+              </p>
+            </article>
+          </div>
+
+          <div id="cocuk-kaynaklari" class="panel awarenessRefs">
+            <h3>Güvenilir içerik kaynakları (çocuk)</h3>
+            <p class="muted">Aşağıdaki linkler resmi kurum/kuruluşların eğitim materyalleridir. (Linkler sayfa içinde güncel tutulur.)</p>
+            <ul class="refList" id="refKids"></ul>
+          </div>
+        </section>
+
+        <section id="yas-10-18" class="awarenessSection">
+          <div class="awarenessSection__head">
+            <h2>10–18 Yaş</h2>
+            <p class="muted">Oyunlaştırma: quiz, rozet ve senaryolarla karar verme becerisi.</p>
+          </div>
+
+          <div class="awarenessGrid">
+            <article class="panel awarenessCard" id="genclik-quiz">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🧩</div>
+                <h3>Quiz sistemi</h3>
+              </div>
+              <p class="muted">Kısa bilgi soruları; her yanıttan sonra açıklama verir. Tamamlayınca puanını gör.</p>
+              <div class="quiz" data-quiz="teen">
+                <div class="quiz__row">
+                  <button type="button" class="btn btn--primary btn--sm" data-quiz-action="start" disabled>Quize başla</button>
+                  <span class="muted small" data-quiz-meta>Yükleniyor…</span>
+                </div>
+                <div class="quiz__q panel" hidden>
+                  <p class="muted small" data-quiz-progress></p>
+                  <h4 data-quiz-question></h4>
+                  <div class="quiz__options" data-quiz-options></div>
+                  <div class="quiz__feedback" data-quiz-feedback hidden></div>
+                  <button type="button" class="btn btn--primary btn--sm" data-quiz-action="next" hidden>Sonraki</button>
+                </div>
+                <div class="quiz__result panel" hidden>
+                  <h4>Sonuç</h4>
+                  <div class="quiz__score" data-quiz-score></div>
+                  <div class="badgeShelf" data-badges></div>
+                  <div class="quiz__row">
+                    <button type="button" class="btn btn--ghost btn--sm" data-quiz-action="restart">Tekrarla</button>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🏅</div>
+                <h3>Rozet sistemi</h3>
+              </div>
+              <p class="muted">
+                Quizlerde belirli barajları geçtikçe rozet kazanırsın. Rozetler bu tarayıcıda saklanır (cihaz değişince sıfırlanır).
+              </p>
+              <ul class="list">
+                <li>%70+ “Hazır Başlangıç”</li>
+                <li>%85+ “Afet Bilgini Güçlendir”</li>
+                <li>%95+ “Farkındalık Ustası”</li>
+              </ul>
+            </article>
+
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🧭</div>
+                <h3>Afet senaryoları</h3>
+              </div>
+              <p class="muted">Havuzdan gelen 5 soruluk mini test: her başlatışta soru seti ve sırası değişir.</p>
+              <div class="scenario" data-scenario="teen">
+                <div class="scenario__row">
+                  <label class="scenario__label">
+                    Senaryo
+                    <select class="scenario__select" data-scn-select>
+                      <option value="okul-deprem">Okuldayken deprem oldu</option>
+                      <option value="sel-ulasim">Sel uyarısında ulaşım kararı</option>
+                      <option value="yangin-duman">Yangında dumanlı koridorda çıkış</option>
+                    </select>
+                  </label>
+                  <button type="button" class="btn btn--primary btn--sm" data-scn-action="start">Başlat</button>
+                  <span class="muted small" data-scn-meta>Hazır.</span>
+                </div>
+
+                <div class="scenario__q panel" hidden>
+                  <p class="muted small" data-scn-progress></p>
+                  <h4 data-scn-prompt></h4>
+                  <div class="scenario__options" data-scn-options></div>
+                  <div class="scenario__feedback" data-scn-feedback hidden></div>
+                  <div class="scenario__row">
+                    <button type="button" class="btn btn--primary btn--sm" data-scn-action="next" hidden>Devam</button>
+                    <button type="button" class="btn btn--ghost btn--sm" data-scn-action="restart">Sıfırla</button>
+                  </div>
+                </div>
+
+                <div class="scenario__result panel" hidden>
+                  <h4>Sonuç</h4>
+                  <div class="scenario__score" data-scn-score></div>
+                  <p class="muted small" data-scn-total></p>
+                  <div class="badgeShelf" data-scn-badges></div>
+                  <div class="scenario__path" data-scn-path></div>
+                  <div class="scenario__row">
+                    <button type="button" class="btn btn--primary btn--sm" data-scn-action="replay">Tekrar oyna</button>
+                    <button type="button" class="btn btn--ghost btn--sm" data-scn-action="resetTotal">Toplam puanı sıfırla</button>
+                  </div>
+                </div>
+              </div>
+              <a class="btn btn--ghost btn--sm" href="/hazirlik-skoru#bilgi">Bilgi testini de dene →</a>
+            </article>
+          </div>
+
+          <div class="panel awarenessRefs">
+            <h3>Güvenilir içerik kaynakları (gençlik)</h3>
+            <ul class="refList" id="refTeens"></ul>
+          </div>
+        </section>
+
+        <section id="yas-18-40" class="awarenessSection">
+          <div class="awarenessSection__head">
+            <h2>18–40 Yaş</h2>
+            <p class="muted">Planlama ve eylem: çanta, aile planı, konuma göre risk ve toplanma.</p>
+          </div>
+
+          <div class="awarenessGrid">
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🎒</div>
+                <h3>Acil durum çantası planlayıcı</h3>
+              </div>
+              <p class="muted">Checklist ile eksikleri gör, tamamladıklarını işaretle.</p>
+              <a class="btn btn--primary btn--sm" href="/acil-canta">Planlayıcıyı aç</a>
+            </article>
+
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">👨‍👩‍👧‍👦</div>
+                <h3>Aile afet planı oluşturucu</h3>
+              </div>
+              <p class="muted">Buluşma noktaları, iletişim kartı ve yazdırılabilir plan.</p>
+              <a class="btn btn--primary btn--sm" href="/aile-afet-plani">Plan oluştur</a>
+            </article>
+
+            <article class="panel awarenessCard">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">📌</div>
+                <h3>Konuma göre öneriler</h3>
+              </div>
+              <p class="muted">İl/ilçe seçerek risk özeti, yakın toplanma ve önerileri gör.</p>
+              <a class="btn btn--ghost btn--sm" href="/#konuma-gore-oneriler">Anasayfada aç →</a>
+            </article>
+          </div>
+
+          <div class="panel awarenessRefs">
+            <h3>Güvenilir içerik kaynakları (yetişkin)</h3>
+            <ul class="refList" id="refAdults"></ul>
+          </div>
+        </section>
+
+        <section id="yas-40-plus" class="awarenessSection awarenessSection--senior">
+          <div class="awarenessSection__head">
+            <h2>40+</h2>
+            <p class="muted">Basit arayüz, büyük yazılar, sağlık odaklı öneriler ve kısa kontrol listeleri.</p>
+          </div>
+
+          <div class="awarenessGrid">
+            <article class="panel awarenessCard awarenessCard--senior">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🔎</div>
+                <h3>Basit arayüz</h3>
+              </div>
+              <ul class="list">
+                <li>Tek sayfa, büyük butonlar</li>
+                <li>Önemli 5 madde: önce güvenlik</li>
+                <li>Yazdırılabilir özet</li>
+              </ul>
+              <button type="button" class="btn btn--ghost btn--sm" data-cta="seniorPrint">Yazdırılabilir özet</button>
+            </article>
+
+            <article class="panel awarenessCard awarenessCard--senior">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">🔤</div>
+                <h3>Büyük yazılar</h3>
+              </div>
+              <p class="muted">Bu bölümde metin boyutu otomatik olarak daha büyüktür.</p>
+              <div class="awarenessInline">
+                <div class="awarenessInline__pill">Yüksek kontrast</div>
+                <div class="awarenessInline__pill">Kısa paragraf</div>
+                <div class="awarenessInline__pill">Net başlıklar</div>
+              </div>
+            </article>
+
+            <article class="panel awarenessCard awarenessCard--senior">
+              <div class="awarenessCard__top">
+                <div class="awarenessCard__icon" aria-hidden="true">❤️</div>
+                <h3>Sağlık odaklı öneriler</h3>
+              </div>
+              <ul class="list">
+                <li>İlaç listesi ve 7 günlük stok</li>
+                <li>Kimlik + kronik hastalık notu</li>
+                <li>Görme/işitme cihazı yedekleri</li>
+                <li>Acil durumda aranacak kişi kartı</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="panel awarenessRefs">
+            <h3>Güvenilir içerik kaynakları (40+ / sağlık)</h3>
+            <ul class="refList" id="refSeniors"></ul>
+          </div>
+        </section>
+
+        <dialog class="coloringModal" id="coloringModal">
+          <form method="dialog" class="coloringModal__panel">
+            <div class="coloringModal__head">
+              <h3 id="coloringModalTitle">Boyama</h3>
+              <button class="btn btn--ghost btn--sm" value="close" aria-label="Kapat">Kapat</button>
+            </div>
+            <div id="coloringModalHost" class="coloringModal__host"></div>
+          </form>
+        </dialog>
+
+        <dialog class="kidsAnimModal" id="kidsAnimModal">
+          <form method="dialog" class="kidsAnimModal__panel">
+            <div class="kidsAnimModal__head">
+              <h3 id="kidsAnimModalTitle">Animasyon</h3>
+              <button class="btn btn--ghost btn--sm" value="close" aria-label="Kapat">Kapat</button>
+            </div>
+            <div id="kidsAnimModalHost" class="kidsAnimModal__host"></div>
+          </form>
+        </dialog>
+
+        <dialog class="mediaModal" id="mediaModal">
+          <form method="dialog" class="mediaModal__panel">
+            <div class="mediaModal__head">
+              <h3 id="mediaModalTitle">Görsel</h3>
+              <button class="btn btn--ghost btn--sm" value="close" aria-label="Kapat">Kapat</button>
+            </div>
+            <div class="mediaModal__body">
+              <img id="mediaModalImg" class="mediaModal__img" alt="" />
+            </div>
+            <div class="mediaModal__foot">
+              <a id="mediaModalOpen" class="btn btn--primary btn--sm" href="#" target="_blank" rel="noopener noreferrer">Yeni sekmede aç</a>
+            </div>
+          </form>
+        </dialog>
+      </div>
+    `,
+  })
+%>
+

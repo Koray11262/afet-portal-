@@ -1,0 +1,78 @@
+{
+  "title": "Gençlik Afet Quizi",
+  "questions": [
+    {
+      "id": 1,
+      "text": "Deprem sırasında en doğru ilk davranış hangisidir?",
+      "options": [
+        "Merdiven veya asansöre koşmak",
+        "Çök-kapan-tutun; sağlam bir mobilyanın yanına geçmek",
+        "Pencere kenarında dışarıyı izlemek",
+        "Balkona çıkıp aşağı atlamaya çalışmak"
+      ],
+      "correct": 1,
+      "explanation": "Çök-kapan-tutun, düşen cisimlerden korunmanın temel yöntemidir. Merdiven/asansör güvenli değildir."
+    },
+    {
+      "id": 2,
+      "text": "Sel/taşkında araç kullanırken doğru olan hangisidir?",
+      "options": [
+        "Su basmış yoldan geçmek (az su varsa sorun olmaz)",
+        "Araçla derinliği bilinmeyen suya girmemek ve alternatif yol seçmek",
+        "Köprü altından geçmek için hızlanmak",
+        "Aracı suyun aktığı yöne sürmek"
+      ],
+      "correct": 1,
+      "explanation": "Akıntılı su az derinlikte bile aracı sürükleyebilir. Su basmış yollardan uzak durmak gerekir."
+    },
+    {
+      "id": 3,
+      "text": "Yangında yoğun duman olan bir alanda hareket ederken doğru yaklaşım hangisidir?",
+      "options": [
+        "Dik durup hızlı koşmak",
+        "Dumanın üstünde temiz hava olur diye merdivenlere yönelmek",
+        "Alçaktan ilerlemek ve mümkünse ağız-burnu bezle kapatmak",
+        "Kapıları açık bırakmak"
+      ],
+      "correct": 2,
+      "explanation": "Duman yükselir; alçaktan ilerlemek solunacak havayı iyileştirir. Kapıları kapalı tutmak yayılımı azaltabilir."
+    },
+    {
+      "id": 4,
+      "text": "Heyelan riski artabileceğini gösteren işaretlerden biri hangisidir?",
+      "options": [
+        "Yeni çatlaklar ve toprakta kayma izleri",
+        "Havanın aniden soğuması",
+        "Güneşli havada rüzgârın artması",
+        "Uzakta gök gürültüsü"
+      ],
+      "correct": 0,
+      "explanation": "Toprakta yeni çatlaklar, eğimde kayma izleri ve taş düşmeleri heyelan riskini artırabilir."
+    },
+    {
+      "id": 5,
+      "text": "Acil durum çantasında aşağıdakilerden hangisi en temel ihtiyaçlardan biridir?",
+      "options": [
+        "Sadece şarj kablosu",
+        "Su ve bozulmayan gıda",
+        "Sadece oyun kartı",
+        "Sadece parfüm"
+      ],
+      "correct": 1,
+      "explanation": "Su ve bozulmayan gıda, ilk 72 saat için temel ihtiyaçlardandır."
+    },
+    {
+      "id": 6,
+      "text": "Deprem sonrası gaz kokusu alınırsa doğru davranış hangisidir?",
+      "options": [
+        "Işığı açıp kontrol etmek",
+        "Elektrik düğmelerine dokunmadan vanayı kapatıp binayı tahliye etmek",
+        "Asansörle inmek",
+        "Çakmak yakıp kaynağı bulmak"
+      ],
+      "correct": 1,
+      "explanation": "Kıvılcım/patlama riski vardır. Elektrik düğmelerine dokunmadan güvenli şekilde tahliye etmek önemlidir."
+    }
+  ]
+}
+

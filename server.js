@@ -482,6 +482,10 @@ app.get("/afet-bilgi-sorular.json", (req, res) => {
   res.sendFile(path.join(__dirname, "data", "afet-bilgi-sorular.json"));
 });
 
+app.get("/farkindalik-quiz.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "data", "farkindalik-quiz.json"));
+});
+
 app.get("/hazirlik-skoru", (req, res) => {
   res.render("hazirlik-skoru", {
     pageTitle: "Hazırlık & Afet Bilgi Testi",
@@ -514,6 +518,18 @@ app.get("/aile-afet-plani", (req, res) => {
       title: "Aile Afet Planı Oluşturucu",
       lead: "Buluşma noktaları ve iletişim bilgilerinizi düzenleyin, yazdırın.",
       crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Aile Afet Planı" }],
+    },
+  });
+});
+
+app.get("/kaynaklar", (req, res) => {
+  res.render("kaynaklar", {
+    pageTitle: "Farkındalık Merkezi",
+    nav: afetler,
+    pageHero: {
+      title: "Farkındalık Merkezi",
+      lead: "Yaşa göre afet eğitimi içerikleri, mini etkinlikler ve pratik hazırlık araçları.",
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Farkındalık Merkezi" }],
     },
   });
 });

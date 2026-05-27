@@ -1196,6 +1196,959 @@ a {
   margin-top: 16px;
 }
 
+/* ===== Farkındalık Merkezi (Kaynaklar) ===== */
+.awareness {
+  display: grid;
+  gap: 18px;
+}
+
+.awarenessIntro__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.awarenessIntro__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.awarenessIntro__viz {
+  display: grid;
+  gap: 10px;
+}
+
+.awarenessVizCard {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--surface), var(--bg-subtle));
+}
+
+.awarenessVizCard__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: var(--accent-light);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+.awarenessVizCard__text {
+  display: grid;
+  gap: 2px;
+}
+
+.awarenessVizCard__text span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.awarenessSection {
+  display: grid;
+  gap: 12px;
+}
+
+.awarenessSection__head p {
+  margin: 6px 0 0;
+}
+
+.awarenessGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+}
+
+.awarenessCard {
+  grid-column: span 6;
+}
+
+.awarenessCard--full {
+  grid-column: span 12;
+}
+
+.awarenessCard__top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.awarenessCard__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+}
+
+.awarenessInline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+
+.awarenessInline__pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.awarenessMiniList {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.awarenessRefs .refList {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  line-height: 1.7;
+}
+
+.refLink {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.refLink:hover {
+  text-decoration: underline;
+}
+
+.small {
+  font-size: 12px;
+}
+
+/* 2–10 mini oyun */
+.kidsGame {
+  margin-top: 12px;
+}
+
+.kidsGame__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.kidsGame__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.kidsGame__bag {
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: linear-gradient(180deg, var(--surface), var(--bg-subtle));
+}
+
+.kidsGame__bagTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.kidsGame__bagIcon {
+  width: 38px;
+  height: 38px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--accent-light);
+  display: grid;
+  place-items: center;
+}
+
+.kidsGame__drop {
+  min-height: 96px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.kidsPick {
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  border-radius: 999px;
+  padding: 8px 10px;
+  font-weight: 800;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.kidsGame__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.kidsGame__feedback {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.kidsGame__feedback p {
+  margin: 6px 0 0;
+}
+
+.kidsGame__feedback--ok {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #14532d;
+}
+
+.kidsGame__feedback--warn {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  color: #7c2d12;
+}
+
+.kidsGame__feedback--fail {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+.kidsGame__items {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 12px;
+  background: var(--surface);
+}
+
+.kidsGame__itemGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.kidsItem {
+  text-align: left;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  font-weight: 900;
+  cursor: grab;
+}
+
+.kidsItem:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.kidsItem:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.kidsItem--trap {
+  background: #fff7ed;
+}
+
+/* Çök-kapan-tutun önizleme (kart içi) */
+.kidsCktaPreview {
+  margin: 10px 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-subtle);
+  padding: 10px;
+}
+
+.kidsCktaPreview__stage {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.kidsCktaPreview__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kidsCktaPreview__pose {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.kidsCktaPreview__pose.is-active {
+  opacity: 1;
+}
+
+.kidsCktaPreview__caption {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  margin: 0;
+  font-size: 14px;
+}
+
+.kidsCktaPreview__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.kidsCktaPreview__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.kidsCktaPreview__dot.is-active {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+/* 2–10 Animasyonlar (SVG + CSS; harici kütüphane yok) */
+.kidsAnimGrid {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.kidsAnimCard {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.kidsAnimCard__frame {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  cursor: zoom-in;
+}
+
+.kidsAnim {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.kidsAnimCard__meta {
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.kidsScene__stage {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+}
+
+.kidsScene__pose {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.kidsScene__pose.is-active {
+  opacity: 1;
+}
+
+.kidsScene__caption {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  margin: 0;
+  font-size: 14px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.kidsScene__dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 10px 0 0;
+}
+
+.kidsScene__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #cbd5e1;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.kidsScene__dot.is-active {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+
+/* Animasyon büyütme modal */
+.kidsAnimModal {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 96vw;
+}
+
+.kidsAnimModal::backdrop {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.kidsAnimModal__panel {
+  width: min(1100px, 96vw);
+  max-height: 92vh;
+  margin: 3vh auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.kidsAnimModal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.kidsAnimModal__host {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.kidsAnimModal__host .kidsScene__stage {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.kidsAnimModal__host .kidsAnim {
+  width: min(980px, 96vw);
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 900px) {
+  .kidsAnimGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes kidsShake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(2px, 0) rotate(1deg); }
+  40% { transform: translate(-2px, 1px) rotate(-1deg); }
+  60% { transform: translate(2px, 1px) rotate(1deg); }
+  80% { transform: translate(-2px, 0) rotate(-1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+.kidsAnim--shake .kidsAnim__shake {
+  transform-origin: 210px 160px;
+  animation: kidsShake 1.2s ease-in-out infinite;
+}
+
+.kidsAnim--shake .kidsAnim__lines {
+  animation: kidsShake 1.2s ease-in-out infinite;
+  transform-origin: 210px 120px;
+}
+
+@keyframes kidsWaterRise {
+  0% { transform: translateY(16px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(16px); }
+}
+
+.kidsAnim--flood .kidsAnim__water {
+  animation: kidsWaterRise 2.2s ease-in-out infinite;
+}
+
+@keyframes kidsPulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.kidsAnim--flood .kidsAnim__arrow {
+  transform-origin: 300px 155px;
+  animation: kidsPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes kidsSmokeUp {
+  0% { transform: translateY(8px); opacity: 0.35; }
+  50% { transform: translateY(-10px); opacity: 0.75; }
+  100% { transform: translateY(8px); opacity: 0.35; }
+}
+
+.kidsAnim--fire .kidsAnim__smoke {
+  animation: kidsSmokeUp 2.3s ease-in-out infinite;
+  transform-origin: 210px 80px;
+}
+
+@keyframes kidsFlameFlicker {
+  0% { transform: scale(0.98) rotate(-1deg); }
+  50% { transform: scale(1.06) rotate(1deg); }
+  100% { transform: scale(0.98) rotate(-1deg); }
+}
+
+.kidsAnim--fire .kidsAnim__flame {
+  animation: kidsFlameFlicker 1.2s ease-in-out infinite;
+  transform-origin: 210px 190px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kidsAnim--shake .kidsAnim__shake,
+  .kidsAnim--shake .kidsAnim__lines,
+  .kidsAnim--flood .kidsAnim__water,
+  .kidsAnim--flood .kidsAnim__arrow,
+  .kidsAnim--fire .kidsAnim__smoke,
+  .kidsAnim--fire .kidsAnim__flame,
+  .kidsScene__pose {
+    animation: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .kidsGame__grid {
+    grid-template-columns: 1fr;
+  }
+  .kidsGame__itemGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Quiz */
+.quiz {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.quiz__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.quiz__options {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.scenario {
+  display: grid;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.scenario__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.scenario__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.scenario__select {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-weight: 800;
+  background: var(--bg-subtle);
+  color: var(--text);
+}
+
+.scenario__options {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.scenarioOpt {
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.scenarioOpt:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.scenarioOpt:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.scenario__feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.scenario__feedback p {
+  margin: 6px 0 0;
+}
+
+.scenario__feedback--ok {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #14532d;
+}
+
+.scenario__feedback--fail {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+.scenario__score {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.scenario__path {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #fff, var(--bg-subtle));
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.scenario__path ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.quizOpt {
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.quizOpt:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.quizOpt:disabled {
+  cursor: default;
+}
+
+.quizOpt--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.quizOpt--wrong {
+  border-color: #dc2626;
+  background: #fee2e2;
+}
+
+.quiz__feedback {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.quiz__feedback p {
+  margin: 6px 0 0;
+}
+
+.quiz__feedback--ok {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #14532d;
+}
+
+.quiz__feedback--fail {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+.quizScore {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.badgeShelf {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.badge {
+  display: inline-flex;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #fff, var(--bg-subtle));
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* 40+ okunabilirlik */
+.awarenessSection--senior {
+  font-size: 1.06rem;
+  line-height: 1.7;
+}
+
+.awarenessCard--senior h3 {
+  font-size: 1.1rem;
+}
+
+/* Modal (çök-kapan-tutun) */
+.cktaModal {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.cktaModal::backdrop {
+  background: rgba(15, 23, 42, 0.65);
+}
+
+.cktaModal__panel {
+  width: min(720px, calc(100vw - 32px));
+  margin: 6vh auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.cktaModal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cktaPlayer__stage {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.cktaPlayer__svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cktaPose {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.cktaPose.is-active {
+  opacity: 1;
+}
+
+.cktaPlayer__callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+}
+
+.cktaPlayer__stepNum {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 900;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+}
+
+.cktaPlayer__label {
+  font-size: 18px;
+  display: block;
+}
+
+.cktaPlayer__desc {
+  margin: 4px 0 0;
+}
+
+.cktaPlayer__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.cktaAnim {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cktaAnim__step {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--bg-subtle);
+  padding: 12px;
+  display: grid;
+  gap: 6px;
+  opacity: 0.55;
+  transition: opacity 0.35s, border-color 0.35s, background 0.35s, transform 0.35s;
+}
+
+.cktaAnim__step.is-active {
+  opacity: 1;
+  border-color: var(--accent);
+  background: var(--accent-light);
+  transform: translateY(-2px);
+}
+
+.cktaAnim__badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 10px;
+  background: var(--accent-light);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: var(--text);
+}
+
+.cktaAnim__step.is-active .cktaAnim__badge {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cktaPose,
+  .kidsCktaPreview__pose {
+    transition: none;
+  }
+
+  .cktaPose:not(.is-active),
+  .kidsCktaPreview__pose:not(.is-active) {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .awarenessIntro__grid {
+    grid-template-columns: 1fr;
+  }
+  .awarenessCard {
+    grid-column: span 12;
+  }
+  .cktaAnim {
+    grid-template-columns: 1fr;
+  }
+}
+
 .homeHero {
   position: relative;
   margin: 0 -24px 24px;
@@ -3065,6 +4018,231 @@ body.senaryoModalOpen {
   }
   .homeHero__slide {
     padding: 32px 20px 48px;
+  }
+}
+
+/* PDF sayfa görselleri (Sivas boyama kitabı) */
+.boyamaEmbed {
+  margin-top: 12px;
+}
+
+.boyamaEmbed__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.boyamaEmbed__item {
+  grid-column: span 6;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+@media (min-width: 901px) {
+  .boyamaEmbed__item--wide {
+    grid-column: span 12;
+  }
+}
+
+.boyamaEmbed__cap {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.boyamaEmbed__frame--canvas {
+  padding: 10px;
+  background: #fff;
+}
+
+.boyamaCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+}
+
+.boyamaImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #fff;
+}
+
+/* Boyama (canvas) UI */
+.coloringRoot {
+  padding: 10px;
+}
+
+.coloring__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.coloring__title {
+  font-weight: 900;
+}
+
+.coloring__tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.coloring__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--muted);
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.coloring__stage {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.coloring__canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+}
+
+.boyamaImg--zoom {
+  cursor: zoom-in;
+}
+
+.coloringModal {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 96vw;
+}
+
+.coloringModal::backdrop {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.coloringModal__panel {
+  width: min(1100px, 96vw);
+  max-height: 92vh;
+  margin: 3vh auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.coloringModal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-shrink: 0;
+}
+
+.coloringModal__host {
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+
+.coloringModal__host .coloring__stage {
+  display: flex;
+  justify-content: center;
+}
+
+.coloringModal__host .coloring__canvas {
+  max-width: 100%;
+}
+
+.btn.is-active {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+/* Lightbox modal */
+.mediaModal {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.mediaModal::backdrop {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.mediaModal__panel {
+  width: min(980px, calc(100vw - 24px));
+  margin: 6vh auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.mediaModal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.mediaModal__body {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: #fff;
+  overflow: auto;
+  max-height: 68vh;
+}
+
+.mediaModal__img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mediaModal__foot {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .boyamaEmbed__item {
+    grid-column: span 12;
   }
 }
 
