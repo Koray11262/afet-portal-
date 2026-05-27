@@ -1,0 +1,60 @@
+<section class="homeEarthquakes panel" aria-label="Son depremler">
+  <div class="homeEarthquakes__head">
+    <div>
+      <h2 class="homeEarthquakes__title">Son Depremler</h2>
+      <p class="muted homeEarthquakes__meta">
+        <% if (sonDepremler.ok && sonDepremler.updatedAt) { %>
+          Kaynak: <%= sonDepremler.source %> — son güncelleme <%= sonDepremler.updatedAt %>
+          <% if (sonDepremler.stale) { %>
+            <span class="homeEarthquakes__stale">(önbellek verisi)</span>
+          <% } %>
+        <% } else { %>
+          Kaynak: <%= sonDepremler.source %>
+        <% } %>
+      </p>
+    </div>
+    <a
+      class="btn btn--ghost btn--sm"
+      href="<%= sonDepremler.sourceUrl %>"
+      target="_blank"
+      rel="noopener noreferrer"
+    >AFAD Deprem →</a>
+  </div>
+
+  <% if (!sonDepremler.ok || !sonDepremler.items.length) { %>
+    <p class="homeEarthquakes__empty muted">
+      Deprem verileri şu an yüklenemedi. Lütfen daha sonra tekrar deneyin veya
+      <a href="<%= sonDepremler.sourceUrl %>" target="_blank" rel="noopener noreferrer">deprem.afad.gov.tr</a>
+      adresini ziyaret edin.
+    </p>
+  <% } else { %>
+    <div class="homeEarthquakes__tableWrap">
+      <table class="homeEarthquakes__table">
+        <thead>
+          <tr>
+            <th scope="col">Tarih / Saat</th>
+            <th scope="col">Büyüklük</th>
+            <th scope="col">Konum</th>
+            <th scope="col">Derinlik</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% sonDepremler.items.forEach((eq) => { %>
+            <tr>
+              <td data-label="Tarih"><%= eq.dateLabel %></td>
+              <td data-label="Büyüklük">
+                <span class="homeEq__mag <%= eq.magnitudeClass %>"><%= eq.magnitude %> <%= eq.type %></span>
+              </td>
+              <td data-label="Konum"><%= eq.location %></td>
+              <td data-label="Derinlik"><%= eq.depth %></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    <p class="homeEarthquakes__note muted">
+      Son <%= sonDepremler.items.length %> kayıt gösteriliyor (son 7 gün, Türkiye ve çevresi).
+      <a href="/afet/deprem">Deprem rehberi →</a>
+    </p>
+  <% } %>
+</section>

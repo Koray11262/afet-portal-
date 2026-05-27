@@ -1174,6 +1174,112 @@ a {
   width: 24px;
 }
 
+.homeEarthquakes {
+  margin-bottom: 20px;
+}
+
+.homeEarthquakes__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.homeEarthquakes__title {
+  margin: 0 0 4px;
+  color: var(--text-heading);
+  font-size: 1.35rem;
+}
+
+.homeEarthquakes__meta {
+  margin: 0;
+  font-size: 13px;
+}
+
+.homeEarthquakes__stale {
+  color: var(--warning, #b45309);
+  font-weight: 600;
+}
+
+.homeEarthquakes__tableWrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.homeEarthquakes__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.homeEarthquakes__table th,
+.homeEarthquakes__table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.homeEarthquakes__table th {
+  background: var(--surface-2, #f8fafc);
+  color: var(--text-heading);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.homeEarthquakes__table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.homeEarthquakes__table tbody tr:hover {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.homeEq__mag {
+  display: inline-block;
+  min-width: 4.5rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-weight: 800;
+  font-size: 13px;
+  text-align: center;
+}
+
+.homeEq__mag--high {
+  background: #fecaca;
+  color: #991b1b;
+}
+
+.homeEq__mag--medium {
+  background: #fed7aa;
+  color: #9a3412;
+}
+
+.homeEq__mag--low {
+  background: #fef08a;
+  color: #854d0e;
+}
+
+.homeEq__mag--minor {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.homeEarthquakes__note,
+.homeEarthquakes__empty {
+  margin: 12px 0 0;
+  font-size: 13px;
+}
+
+.btn--sm {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
 .homeIntro {
   margin-bottom: 20px;
 }
@@ -1507,6 +1613,30 @@ a {
   }
   .homeHero {
     margin: 0 -16px 20px;
+  }
+  .homeEarthquakes__table thead {
+    display: none;
+  }
+  .homeEarthquakes__table,
+  .homeEarthquakes__table tbody,
+  .homeEarthquakes__table tr,
+  .homeEarthquakes__table td {
+    display: block;
+    width: 100%;
+  }
+  .homeEarthquakes__table tr {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .homeEarthquakes__table td {
+    padding: 4px 0;
+    border: none;
+  }
+  .homeEarthquakes__table td::before {
+    content: attr(data-label) ": ";
+    font-weight: 700;
+    color: var(--muted);
+    font-size: 12px;
   }
   .pageHero {
     padding: 22px 16px 26px;

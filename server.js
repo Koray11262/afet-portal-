@@ -20,6 +20,7 @@ const riskTurleri = require("./data/risk-turleri.json");
 const karsilastirmalar = require("./data/karsilastirmalar.json");
 const mikroboleme = require("./data/mikroboleme.json");
 const afetMudahalePlani = require("./data/afet-mudahale-plani.json");
+const deprem = require("./src/deprem");
 
 app.locals.karsilastirmalar = karsilastirmalar;
 
@@ -39,11 +40,37 @@ function findKarsilastirma(slug) {
   return karsilastirmalar.items.find((x) => x.slug === slug) || null;
 }
 
-app.get("/", (req, res) => {
-  res.render("home", {
-    pageTitle: "Anasayfa",
-    nav: afetler,
+function renderPartial(res, view, locals) {
+  return new Promise((resolve, reject) => {
+    res.render(view, locals, (err, html) => {
+      if (err) reject(err);
+      else resolve(html);
+    });
   });
+}
+
+app.get("/", async (req, res, next) => {
+  try {
+    const sonDepremler = await deprem.getRecentEarthquakes();
+    const sonDepremlerHtml = await renderPartial(res, "partials/home-earthquakes", { sonDepremler });
+    res.render("home", {
+      pageTitle: "Anasayfa",
+      nav: afetler,
+      sonDepremlerHtml,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/api/deprem/son", async (req, res) => {
+  try {
+    const limit = Math.min(Number(req.query.limit) || deprem.DEFAULT_LIMIT, 30);
+    const data = await deprem.getRecentEarthquakes(limit);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
 });
 
 // Bağlantı testi (geliştirme için)
