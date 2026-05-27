@@ -107,11 +107,6 @@
     openKidsAnimModal(card);
   });
 
-  /* —— Yazdırılabilir özet —— */
-  root.querySelectorAll("[data-cta=seniorPrint]").forEach((btn) => {
-    btn.addEventListener("click", () => window.print());
-  });
-
   /* —— 10–18 Afet senaryoları (puanlı) —— */
   const scenarioRoot = root.querySelector('[data-scenario="teen"]');
   if (scenarioRoot) {
@@ -730,6 +725,96 @@
     show(resultWrap, false);
   }
 
+  /* —— 18–40 Çanta öneri asistanı —— */
+  const advPanel = root.querySelector("[data-canta-adviser]");
+  const advOpen = root.querySelector("[data-canta-adv-open]");
+  if (advPanel && advOpen) {
+    const LS_ADV_KEY = "adult_canta_profile_v1";
+    const meta = advPanel.querySelector("[data-canta-adv-meta]");
+    const out = advPanel.querySelector("[data-canta-adv-out]");
+    const flags = Array.from(advPanel.querySelectorAll("[data-canta-flag]"));
+    const btnGen = advPanel.querySelector('[data-canta-adv-action="generate"]');
+    const btnSave = advPanel.querySelector('[data-canta-adv-action="save"]');
+    const btnReset = advPanel.querySelector('[data-canta-adv-action="reset"]');
+
+    function readProfile() {
+      try {
+        return JSON.parse(localStorage.getItem(LS_ADV_KEY) || "{}");
+      } catch {
+        return {};
+      }
+    }
+    function writeProfile(p) {
+      localStorage.setItem(LS_ADV_KEY, JSON.stringify(p));
+    }
+
+    function setMeta(t) {
+      if (meta) meta.textContent = t;
+    }
+
+    function getState() {
+      const s = {};
+      flags.forEach((el) => (s[el.getAttribute("data-canta-flag")] = !!el.checked));
+      return s;
+    }
+
+    function setState(s) {
+      flags.forEach((el) => {
+        const k = el.getAttribute("data-canta-flag");
+        el.checked = !!s?.[k];
+      });
+    }
+
+    function buildSuggestions(s) {
+      const list = [];
+      if (s.child) list.push("Çocuklar için: yedek kıyafet, atıştırmalık, küçük hijyen seti");
+      if (s.baby)
+        list.push("Bebek için: bez, ıslak mendil, pişik kremi, biberon/mama, yedek kıyafet");
+      if (s.elder)
+        list.push("Yaşlı birey için: ilaç düzeni, gözlük/işitme cihazı pilleri, yedek şarj, basit tıbbi not");
+      if (s.pet)
+        list.push("Evcil hayvan için: mama/su kabı, taşıma çantası, tasma, mama, atık poşeti, aşı kartı kopyası");
+      if (s.meds)
+        list.push("Kronik ilaç için: en az 3–7 günlük stok, reçete/fotografi, doz listesi");
+      if (list.length === 0) list.push("Ek ihtiyaç seçmedin. Temel çanta checklist’i çoğu kullanıcı için iyi bir başlangıçtır.");
+      return list;
+    }
+
+    function renderOut(list) {
+      if (!out) return;
+      out.hidden = false;
+      out.innerHTML = `<strong>Önerilen ek ihtiyaçlar</strong><ul>${list
+        .map((x) => `<li>${escapeHtml(x)}</li>`)
+        .join("")}</ul>`;
+    }
+
+    advOpen.addEventListener("click", () => {
+      advPanel.hidden = !advPanel.hidden;
+      if (!advPanel.hidden) {
+        setState(readProfile());
+        setMeta("Profil yüklendi. İstersen değiştirip öneri üret.");
+      }
+    });
+
+    btnGen?.addEventListener("click", () => {
+      const s = getState();
+      const list = buildSuggestions(s);
+      renderOut(list);
+      setMeta("Öneriler güncellendi.");
+    });
+
+    btnSave?.addEventListener("click", () => {
+      writeProfile(getState());
+      setMeta("Profil kaydedildi.");
+    });
+
+    btnReset?.addEventListener("click", () => {
+      setState({});
+      if (out) out.hidden = true;
+      setMeta("Sıfırlandı.");
+    });
+  }
+
   /* —— Referans linkleri (sayfaya gömülü; gerekirse sonra server’dan beslenebilir) —— */
   const refs = {
     kids: [
@@ -800,6 +885,421 @@
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/\"/g, "&quot;");
+  }
+
+  /* —— 40+ İlaç listesi (cihazda saklanır) —— */
+  const medsRoot = root.querySelector("[data-senior-meds]");
+  if (medsRoot) {
+    const LS_MEDS_KEY = "senior_meds_list_v1";
+    const meta = medsRoot.querySelector("[data-meds-meta]");
+    const form = medsRoot.querySelector("[data-meds-form]");
+    const listEl = medsRoot.querySelector("[data-meds-list]");
+    const inputName = medsRoot.querySelector('[data-meds-input="name"]');
+    const inputDose = medsRoot.querySelector('[data-meds-input="dose"]');
+    const inputDays = medsRoot.querySelector('[data-meds-input="days"]');
+    const inputNote = medsRoot.querySelector('[data-meds-input="note"]');
+    const btnPrint = medsRoot.querySelector('[data-meds-action="print"]');
+    const btnClear = medsRoot.querySelector('[data-meds-action="clear"]');
+
+    function readMeds() {
+      try {
+        const data = JSON.parse(localStorage.getItem(LS_MEDS_KEY) || "[]");
+        return Array.isArray(data) ? data : [];
+      } catch {
+        return [];
+      }
+    }
+
+    function writeMeds(items) {
+      localStorage.setItem(LS_MEDS_KEY, JSON.stringify(items));
+    }
+
+    function setMeta(text) {
+      if (meta) meta.textContent = text;
+    }
+
+    function newId() {
+      return `m_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+    }
+
+    function renderList(items) {
+      if (!listEl) return;
+      listEl.innerHTML = items
+        .map((item) => {
+          const bits = [];
+          if (item.dose) bits.push(`Doz: ${escapeHtml(item.dose)}`);
+          if (item.days) bits.push(`Yedek: ${escapeHtml(String(item.days))} gün`);
+          if (item.note) bits.push(escapeHtml(item.note));
+          const metaLine = bits.length ? `<div class="medsApp__itemMeta">${bits.join(" · ")}</div>` : "";
+          return `<li class="medsApp__item" data-meds-id="${escapeHtml(item.id)}">
+            <div class="medsApp__itemMain">
+              <strong>${escapeHtml(item.name)}</strong>
+              ${metaLine}
+            </div>
+            <button type="button" class="btn btn--ghost btn--sm" data-meds-remove aria-label="${escapeHtml(
+              item.name
+            )} ilacını sil">Sil</button>
+          </li>`;
+        })
+        .join("");
+      setMeta(
+        items.length
+          ? `${items.length} ilaç kayıtlı · son güncelleme: ${new Date().toLocaleString("tr-TR")}`
+          : "İlaçlarınızı ekleyin; cihazınızda saklanır."
+      );
+    }
+
+    function printMeds(items) {
+      if (!items.length) {
+        setMeta("Yazdırmak için önce en az bir ilaç ekleyin.");
+        return;
+      }
+      const rows = items
+        .map(
+          (item, i) => `<tr>
+            <td>${i + 1}</td>
+            <td>${escapeHtml(item.name)}</td>
+            <td>${escapeHtml(item.dose || "—")}</td>
+            <td>${item.days ? escapeHtml(String(item.days)) + " gün" : "—"}</td>
+            <td>${escapeHtml(item.note || "—")}</td>
+          </tr>`
+        )
+        .join("");
+      const html = `<!doctype html><html lang="tr"><head><meta charset="utf-8"/>
+        <title>İlaç listem</title>
+        <style>
+          body{font-family:system-ui,sans-serif;padding:24px;color:#111}
+          h1{font-size:20px;margin:0 0 8px}
+          p{color:#555;font-size:13px}
+          table{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+          th,td{border:1px solid #ccc;padding:8px;text-align:left}
+          th{background:#f4f6f9}
+        </style></head><body>
+        <h1>Acil durum ilaç listem</h1>
+        <p>Çantada taşımak için yazdırılmış kopya · ${new Date().toLocaleString("tr-TR")}</p>
+        <table>
+          <thead><tr><th>#</th><th>İlaç</th><th>Doz</th><th>Yedek</th><th>Not</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        </body></html>`;
+      const w = window.open("", "_blank", "noopener,noreferrer");
+      if (!w) {
+        setMeta("Yazdırma penceresi açılamadı. Tarayıcı açılır pencereyi engelliyor olabilir.");
+        return;
+      }
+      w.document.open();
+      w.document.write(html);
+      w.document.close();
+      w.focus();
+      w.print();
+    }
+
+    let items = readMeds();
+    renderList(items);
+
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = (inputName?.value || "").trim();
+      if (!name) return;
+      const dose = (inputDose?.value || "").trim();
+      const daysRaw = (inputDays?.value || "").trim();
+      const note = (inputNote?.value || "").trim();
+      const days = daysRaw ? Math.max(1, Math.min(90, Number(daysRaw))) : null;
+      items = [
+        ...items,
+        {
+          id: newId(),
+          name,
+          dose,
+          days: Number.isFinite(days) ? days : null,
+          note,
+        },
+      ];
+      writeMeds(items);
+      renderList(items);
+      form.reset();
+      inputName?.focus();
+    });
+
+    listEl?.addEventListener("click", (e) => {
+      const btn = e.target.closest?.("[data-meds-remove]");
+      if (!btn) return;
+      const li = btn.closest("[data-meds-id]");
+      const id = li?.getAttribute("data-meds-id");
+      if (!id) return;
+      items = items.filter((x) => x.id !== id);
+      writeMeds(items);
+      renderList(items);
+    });
+
+    btnPrint?.addEventListener("click", () => printMeds(items));
+
+    btnClear?.addEventListener("click", () => {
+      if (!items.length) return;
+      if (!window.confirm("Tüm ilaç kayıtlarını silmek istediğinize emin misiniz?")) return;
+      items = [];
+      writeMeds(items);
+      renderList(items);
+    });
+  }
+
+  /* —— 40+ Ev güvenlik kontrol listesi —— */
+  const homeCheckRoot = root.querySelector("[data-home-check]");
+  if (homeCheckRoot) {
+    const LS_HOME_KEY = "senior_home_check_v1";
+    const listEl = homeCheckRoot.querySelector("[data-home-check-list]");
+    const metaEl = homeCheckRoot.querySelector("[data-home-check-meta]");
+    const barFill = homeCheckRoot.querySelector("[data-home-check-bar]");
+    const resultsEl = homeCheckRoot.querySelector("[data-home-check-results]");
+    const btnEvaluate = homeCheckRoot.querySelector('[data-home-check-action="evaluate"]');
+    const btnReset = homeCheckRoot.querySelector('[data-home-check-action="reset"]');
+
+    const HOME_CHECK_ITEMS = [
+      {
+        id: "cabinet",
+        label: "Dolaplar ve ağır eşyalar duvara sabit mi?",
+        recommend:
+          "Dolap, kitaplık ve televizyon gibi devrilebilir eşyaları L demirleri veya kayışlarla duvara sabitleyin.",
+        regression:
+          "Dolap sabitleme daha önce tamamdı; şimdi eksiklik var. Sarsıntıda devrilme ve yaralanma riski yeniden oluşabilir.",
+        persist:
+          "Hatırlatma: Bu madde hâlâ tamamlanmadı. Dolap ve ağır eşya sabitlemesi ev içi en kritik önlemlerden biridir.",
+      },
+      {
+        id: "bag",
+        label: "Acil durum çantası hazır ve kolay ulaşılabilir yerde mi?",
+        recommend:
+          "Su, gıda, fener, ilk yardım ve kişisel ihtiyaçları içeren çantayı hazırlayıp kapı veya yatak odası yakınında tutun.",
+        regression:
+          "Afet çantanız daha önce hazırdı; ancak şimdi eksiklik var. Çantayı yeniden kontrol edip tamamlayın.",
+        persist:
+          "Hatırlatma: Acil çanta hâlâ hazır değil. Afet sonrası ilk saatlerde elektrik ve markete erişim kesilebilir.",
+      },
+      {
+        id: "meds",
+        label: "İlaçlar güncel mi ve birkaç günlük yedek var mı?",
+        recommend:
+          "Düzenli kullandığınız ilaçların listesini yazın; en az 3–7 günlük yedek stok bulundurun.",
+        regression:
+          "İlaç yedeği daha önce tamamdı; şimdi eksiklik var. Son kullanma tarihlerini ve stok miktarını yeniden kontrol edin.",
+        persist:
+          "Hatırlatma: İlaç yedeği hâlâ eksik. Kronik tedavi görenler için bu madde önceliklidir.",
+      },
+      {
+        id: "numbers",
+        label: "Acil numaralar (112, AFAD vb.) kayıtlı veya yazılı mı?",
+        recommend:
+          "112, 110, AFAD ve aile bireylerinin numaralarını telefona kaydedin; ayrıca kağıda yazıp cüzdanda taşıyın.",
+        regression:
+          "Acil numaralar daha önce kayıtlıydı; şimdi eksik görünüyor. Telefon ve yazılı kopyayı yenileyin.",
+        persist:
+          "Hatırlatma: Acil numaralar hâlâ kayıtlı değil. Şebeke çökünce telefon rehberine erişim zorlaşabilir.",
+      },
+      {
+        id: "plan",
+        label: "Aile buluşma noktası ve iletişim planı belirlendi mi?",
+        recommend:
+          "Şehir içi ve dışı iletişim kişisi, buluşma noktası ve tahliye yolunu yazılı plana dökün.",
+        regression:
+          "Aile planı daha önce hazırdı; şimdi eksiklik var. Planı ailenizle tekrar gözden geçirin.",
+        persist:
+          "Hatırlatma: Aile iletişim planı hâlâ yok. Afet anında koordinasyon en büyük zorluklardan biridir.",
+      },
+      {
+        id: "assembly",
+        label: "Mahalle toplanma alanı biliniyor mu?",
+        recommend:
+          "AFAD toplanma alanları sisteminden evinize yakın güvenli alanı öğrenin ve ailenizle paylaşın.",
+        regression:
+          "Toplanma alanı bilgisi daha önce tamamdı; şimdi eksik. Konum değiştiyse güncel alanı öğrenin.",
+        persist:
+          "Hatırlatma: Toplanma alanı hâlâ bilinmiyor. Yakınlarınızla buluşmak için fiziksel bir plan oluşturur.",
+      },
+      {
+        id: "supplies",
+        label: "Su ve dayanıkmaz gıda yedeği var mı?",
+        recommend:
+          "Kişi başı en az birkaç günlük su ve konserve, bisküvi gibi pişirme gerektirmeyen gıda bulundurun.",
+        regression:
+          "Su ve gıda yedeği daha önce tamamdı; şimdi eksiklik var. Son kullanma tarihlerini kontrol edin.",
+        persist:
+          "Hatırlatma: Su ve gıda yedeği hâlâ yetersiz. Market ve su şebekesi afet sonrası kesilebilir.",
+      },
+      {
+        id: "power",
+        label: "El feneri, yedek pil veya powerbank hazır mı?",
+        recommend:
+          "El feneri, yedek piller ve şarj cihazını çantaya koyun; düzenli olarak çalıştığını test edin.",
+        regression:
+          "Aydınlatma/şarj malzemeleri daha önce hazırdı; şimdi eksik. Pilleri ve powerbank doluluğunu kontrol edin.",
+        persist:
+          "Hatırlatma: Fener veya powerbank hâlâ hazır değil. Gece ve iletişim için kritik öneme sahiptir.",
+      },
+      {
+        id: "docs",
+        label: "Kimlik ve sağlık belgesi kopyaları su geçirmez dosyada mı?",
+        recommend:
+          "Kimlik, reçete ve sağlık raporu fotokopilerini su geçirmez poşet veya dosyada çantaya ekleyin.",
+        regression:
+          "Belge kopyaları daha önce hazırdı; şimdi eksiklik var. Dosyayı yenileyip çantaya geri koyun.",
+        persist:
+          "Hatırlatma: Belge kopyaları hâlâ eksik. Hastane ve resmi işlemlerde gerekebilir.",
+      },
+      {
+        id: "exit",
+        label: "Tahliye yolu ve kapı girişi engelsiz mi?",
+        recommend:
+          "Ana kapı ve tahliye güzergâhındaki eşyaları kaldırın; anahtar ve ayakkabıyı kolay ulaşılabilir yerde tutun.",
+        regression:
+          "Tahliye yolu daha önce açıktı; şimdi engel var. Koridor ve kapı önünü hemen boşaltın.",
+        persist:
+          "Hatırlatma: Tahliye yolu hâlâ engelli. Afet anında saniyeler önemlidir; yol açık olmalıdır.",
+      },
+    ];
+
+    function readStore() {
+      try {
+        const raw = JSON.parse(localStorage.getItem(LS_HOME_KEY) || "{}");
+        return {
+          answers: raw.answers && typeof raw.answers === "object" ? raw.answers : {},
+          runs: Array.isArray(raw.runs) ? raw.runs.slice(-30) : [],
+        };
+      } catch {
+        return { answers: {}, runs: [] };
+      }
+    }
+
+    function writeStore(store) {
+      localStorage.setItem(LS_HOME_KEY, JSON.stringify(store));
+    }
+
+    function getAnswersFromDom() {
+      const out = {};
+      HOME_CHECK_ITEMS.forEach((item) => {
+        const el = listEl?.querySelector(`[data-home-check-id="${item.id}"]`);
+        out[item.id] = !!el?.checked;
+      });
+      return out;
+    }
+
+    function applyAnswersToDom(answers) {
+      HOME_CHECK_ITEMS.forEach((item) => {
+        const el = listEl?.querySelector(`[data-home-check-id="${item.id}"]`);
+        if (el) el.checked = !!answers[item.id];
+      });
+      updateProgress();
+    }
+
+    function updateProgress() {
+      const answers = getAnswersFromDom();
+      const done = HOME_CHECK_ITEMS.filter((i) => answers[i.id]).length;
+      const total = HOME_CHECK_ITEMS.length;
+      const pct = Math.round((done / total) * 100);
+      if (barFill) barFill.style.width = `${pct}%`;
+      if (metaEl) metaEl.textContent = `${done}/${total} madde işaretlendi`;
+    }
+
+    function renderChecklist() {
+      if (!listEl) return;
+      listEl.innerHTML = HOME_CHECK_ITEMS.map(
+        (item) => `<label class="homeCheck__item">
+          <input type="checkbox" data-home-check-id="${escapeHtml(item.id)}"/>
+          <span>${escapeHtml(item.label)}</span>
+        </label>`
+      ).join("");
+      listEl.addEventListener("change", updateProgress);
+    }
+
+    function evaluate() {
+      const current = getAnswersFromDom();
+      const store = readStore();
+      const prev = store.runs.length ? store.runs[store.runs.length - 1].answers : null;
+      const done = HOME_CHECK_ITEMS.filter((i) => current[i.id]).length;
+      const total = HOME_CHECK_ITEMS.length;
+
+      const recommends = [];
+      const persists = [];
+      const regressions = [];
+      const improvements = [];
+
+      HOME_CHECK_ITEMS.forEach((item) => {
+        const ok = !!current[item.id];
+        const wasOk = prev ? !!prev[item.id] : null;
+
+        if (!ok) {
+          recommends.push({ label: item.label, text: item.recommend });
+          if (prev && wasOk === false) persists.push({ label: item.label, text: item.persist });
+          if (prev && wasOk === true) regressions.push({ label: item.label, text: item.regression });
+        } else if (prev && wasOk === false) {
+          improvements.push({
+            label: item.label,
+            text: `${item.label.replace(/\?$/, "")} — bu kontrolde tamamlandı. Böyle devam edin.`,
+          });
+        }
+      });
+
+      store.answers = current;
+      store.runs.push({ at: new Date().toISOString(), answers: { ...current } });
+      writeStore(store);
+
+      if (!resultsEl) return;
+      resultsEl.hidden = false;
+
+      let html = `<p class="homeCheck__score">Skor: ${done}/${total}</p>`;
+      html += `<p class="muted small">Değerlendirme: ${new Date().toLocaleString("tr-TR")}${
+        store.runs.length > 1 ? " · önceki kontrolle karşılaştırıldı" : ""
+      }</p>`;
+
+      if (done === total) {
+        html += `<section><h4><span class="homeCheck__tag homeCheck__tag--ok">Tamam</span>Tebrikler</h4><p class="muted">Tüm maddeler tamam görünüyor. Ayda bir bu listeyi yeniden kontrol etmeniz önerilir.</p></section>`;
+      }
+
+      if (regressions.length) {
+        html += `<section><h4><span class="homeCheck__tag homeCheck__tag--alert">Gerileme</span>Önceden tamam, şimdi eksik</h4><ul class="homeCheck__msgList">${regressions
+          .map((x) => `<li><strong>${escapeHtml(x.label)}</strong> ${escapeHtml(x.text)}</li>`)
+          .join("")}</ul></section>`;
+      }
+
+      if (persists.length) {
+        html += `<section><h4><span class="homeCheck__tag homeCheck__tag--remind">Hatırlatma</span>Hâlâ tamamlanmayan maddeler</h4><ul class="homeCheck__msgList">${persists
+          .map((x) => `<li><strong>${escapeHtml(x.label)}</strong> ${escapeHtml(x.text)}</li>`)
+          .join("")}</ul></section>`;
+      }
+
+      if (recommends.length) {
+        html += `<section><h4><span class="homeCheck__tag homeCheck__tag--warn">Öneri</span>Eksik maddeler için yapılacaklar</h4><ul class="homeCheck__msgList">${recommends
+          .map((x) => `<li><strong>${escapeHtml(x.label)}</strong> ${escapeHtml(x.text)}</li>`)
+          .join("")}</ul></section>`;
+      }
+
+      if (improvements.length) {
+        html += `<section><h4><span class="homeCheck__tag homeCheck__tag--ok">İyileşme</span>Önceki kontrole göre düzelenler</h4><ul class="homeCheck__msgList">${improvements
+          .map((x) => `<li>${escapeHtml(x.text)}</li>`)
+          .join("")}</ul></section>`;
+      }
+
+      if (recommends.length === 0 && done < total) {
+        html += `<p class="muted">Bazı maddeler işaretlenmedi; yukarıdaki kutuları güncelleyip tekrar değerlendirin.</p>`;
+      }
+
+      resultsEl.innerHTML = html;
+      resultsEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    renderChecklist();
+    applyAnswersToDom(readStore().answers);
+
+    btnEvaluate?.addEventListener("click", evaluate);
+
+    btnReset?.addEventListener("click", () => {
+      if (!window.confirm("Tüm işaretleri ve kayıtlı kontrol geçmişini silmek istiyor musunuz?")) return;
+      writeStore({ answers: {}, runs: [] });
+      applyAnswersToDom({});
+      if (resultsEl) {
+        resultsEl.hidden = true;
+        resultsEl.innerHTML = "";
+      }
+    });
   }
 
   renderRefList("refKids", refs.kids);
@@ -1185,11 +1685,68 @@
     else window.open(src, "_blank", "noopener,noreferrer");
   }
 
-  root.querySelectorAll("img.boyamaImg").forEach((img) => {
+  function bindMediaZoom(img) {
     img.classList.add("boyamaImg--zoom");
-    img.addEventListener("click", () =>
-      openPoster(img.currentSrc || img.src, img.alt || "Görsel")
-    );
+    const open = () => openPoster(img.currentSrc || img.src, img.alt || "Görsel");
+    img.addEventListener("click", open);
+    img.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
+  }
+
+  root.querySelectorAll("img.boyamaImg, img.mediaZoom").forEach(bindMediaZoom);
+
+  /* —— 40+ YouTube videoları —— */
+  const youtubeModal = document.getElementById("youtubeModal");
+  const youtubeIframe = document.getElementById("youtubeModalIframe");
+  const youtubeModalTitle = document.getElementById("youtubeModalTitle");
+  const youtubeModalOpen = document.getElementById("youtubeModalOpen");
+
+  function openYoutube(id, title) {
+    if (!id) return;
+    const watchUrl = `https://www.youtube.com/watch?v=${id}`;
+    if (youtubeModalTitle) youtubeModalTitle.textContent = title || "Video";
+    if (youtubeModalOpen) youtubeModalOpen.href = watchUrl;
+    if (youtubeIframe) {
+      youtubeIframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    }
+    if (youtubeModal && typeof youtubeModal.showModal === "function") {
+      youtubeModal.showModal();
+    } else {
+      window.open(watchUrl, "_blank", "noopener,noreferrer");
+    }
+  }
+
+  function closeYoutube() {
+    if (youtubeIframe) youtubeIframe.src = "";
+  }
+
+  if (youtubeModal) {
+    youtubeModal.addEventListener("close", closeYoutube);
+  }
+
+  root.querySelectorAll("[data-youtube-id]").forEach((btn) => {
+    const id = btn.getAttribute("data-youtube-id");
+    const titleEl = btn.querySelector("[data-yt-title]");
+    btn.addEventListener("click", () => {
+      openYoutube(id, titleEl?.textContent?.trim() || "Video");
+    });
+    if (titleEl && id) {
+      fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (data?.title) {
+            titleEl.textContent = data.title;
+            btn.setAttribute("aria-label", `${data.title} videosunu oynat`);
+          }
+        })
+        .catch(() => {
+          titleEl.textContent = "Afet hazırlığı videosu";
+        });
+    }
   });
 
   /* —— 2–10 Mini oyun: acil çanta doldur —— */

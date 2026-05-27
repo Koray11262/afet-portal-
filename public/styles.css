@@ -1904,6 +1904,78 @@ a {
   padding-left: 18px;
 }
 
+/* 18–40 içerik blokları */
+.awarenessContentBlock {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.awarenessContentBlock:first-of-type {
+  margin-top: 12px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.awarenessContentBlock h4 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.awarenessTips {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.6;
+}
+
+.awarenessTips li {
+  margin: 6px 0;
+}
+
+.offlineAppsRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 20px;
+  margin: 16px 0 8px;
+  padding: 16px;
+  background: var(--bg-subtle);
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.offlineAppsRow__item {
+  margin: 0;
+  text-align: center;
+  flex: 0 1 120px;
+}
+
+.offlineAppsRow__item img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 16px;
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.offlineAppsRow__item figcaption {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .offlineAppsRow {
+    gap: 14px;
+  }
+  .offlineAppsRow__item img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 .quizOpt {
   text-align: left;
   padding: 12px 14px;
@@ -1991,6 +2063,520 @@ a {
 
 .awarenessCard--senior h3 {
   font-size: 1.1rem;
+}
+
+.seniorIntro {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 14px;
+}
+
+.seniorIntro__text {
+  flex: 1 1 280px;
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.75;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.seniorIntro__media {
+  flex: 0 1 280px;
+  text-align: center;
+}
+
+.seniorIntro__media img {
+  width: min(280px, 100%);
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+@media (max-width: 720px) {
+  .seniorIntro {
+    flex-direction: column;
+    text-align: center;
+  }
+  .seniorIntro__text {
+    font-size: 1.08rem;
+  }
+}
+
+.seniorCard__series {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.seniorCard__split {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.seniorCard__split--top {
+  align-items: flex-start;
+}
+
+.seniorCard__body {
+  flex: 1 1 300px;
+  min-width: 0;
+}
+
+.seniorCard__body h4 {
+  margin: 0 0 10px;
+  font-size: 1.15rem;
+}
+
+.seniorCard__body p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.seniorCard__media {
+  flex: 0 1 340px;
+}
+
+.seniorCard__media img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.seniorCard__media img.mediaZoom {
+  cursor: zoom-in;
+}
+
+.seniorCard__media img.mediaZoom:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.seniorCard__split + .seniorCard__split {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.seniorCard__media--anim {
+  flex: 0 1 360px;
+}
+
+.seniorCard__media--app {
+  flex: 0 1 400px;
+  width: 100%;
+}
+
+.medsApp {
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+}
+
+.medsApp__head {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+
+.medsApp__form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.medsApp__field {
+  display: grid;
+  gap: 4px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.medsApp__field--full {
+  grid-column: 1 / -1;
+}
+
+.medsApp__field input {
+  font: inherit;
+  font-weight: 500;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.medsApp__form .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+}
+
+.medsApp__list {
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.medsApp__list:empty::before {
+  content: "Henüz ilaç eklenmedi.";
+  display: block;
+  padding: 10px;
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+.medsApp__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.medsApp__itemMain {
+  min-width: 0;
+}
+
+.medsApp__itemMain strong {
+  display: block;
+  font-size: 14px;
+}
+
+.medsApp__itemMeta {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.medsApp__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.medsApp__note {
+  margin: 10px 0 0;
+  line-height: 1.5;
+}
+
+.seniorVideoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.seniorVideoCard {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  overflow: hidden;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.seniorVideoCard:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
+.seniorVideoCard:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.seniorVideoCard__thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 9;
+  background: #0f172a;
+}
+
+.seniorVideoCard__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.seniorVideoCard__play {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: rgba(220, 38, 38, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.seniorVideoCard__play::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  top: 17px;
+  border-style: solid;
+  border-width: 11px 0 11px 18px;
+  border-color: transparent transparent transparent #fff;
+}
+
+.seniorVideoCard__title {
+  display: block;
+  padding: 0 12px 12px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.youtubeModal {
+  border: none;
+  padding: 0;
+  background: transparent;
+  max-width: 96vw;
+}
+
+.youtubeModal::backdrop {
+  background: rgba(15, 23, 42, 0.75);
+}
+
+.youtubeModal__panel {
+  width: min(920px, 96vw);
+  margin: 4vh auto;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px;
+  box-shadow: var(--shadow);
+}
+
+.youtubeModal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.youtubeModal__head h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.youtubeModal__body {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+}
+
+.youtubeModal__iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.youtubeModal__foot {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.homeCheck__top {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.homeCheck__bar {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.homeCheck__barFill {
+  height: 100%;
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+  border-radius: 999px;
+  transition: width 0.35s ease;
+}
+
+.homeCheck__list {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.homeCheck__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 1.02rem;
+  line-height: 1.5;
+}
+
+.homeCheck__item:has(input:checked) {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.homeCheck__item input {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--accent);
+}
+
+.homeCheck__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.homeCheck__results {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+}
+
+.homeCheck__results h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.homeCheck__results section + section {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.homeCheck__score {
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin: 0 0 6px;
+}
+
+.homeCheck__msgList {
+  margin: 8px 0 0;
+  padding-left: 18px;
+  line-height: 1.65;
+}
+
+.homeCheck__msgList li {
+  margin: 8px 0;
+}
+
+.homeCheck__tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+.homeCheck__tag--warn {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.homeCheck__tag--alert {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.homeCheck__tag--ok {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.homeCheck__tag--remind {
+  background: #e0e7ff;
+  color: #3730a3;
+}
+
+@media (max-width: 720px) {
+  .medsApp__form {
+    grid-template-columns: 1fr;
+  }
+  .seniorCard__media--app {
+    max-width: 100%;
+  }
+  .seniorVideoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.seniorAnimFrame {
+  cursor: default;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  border-bottom: none;
+}
+
+.seniorAnimFrame .kidsScene__stage {
+  border-bottom: none;
+}
+
+.seniorAnimLabel {
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  .seniorCard__split {
+    flex-direction: column;
+  }
+  .seniorCard__media {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 420px;
+  }
+  .seniorCard__media--anim {
+    max-width: 100%;
+  }
 }
 
 /* Modal (çök-kapan-tutun) */
