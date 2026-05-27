@@ -21,6 +21,8 @@ const karsilastirmalar = require("./data/karsilastirmalar.json");
 const mikroboleme = require("./data/mikroboleme.json");
 const afetMudahalePlani = require("./data/afet-mudahale-plani.json");
 const deprem = require("./src/deprem");
+const afadDuyurular = require("./src/afad-duyurular");
+const mgmMeteouyari = require("./src/mgm-meteouyari");
 
 app.locals.karsilastirmalar = karsilastirmalar;
 
@@ -51,12 +53,21 @@ function renderPartial(res, view, locals) {
 
 app.get("/", async (req, res, next) => {
   try {
-    const sonDepremler = await deprem.getRecentEarthquakes();
-    const sonDepremlerHtml = await renderPartial(res, "partials/home-earthquakes", { sonDepremler });
+    const [sonDepremler, afadDuyuruData] = await Promise.all([
+      deprem.getRecentEarthquakes(),
+      afadDuyurular.getRecentAnnouncements(),
+    ]);
+    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml] = await Promise.all([
+      renderPartial(res, "partials/home-earthquakes", { sonDepremler }),
+      renderPartial(res, "partials/home-afad-duyurular", { afadDuyurular: afadDuyuruData }),
+      renderPartial(res, "partials/home-meteouyari-widget"),
+    ]);
     res.render("home", {
       pageTitle: "Anasayfa",
       nav: afetler,
       sonDepremlerHtml,
+      afadDuyurularHtml,
+      meteoUyariWidgetHtml,
     });
   } catch (err) {
     next(err);
@@ -67,6 +78,26 @@ app.get("/api/deprem/son", async (req, res) => {
   try {
     const limit = Math.min(Number(req.query.limit) || deprem.DEFAULT_LIMIT, 30);
     const data = await deprem.getRecentEarthquakes(limit);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
+app.get("/api/mgm/meteouyari", async (req, res) => {
+  try {
+    const gun = Number(req.query.gun) === 2 ? 2 : 1;
+    const data = await mgmMeteouyari.getMeteoUyari(gun);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
+app.get("/api/afad/duyurular", async (req, res) => {
+  try {
+    const limit = Math.min(Number(req.query.limit) || afadDuyurular.DEFAULT_LIMIT, 20);
+    const data = await afadDuyurular.getRecentAnnouncements(limit);
     res.json(data);
   } catch (err) {
     res.status(500).json({ ok: false, error: String(err?.message || err) });

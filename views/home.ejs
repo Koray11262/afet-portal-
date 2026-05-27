@@ -2,7 +2,7 @@
   include("layout", {
     pageTitle,
     nav,
-    extraScripts: `<script src="/home-hero.js"></script>`,
+    extraScripts: `<script src="/home-hero.js"></script><script src="/home-meteouyari.js"></script>`,
     body: `
       <section class="homeHero" aria-label="Tanıtım">
         <div class="homeHero__slides">
@@ -33,6 +33,8 @@
       </section>
 
       ${typeof sonDepremlerHtml !== "undefined" ? sonDepremlerHtml : ""}
+      ${typeof afadDuyurularHtml !== "undefined" ? afadDuyurularHtml : ""}
+      ${typeof meteoUyariWidgetHtml !== "undefined" ? meteoUyariWidgetHtml : ""}
 
       <section class="homeIntro panel">
         <h2 class="homeIntro__title">Afet Portalı ile neler yapabilirsiniz?</h2>

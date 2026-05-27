@@ -1,0 +1,407 @@
+[
+  {
+    "id": "90101",
+    "plate": "01",
+    "name": "Adana"
+  },
+  {
+    "id": "90201",
+    "plate": "02",
+    "name": "Adıyaman"
+  },
+  {
+    "id": "90301",
+    "plate": "03",
+    "name": "Afyonkarahisar"
+  },
+  {
+    "id": "90401",
+    "plate": "04",
+    "name": "Ağrı"
+  },
+  {
+    "id": "90501",
+    "plate": "05",
+    "name": "Amasya"
+  },
+  {
+    "id": "90601",
+    "plate": "06",
+    "name": "Ankara"
+  },
+  {
+    "id": "90701",
+    "plate": "07",
+    "name": "Antalya"
+  },
+  {
+    "id": "90801",
+    "plate": "08",
+    "name": "Artvin"
+  },
+  {
+    "id": "90901",
+    "plate": "09",
+    "name": "Aydın"
+  },
+  {
+    "id": "91001",
+    "plate": "10",
+    "name": "Balıkesir"
+  },
+  {
+    "id": "91101",
+    "plate": "11",
+    "name": "Bilecik"
+  },
+  {
+    "id": "91201",
+    "plate": "12",
+    "name": "Bingöl"
+  },
+  {
+    "id": "91301",
+    "plate": "13",
+    "name": "Bitlis"
+  },
+  {
+    "id": "91401",
+    "plate": "14",
+    "name": "Bolu"
+  },
+  {
+    "id": "91501",
+    "plate": "15",
+    "name": "Burdur"
+  },
+  {
+    "id": "91601",
+    "plate": "16",
+    "name": "Bursa"
+  },
+  {
+    "id": "91701",
+    "plate": "17",
+    "name": "Çanakkale"
+  },
+  {
+    "id": "91801",
+    "plate": "18",
+    "name": "Çankırı"
+  },
+  {
+    "id": "91901",
+    "plate": "19",
+    "name": "Çorum"
+  },
+  {
+    "id": "92001",
+    "plate": "20",
+    "name": "Denizli"
+  },
+  {
+    "id": "92101",
+    "plate": "21",
+    "name": "Diyarbakır"
+  },
+  {
+    "id": "92201",
+    "plate": "22",
+    "name": "Edirne"
+  },
+  {
+    "id": "92301",
+    "plate": "23",
+    "name": "Elazığ"
+  },
+  {
+    "id": "92401",
+    "plate": "24",
+    "name": "Erzincan"
+  },
+  {
+    "id": "92501",
+    "plate": "25",
+    "name": "Erzurum"
+  },
+  {
+    "id": "92601",
+    "plate": "26",
+    "name": "Eskişehir"
+  },
+  {
+    "id": "92701",
+    "plate": "27",
+    "name": "Gaziantep"
+  },
+  {
+    "id": "92801",
+    "plate": "28",
+    "name": "Giresun"
+  },
+  {
+    "id": "92901",
+    "plate": "29",
+    "name": "Gümüşhane"
+  },
+  {
+    "id": "93001",
+    "plate": "30",
+    "name": "Hakkâri"
+  },
+  {
+    "id": "93101",
+    "plate": "31",
+    "name": "Hatay"
+  },
+  {
+    "id": "93201",
+    "plate": "32",
+    "name": "Isparta"
+  },
+  {
+    "id": "93301",
+    "plate": "33",
+    "name": "Mersin"
+  },
+  {
+    "id": "93401",
+    "plate": "34",
+    "name": "İstanbul"
+  },
+  {
+    "id": "93501",
+    "plate": "35",
+    "name": "İzmir"
+  },
+  {
+    "id": "93601",
+    "plate": "36",
+    "name": "Kars"
+  },
+  {
+    "id": "93701",
+    "plate": "37",
+    "name": "Kastamonu"
+  },
+  {
+    "id": "93801",
+    "plate": "38",
+    "name": "Kayseri"
+  },
+  {
+    "id": "93901",
+    "plate": "39",
+    "name": "Kırklareli"
+  },
+  {
+    "id": "94001",
+    "plate": "40",
+    "name": "Kırşehir"
+  },
+  {
+    "id": "94101",
+    "plate": "41",
+    "name": "Kocaeli"
+  },
+  {
+    "id": "94201",
+    "plate": "42",
+    "name": "Konya"
+  },
+  {
+    "id": "94301",
+    "plate": "43",
+    "name": "Kütahya"
+  },
+  {
+    "id": "94401",
+    "plate": "44",
+    "name": "Malatya"
+  },
+  {
+    "id": "94501",
+    "plate": "45",
+    "name": "Manisa"
+  },
+  {
+    "id": "94601",
+    "plate": "46",
+    "name": "Kahramanmaraş"
+  },
+  {
+    "id": "94701",
+    "plate": "47",
+    "name": "Mardin"
+  },
+  {
+    "id": "94801",
+    "plate": "48",
+    "name": "Muğla"
+  },
+  {
+    "id": "94901",
+    "plate": "49",
+    "name": "Muş"
+  },
+  {
+    "id": "95001",
+    "plate": "50",
+    "name": "Nevşehir"
+  },
+  {
+    "id": "95101",
+    "plate": "51",
+    "name": "Niğde"
+  },
+  {
+    "id": "95201",
+    "plate": "52",
+    "name": "Ordu"
+  },
+  {
+    "id": "95301",
+    "plate": "53",
+    "name": "Rize"
+  },
+  {
+    "id": "95401",
+    "plate": "54",
+    "name": "Sakarya"
+  },
+  {
+    "id": "95501",
+    "plate": "55",
+    "name": "Samsun"
+  },
+  {
+    "id": "95601",
+    "plate": "56",
+    "name": "Siirt"
+  },
+  {
+    "id": "95701",
+    "plate": "57",
+    "name": "Sinop"
+  },
+  {
+    "id": "95801",
+    "plate": "58",
+    "name": "Sivas"
+  },
+  {
+    "id": "95901",
+    "plate": "59",
+    "name": "Tekirdağ"
+  },
+  {
+    "id": "96001",
+    "plate": "60",
+    "name": "Tokat"
+  },
+  {
+    "id": "96101",
+    "plate": "61",
+    "name": "Trabzon"
+  },
+  {
+    "id": "96201",
+    "plate": "62",
+    "name": "Tunceli"
+  },
+  {
+    "id": "96301",
+    "plate": "63",
+    "name": "Şanlıurfa"
+  },
+  {
+    "id": "96401",
+    "plate": "64",
+    "name": "Uşak"
+  },
+  {
+    "id": "96501",
+    "plate": "65",
+    "name": "Van"
+  },
+  {
+    "id": "96601",
+    "plate": "66",
+    "name": "Yozgat"
+  },
+  {
+    "id": "96701",
+    "plate": "67",
+    "name": "Zonguldak"
+  },
+  {
+    "id": "96801",
+    "plate": "68",
+    "name": "Aksaray"
+  },
+  {
+    "id": "96901",
+    "plate": "69",
+    "name": "Bayburt"
+  },
+  {
+    "id": "97001",
+    "plate": "70",
+    "name": "Karaman"
+  },
+  {
+    "id": "97101",
+    "plate": "71",
+    "name": "Kırıkkale"
+  },
+  {
+    "id": "97201",
+    "plate": "72",
+    "name": "Batman"
+  },
+  {
+    "id": "97301",
+    "plate": "73",
+    "name": "Şırnak"
+  },
+  {
+    "id": "97401",
+    "plate": "74",
+    "name": "Bartın"
+  },
+  {
+    "id": "97501",
+    "plate": "75",
+    "name": "Ardahan"
+  },
+  {
+    "id": "97601",
+    "plate": "76",
+    "name": "Iğdır"
+  },
+  {
+    "id": "97701",
+    "plate": "77",
+    "name": "Yalova"
+  },
+  {
+    "id": "97801",
+    "plate": "78",
+    "name": "Karabük"
+  },
+  {
+    "id": "97901",
+    "plate": "79",
+    "name": "Kilis"
+  },
+  {
+    "id": "98001",
+    "plate": "80",
+    "name": "Osmaniye"
+  },
+  {
+    "id": "98101",
+    "plate": "81",
+    "name": "Düzce"
+  }
+]

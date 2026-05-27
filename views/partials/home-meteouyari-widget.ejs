@@ -1,0 +1,68 @@
+<div class="meteoFabWrap" id="meteoUyariWidget">
+  <button
+    type="button"
+    class="meteoFab"
+    id="meteoFabBtn"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="meteoModal"
+    title="Hava durumu uyarıları"
+  >
+    <span class="meteoFab__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" focusable="false">
+        <circle cx="26" cy="26" r="12" fill="#FDB813"/>
+        <g stroke="#FDB813" stroke-width="3" stroke-linecap="round">
+          <line x1="26" y1="6" x2="26" y2="12"/>
+          <line x1="26" y1="40" x2="26" y2="46"/>
+          <line x1="6" y1="26" x2="12" y2="26"/>
+          <line x1="40" y1="26" x2="46" y2="26"/>
+          <line x1="12" y1="12" x2="16" y2="16"/>
+          <line x1="36" y1="36" x2="40" y2="40"/>
+          <line x1="12" y1="40" x2="16" y2="36"/>
+          <line x1="36" y1="16" x2="40" y2="12"/>
+        </g>
+        <path d="M18 42c0-8 7-14 16-14 7 0 13 4 15 10 8 1 14 7 14 15 0 8-7 15-15 15H22c-8 0-15-7-15-15z" fill="#94A3B8"/>
+      </svg>
+    </span>
+    <span class="meteoFab__label">Uyarılar</span>
+    <span class="meteoFab__badge" id="meteoFabBadge" hidden>0</span>
+  </button>
+</div>
+
+<div class="meteoModal" id="meteoModal" hidden role="dialog" aria-modal="true" aria-labelledby="meteoModalTitle">
+  <div class="meteoModal__backdrop" data-meteo-close></div>
+  <div class="meteoModal__panel">
+    <header class="meteoModal__head">
+      <div>
+        <h2 class="meteoModal__title" id="meteoModalTitle">MeteoUyarı — Türkiye</h2>
+        <p class="muted meteoModal__meta" id="meteoModalMeta">MGM verileri yükleniyor…</p>
+      </div>
+      <button type="button" class="meteoModal__close" data-meteo-close aria-label="Kapat">×</button>
+    </header>
+
+    <div class="meteoModal__tabs" role="tablist">
+      <button type="button" class="meteoModal__tab is-active" data-meteo-day="1" role="tab" aria-selected="true">Bugün</button>
+      <button type="button" class="meteoModal__tab" data-meteo-day="2" role="tab" aria-selected="false">Yarın</button>
+    </div>
+
+    <div class="meteoModal__legend" id="meteoLegend"></div>
+
+    <div class="meteoModal__body">
+      <div class="meteoModal__mapWrap">
+        <div class="meteoModal__loading" id="meteoMapLoading">Harita yükleniyor…</div>
+        <div class="meteoModal__map" id="meteoMap" aria-label="Türkiye meteoroloji uyarı haritası"></div>
+        <div class="meteoModal__tooltip" id="meteoTooltip" hidden></div>
+      </div>
+      <aside class="meteoModal__side">
+        <h3 class="meteoModal__sideTitle">Uyarılı iller</h3>
+        <p class="muted meteoModal__sideEmpty" id="meteoWarnedEmpty">Şu an uyarılı il bulunmuyor.</p>
+        <ul class="meteoModal__warnedList" id="meteoWarnedList"></ul>
+      </aside>
+    </div>
+
+    <footer class="meteoModal__foot muted">
+      Kaynak:
+      <a href="https://www.mgm.gov.tr/meteouyari/turkiye.aspx" target="_blank" rel="noopener noreferrer">MGM MeteoUyarı</a>
+    </footer>
+  </div>
+</div>

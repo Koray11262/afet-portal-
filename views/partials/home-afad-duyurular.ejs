@@ -1,0 +1,47 @@
+<section class="homeAnnouncements panel" aria-label="AFAD duyuruları">
+  <div class="homeAnnouncements__head">
+    <div>
+      <h2 class="homeAnnouncements__title">Son AFAD Duyuruları</h2>
+      <p class="muted homeAnnouncements__meta">
+        <% if (afadDuyurular.ok && afadDuyurular.updatedAt) { %>
+          Kaynak: <%= afadDuyurular.source %> — son güncelleme <%= afadDuyurular.updatedAt %>
+          <% if (afadDuyurular.stale) { %>
+            <span class="homeAnnouncements__stale">(önbellek verisi)</span>
+          <% } %>
+        <% } else { %>
+          Kaynak: <%= afadDuyurular.source %>
+        <% } %>
+      </p>
+    </div>
+    <a
+      class="btn btn--ghost btn--sm"
+      href="<%= afadDuyurular.sourceUrl %>"
+      target="_blank"
+      rel="noopener noreferrer"
+    >Tüm duyurular →</a>
+  </div>
+
+  <% if (!afadDuyurular.ok || !afadDuyurular.items.length) { %>
+    <p class="homeAnnouncements__empty muted">
+      Duyurular şu an yüklenemedi. Lütfen daha sonra tekrar deneyin veya
+      <a href="<%= afadDuyurular.sourceUrl %>" target="_blank" rel="noopener noreferrer">afad.gov.tr/duyurular</a>
+      adresini ziyaret edin.
+    </p>
+  <% } else { %>
+    <ul class="homeAnnouncements__list">
+      <% afadDuyurular.items.forEach((item) => { %>
+        <li class="homeAnnouncements__item">
+          <% if (item.dateLabel) { %>
+            <time class="homeAnnouncements__date" datetime="<%= item.dateLabel %>"><%= item.dateLabel %></time>
+          <% } %>
+          <a
+            class="homeAnnouncements__link"
+            href="<%= item.url %>"
+            target="_blank"
+            rel="noopener noreferrer"
+          ><%= item.title %></a>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</section>
