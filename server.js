@@ -14,6 +14,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const afetler = require("./data/afetler.json");
 const db = require("./src/db");
 const afadToplanma = require("./src/afad-toplanma");
+const toplanma = require("./src/toplanma");
 const ilMatch = require("./src/il-match");
 const ilKoordinat = require("./data/il-koordinat.json");
 const riskTurleri = require("./data/risk-turleri.json");
@@ -24,6 +25,8 @@ const deprem = require("./src/deprem");
 const afadDuyurular = require("./src/afad-duyurular");
 const mgmMeteouyari = require("./src/mgm-meteouyari");
 const yanginCanli = require("./src/yangin-canli");
+const senaryo = require("./src/senaryo");
+const yerlesim = require("./src/yerlesim");
 
 app.locals.karsilastirmalar = karsilastirmalar;
 
@@ -58,11 +61,12 @@ app.get("/", async (req, res, next) => {
       deprem.getRecentEarthquakes(),
       afadDuyurular.getRecentAnnouncements(),
     ]);
-    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml] = await Promise.all([
+    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml, senaryoWidgetHtml] = await Promise.all([
       renderPartial(res, "partials/home-earthquakes", { sonDepremler }),
       renderPartial(res, "partials/home-afad-duyurular", { afadDuyurular: afadDuyuruData }),
       renderPartial(res, "partials/home-meteouyari-widget"),
       renderPartial(res, "partials/home-yangin-widget"),
+      renderPartial(res, "partials/home-senaryo-widget"),
     ]);
     res.render("home", {
       pageTitle: "Anasayfa",
@@ -71,6 +75,7 @@ app.get("/", async (req, res, next) => {
       afadDuyurularHtml,
       meteoUyariWidgetHtml,
       yanginWidgetHtml,
+      senaryoWidgetHtml,
     });
   } catch (err) {
     next(err);
@@ -110,6 +115,19 @@ app.get("/api/afad/duyurular", async (req, res) => {
   try {
     const limit = Math.min(Number(req.query.limit) || afadDuyurular.DEFAULT_LIMIT, 20);
     const data = await afadDuyurular.getRecentAnnouncements(limit);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
+app.get("/api/senaryo/run", (req, res) => {
+  try {
+    const il = String(req.query.il || "").trim() || "Kocaeli";
+    const ilce = String(req.query.ilce || "").trim() || "Gebze";
+    const type = String(req.query.type || "quake").trim();
+    const magnitude = req.query.magnitude != null ? Number(req.query.magnitude) : 7.2;
+    const data = senaryo.runScenario({ il, ilce, magnitude, type });
     res.json(data);
   } catch (err) {
     res.status(500).json({ ok: false, error: String(err?.message || err) });
@@ -227,6 +245,172 @@ app.get("/api/coords", (req, res) => {
   res.json({ ok: true, coords: ilKoordinat });
 });
 
+app.get("/api/yerlesim/iller", async (req, res) => {
+  try {
+    const provinces = await yerlesim.getProvinces();
+    res.json({ ok: true, iller: provinces.map((p) => p.name) });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
+app.get("/api/yerlesim/ilceler", async (req, res) => {
+  const il = String(req.query.il || "").trim();
+  if (!il) return res.status(400).json({ ok: false, error: "il gerekli" });
+  try {
+    const { province, districts } = await yerlesim.getDistrictsByProvinceName(il);
+    if (!province) return res.status(404).json({ ok: false, error: "İl bulunamadı" });
+    res.json({ ok: true, il: province.name, ilceler: districts.map((d) => d.name) });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
+function seededRand(seed) {
+  let h = 2166136261;
+  const s = String(seed || "");
+  for (let i = 0; i < s.length; i += 1) {
+    h ^= s.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  let a = h >>> 0;
+  return () => {
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function jitterAround(lat, lng, r, km) {
+  const angle = r() * Math.PI * 2;
+  const distKm = r() * km;
+  const dLat = (distKm / 111) * Math.cos(angle);
+  const dLng = (distKm / (111 * Math.cos((lat * Math.PI) / 180))) * Math.sin(angle);
+  return { lat: lat + dLat, lng: lng + dLng };
+}
+
+function pickTopRisks(risks) {
+  const scored = (risks || []).filter((x) => Number.isFinite(Number(x.puan)));
+  scored.sort((a, b) => Number(b.puan) - Number(a.puan));
+  return scored.slice(0, 2);
+}
+
+app.get("/api/oneri/konum", async (req, res) => {
+  const il = String(req.query.il || "").trim();
+  const ilce = String(req.query.ilce || "").trim();
+  if (!il) return res.status(400).json({ ok: false, error: "il gerekli" });
+  if (!ilce) return res.status(400).json({ ok: false, error: "ilce gerekli" });
+
+  try {
+    // 1) Risk profili (il bazlı mevcut DB API)
+    const iller = await getIllerList();
+    const ilMatched = ilMatch.matchIl(il, iller);
+    if (!ilMatched) return res.status(404).json({ ok: false, error: "İl bulunamadı" });
+
+    const pool = db.getPool();
+    const [rows] = await pool.query(
+      `SELECT il, deprem, sel, heyelan, yangin, cig, kuraklik
+       FROM sehir_riskleri WHERE il = ? LIMIT 1`,
+      [ilMatched]
+    );
+    if (!rows.length) return res.status(404).json({ ok: false, error: "Bu il için risk verisi yok." });
+
+    const row = rows[0];
+    const risks = riskTurleri.map((t) => ({
+      key: t.key,
+      label: t.label,
+      slug: t.slug,
+      puan: row[t.key] != null ? Number(row[t.key]) : null,
+    }));
+
+    // 2) İlçe bazlı toplanma alanları (il verisi içinden filtre)
+    const toplanmaData = await afadToplanma.queryAreas({ il: ilMatched, limit: 10000 });
+    const ilceKey = yerlesim.normalizeKey(ilce);
+    const alanlarRaw = (toplanmaData.items || []).filter((a) =>
+      yerlesim.normalizeKey(a.ilce || "").includes(ilceKey)
+    );
+
+    // Konum merkezini il koordinatından türet + ilçe için küçük jitter
+    const base = ilKoordinat[ilMatched] || { lat: 39, lng: 35 };
+    const r = seededRand(`${ilMatched}|${ilce}`);
+    const center = jitterAround(base.lat, base.lng, r, 18);
+
+    // Yakın toplanma alanlarını merkezden sırala (ilçe filtresi varsa onu kullan, yoksa il geneli)
+    const rowsForDist = (alanlarRaw.length ? alanlarRaw : toplanmaData.items || []).map((x) => ({
+      ...x,
+      kapasite: null,
+    }));
+    const yakinAlanlar = rowsForDist.length
+      ? toplanma.withDistance(rowsForDist, center.lat, center.lng).slice(0, 6)
+      : [];
+
+    // 3) Hastaneler (tahmini)
+    const hospitalNames = [
+      "Devlet Hastanesi",
+      "Şehir Hastanesi",
+      "Eğitim ve Araştırma Hastanesi",
+      "Acil Sağlık Noktası",
+    ];
+    const hospitals = Array.from({ length: 5 }).map((_, i) => {
+      const p = jitterAround(center.lat, center.lng, r, 12);
+      const t = hospitalNames[Math.floor(r() * hospitalNames.length)];
+      return {
+        id: `h-${i + 1}`,
+        name: `${ilMatched} ${ilce} ${t}`,
+        lat: p.lat,
+        lng: p.lng,
+        triage: r() > 0.7 ? "Yoğun" : "Normal",
+      };
+    });
+
+    // 4) Trafik (tahmini) + öneri metinleri
+    const traffic = {
+      level: r() > 0.75 ? "Çok yoğun" : r() > 0.5 ? "Yoğun" : r() > 0.25 ? "Orta" : "Açık",
+      note: "Trafik yoğunluğu tahmini bir göstergedir (simülasyon).",
+    };
+
+    const top = pickTopRisks(risks);
+    const genelOneriler = [
+      "Aile afet planınızı güncelleyin ve bir şehir dışı irtibat kişisi belirleyin.",
+      "Toplanma alanına gidiş için 2 alternatif rota belirleyin (yaya + araç).",
+      "Acil çanta checklist’ini tamamlayın ve erişilebilir bir yerde tutun.",
+      "Elektrik/gaz/su vanalarını kapatma adımlarını ev halkıyla paylaşın.",
+    ];
+    const riskOnerileri = top.map((t) => ({
+      title: `${t.label} riski öne çıkıyor (${t.puan}/10)`,
+      href: t.slug ? `/afet/${t.slug}` : null,
+    }));
+
+    res.json({
+      ok: true,
+      il: ilMatched,
+      ilce,
+      center,
+      risks,
+      topRisks: top,
+      toplanma: {
+        totalInIl: (toplanmaData.items || []).length,
+        totalInIlce: alanlarRaw.length,
+        nearest: yakinAlanlar,
+        syncing: Boolean(toplanmaData.syncing),
+        message: toplanmaData.message || null,
+      },
+      hospitals,
+      traffic,
+      recommendations: {
+        risk: riskOnerileri,
+        general: genelOneriler,
+      },
+      disclaimer:
+        "Bu öneriler bilgilendirme amaçlıdır; resmi yönlendirmeler için AFAD/valilik duyurularını takip edin.",
+    });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
 app.get("/api/toplanma/meta", async (req, res) => {
   try {
     const data = await afadToplanma.getMeta();
@@ -302,6 +486,30 @@ app.get("/hazirlik-skoru", (req, res) => {
       title: "Afet Hazırlık Testi",
       lead: "10 soruluk test ile ev ve aile hazırlık seviyenizi ölçün.",
       crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Hazırlık Testi" }],
+    },
+  });
+});
+
+app.get("/acil-canta", (req, res) => {
+  res.render("acil-canta", {
+    pageTitle: "Acil Durum Çantası",
+    nav: afetler,
+    pageHero: {
+      title: "Acil Durum Çantası Checklist",
+      lead: "Temel ihtiyaçları hızlıca kontrol edin ve tamamladıklarınızı işaretleyin.",
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Acil Çanta" }],
+    },
+  });
+});
+
+app.get("/aile-afet-plani", (req, res) => {
+  res.render("aile-afet-plani", {
+    pageTitle: "Aile Afet Planı",
+    nav: afetler,
+    pageHero: {
+      title: "Aile Afet Planı Oluşturucu",
+      lead: "Buluşma noktaları ve iletişim bilgilerinizi düzenleyin, yazdırın.",
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Aile Afet Planı" }],
     },
   });
 });

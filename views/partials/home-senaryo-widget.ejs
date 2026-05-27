@@ -1,0 +1,91 @@
+<div class="senaryoFabWrap" id="senaryoWidget">
+  <button
+    type="button"
+    class="senaryoFab"
+    id="senaryoFabBtn"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="senaryoModal"
+    title="Afet senaryo simülasyonu"
+  >
+    <span class="senaryoFab__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" focusable="false">
+        <rect x="14" y="10" width="28" height="40" rx="6" fill="#0b4d8f" opacity="0.12"/>
+        <rect x="18" y="14" width="28" height="40" rx="6" fill="#0b4d8f" opacity="0.18"/>
+        <rect x="22" y="18" width="28" height="40" rx="6" fill="#0b4d8f"/>
+        <path d="M30 31c0-5 4-9 9-9 3 0 6 2 7 5 4 1 7 4 7 9 0 5-4 9-9 9H34c-4 0-8-4-8-9 0-2 2-4 4-5z" fill="#FDE68A"/>
+        <path d="M28 42c-2 3-3 6-3 9" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+        <path d="M34 44c0 3 1 5 2 7" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+        <path d="M40 42c2 3 3 6 3 9" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
+      </svg>
+    </span>
+    <span class="senaryoFab__label">Senaryo</span>
+  </button>
+</div>
+
+<div class="senaryoModal" id="senaryoModal" hidden role="dialog" aria-modal="true" aria-labelledby="senaryoModalTitle">
+  <div class="senaryoModal__backdrop" data-senaryo-close></div>
+  <div class="senaryoModal__panel">
+    <header class="senaryoModal__head">
+      <div>
+        <h2 class="senaryoModal__title" id="senaryoModalTitle">Afet Senaryo Simülasyonu</h2>
+        <p class="muted senaryoModal__meta" id="senaryoModalMeta">Bir senaryo seçin ve çalıştırın.</p>
+      </div>
+      <button type="button" class="senaryoModal__close" data-senaryo-close aria-label="Kapat">×</button>
+    </header>
+
+    <div class="senaryoModal__body">
+      <div class="senaryoModal__mapWrap">
+        <div class="senaryoModal__loading" id="senaryoMapLoading">Harita hazırlanıyor…</div>
+        <div class="senaryoModal__map" id="senaryoMap" aria-label="Senaryo haritası"></div>
+      </div>
+
+      <aside class="senaryoModal__side">
+        <form class="senaryoForm" id="senaryoForm">
+          <div class="senaryoForm__row">
+            <label class="senaryoForm__field">
+              <span class="muted">İl</span>
+              <input id="senaryoIl" name="il" type="text" placeholder="Örn. Kocaeli" value="Kocaeli" required />
+            </label>
+            <label class="senaryoForm__field">
+              <span class="muted">İlçe (opsiyonel)</span>
+              <input id="senaryoIlce" name="ilce" type="text" placeholder="Örn. Gebze" value="Gebze" />
+            </label>
+          </div>
+          <div class="senaryoForm__row">
+            <label class="senaryoForm__field">
+              <span class="muted">Afet türü</span>
+              <select id="senaryoType" name="type">
+                <option value="quake" selected>Deprem</option>
+                <option value="flood">Sel / Taşkın</option>
+                <option value="landslide">Heyelan</option>
+              </select>
+            </label>
+            <label class="senaryoForm__field">
+              <span class="muted">Şiddet (deprem için büyüklük)</span>
+              <input id="senaryoMag" name="magnitude" type="number" step="0.1" min="4" max="8.2" value="7.2" required />
+            </label>
+          </div>
+          <button type="submit" class="btn btn--primary">Simülasyonu Çalıştır</button>
+        </form>
+
+        <div class="senaryoSideBlock">
+          <h3 class="senaryoSideBlock__title">Özet</h3>
+          <div class="senaryoSummary" id="senaryoSummary">
+            <p class="muted">Simülasyonu çalıştırınca burada “tahmini etki” ve katmanlar listelenir.</p>
+          </div>
+        </div>
+
+        <div class="senaryoSideBlock">
+          <h3 class="senaryoSideBlock__title">Katmanlar</h3>
+          <div class="senaryoLayers" id="senaryoLayers"></div>
+        </div>
+      </aside>
+    </div>
+
+    <footer class="senaryoModal__foot muted">
+      Not: Bu ekran gerçek zamanlı resmi simülasyon değildir; görsel/mantıksal akış amaçlıdır.
+    </footer>
+  </div>
+</div>
+

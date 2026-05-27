@@ -1,0 +1,19 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    extraScripts: `<script src="/acil-canta.js"></script>`,
+    body: `
+      <div class="panel">
+        <p class="muted">Bu liste, temel bir “acil durum çantası” kontrol listesidir. Tamamladıklarınız bu cihazda kaydedilir.</p>
+        <div class="checkGrid" id="cantaList"></div>
+        <div class="checkActions">
+          <button type="button" class="btn btn--ghost" id="cantaReset">Sıfırla</button>
+          <button type="button" class="btn btn--primary" id="cantaPrint">Yazdır</button>
+        </div>
+      </div>
+    `,
+  })
+%>
+

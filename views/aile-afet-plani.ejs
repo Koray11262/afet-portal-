@@ -1,0 +1,50 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    pageHero,
+    extraScripts: `<script src="/aile-afet-plani.js"></script>`,
+    body: `
+      <div class="panel">
+        <p class="muted">Aile afet planınızı oluşturun. Bilgiler bu cihazda kaydedilir ve isterseniz yazdırabilirsiniz.</p>
+
+        <form class="planForm" id="planForm">
+          <div class="planGrid">
+            <label class="planField">
+              <span class="muted">Aile adı</span>
+              <input name="familyName" type="text" placeholder="Örn. Yılmaz Ailesi" />
+            </label>
+            <label class="planField">
+              <span class="muted">Buluşma noktası (1)</span>
+              <input name="meeting1" type="text" placeholder="Örn. Mahalle parkı" />
+            </label>
+            <label class="planField">
+              <span class="muted">Buluşma noktası (2)</span>
+              <input name="meeting2" type="text" placeholder="Örn. Okul bahçesi" />
+            </label>
+            <label class="planField">
+              <span class="muted">Şehir dışı irtibat kişisi</span>
+              <input name="outContact" type="text" placeholder="Örn. Ali Yılmaz (0xxx xxx xx xx)" />
+            </label>
+            <label class="planField planField--full">
+              <span class="muted">Önemli notlar</span>
+              <textarea name="notes" rows="3" placeholder="İlaçlar, özel ihtiyaçlar, evcil hayvan, anahtar yeri…"></textarea>
+            </label>
+          </div>
+
+          <div class="planActions">
+            <button type="button" class="btn btn--ghost" id="planReset">Sıfırla</button>
+            <button type="submit" class="btn btn--primary">Kaydet</button>
+            <button type="button" class="btn btn--ghost" id="planPrint">Yazdır</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Önizleme</h2>
+        <div id="planPreview" class="planPreview muted">Henüz kayıt yok.</div>
+      </div>
+    `,
+  })
+%>
+

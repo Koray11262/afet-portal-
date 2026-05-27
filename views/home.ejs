@@ -2,33 +2,66 @@
   include("layout", {
     pageTitle,
     nav,
-    extraScripts: `<script src="/home-hero.js"></script><script src="/home-meteouyari.js"></script><script src="/home-yangin.js"></script>`,
+    extraScripts: `<script src="/home-hero.js"></script><script src="/home-tools.js"></script><script src="/home-meteouyari.js"></script><script src="/home-yangin.js"></script><script src="/home-senaryo.js"></script>`,
     body: `
-      <section class="homeHero" aria-label="Tanıtım">
-        <div class="homeHero__slides">
-          <article class="homeHero__slide is-active" data-slide="0">
-            <p class="homeHero__tag">Köklü bilgi</p>
-            <h2 class="homeHero__title">Afetlere Hazırlıklı Ol,<br/>Hayatını Koru!</h2>
-            <p class="homeHero__text">Türkiye'deki afet risklerini öğren, hazırlık seviyeni ölç ve güvenli alanları keşfet.</p>
-            <a class="btn btn--primary" href="/hazirlik-skoru">Hazırlık Testine Başla</a>
-          </article>
-          <article class="homeHero__slide" data-slide="1">
-            <p class="homeHero__tag">Jeolojik riskler</p>
-            <h2 class="homeHero__title">Deprem, heyelan ve daha fazlası</h2>
-            <p class="homeHero__text">Jeolojik kökenli afetler için detaylı rehberler ve risk haritaları.</p>
-            <a class="btn btn--primary" href="/afetler/jeolojik">Jeolojik Afetler →</a>
-          </article>
-          <article class="homeHero__slide" data-slide="2">
-            <p class="homeHero__tag">Meteorolojik riskler</p>
-            <h2 class="homeHero__title">Sel, yangın, kuraklık</h2>
-            <p class="homeHero__text">İklim kaynaklı afetlerde öncesi, sırası ve sonrası bilgileri.</p>
-            <a class="btn btn--primary" href="/afetler/iklim">Meteorolojik Afetler →</a>
-          </article>
-        </div>
-        <div class="homeHero__dots" aria-hidden="true">
-          <button type="button" class="homeHero__dot is-active" data-go="0"></button>
-          <button type="button" class="homeHero__dot" data-go="1"></button>
-          <button type="button" class="homeHero__dot" data-go="2"></button>
+      <section class="homeTop" aria-label="Tanıtım ve hızlı araçlar">
+        <div class="homeTop__inner">
+          <div class="homeHero homeHero--compact" aria-label="Tanıtım">
+            <div class="homeHero__slides">
+              <article class="homeHero__slide is-active" data-slide="0">
+                <p class="homeHero__tag">Köklü bilgi</p>
+                <h2 class="homeHero__title">Afetlere Hazırlıklı Ol,<br/>Hayatını Koru!</h2>
+                <p class="homeHero__text">Türkiye'deki afet risklerini öğren, hazırlık seviyeni ölç ve güvenli alanları keşfet.</p>
+                <a class="btn btn--primary" href="/hazirlik-skoru">Hazırlık Testine Başla</a>
+              </article>
+              <article class="homeHero__slide" data-slide="1">
+                <p class="homeHero__tag">Jeolojik riskler</p>
+                <h2 class="homeHero__title">Deprem, heyelan ve daha fazlası</h2>
+                <p class="homeHero__text">Jeolojik kökenli afetler için detaylı rehberler ve risk haritaları.</p>
+                <a class="btn btn--primary" href="/afetler/jeolojik">Jeolojik Afetler →</a>
+              </article>
+              <article class="homeHero__slide" data-slide="2">
+                <p class="homeHero__tag">Meteorolojik riskler</p>
+                <h2 class="homeHero__title">Sel, yangın, kuraklık</h2>
+                <p class="homeHero__text">İklim kaynaklı afetlerde öncesi, sırası ve sonrası bilgileri.</p>
+                <a class="btn btn--primary" href="/afetler/iklim">Meteorolojik Afetler →</a>
+              </article>
+            </div>
+            <div class="homeHero__dots" aria-hidden="true">
+              <button type="button" class="homeHero__dot is-active" data-go="0"></button>
+              <button type="button" class="homeHero__dot" data-go="1"></button>
+              <button type="button" class="homeHero__dot" data-go="2"></button>
+            </div>
+          </div>
+
+          <aside class="homeTools" aria-label="Hızlı araçlar">
+            <a class="homeToolCard" href="/il-riskleri">
+              <div class="homeToolCard__title">Risk hesaplama</div>
+              <div class="homeToolCard__desc">İl seçerek deprem, sel, heyelan ve diğer riskleri görün.</div>
+              <span class="homeToolCard__more">Aracı aç →</span>
+            </a>
+            <a class="homeToolCard" href="/acil-canta">
+              <div class="homeToolCard__title">Acil durum çantası checklist</div>
+              <div class="homeToolCard__desc">Hazır bir kontrol listesi ile çantanı tamamla.</div>
+              <span class="homeToolCard__more">Listeyi aç →</span>
+            </a>
+            <a class="homeToolCard" href="/aile-afet-plani">
+              <div class="homeToolCard__title">Aile afet planı oluşturucu</div>
+              <div class="homeToolCard__desc">İletişim, buluşma noktası ve görevleri planla.</div>
+              <span class="homeToolCard__more">Plan oluştur →</span>
+            </a>
+            <div class="homeToolCard homeToolCard--form">
+              <div class="homeToolCard__title">Konuma göre öneriler</div>
+              <div class="homeToolCard__desc">İl ve ilçe seçin; risk, toplanma alanı ve tahmini sağlık önerileri alın.</div>
+              <form class="homeToolForm" id="homeToolForm">
+                <select id="homeToolIl" aria-label="İl seç"></select>
+                <select id="homeToolIlce" aria-label="İlçe seç" disabled></select>
+                <button type="submit" class="btn btn--primary btn--sm">Öneri al</button>
+              </form>
+              <div class="homeToolResult" id="homeToolResult" hidden></div>
+              <span class="homeToolCard__hint muted">İl/ilçe listesi otomatik doldurulur.</span>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -36,6 +69,7 @@
       ${typeof afadDuyurularHtml !== "undefined" ? afadDuyurularHtml : ""}
       ${typeof meteoUyariWidgetHtml !== "undefined" ? meteoUyariWidgetHtml : ""}
       ${typeof yanginWidgetHtml !== "undefined" ? yanginWidgetHtml : ""}
+      ${typeof senaryoWidgetHtml !== "undefined" ? senaryoWidgetHtml : ""}
 
       <section class="homeIntro panel">
         <h2 class="homeIntro__title">Afet Portalı ile neler yapabilirsiniz?</h2>
