@@ -942,6 +942,102 @@ a {
   gap: 8px;
 }
 
+.testTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.testTabs__btn {
+  padding: 10px 18px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.testTabs__btn.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.testPanel[hidden] {
+  display: none !important;
+}
+
+.bilgiOptions {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.bilgiOption {
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.bilgiOption:hover:not(:disabled) {
+  border-color: var(--accent);
+  background: var(--accent-light);
+}
+
+.bilgiOption:disabled {
+  cursor: default;
+}
+
+.bilgiOption--correct {
+  border-color: #16a34a;
+  background: #dcfce7;
+}
+
+.bilgiOption--wrong {
+  border-color: #dc2626;
+  background: #fee2e2;
+}
+
+.bilgiFeedback {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.bilgiFeedback p {
+  margin: 6px 0 0;
+}
+
+.bilgiFeedback--ok {
+  background: #dcfce7;
+  border: 1px solid #86efac;
+  color: #14532d;
+}
+
+.bilgiFeedback--fail {
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #7f1d1d;
+}
+
+#bilgiNext {
+  margin-top: 12px;
+}
+
 .hazirlikPanel h2,
 .hazirlikPanel h3 {
   margin-top: 0;

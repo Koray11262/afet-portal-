@@ -478,14 +478,18 @@ app.get("/hazirlik-sorular.json", (req, res) => {
   res.sendFile(path.join(__dirname, "data", "hazirlik-sorular.json"));
 });
 
+app.get("/afet-bilgi-sorular.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "data", "afet-bilgi-sorular.json"));
+});
+
 app.get("/hazirlik-skoru", (req, res) => {
   res.render("hazirlik-skoru", {
-    pageTitle: "Hazırlık Skoru",
+    pageTitle: "Hazırlık & Afet Bilgi Testi",
     nav: afetler,
     pageHero: {
-      title: "Afet Hazırlık Testi",
-      lead: "10 soruluk test ile ev ve aile hazırlık seviyenizi ölçün.",
-      crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Hazırlık Testi" }],
+      title: "Hazırlık & Afet Bilgi Testi",
+      lead: "Hazırlık öz değerlendirmesi ve çoktan seçmeli afet bilgi testi ile seviyenizi ölçün.",
+      crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Hazırlık & Afet Bilgi Testi" }],
     },
   });
 });

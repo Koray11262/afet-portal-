@@ -1,0 +1,200 @@
+{
+  "title": "Afet Bilgi Testi",
+  "categories": [
+    {
+      "id": "deprem",
+      "name": "Deprem",
+      "slug": "deprem",
+      "recommendations": [
+        "Deprem sırasında çök-kapan-tutun; pencere ve devrilebilecek eşyalardan uzak durun.",
+        "Deprem öncesi evde sabitleme ve acil çanta hazırlığını gözden geçirin."
+      ]
+    },
+    {
+      "id": "sel",
+      "name": "Sel / Taşkın",
+      "slug": "sel-taskin",
+      "recommendations": [
+        "Sel uyarılarında alçak alanlardan ve dere yataklarından uzaklaşın.",
+        "Su basan yollarda araç kullanmayın; 30 cm akan su bile aracı sürükleyebilir."
+      ]
+    },
+    {
+      "id": "heyelan",
+      "name": "Heyelan",
+      "slug": "heyelan",
+      "recommendations": [
+        "Yağış sonrası yamaç altı ve dere yatağına yakın alanlarda dikkatli olun.",
+        "Yerde çatlak, eğimde yeni kayma izleri görürseniz bölgeyi terk edin ve yetkililere bildirin."
+      ]
+    },
+    {
+      "id": "yangin",
+      "name": "Yangın",
+      "slug": "orman-yangini",
+      "recommendations": [
+        "Orman yangını riski yüksek günlerde açık ateş ve izinsiz yakma yapmayın.",
+        "Yangın uyarısı olan bölgelerde tahliye talimatlarına uyun."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "categoryId": "deprem",
+      "text": "Deprem sırasında en doğru ilk davranış hangisidir?",
+      "options": [
+        "Çök, kapan, tutun; sağlam bir mobilyanın yanına geçin",
+        "Merdiven veya asansöre koşun",
+        "Pencere kenarına gidip dışarı bakın",
+        "Balkondan aşağı atlamaya çalışın"
+      ],
+      "correct": 0,
+      "explanation": "Çök-kapan-tutun, düşen cisimlerden korunmanın temelidir. Asansör ve merdiven deprem anında güvenli değildir."
+    },
+    {
+      "id": 2,
+      "categoryId": "deprem",
+      "text": "Depremden hemen sonra doğru olan hangisidir?",
+      "options": [
+        "Bina hasarlıysa içeride kalıp bekleyin",
+        "Gaz kokusu varsa elektrik düğmesine dokunmayın; vanayı kapatıp binayı tahliye edin",
+        "Hasarlı binaya hemen tekrar girin",
+        "Asansörle hızlıca inin"
+      ],
+      "correct": 1,
+      "explanation": "Gaz kaçağında kıvılcım riski vardır. Hasarlı yapılara girmeden önce yetkililerin kontrolünü bekleyin."
+    },
+    {
+      "id": 3,
+      "categoryId": "deprem",
+      "text": "Evde deprem öncesi yapılması gerekenlerden biri değildir:",
+      "options": [
+        "Ağır eşyaları duvara sabitlemek",
+        "Acil çanta ve su stoğu hazırlamak",
+        "Büyük aynayı yatak başına sabitlemek",
+        "Tüm pencereleri sürekli açık bırakmak"
+      ],
+      "correct": 3,
+      "explanation": "Pencereleri sürekli açık tutmak güvenlik sağlamaz. Sabitleme, plan ve acil malzeme hazırlığı önemlidir."
+    },
+    {
+      "id": 4,
+      "categoryId": "sel",
+      "text": "Ani sel / su baskını uyarısında araç içindeyseniz ne yapmalısınız?",
+      "options": [
+        "Aracı hızlandırıp suyun içinden geçin",
+        "Su derinleşiyorsa aracı terk edip yüksek ve güvenli noktaya çıkın",
+        "Motoru çalışır halde bekleyin",
+        "En alçak noktaya park edin"
+      ],
+      "correct": 1,
+      "explanation": "Az su bile aracı hareketsiz bırakabilir veya devirebilir. Yaya olarak yüksek noktaya çıkmak daha güvenlidir."
+    },
+    {
+      "id": 5,
+      "categoryId": "sel",
+      "text": "Sel sonrası eve dönerken hangisi doğrudur?",
+      "options": [
+        "Elektrik panosunu hemen açın",
+        "Su çekildikten sonra gaz ve elektrik tesisatını kontrol ettirin",
+        "Bulaşık suyu hemen içmeye başlayın",
+        "Islak duvarlara hemen boya yapın"
+      ],
+      "correct": 1,
+      "explanation": "Sel sonrası tesisat ve yapı hasarı olabilir. Yetkili kontrolü olmadan enerji ve su hatlarını kullanmayın."
+    },
+    {
+      "id": 6,
+      "categoryId": "sel",
+      "text": "Meteorolojik sel uyarısı aldığınızda öncelikle ne yapmalısınız?",
+      "options": [
+        "Dere yatağına yakın alanlardan uzaklaşın ve yüksek kotlu güvenli alana geçin",
+        "Bodrum katında eşyaları toplayın",
+        "Piknik için dere kenarına gidin",
+        "Tüm kapı ve pencereleri kapatıp içeride kalın (her durumda)"
+      ],
+      "correct": 0,
+      "explanation": "Sel uyarısında alçak ve dere yatağı alanları risklidir. Önceden planlanmış güvenli alana geçmek esastır."
+    },
+    {
+      "id": 7,
+      "categoryId": "heyelan",
+      "text": "Heyelan riski yüksek yamaçlarda aşağıdakilerden hangisi doğru değildir?",
+      "options": [
+        "Yağışlı dönemde yamaç altında uzun süre durmamak",
+        "Yer kayması izlerini yetkililere bildirmek",
+        "Yeni inşaat için eğimli zeminde kontrolsüz kazı yapmak",
+        "Toplanma alanını önceden öğrenmek"
+      ],
+      "correct": 2,
+      "explanation": "Eğimli zeminlerde kontrolsüz kazı ve dolgu heyelan riskini artırır. Uzman değerlendirmesi gerekir."
+    },
+    {
+      "id": 8,
+      "categoryId": "heyelan",
+      "text": "Heyelan anında veya hemen sonrasında ne yapılmalıdır?",
+      "options": [
+        "Kayma yönünde koşarak kaçın",
+        "Yanlara ve mümkünse yamaçtan uzak, açık ve güvenli alana çıkın",
+        "Evin bodrum katında kalın",
+        "Kayma bölgesine merakla yaklaşın"
+      ],
+      "correct": 1,
+      "explanation": "Heyelan yolunda koşmak tehlikelidir. Yamaçtan uzak, açık alanlara çıkmak ve 112/AFAD hattını aramak gerekir."
+    },
+    {
+      "id": 9,
+      "categoryId": "heyelan",
+      "text": "Heyelan öncesi evde hangi hazırlık faydalıdır?",
+      "options": [
+        "Tahliye ve toplanma planı ile acil çanta",
+        "Sadece sigorta poliçesini çekmeceye koymak",
+        "Yamaç altına otopark kurmak",
+        "Pencereyi kırık bırakmak"
+      ],
+      "correct": 0,
+      "explanation": "Plan, iletişim ve acil malzeme heyelan dahil tüm afetlerde temel hazırlıktır."
+    },
+    {
+      "id": 10,
+      "categoryId": "yangin",
+      "text": "Orman yangını riski yüksek günlerde hangisi yasaktır / tehlikelidir?",
+      "options": [
+        "İzinsiz ateş yakmak veya cam şişe bırakmak",
+        "Resmi uyarıları takip etmek",
+        "Yangın söndürme ekiplerine yol vermek",
+        "Riskli alandan uzaklaşmak"
+      ],
+      "correct": 0,
+      "explanation": "Açık ateş ve cam şişe (güneşle kıvılcım) yangın başlatma riski taşır. Uyarılara uyun."
+    },
+    {
+      "id": 11,
+      "categoryId": "yangin",
+      "text": "Yangın dumanına maruz kaldığınızda doğru davranış:",
+      "options": [
+        "Asansörle inin",
+        "Yere yakın, dumandan uzak tahliye yolunu kullanın",
+        "Kapıları açık bırakıp bekleyin",
+        "Pencereden atlayın (her durumda)"
+      ],
+      "correct": 1,
+      "explanation": "Duman yukarı çıkar; alçak pozisyonda ve kapalı kapılardan geçerek tahliye daha güvenlidir."
+    },
+    {
+      "id": 12,
+      "categoryId": "yangin",
+      "text": "AFAD ve yerel yönetim yangın uyarısında ne önerilir?",
+      "options": [
+        "Riskli bölgede kalıp fotoğraf çekmek",
+        "Tahliye ve yasak bölge talimatlarına uymak",
+        "Rüzgâr yönünde yangına yaklaşmak",
+        "Orman yolunda kamp ateşi yakmak"
+      ],
+      "correct": 1,
+      "explanation": "Resmi uyarı ve tahliye talimatları can ve mal güvenliği için esastır."
+    }
+  ],
+  "passPercent": 70
+}
