@@ -1,0 +1,56 @@
+<div class="yanginFabWrap" id="yanginHaritaWidget">
+  <button
+    type="button"
+    class="yanginFab"
+    id="yanginFabBtn"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="yanginModal"
+    title="Canlı yangın haritası"
+  >
+    <span class="yanginFab__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" focusable="false">
+        <path d="M32 8c-2 10-8 14-8 24a8 8 0 1 0 16 0c0-6-4-10-8-24z" fill="#F97316"/>
+        <path d="M24 34c-3 4-5 9-5 14a13 13 0 0 0 26 0c0-5-2-10-5-14-2 3-5 5-8 5s-6-2-8-5z" fill="#EF4444" opacity="0.9"/>
+        <path d="M30 42c0 3 1 5 2 7 1-2 2-4 2-7 0-2-1-3-2-3s-2 1-2 3z" fill="#FDE68A"/>
+      </svg>
+    </span>
+    <span class="yanginFab__label">Yangın</span>
+    <span class="yanginFab__badge" id="yanginFabBadge" hidden>0</span>
+  </button>
+</div>
+
+<div class="yanginModal" id="yanginModal" hidden role="dialog" aria-modal="true" aria-labelledby="yanginModalTitle">
+  <div class="yanginModal__backdrop" data-yangin-close></div>
+  <div class="yanginModal__panel">
+    <header class="yanginModal__head">
+      <div>
+        <h2 class="yanginModal__title" id="yanginModalTitle">Canlı Yangın Haritası</h2>
+        <p class="muted yanginModal__meta" id="yanginModalMeta">Uydu verileri yükleniyor…</p>
+      </div>
+      <button type="button" class="yanginModal__close" data-yangin-close aria-label="Kapat">×</button>
+    </header>
+
+    <div class="yanginModal__legend" id="yanginLegend"></div>
+
+    <div class="yanginModal__body">
+      <div class="yanginModal__mapWrap">
+        <div class="yanginModal__loading" id="yanginMapLoading">Harita yükleniyor…</div>
+        <div class="yanginModal__map" id="yanginMap" aria-label="Türkiye canlı yangın haritası"></div>
+      </div>
+      <aside class="yanginModal__side">
+        <div class="yanginModal__stats" id="yanginStats"></div>
+        <h3 class="yanginModal__sideTitle">Sıcak noktalar</h3>
+        <p class="muted yanginModal__sideEmpty" id="yanginListEmpty">Kayıt bulunamadı.</p>
+        <ul class="yanginModal__list" id="yanginList"></ul>
+      </aside>
+    </div>
+
+    <footer class="yanginModal__foot muted">
+      Kaynak:
+      <a href="https://firms.modaps.eosdis.nasa.gov/" target="_blank" rel="noopener noreferrer">NASA FIRMS</a>
+      ·
+      <a href="https://afetharitasi.org/yangin-haritasi/map.html" target="_blank" rel="noopener noreferrer">Afet Haritası yangın haritası</a>
+    </footer>
+  </div>
+</div>

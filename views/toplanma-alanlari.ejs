@@ -3,16 +3,22 @@
     pageTitle,
     nav,
     pageHero,
-    extraScripts: `<script src="/toplanma.js"></script>`,
+    extraHead: `
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" crossorigin="" />
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" crossorigin="" />
+    `,
+    extraScripts: `
+      <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" crossorigin=""></script>
+      <script src="/toplanma.js"></script>
+    `,
     body: `
       <div class="panel panel--tight">
+        <p class="muted">Veriler <a href="https://www.turkiye.gov.tr/afet-ve-acil-durum-yonetimi-acil-toplanma-alani-sorgulama" target="_blank" rel="noopener">AFAD e-Devlet</a> kaynağından alınır. ${typeof meta !== "undefined" && meta.total ? meta.total.toLocaleString("tr-TR") + " alan, " + meta.syncedCount + "/" + meta.totalIller + " il yüklü." : "Veri senkronizasyonu devam edebilir."}</p>
         <div class="toplanmaToolbar">
           <label class="toplanmaFilter">
             <span class="muted">İl filtresi</span>
             <select id="toplanmaIlFilter">
-              <option value="">Tümü (Kocaeli + İzmir)</option>
-              <option value="Kocaeli">Kocaeli</option>
-              <option value="İzmir">İzmir</option>
+              <option value="">Yükleniyor…</option>
             </select>
           </label>
           <button type="button" class="btn btn--ghost" id="toplanmaLocate">Konumumu göster</button>

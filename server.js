@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const afetler = require("./data/afetler.json");
 const db = require("./src/db");
-const toplanma = require("./src/toplanma");
+const afadToplanma = require("./src/afad-toplanma");
 const ilMatch = require("./src/il-match");
 const ilKoordinat = require("./data/il-koordinat.json");
 const riskTurleri = require("./data/risk-turleri.json");
@@ -23,6 +23,7 @@ const afetMudahalePlani = require("./data/afet-mudahale-plani.json");
 const deprem = require("./src/deprem");
 const afadDuyurular = require("./src/afad-duyurular");
 const mgmMeteouyari = require("./src/mgm-meteouyari");
+const yanginCanli = require("./src/yangin-canli");
 
 app.locals.karsilastirmalar = karsilastirmalar;
 
@@ -57,10 +58,11 @@ app.get("/", async (req, res, next) => {
       deprem.getRecentEarthquakes(),
       afadDuyurular.getRecentAnnouncements(),
     ]);
-    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml] = await Promise.all([
+    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml] = await Promise.all([
       renderPartial(res, "partials/home-earthquakes", { sonDepremler }),
       renderPartial(res, "partials/home-afad-duyurular", { afadDuyurular: afadDuyuruData }),
       renderPartial(res, "partials/home-meteouyari-widget"),
+      renderPartial(res, "partials/home-yangin-widget"),
     ]);
     res.render("home", {
       pageTitle: "Anasayfa",
@@ -68,6 +70,7 @@ app.get("/", async (req, res, next) => {
       sonDepremlerHtml,
       afadDuyurularHtml,
       meteoUyariWidgetHtml,
+      yanginWidgetHtml,
     });
   } catch (err) {
     next(err);
@@ -78,6 +81,15 @@ app.get("/api/deprem/son", async (req, res) => {
   try {
     const limit = Math.min(Number(req.query.limit) || deprem.DEFAULT_LIMIT, 30);
     const data = await deprem.getRecentEarthquakes(limit);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
+app.get("/api/yangin/canli", async (req, res) => {
+  try {
+    const data = await yanginCanli.getLiveFireMap();
     res.json(data);
   } catch (err) {
     res.status(500).json({ ok: false, error: String(err?.message || err) });
@@ -215,39 +227,25 @@ app.get("/api/coords", (req, res) => {
   res.json({ ok: true, coords: ilKoordinat });
 });
 
+app.get("/api/toplanma/meta", async (req, res) => {
+  try {
+    const data = await afadToplanma.getMeta();
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
+});
+
 app.get("/api/toplanma", async (req, res) => {
   const il = String(req.query.il || "").trim();
+  const bbox = String(req.query.bbox || "").trim();
+  const limit = req.query.limit ? Number(req.query.limit) : undefined;
   try {
-    const pool = db.getPool();
-    let sql =
-      "SELECT id, ad, il, ilce, adres, lat, lng, kapasite FROM toplanma_alanlari";
-    const params = [];
-    if (il) {
-      sql += " WHERE il = ?";
-      params.push(il);
-    }
-    sql += " ORDER BY il ASC, ad ASC";
-    const [rows] = await pool.query(sql, params);
-    const items = rows.map((r) => ({
-      id: r.id,
-      ad: r.ad,
-      il: r.il,
-      ilce: r.ilce,
-      adres: r.adres,
-      lat: Number(r.lat),
-      lng: Number(r.lng),
-      kapasite: r.kapasite,
-    }));
-    res.json({ ok: true, items });
+    const data = await afadToplanma.queryAreas({ il, bbox, limit });
+    if (!data.ok) return res.status(400).json(data);
+    res.json(data);
   } catch (err) {
-    const msg = String(err?.message || err);
-    if (msg.includes("toplanma_alanlari")) {
-      return res.status(503).json({
-        ok: false,
-        error: "toplanma_alanlari tablosu bulunamadı. veri/toplanma_alanlari.sql dosyasını import edin.",
-      });
-    }
-    res.status(500).json({ ok: false, error: msg });
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
   }
 });
 
@@ -260,23 +258,10 @@ app.get("/api/toplanma/yakin", async (req, res) => {
   }
 
   try {
-    const pool = db.getPool();
-    const [rows] = await pool.query(
-      `SELECT id, ad, il, ilce, adres, lat, lng, kapasite
-       FROM toplanma_alanlari
-       WHERE lat IS NOT NULL AND lng IS NOT NULL`
-    );
-    const items = toplanma.withDistance(rows, lat, lng).slice(0, limit);
-    res.json({ ok: true, items });
+    const data = await afadToplanma.queryNearest({ lat, lng, limit });
+    res.json(data);
   } catch (err) {
-    const msg = String(err?.message || err);
-    if (msg.includes("toplanma_alanlari")) {
-      return res.status(503).json({
-        ok: false,
-        error: "toplanma_alanlari tablosu bulunamadı. veri/toplanma_alanlari.sql dosyasını import edin.",
-      });
-    }
-    res.status(500).json({ ok: false, error: msg });
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
   }
 });
 
@@ -321,13 +306,20 @@ app.get("/hazirlik-skoru", (req, res) => {
   });
 });
 
-app.get("/toplanma-alanlari", (req, res) => {
+app.get("/toplanma-alanlari", async (req, res) => {
+  let meta = { total: 0, syncedCount: 0, totalIller: 81 };
+  try {
+    meta = await afadToplanma.getMeta();
+  } catch {
+    /* meta yüklenemezse sayfa yine açılır */
+  }
   res.render("toplanma-alanlari", {
     pageTitle: "Toplanma Alanları",
     nav: afetler,
     pageHero: {
       title: "Toplanma Alanları",
-      lead: "Haritada toplanma alanlarını görüntüleyin ve konumunuza en yakın alanları bulun.",
+      lead: "AFAD e-Devlet verilerine dayalı Türkiye geneli acil toplanma alanlarını haritada görüntüleyin.",
+    meta,
       crumbs: [{ label: "Anasayfa", href: "/" }, { label: "Toplanma Alanları" }],
     },
   });
@@ -448,4 +440,24 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Afet Portalı çalışıyor: http://localhost:${PORT}`);
+
+  (async () => {
+    try {
+      const meta = await afadToplanma.getMeta();
+      if (meta.syncedCount === 0) {
+        console.log("[toplanma] Önbellek boş; GitHub verisi indiriliyor…");
+        await afadToplanma.importGithubBundle((m) => console.log("[toplanma]", m));
+        afadToplanma.reloadIndex();
+      }
+      if (process.env.TOPLANMA_SYNC_ALL === "true") {
+        console.log("[toplanma] Eksik iller arka planda senkronize ediliyor…");
+        afadToplanma
+          .syncAllMissing((m) => console.log("[toplanma]", m))
+          .then(() => console.log("[toplanma] Tam senkronizasyon bitti."))
+          .catch((err) => console.error("[toplanma] Senkronizasyon hatası:", err.message));
+      }
+    } catch (err) {
+      console.error("[toplanma] Başlangıç yüklemesi:", err.message);
+    }
+  })();
 });

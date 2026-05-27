@@ -38,6 +38,36 @@ const userIcon = L.divIcon({
   iconAnchor: [10, 10],
 });
 
+function createClusterLayer(map) {
+  if (typeof L.markerClusterGroup === "function") {
+    return L.markerClusterGroup({
+      maxClusterRadius: 52,
+      showCoverageOnHover: false,
+      spiderfyOnMaxZoom: true,
+    }).addTo(map);
+  }
+  return L.layerGroup().addTo(map);
+}
+
+async function loadToplanmaMeta() {
+  const res = await fetch("/api/toplanma/meta");
+  const json = await res.json();
+  if (!json.ok) throw new Error(json.error || "Meta yüklenemedi");
+  return json;
+}
+
+function fillIlFilter(selectEl, meta) {
+  if (!selectEl || !meta?.iller) return;
+  const synced = new Set(meta.syncedIller || []);
+  selectEl.innerHTML = `<option value="">Tümü (${meta.total.toLocaleString("tr-TR")} alan)</option>`;
+  for (const il of meta.iller) {
+    const opt = document.createElement("option");
+    opt.value = il;
+    opt.textContent = synced.has(il) ? il : `${il} (henüz yüklenmedi)`;
+    selectEl.appendChild(opt);
+  }
+}
+
 function setupHomeToplanma() {
   const mapEl = document.getElementById("homeToplanmaMap");
   if (!mapEl || typeof L === "undefined") return;
@@ -47,8 +77,8 @@ function setupHomeToplanma() {
   const locateBtn = document.getElementById("homeToplanmaLocate");
 
   const map = L.map(mapEl, { zoomControl: false, scrollWheelZoom: false }).setView(
-    [39.2, 28.5],
-    7
+    [39.2, 35.5],
+    6
   );
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
@@ -95,8 +125,7 @@ function setupHomeToplanma() {
     items.forEach((a, i) => {
       const m = L.marker([a.lat, a.lng], {
         icon: createGatheringIcon(i === 0 ? "#16a34a" : "#0b4d8f"),
-      })
-        .bindPopup(`<strong>${escapeHtml(a.ad)}</strong><br/>${a.mesafe_km} km`);
+      }).bindPopup(`<strong>${escapeHtml(a.ad)}</strong><br/>${a.mesafe_km} km`);
       areaLayer.addLayer(m);
       bounds.push([a.lat, a.lng]);
     });
@@ -117,31 +146,29 @@ function setupHomeToplanma() {
       drawMap({ lat, lng }, items);
       setStatus(
         items.length
-          ? `En yakın ${items.length} alan gösteriliyor.`
-          : "Veritabanında kayıt yok; örnek veriyi import edin."
+          ? `En yakın ${items.length} AFAD toplanma alanı gösteriliyor.`
+          : "Bu konum için toplanma alanı bulunamadı."
       );
-    } catch (err) {
-      setStatus("Alanlar yüklenemedi. Veritabanı bağlantısını kontrol edin.");
+    } catch {
+      setStatus("Alanlar yüklenemedi.");
       if (listEl) listEl.innerHTML = "";
     }
   }
 
   function usePosition(pos) {
-    const lat = pos.coords.latitude;
-    const lng = pos.coords.longitude;
-    loadNearest(lat, lng);
+    loadNearest(pos.coords.latitude, pos.coords.longitude);
   }
 
   function locate() {
     if (!navigator.geolocation) {
-      setStatus("Tarayıcı konum desteklemiyor. İzmir merkezi kullanılıyor.");
-      loadNearest(38.4237, 27.1428);
+      setStatus("Konum desteklenmiyor. Ankara merkezi kullanılıyor.");
+      loadNearest(39.9334, 32.8597);
       return;
     }
     setStatus("Konum alınıyor…");
     navigator.geolocation.getCurrentPosition(usePosition, () => {
-      setStatus("Konum izni yok. İzmir merkezi gösteriliyor.");
-      loadNearest(38.4237, 27.1428);
+      setStatus("Konum izni yok. Ankara merkezi gösteriliyor.");
+      loadNearest(39.9334, 32.8597);
     }, { enableHighAccuracy: false, timeout: 12000, maximumAge: 60000 });
   }
 
@@ -158,7 +185,7 @@ function setupToplanmaPage() {
   const locateBtn = document.getElementById("toplanmaLocate");
   const statusEl = document.getElementById("toplanmaStatus");
 
-  const map = L.map("toplanmaMap", { zoomControl: true }).setView([39.2, 28.5], 8);
+  const map = L.map("toplanmaMap", { zoomControl: true }).setView([39.2, 35.5], 6);
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     maxZoom: 18,
     attribution: "&copy; OSM",
@@ -166,8 +193,11 @@ function setupToplanmaPage() {
 
   let user = null;
   let userMarker = null;
-  let areaLayer = L.layerGroup().addTo(map);
+  let areaLayer = createClusterLayer(map);
   let allItems = [];
+  let selectedIl = "";
+  let listLimit = 200;
+  let reloadTimer = null;
 
   function setStatus(msg) {
     if (statusEl) statusEl.textContent = msg;
@@ -175,23 +205,19 @@ function setupToplanmaPage() {
 
   function renderList(items) {
     if (!listEl) return;
-    if (!items.length) {
-      listEl.innerHTML = "<p class=\"muted\">Kayıt bulunamadı.</p>";
+    const shown = items.slice(0, listLimit);
+    if (!shown.length) {
+      listEl.innerHTML = "<p class=\"muted\">Kayıt bulunamadı. İl seçerek veya haritayı kaydırarak deneyin.</p>";
       return;
     }
     const sorted = user
-      ? [...items].sort(
-          (a, b) =>
-            haversineKm(user, a) - haversineKm(user, b)
-        )
-      : items;
+      ? [...shown].sort((a, b) => haversineKm(user, a) - haversineKm(user, b))
+      : shown;
     listEl.innerHTML = sorted
       .map((a) => {
-        const dist = user
-          ? `${Math.round(haversineKm(user, a) * 100) / 100} km · `
-          : "";
+        const dist = user ? `${Math.round(haversineKm(user, a) * 100) / 100} km · ` : "";
         return `
-          <button type="button" class="toplanmaListItem" data-id="${a.id}">
+          <button type="button" class="toplanmaListItem" data-id="${escapeHtml(a.id)}">
             <strong>${escapeHtml(a.ad)}</strong>
             <span class="muted">${dist}${escapeHtml(a.ilce || "")} ${escapeHtml(a.il)}</span>
           </button>
@@ -199,10 +225,17 @@ function setupToplanmaPage() {
       })
       .join("");
 
+    if (items.length > listLimit) {
+      listEl.insertAdjacentHTML(
+        "beforeend",
+        `<p class="muted">Liste ${listLimit} kayıtla sınırlandı. Haritada tüm noktalar görünür.</p>`
+      );
+    }
+
     listEl.querySelectorAll(".toplanmaListItem").forEach((btn) => {
       btn.addEventListener("click", () => {
-        const id = Number(btn.getAttribute("data-id"));
-        const item = sorted.find((x) => x.id === id);
+        const id = btn.getAttribute("data-id");
+        const item = sorted.find((x) => String(x.id) === id);
         if (item) map.setView([item.lat, item.lng], 15);
       });
     });
@@ -210,36 +243,63 @@ function setupToplanmaPage() {
 
   function drawMarkers(items) {
     areaLayer.clearLayers();
+    if (userMarker) {
+      map.removeLayer(userMarker);
+      userMarker = null;
+    }
     if (user) {
       userMarker = L.marker([user.lat, user.lng], { icon: userIcon }).addTo(map);
     }
-    const bounds = [];
-    if (user) bounds.push([user.lat, user.lng]);
-    items.forEach((a) => {
+    for (const a of items) {
       const m = L.marker([a.lat, a.lng], { icon: createGatheringIcon("#0b4d8f") }).bindPopup(
-        `<strong>${escapeHtml(a.ad)}</strong><br/>${escapeHtml(a.il)}`
+        `<strong>${escapeHtml(a.ad)}</strong><br/>${escapeHtml(a.il)}${a.ilce ? ` · ${escapeHtml(a.ilce)}` : ""}`
       );
       areaLayer.addLayer(m);
-      bounds.push([a.lat, a.lng]);
-    });
-    if (bounds.length) map.fitBounds(bounds, { padding: [40, 40], maxZoom: 12 });
+    }
   }
 
-  async function fetchAll(il) {
+  async function fetchAll(il, useBbox) {
     setStatus("Alanlar yükleniyor…");
-    const q = il ? `?il=${encodeURIComponent(il)}` : "";
-    const res = await fetch(`/api/toplanma${q}`);
+    const params = new URLSearchParams();
+    if (il) {
+      params.set("il", il);
+    } else if (useBbox) {
+      const b = map.getBounds();
+      params.set(
+        "bbox",
+        `${b.getSouth()},${b.getWest()},${b.getNorth()},${b.getEast()}`
+      );
+      params.set("limit", "5000");
+    } else {
+      params.set("limit", "5000");
+    }
+    const res = await fetch(`/api/toplanma?${params}`);
     const json = await res.json();
     if (!json.ok) throw new Error(json.error || "API hatası");
     allItems = json.items || [];
     renderList(allItems);
     drawMarkers(allItems);
-    setStatus(`${allItems.length} toplanma alanı`);
+    const suffix = json.syncedIller
+      ? ` · ${json.syncedIller.length} il yüklü`
+      : "";
+    if (json.syncing && json.message) {
+      setStatus(json.message);
+      return;
+    }
+    setStatus(`${allItems.length.toLocaleString("tr-TR")} toplanma alanı${suffix}`);
+  }
+
+  function scheduleReload() {
+    if (selectedIl) return;
+    clearTimeout(reloadTimer);
+    reloadTimer = setTimeout(() => {
+      fetchAll("", true).catch(() => setStatus("Veriler yüklenemedi."));
+    }, 450);
   }
 
   filterEl?.addEventListener("change", () => {
-    const il = filterEl.value;
-    fetchAll(il || "").catch(() => setStatus("Veriler yüklenemedi."));
+    selectedIl = filterEl.value;
+    fetchAll(selectedIl, !selectedIl).catch(() => setStatus("Veriler yüklenemedi."));
   });
 
   locateBtn?.addEventListener("click", () => {
@@ -260,7 +320,14 @@ function setupToplanmaPage() {
     );
   });
 
-  fetchAll("").catch(() => setStatus("Veritabanı bağlantısı veya tablo eksik olabilir."));
+  map.on("moveend", scheduleReload);
+
+  loadToplanmaMeta()
+    .then((meta) => {
+      fillIlFilter(filterEl, meta);
+      return fetchAll("", false);
+    })
+    .catch(() => setStatus("Toplanma alanı verisi yüklenemedi."));
 }
 
 document.addEventListener("DOMContentLoaded", () => {
