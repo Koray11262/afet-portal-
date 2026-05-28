@@ -1,7 +1,7 @@
 (function () {
   const fab = document.getElementById("senaryoFabBtn");
   const modal = document.getElementById("senaryoModal");
-  if (!fab || !modal || typeof L === "undefined") return;
+  if (!modal || typeof L === "undefined") return;
 
   const form = document.getElementById("senaryoForm");
   const meta = document.getElementById("senaryoModalMeta");
@@ -9,6 +9,18 @@
   const mapLoading = document.getElementById("senaryoMapLoading");
   const summaryEl = document.getElementById("senaryoSummary");
   const layersEl = document.getElementById("senaryoLayers");
+  const senaryoIl = document.getElementById("senaryoIl");
+  const senaryoIlce = document.getElementById("senaryoIlce");
+  const senaryoType = document.getElementById("senaryoType");
+
+  const RISK_TO_SCENARIO = {
+    deprem: "quake",
+    sel: "flood",
+    heyelan: "landslide",
+    yangin: "quake",
+    cig: "landslide",
+    kuraklik: "flood",
+  };
 
   let map;
   let layerGroup;
@@ -40,18 +52,34 @@
     setLoading(false);
   }
 
-  function openModal() {
+  function openModalUI() {
     modal.hidden = false;
     document.body.classList.add("senaryoModalOpen");
-    fab.setAttribute("aria-expanded", "true");
+    if (fab) fab.setAttribute("aria-expanded", "true");
     ensureMap();
-    setTimeout(() => map.invalidateSize(), 120);
+    setTimeout(() => map?.invalidateSize(), 120);
+    if (meta && !meta.dataset.hasRun) {
+      meta.textContent = "İl seçili; afet türünü belirleyip simülasyonu çalıştırın.";
+    }
   }
 
   function closeModal() {
     modal.hidden = true;
     document.body.classList.remove("senaryoModalOpen");
-    fab.setAttribute("aria-expanded", "false");
+    if (fab) fab.setAttribute("aria-expanded", "false");
+  }
+
+  /**
+   * @param {{ il?: string, ilce?: string, type?: string, riskKey?: string }} opts
+   */
+  function openModal(opts = {}) {
+    const { il, ilce, type, riskKey } = opts;
+    if (il && senaryoIl) senaryoIl.value = il;
+    if (senaryoIlce && ilce !== undefined) senaryoIlce.value = ilce || "";
+    const scenarioType = type || (riskKey && RISK_TO_SCENARIO[riskKey]) || senaryoType?.value || "quake";
+    if (senaryoType) senaryoType.value = scenarioType;
+    openModalUI();
+    senaryoType?.focus();
   }
 
   function bindClose() {
@@ -205,7 +233,7 @@
     map.fitBounds(bounds, { padding: [24, 24], maxZoom: 12 });
   }
 
-  fab.addEventListener("click", openModal);
+  fab?.addEventListener("click", () => openModal());
   bindClose();
 
   form?.addEventListener("submit", async (e) => {
@@ -219,6 +247,7 @@
       renderSummary(data);
       renderLayers(data);
       meta.textContent = `${escapeHtml(data.input.il)} senaryosu hazır.`;
+      meta.dataset.hasRun = "1";
       setLoading(false);
     } catch (err) {
       setLoading(false);
@@ -226,5 +255,24 @@
       summaryEl.innerHTML = `<p class="muted">${escapeHtml(err?.message || err)}</p>`;
     }
   });
-})();
 
+  window.AfetSenaryo = {
+    openModal,
+    closeModal,
+    RISK_TO_SCENARIO,
+  };
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("senaryo") === "1" || params.get("open") === "senaryo") {
+    const il = params.get("il")?.trim();
+    const type = params.get("type")?.trim();
+    const riskKey = params.get("risk")?.trim();
+    setTimeout(() => {
+      openModal({
+        il: il || undefined,
+        type: type || undefined,
+        riskKey: riskKey || undefined,
+      });
+    }, 300);
+  }
+})();

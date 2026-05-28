@@ -1014,6 +1014,115 @@ a {
   color: var(--muted);
 }
 
+.ilRiskOneriler {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.ilRiskOneriler__title {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+  color: var(--text-heading);
+}
+
+.ilRiskOneriler__summary {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.ilRiskOneriler__blocks {
+  display: grid;
+  gap: 12px;
+  max-height: 420px;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-bottom: 16px;
+}
+
+.ilRiskOneriRisk {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.ilRiskOneriRisk a {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.ilRiskOneriBlock {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.ilRiskOneriBlock__title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-heading);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.ilRiskOneriBlock__tag {
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.ilRiskOneriBlock__tag--prep {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.ilRiskOneriBlock__tag--live {
+  background: #fef3c7;
+  color: #b45309;
+}
+
+.ilRiskOneriBlock__tag--you {
+  background: #d1fae5;
+  color: #047857;
+}
+
+.ilRiskOneriBlock__tag--info {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.ilRiskOneriBlock__list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.ilRiskOneriler__cta {
+  display: grid;
+  gap: 8px;
+}
+
+.ilRiskOneriler__ctaHint {
+  margin: 0;
+}
+
+.ilRiskOneriler__disc {
+  margin: 8px 0 0;
+}
+
 .guide {
   display: grid;
   gap: 10px;
@@ -3152,6 +3261,43 @@ a {
   align-items: stretch;
 }
 
+.homeSlogan {
+  max-width: 1280px;
+  margin: 14px auto 0;
+  padding: 0 4px 18px;
+}
+
+.homeSlogan__card {
+  margin: 0;
+  padding: 16px 22px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2);
+}
+
+.homeSlogan__text {
+  margin: 0;
+  text-align: center;
+  font-size: clamp(1rem, 2.1vw, 1.2rem);
+  font-weight: 800;
+  line-height: 1.5;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.homeSlogan__text::before {
+  content: "“";
+  margin-right: 0.15em;
+  opacity: 0.75;
+}
+
+.homeSlogan__text::after {
+  content: "”";
+  margin-left: 0.1em;
+  opacity: 0.75;
+}
+
 .homeHero--compact {
   margin: 0;
   border-radius: 18px;
@@ -4400,7 +4546,7 @@ body.senaryoModalOpen {
   position: fixed;
   left: 16px;
   top: 50%;
-  transform: translateY(calc(-50% + 138px));
+  transform: translateY(calc(-50% + 230px));
   z-index: 900;
 }
 
@@ -4438,6 +4584,343 @@ body.senaryoModalOpen {
   font-weight: 800;
   letter-spacing: 0.02em;
   text-transform: uppercase;
+}
+
+/* Kişisel hazırlık özeti — sol yüzen buton + modal */
+.hazirlikOzetFabWrap {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(calc(-50% - 138px));
+  z-index: 900;
+}
+
+.hazirlikOzetFab {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 72px;
+  padding: 12px 10px;
+  border: 1px solid #99f6e4;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f0fdfa 0%, #fff 100%);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  color: #0f766e;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.hazirlikOzetFab:hover {
+  border-color: #14b8a6;
+  box-shadow: 0 8px 24px rgba(20, 184, 166, 0.25);
+  transform: translateY(-2px);
+}
+
+.hazirlikOzetFab__icon svg {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.hazirlikOzetFab__label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.hazirlikOzetFab__badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: #0d9488;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 22px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.45);
+}
+
+.hazirlikOzetModal[hidden] {
+  display: none !important;
+}
+
+.hazirlikOzetModal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+body.hazirlikOzetModalOpen {
+  overflow: hidden;
+}
+
+.hazirlikOzetModal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.hazirlikOzetModal__panel {
+  position: relative;
+  width: min(520px, 100%);
+  max-height: min(92vh, 720px);
+  overflow: auto;
+  padding: 20px 22px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.hazirlikOzetModal__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+
+.hazirlikOzetModal__title {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+}
+
+.hazirlikOzetModal__meta {
+  margin: 0;
+  font-size: 13px;
+}
+
+.hazirlikOzetModal__close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-heading);
+}
+
+.hazirlikOzetModal__hero {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 16px;
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f0fdfa, #ecfeff);
+  border: 1px solid #99f6e4;
+}
+
+.hazirlikOzetModal__scoreRing {
+  --hazirlik-score: 0;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: conic-gradient(#14b8a6 calc(var(--hazirlik-score) * 1%), #e2e8f0 0);
+  flex-shrink: 0;
+}
+
+.hazirlikOzetModal__scoreRing::after {
+  content: "";
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+}
+
+.hazirlikOzetModal__scoreRing {
+  position: relative;
+}
+
+.hazirlikOzetModal__scoreVal {
+  position: relative;
+  z-index: 1;
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: #0f766e;
+}
+
+.hazirlikOzetModal__badge {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hazirlikOzetModal__badgeEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.hazirlikOzetModal__badgeLabel {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.hazirlikOzetModal__breakdown {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.hazirlikOzetBar__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.hazirlikOzetBar__track {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--bg-subtle);
+  overflow: hidden;
+}
+
+.hazirlikOzetBar__fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #14b8a6, #0d9488);
+  transition: width 0.35s ease;
+}
+
+.hazirlikOzetModal__stepsTitle,
+.hazirlikOzetInline__stepsTitle {
+  margin: 0 0 10px;
+  font-size: 1rem;
+  color: var(--text-heading);
+}
+
+.hazirlikOzetModal__stepsList {
+  margin: 0 0 16px;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.hazirlikOzetStep {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.hazirlikOzetStep__n {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: #0d9488;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+}
+
+.hazirlikOzetStep a {
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hazirlikOzetStep a:hover {
+  text-decoration: underline;
+}
+
+.hazirlikOzetModal__foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.hazirlikOzetModal__hint {
+  flex: 1 1 100%;
+  margin: 4px 0 0;
+  font-size: 12px;
+}
+
+/* Hazırlık skoru sayfası — üst özet şeridi */
+.hazirlikOzetInline {
+  margin-bottom: 18px;
+}
+
+.hazirlikOzetInline__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.hazirlikOzetInline__title {
+  margin: 0 0 6px;
+  font-size: 1.25rem;
+  color: var(--text-heading);
+}
+
+.hazirlikOzetInline__meta {
+  margin: 0;
+  font-size: 14px;
+}
+
+.hazirlikOzetInline__scoreBlock {
+  text-align: right;
+}
+
+.hazirlikOzetInline__score {
+  display: block;
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #0d9488;
+  line-height: 1;
+}
+
+.hazirlikOzetInline__badge {
+  display: block;
+  margin-top: 6px;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.hazirlikOzetInline__breakdown {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.hazirlikOzetInline__stepsWrap {
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
 }
 
 .senaryoModal[hidden] {
@@ -4893,25 +5376,41 @@ body.senaryoModalOpen {
   .yanginModal__side {
     max-height: 220px;
   }
+  .hazirlikOzetFabWrap {
+    left: 10px;
+    top: auto;
+    bottom: 248px;
+    transform: none;
+  }
   .meteoFabWrap {
     left: 10px;
     top: auto;
-    bottom: 88px;
+    bottom: 184px;
+    transform: none;
+  }
+  .senaryoFabWrap {
+    left: 10px;
+    top: auto;
+    bottom: 120px;
     transform: none;
   }
   .yanginFabWrap {
     left: 10px;
     top: auto;
-    bottom: 20px;
+    bottom: 56px;
     transform: none;
   }
+  .hazirlikOzetFab,
   .meteoFab,
-  .yanginFab {
+  .yanginFab,
+  .senaryoFab {
     width: 64px;
     padding: 10px 8px;
   }
+  .hazirlikOzetFab__label,
   .meteoFab__label,
-  .yanginFab__label {
+  .yanginFab__label,
+  .senaryoFab__label {
     display: none;
   }
 }

@@ -91,6 +91,29 @@
   }
 
   const LS_HAZIRLIK_SCORES = "hazirlik_last_scores_v1";
+  const LS_BILGI_SCORES = "hazirlik_bilgi_scores_v1";
+
+  function saveBilgiScores(stats) {
+    try {
+      localStorage.setItem(
+        LS_BILGI_SCORES,
+        JSON.stringify({
+          at: Date.now(),
+          percent: stats.percent,
+          correct: stats.correct,
+          total: stats.total,
+          categories: stats.categories.map((c) => ({
+            id: c.id,
+            name: c.name,
+            percent: c.percent,
+          })),
+        })
+      );
+      window.dispatchEvent(new CustomEvent("hazirlik-ozet-update"));
+    } catch {
+      /* depolama dolu */
+    }
+  }
 
   function saveHazirlikScores(catScores, overall) {
     try {
@@ -102,6 +125,7 @@
           categoryScores: Object.fromEntries(catScores.map((c) => [c.id, c.score])),
         })
       );
+      window.dispatchEvent(new CustomEvent("hazirlik-ozet-update"));
     } catch {
       /* depolama dolu olabilir */
     }
@@ -356,6 +380,7 @@
 
   function renderBilgiResults() {
     const stats = computeBilgiStats();
+    saveBilgiScores(stats);
     const label = bilgiLabel(stats.percent);
     const pass = bilgiData.passPercent ?? 70;
 
@@ -620,6 +645,11 @@
     const il = aiIl?.value?.trim();
     const ilce = aiIlce?.value?.trim() || "";
     if (!il) return;
+
+    if (window.HazirlikOzet?.saveProfile) {
+      window.HazirlikOzet.saveProfile(il, ilce);
+      window.dispatchEvent(new CustomEvent("hazirlik-ozet-update"));
+    }
 
     const saved = readHazirlikScores();
     if (aiStatus) {

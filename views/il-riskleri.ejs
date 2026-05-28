@@ -3,7 +3,11 @@
     pageTitle,
     nav,
     pageHero,
-    extraScripts: `<script src="/il-risk.js"></script>`,
+    extraScripts: `
+      <script src="/hazirlik-ozet-lib.js"></script>
+      <script src="/home-senaryo.js"></script>
+      <script src="/il-risk.js"></script>
+    `,
     body: `
       <div class="panel panel--tight">
         <form id="ilRiskForm" class="ilRiskForm">
@@ -35,8 +39,24 @@
           <h3>Risk özeti</h3>
           <p class="muted">Puanlar 1 (düşük) – 10 (yüksek). Karta tıklayarak ilgili afet sayfasına gidebilirsiniz.</p>
           <div id="ilRiskCards" class="ilRiskCards" hidden></div>
+
+          <div id="ilRiskOneriler" class="ilRiskOneriler" hidden aria-live="polite">
+            <h4 class="ilRiskOneriler__title">İl için hazırlık önerileri</h4>
+            <p id="ilRiskOneriSummary" class="ilRiskOneriler__summary muted"></p>
+            <div id="ilRiskOneriBlocks" class="ilRiskOneriler__blocks"></div>
+            <div class="ilRiskOneriler__cta">
+              <button type="button" class="btn btn--primary" id="ilRiskSenaryoBtn" hidden>
+                Afet senaryosunu bu il için aç →
+              </button>
+              <p class="muted small ilRiskOneriler__ctaHint" id="ilRiskSenaryoHint" hidden>
+                Senaryo penceresinde il hazır gelir; afet türünü seçip simülasyonu çalıştırabilirsiniz.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
+
+      ${typeof senaryoWidgetHtml !== "undefined" ? senaryoWidgetHtml : ""}
     `,
   })
 %>

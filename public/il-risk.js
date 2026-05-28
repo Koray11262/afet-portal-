@@ -9,8 +9,16 @@
   const cardsEl = document.getElementById("ilRiskCards");
   const mapEl = document.getElementById("ilRiskMap");
   const hintEl = document.getElementById("ilRiskHint");
+  const onerilerEl = document.getElementById("ilRiskOneriler");
+  const oneriSummaryEl = document.getElementById("ilRiskOneriSummary");
+  const oneriBlocksEl = document.getElementById("ilRiskOneriBlocks");
+  const senaryoBtn = document.getElementById("ilRiskSenaryoBtn");
+  const senaryoHint = document.getElementById("ilRiskSenaryoHint");
 
   const COLORS = { yuksek: "#dc2626", orta: "#d97706", dusuk: "#16a34a" };
+
+  let lastIl = null;
+  let lastTopRiskKey = null;
 
   function colorForScore(score) {
     const s = Number(score);
@@ -48,6 +56,154 @@
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
   }
+
+  function readHazirlikCategoryScores() {
+    try {
+      const raw = localStorage.getItem("hazirlik_last_scores_v1");
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      return data?.categoryScores || null;
+    } catch {
+      return null;
+    }
+  }
+
+  function renderOneriBlock(title, items, tag) {
+    if (!items?.length) return "";
+    const tagHtml = tag
+      ? `<span class="ilRiskOneriBlock__tag ilRiskOneriBlock__tag--${escapeHtml(tag)}">${escapeHtml(
+          tag === "prep" ? "Hazırlık" : tag === "live" ? "Canlı uyarı" : "Bilgi"
+        )}</span>`
+      : "";
+    return `<section class="ilRiskOneriBlock">
+      <h5 class="ilRiskOneriBlock__title">${tagHtml}${escapeHtml(title)}</h5>
+      <ul class="ilRiskOneriBlock__list">${items.map((t) => `<li>${escapeHtml(t)}</li>`).join("")}</ul>
+    </section>`;
+  }
+
+  function renderLiveAlerts(alerts) {
+    if (!alerts?.length) return "";
+    return alerts
+      .map((a) => {
+        const items = [...(a.prep || []), ...(a.equip || [])].slice(0, 4);
+        if (!items.length) return "";
+        return renderOneriBlock(a.title || "Canlı uyarı", items, "live");
+      })
+      .join("");
+  }
+
+  function renderOneriler(data, il) {
+    if (!onerilerEl) return;
+
+    lastTopRiskKey = data.topRisk?.key || null;
+
+    if (oneriSummaryEl) {
+      oneriSummaryEl.textContent = data.summary || `${il} için hazırlık önerileri.`;
+    }
+
+    const riskIntro = (data.riskyDisasters || [])
+      .filter((r) => r.level === "high" || r.level === "medium")
+      .slice(0, 3)
+      .map(
+        (r) =>
+          `<p class="ilRiskOneriRisk"><strong>${escapeHtml(r.label)}</strong> (${r.score}/10 · ${escapeHtml(
+            r.levelLabel
+          )}) — ${escapeHtml(r.intro)}${
+            r.href ? ` <a href="${escapeHtml(r.href)}">Rehber →</a>` : ""
+          }</p>`
+      )
+      .join("");
+
+    const prepBlocks = (data.preparation || [])
+      .slice(0, 4)
+      .map((s) => renderOneriBlock(s.title, s.items.slice(0, 5), "prep"))
+      .join("");
+
+    const extraBlocks = (data.regionalExtras || [])
+      .slice(0, 2)
+      .map((s) => renderOneriBlock(s.title, s.items.slice(0, 4), "info"))
+      .join("");
+
+    const personalBlocks = (data.personalized || [])
+      .slice(0, 2)
+      .map((s) => renderOneriBlock(s.title, s.items.slice(0, 3), "you"))
+      .join("");
+
+    if (oneriBlocksEl) {
+      oneriBlocksEl.innerHTML =
+        renderLiveAlerts(data.liveAlerts) +
+        riskIntro +
+        prepBlocks +
+        extraBlocks +
+        personalBlocks +
+        `<p class="muted small ilRiskOneriler__disc">${escapeHtml(data.disclaimer || "")}</p>`;
+    }
+
+    onerilerEl.hidden = false;
+
+    if (senaryoBtn) {
+      senaryoBtn.hidden = false;
+      senaryoBtn.textContent = `${il} için afet senaryosunu aç →`;
+    }
+    if (senaryoHint) senaryoHint.hidden = false;
+
+    if (window.HazirlikOzet?.saveProfile) {
+      window.HazirlikOzet.saveProfile(il, "");
+    }
+  }
+
+  function hideOneriler() {
+    if (onerilerEl) onerilerEl.hidden = true;
+    if (senaryoBtn) senaryoBtn.hidden = true;
+    if (senaryoHint) senaryoHint.hidden = true;
+    lastIl = null;
+    lastTopRiskKey = null;
+  }
+
+  async function loadOneriler(il) {
+    if (!onerilerEl) return;
+    if (oneriSummaryEl) oneriSummaryEl.textContent = "Öneriler hazırlanıyor…";
+    if (oneriBlocksEl) oneriBlocksEl.innerHTML = "";
+    onerilerEl.hidden = false;
+
+    try {
+      const categoryScores = readHazirlikCategoryScores();
+      const res = await fetch("/api/hazirlik/akilli-oneri", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          il,
+          categoryScores,
+          weakThreshold: 7,
+        }),
+      });
+      const json = await res.json();
+      if (!json.ok) {
+        if (oneriSummaryEl) {
+          oneriSummaryEl.textContent = json.error || "Öneriler yüklenemedi.";
+        }
+        return;
+      }
+      renderOneriler(json, il);
+    } catch {
+      if (oneriSummaryEl) {
+        oneriSummaryEl.textContent = "Öneriler yüklenemedi. Lütfen tekrar deneyin.";
+      }
+    }
+  }
+
+  function openSenaryoForCurrentIl() {
+    if (!lastIl) return;
+    if (window.AfetSenaryo?.openModal) {
+      window.AfetSenaryo.openModal({ il: lastIl, ilce: "", riskKey: lastTopRiskKey || undefined });
+      return;
+    }
+    window.location.href = `/?senaryo=1&il=${encodeURIComponent(lastIl)}${
+      lastTopRiskKey ? `&risk=${encodeURIComponent(lastTopRiskKey)}` : ""
+    }`;
+  }
+
+  senaryoBtn?.addEventListener("click", openSenaryoForCurrentIl);
 
   const map = L.map("ilRiskMap", { zoomControl: true, scrollWheelZoom: true }).setView(
     [39.0, 35.0],
@@ -98,9 +254,7 @@
 
   function renderMap(il, risks) {
     const scores = risks.map((r) => Number(r.puan)).filter(Number.isFinite);
-    const avg = scores.length
-      ? scores.reduce((a, b) => a + b, 0) / scores.length
-      : null;
+    const avg = scores.length ? scores.reduce((a, b) => a + b, 0) / scores.length : null;
     const fill = colorForScore(avg);
 
     if (geoLayer) {
@@ -144,6 +298,7 @@
     setStatus("Risk verileri yükleniyor…");
     if (cardsEl) cardsEl.hidden = true;
     if (hintEl) hintEl.hidden = true;
+    hideOneriler();
 
     try {
       const res = await fetch(`/api/risk/il/${encodeURIComponent(ilName)}`);
@@ -155,11 +310,13 @@
       }
 
       await loadGeo();
+      lastIl = json.il;
       if (input) input.value = json.il;
       if (titleEl) titleEl.textContent = json.il;
       renderCards(json.risks, json.il);
       renderMap(json.il, json.risks);
       setStatus(`${json.il} — 6 afet türü için risk özeti.`);
+      loadOneriler(json.il);
     } catch {
       setStatus("Veriler yüklenemedi. Veritabanı bağlantısını kontrol edin.");
     }
@@ -191,4 +348,10 @@
   const params = new URLSearchParams(window.location.search);
   const qIl = params.get("il");
   if (qIl) showIl(qIl);
+
+  if (params.get("senaryo") === "1" && qIl) {
+    setTimeout(() => {
+      if (lastIl) openSenaryoForCurrentIl();
+    }, 800);
+  }
 })();

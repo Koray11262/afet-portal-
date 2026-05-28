@@ -1171,6 +1171,7 @@
 
     function writeStore(store) {
       localStorage.setItem(LS_HOME_KEY, JSON.stringify(store));
+      window.dispatchEvent(new CustomEvent("hazirlik-ozet-update"));
     }
 
     function getAnswersFromDom() {
@@ -1197,6 +1198,9 @@
       const pct = Math.round((done / total) * 100);
       if (barFill) barFill.style.width = `${pct}%`;
       if (metaEl) metaEl.textContent = `${done}/${total} madde işaretlendi`;
+      const store = readStore();
+      store.answers = answers;
+      writeStore(store);
     }
 
     function renderChecklist() {

@@ -31,6 +31,7 @@
 
   function saveState(state) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    window.dispatchEvent(new CustomEvent("hazirlik-ozet-update"));
   }
 
   function render() {

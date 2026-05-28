@@ -2,7 +2,7 @@
   include("layout", {
     pageTitle,
     nav,
-    extraScripts: `<script src="/home-hero.js"></script><script src="/home-tools.js"></script><script src="/home-meteouyari.js"></script><script src="/home-yangin.js"></script><script src="/home-senaryo.js"></script>`,
+    extraScripts: `<script src="/hazirlik-ozet-lib.js"></script><script src="/home-hero.js"></script><script src="/home-tools.js"></script><script src="/home-slogan.js"></script><script src="/home-meteouyari.js"></script><script src="/home-yangin.js"></script><script src="/home-senaryo.js"></script><script src="/home-hazirlik-ozet.js"></script>`,
     body: `
       <section class="homeTop" aria-label="Tanıtım ve hızlı araçlar">
         <div class="homeTop__inner">
@@ -63,6 +63,11 @@
             </div>
           </aside>
         </div>
+        <div class="homeSlogan" aria-label="Günün sloganı">
+          <blockquote class="homeSlogan__card">
+            <p class="homeSlogan__text" data-home-slogan>${typeof homeSlogan !== "undefined" ? homeSlogan : "Hazırlık bugün başlar."}</p>
+          </blockquote>
+        </div>
       </section>
 
       ${typeof sonDepremlerHtml !== "undefined" ? sonDepremlerHtml : ""}
@@ -70,6 +75,7 @@
       ${typeof meteoUyariWidgetHtml !== "undefined" ? meteoUyariWidgetHtml : ""}
       ${typeof yanginWidgetHtml !== "undefined" ? yanginWidgetHtml : ""}
       ${typeof senaryoWidgetHtml !== "undefined" ? senaryoWidgetHtml : ""}
+      ${typeof hazirlikOzetWidgetHtml !== "undefined" ? hazirlikOzetWidgetHtml : ""}
 
       <section class="homeIntro panel">
         <h2 class="homeIntro__title">Afet Portalı ile neler yapabilirsiniz?</h2>

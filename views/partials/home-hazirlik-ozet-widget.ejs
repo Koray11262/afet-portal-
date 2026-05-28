@@ -1,0 +1,59 @@
+<div class="hazirlikOzetFabWrap" id="hazirlikOzetWidget">
+  <button
+    type="button"
+    class="hazirlikOzetFab"
+    id="hazirlikOzetFabBtn"
+    aria-haspopup="dialog"
+    aria-expanded="false"
+    aria-controls="hazirlikOzetModal"
+    title="Kişisel hazırlık özeti"
+  >
+    <span class="hazirlikOzetFab__icon" aria-hidden="true">
+      <svg viewBox="0 0 64 64" focusable="false">
+        <circle cx="32" cy="32" r="28" fill="#0d9488" opacity="0.15"/>
+        <path d="M32 12v8M32 44v8M12 32h8M44 32h8" stroke="#0d9488" stroke-width="3" stroke-linecap="round"/>
+        <path d="M32 20c-6 0-10 4-10 10 0 4 2 7 5 9l5 3 5-3c3-2 5-5 5-9 0-6-4-10-10-10z" fill="#14b8a6"/>
+        <path d="M28 38h8l-1 6h-6l-1-6z" fill="#0f766e"/>
+        <rect x="26" y="44" width="12" height="4" rx="2" fill="#0d9488"/>
+      </svg>
+    </span>
+    <span class="hazirlikOzetFab__label">Hazırlık</span>
+    <span class="hazirlikOzetFab__badge" id="hazirlikOzetFabBadge" hidden>0</span>
+  </button>
+</div>
+
+<div class="hazirlikOzetModal" id="hazirlikOzetModal" hidden role="dialog" aria-modal="true" aria-labelledby="hazirlikOzetModalTitle">
+  <div class="hazirlikOzetModal__backdrop" data-hazirlik-ozet-close></div>
+  <div class="hazirlikOzetModal__panel">
+    <header class="hazirlikOzetModal__head">
+      <div>
+        <h2 class="hazirlikOzetModal__title" id="hazirlikOzetModalTitle">Kişisel Hazırlık Özeti</h2>
+        <p class="muted hazirlikOzetModal__meta" id="hazirlikOzetMeta">Verileriniz tarayıcıda birleştirilir.</p>
+      </div>
+      <button type="button" class="hazirlikOzetModal__close" data-hazirlik-ozet-close aria-label="Kapat">×</button>
+    </header>
+
+    <div class="hazirlikOzetModal__hero" id="hazirlikOzetHero">
+      <div class="hazirlikOzetModal__scoreRing" id="hazirlikOzetScoreRing" aria-hidden="true">
+        <span class="hazirlikOzetModal__scoreVal" id="hazirlikOzetScoreVal">—</span>
+      </div>
+      <div class="hazirlikOzetModal__badge" id="hazirlikOzetBadgeBlock">
+        <span class="hazirlikOzetModal__badgeEmoji" id="hazirlikOzetBadgeEmoji">🌱</span>
+        <span class="hazirlikOzetModal__badgeLabel" id="hazirlikOzetBadgeLabel">Başlangıç</span>
+      </div>
+    </div>
+
+    <div class="hazirlikOzetModal__breakdown" id="hazirlikOzetBreakdown" aria-label="Skor bileşenleri"></div>
+
+    <section class="hazirlikOzetModal__steps">
+      <h3 class="hazirlikOzetModal__stepsTitle">Bu hafta yapılacak 3 adım</h3>
+      <ol class="hazirlikOzetModal__stepsList" id="hazirlikOzetSteps"></ol>
+    </section>
+
+    <footer class="hazirlikOzetModal__foot">
+      <a class="btn btn--primary btn--sm" href="/hazirlik-skoru">Testlere git</a>
+      <button type="button" class="btn btn--ghost btn--sm" id="hazirlikOzetRefresh">Özeti yenile</button>
+      <p class="muted hazirlikOzetModal__hint">Çanta, ev kontrolü ve test sonuçları bu cihazda saklanır.</p>
+    </footer>
+  </div>
+</div>

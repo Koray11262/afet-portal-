@@ -49,6 +49,33 @@ function findKarsilastirma(slug) {
   return karsilastirmalar.items.find((x) => x.slug === slug) || null;
 }
 
+const HOME_SLOGANS = [
+  "Afet değil, hazırlıksızlık öldürür.",
+  "Bilinç hayat kurtarır.",
+  "Önlem al, güvende kal.",
+  "Afetlere karşı bilgi en büyük güçtür.",
+  "Hazırlıklı toplum, güçlü toplumdur.",
+  "Riskleri bil, hayatı koru.",
+  "Bir çanta, bir plan, bir hayat.",
+  "Afet anı değil, hazırlık zamanı önemlidir.",
+  "Doğayı durduramayız, zararını azaltabiliriz.",
+  "Güvenli yarınlar bilinçle başlar.",
+  "Afetlere karşı tek yürek, tek bilinç.",
+  "Bilgi paniği azaltır, hayat kurtarır.",
+  "Afet gelmeden tedbirini al.",
+  "Hazırlık bugün başlar.",
+  "Her saniye önemli, her önlem değerlidir.",
+  "Afetlere karşı bilinçli ol, güvende kal.",
+  "Unutma: Küçük önlemler büyük hayatlar kurtarır.",
+  "Toplum bilinçlenirse afetlerin etkisi azalır.",
+  "Afet değil, tedbirsizlik felakettir.",
+  "Geleceği korumanın yolu hazırlıktan geçer.",
+];
+
+function pickHomeSlogan() {
+  return HOME_SLOGANS[Math.floor(Math.random() * HOME_SLOGANS.length)];
+}
+
 function renderPartial(res, view, locals) {
   return new Promise((resolve, reject) => {
     res.render(view, locals, (err, html) => {
@@ -64,21 +91,25 @@ app.get("/", async (req, res, next) => {
       deprem.getRecentEarthquakes(),
       afadDuyurular.getRecentAnnouncements(),
     ]);
-    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml, senaryoWidgetHtml] = await Promise.all([
-      renderPartial(res, "partials/home-earthquakes", { sonDepremler }),
-      renderPartial(res, "partials/home-afad-duyurular", { afadDuyurular: afadDuyuruData }),
-      renderPartial(res, "partials/home-meteouyari-widget"),
-      renderPartial(res, "partials/home-yangin-widget"),
-      renderPartial(res, "partials/home-senaryo-widget"),
-    ]);
+    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml, senaryoWidgetHtml, hazirlikOzetWidgetHtml] =
+      await Promise.all([
+        renderPartial(res, "partials/home-earthquakes", { sonDepremler }),
+        renderPartial(res, "partials/home-afad-duyurular", { afadDuyurular: afadDuyuruData }),
+        renderPartial(res, "partials/home-meteouyari-widget"),
+        renderPartial(res, "partials/home-yangin-widget"),
+        renderPartial(res, "partials/home-senaryo-widget"),
+        renderPartial(res, "partials/home-hazirlik-ozet-widget"),
+      ]);
     res.render("home", {
       pageTitle: "Anasayfa",
       nav: afetler,
+      homeSlogan: pickHomeSlogan(),
       sonDepremlerHtml,
       afadDuyurularHtml,
       meteoUyariWidgetHtml,
       yanginWidgetHtml,
       senaryoWidgetHtml,
+      hazirlikOzetWidgetHtml,
     });
   } catch (err) {
     next(err);
@@ -465,16 +496,22 @@ app.get("/konum-hizmetleri", (req, res) => {
   });
 });
 
-app.get("/il-riskleri", (req, res) => {
-  res.render("il-riskleri", {
-    pageTitle: "İle Göre Riskler",
-    nav: afetler,
-    pageHero: {
-      title: "İle Göre Afet Riskleri",
-      lead: "İl seçerek deprem, sel, heyelan ve diğer afet risklerini tek sayfada görün.",
-      crumbs: [{ label: "Anasayfa", href: "/" }, { label: "İle Göre Riskler" }],
-    },
-  });
+app.get("/il-riskleri", async (req, res, next) => {
+  try {
+    const senaryoWidgetHtml = await renderPartial(res, "partials/home-senaryo-widget");
+    res.render("il-riskleri", {
+      pageTitle: "İle Göre Riskler",
+      nav: afetler,
+      pageHero: {
+        title: "İle Göre Afet Riskleri",
+        lead: "İl seçerek deprem, sel, heyelan ve diğer afet risklerini tek sayfada görün.",
+        crumbs: [{ label: "Anasayfa", href: "/" }, { label: "İle Göre Riskler" }],
+      },
+      senaryoWidgetHtml,
+    });
+  } catch (err) {
+    next(err);
+  }
 });
 
 app.get("/hazirlik-sorular.json", (req, res) => {

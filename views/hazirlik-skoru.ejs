@@ -5,9 +5,29 @@
     pageHero,
     extraScripts: `
       <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+      <script src="/hazirlik-ozet-lib.js"></script>
       <script src="/hazirlik.js"></script>
+      <script src="/home-hazirlik-ozet.js"></script>
     `,
     body: `
+      <section class="panel hazirlikOzetInline" id="hazirlikOzetInline" aria-label="Kişisel hazırlık özeti">
+        <div class="hazirlikOzetInline__head">
+          <div>
+            <h2 class="hazirlikOzetInline__title">Kişisel Hazırlık Özeti</h2>
+            <p class="muted hazirlikOzetInline__meta" id="hazirlikOzetInlineMeta">Verileriniz yükleniyor…</p>
+          </div>
+          <div class="hazirlikOzetInline__scoreBlock">
+            <span class="hazirlikOzetInline__score" id="hazirlikOzetInlineScore">—</span>
+            <span class="hazirlikOzetInline__badge" id="hazirlikOzetInlineBadge">🌱 Başlangıç</span>
+          </div>
+        </div>
+        <div class="hazirlikOzetInline__breakdown" id="hazirlikOzetInlineBreakdown"></div>
+        <div class="hazirlikOzetInline__stepsWrap">
+          <h3 class="hazirlikOzetInline__stepsTitle">Bu hafta yapılacak 3 adım</h3>
+          <ol class="hazirlikOzetModal__stepsList" id="hazirlikOzetInlineSteps"></ol>
+        </div>
+      </section>
+
       <div class="testHub">
         <div class="testTabs" role="tablist" aria-label="Test türü">
           <button type="button" class="testTabs__btn is-active" role="tab" aria-selected="true" data-test-tab="hazirlik">Hazırlık testi</button>

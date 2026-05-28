@@ -186,6 +186,11 @@
       .then((json) => {
         if (!json.ok) throw new Error(json.error || "Öneriler alınamadı");
 
+        if (window.HazirlikOzet?.saveProfile) {
+          window.HazirlikOzet.saveProfile(il, ilce);
+          window.dispatchEvent(new CustomEvent("hazirlik-ozet-update"));
+        }
+
         const top = (json.topRisks || [])
           .map((x) => `<li><strong>${escapeHtml(x.label)}</strong>: ${escapeHtml(x.puan)}/10</li>`)
           .join("");
