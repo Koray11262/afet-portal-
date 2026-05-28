@@ -171,27 +171,46 @@
         disaster.content?.hideSections?.before
           ? ``
           : `
-            <section class="panel">
+            <section class="panel disasterSection">
               <h2>Öncesinde Ne Yapmalı?</h2>
-              ${
-                disaster.content?.beforeIntro
-                  ? `<p>${disaster.content.beforeIntro}</p>`
-                  : `<p class="muted">İçerik eklenecek.</p>`
-              }
-              ${
-                disaster.content?.beforeSections?.length
-                  ? disaster.content.beforeSections
-                      .map(
-                        (s) => `
-                          <div class="subsection">
-                            <h3>${s.title}</h3>
-                            <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
-                          </div>
-                        `
-                      )
-                      .join("")
-                  : ``
-              }
+              <div class="disasterSection__split${disaster.content?.beforeImages?.length ? "" : " disasterSection__split--textOnly"}">
+                <div class="disasterSection__text">
+                  ${
+                    disaster.content?.beforeIntro
+                      ? `<p>${disaster.content.beforeIntro}</p>`
+                      : `<p class="muted">İçerik eklenecek.</p>`
+                  }
+                  ${
+                    disaster.content?.beforeSections?.length
+                      ? disaster.content.beforeSections
+                          .map(
+                            (s) => `
+                              <div class="subsection">
+                                <h3>${s.title}</h3>
+                                <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                              </div>
+                            `
+                          )
+                          .join("")
+                      : ``
+                  }
+                </div>
+                ${
+                  disaster.content?.beforeImages?.length
+                    ? `<div class="disasterMediaStack" aria-label="Öncesinde görseller">
+                        ${disaster.content.beforeImages
+                          .map(
+                            (img) => `
+                          <figure class="disasterMediaStack__item">
+                            <img src="${img.src}" alt="${img.alt || ""}" loading="lazy" class="disasterMediaStack__img" />
+                            ${img.caption ? `<figcaption class="disasterMediaStack__cap muted small">${img.caption}</figcaption>` : ""}
+                          </figure>`
+                          )
+                          .join("")}
+                      </div>`
+                    : ``
+                }
+              </div>
             </section>
           `
       }
@@ -200,27 +219,46 @@
         disaster.content?.hideSections?.during
           ? ``
           : `
-            <section class="panel">
+            <section class="panel disasterSection">
               <h2>Sırasında Ne Yapmalı?</h2>
-              ${
-                disaster.content?.duringIntro
-                  ? `<p>${disaster.content.duringIntro}</p>`
-                  : `<p class="muted">İçerik eklenecek.</p>`
-              }
-              ${
-                disaster.content?.duringSections?.length
-                  ? disaster.content.duringSections
-                      .map(
-                        (s) => `
-                          <div class="subsection">
-                            <h3>${s.title}</h3>
-                            <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
-                          </div>
-                        `
-                      )
-                      .join("")
-                  : ``
-              }
+              <div class="disasterSection__split${disaster.content?.duringImages?.length ? "" : " disasterSection__split--textOnly"}">
+                <div class="disasterSection__text">
+                  ${
+                    disaster.content?.duringIntro
+                      ? `<p>${disaster.content.duringIntro}</p>`
+                      : `<p class="muted">İçerik eklenecek.</p>`
+                  }
+                  ${
+                    disaster.content?.duringSections?.length
+                      ? disaster.content.duringSections
+                          .map(
+                            (s) => `
+                              <div class="subsection">
+                                <h3>${s.title}</h3>
+                                <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                              </div>
+                            `
+                          )
+                          .join("")
+                      : ``
+                  }
+                </div>
+                ${
+                  disaster.content?.duringImages?.length
+                    ? `<div class="disasterMediaStack" aria-label="Sırasında görseller">
+                        ${disaster.content.duringImages
+                          .map(
+                            (img) => `
+                          <figure class="disasterMediaStack__item">
+                            <img src="${img.src}" alt="${img.alt || ""}" loading="lazy" class="disasterMediaStack__img" />
+                            ${img.caption ? `<figcaption class="disasterMediaStack__cap muted small">${img.caption}</figcaption>` : ""}
+                          </figure>`
+                          )
+                          .join("")}
+                      </div>`
+                    : ``
+                }
+              </div>
             </section>
           `
       }
@@ -229,29 +267,78 @@
         disaster.content?.hideSections?.after
           ? ``
           : `
-            <section class="panel">
+            <section class="panel disasterSection">
               <h2>Sonrasında Ne Yapmalı?</h2>
-              ${
-                disaster.content?.afterIntro
-                  ? `<p>${disaster.content.afterIntro}</p>`
-                  : `<p class="muted">İçerik eklenecek.</p>`
-              }
-              ${
-                disaster.content?.afterSections?.length
-                  ? disaster.content.afterSections
-                      .map(
-                        (s) => `
-                          <div class="subsection">
-                            <h3>${s.title}</h3>
-                            <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
-                          </div>
-                        `
-                      )
-                      .join("")
-                  : ``
-              }
+              <div class="disasterSection__split${disaster.content?.afterImages?.length ? "" : " disasterSection__split--textOnly"}">
+                <div class="disasterSection__text">
+                  ${
+                    disaster.content?.afterIntro
+                      ? `<p>${disaster.content.afterIntro}</p>`
+                      : `<p class="muted">İçerik eklenecek.</p>`
+                  }
+                  ${
+                    disaster.content?.afterSections?.length
+                      ? disaster.content.afterSections
+                          .map(
+                            (s) => `
+                              <div class="subsection">
+                                <h3>${s.title}</h3>
+                                <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                              </div>
+                            `
+                          )
+                          .join("")
+                      : ``
+                  }
+                </div>
+                ${
+                  disaster.content?.afterImages?.length
+                    ? `<div class="disasterMediaStack" aria-label="Sonrasında görseller">
+                        ${disaster.content.afterImages
+                          .map(
+                            (img) => `
+                          <figure class="disasterMediaStack__item">
+                            <img src="${img.src}" alt="${img.alt || ""}" loading="lazy" class="disasterMediaStack__img" />
+                            ${img.caption ? `<figcaption class="disasterMediaStack__cap muted small">${img.caption}</figcaption>` : ""}
+                          </figure>`
+                          )
+                          .join("")}
+                      </div>`
+                    : ``
+                }
+              </div>
             </section>
           `
+      }
+
+      ${
+        disaster.content?.footerVideo
+          ? `
+            <section class="panel disasterVideo">
+              <h2>Video</h2>
+              <p class="muted">${disaster.content.footerVideo.title || "İzle"}</p>
+              <a
+                class="disasterVideoCard"
+                href="${disaster.content.footerVideo.href}"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="${disaster.content.footerVideo.title || "YouTube videosunu aç"}"
+              >
+                <span class="disasterVideoCard__thumb">
+                  <img
+                    src="https://i.ytimg.com/vi/${disaster.content.footerVideo.youtubeId}/hqdefault.jpg"
+                    alt=""
+                    loading="lazy"
+                    width="480"
+                    height="360"
+                  />
+                  <span class="disasterVideoCard__play" aria-hidden="true"></span>
+                </span>
+                <span class="disasterVideoCard__title">${disaster.content.footerVideo.title || "YouTube'da izle"}</span>
+              </a>
+            </section>
+          `
+          : ``
       }
     `,
   })

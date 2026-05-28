@@ -105,7 +105,48 @@
                   "Düdük varsa kullan."
                 ]
               }
-            ]
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/deprem/01-depreme-hazir-misiniz.png",
+                "alt": "Depreme hazır mısınız? Temel güvenlik adımları infografiği",
+                "caption": "1. Sakin olun; sağlam eşyaların yanında çökün ve kapanın."
+              },
+              {
+                "src": "/assets/afet/deprem/02-cok-kapan-tutun.png",
+                "alt": "Çök, kapan, tutun hayata infografiği",
+                "caption": "2. Çök-Kapan-Tutun: güvenli yerde hedefinizi küçültün."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/deprem/03-deprem-cantasi.png",
+                "alt": "Deprem çantasında olması gerekenler",
+                "caption": "3. Afet ve acil durum çantası içeriği."
+              },
+              {
+                "src": "/assets/afet/deprem/04-konda-deprem-istatistik.png",
+                "alt": "Türkiye deprem farkındalığı istatistikleri (KONDA 2020)",
+                "caption": "4. Deprem hazırlığı ve bina güvenliği farkındalığı."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/deprem/05-enkaz-altinda.png",
+                "alt": "Enkaz altında yapılması gerekenler",
+                "caption": "5. Enkaz altında kendinizi koruyun ve yardım bekleyin."
+              },
+              {
+                "src": "/assets/afet/deprem/06-ilk-6-saat.png",
+                "alt": "Deprem sonrası ilk 6 saatte yapılacaklar",
+                "caption": "6. İlk 6 saat: tahliye, toplanma alanı ve iletişim kuralları."
+              }
+            ],
+            "footerVideo": {
+              "youtubeId": "oZeI0X40EEY",
+              "title": "Deprem sırasında yapılması gerekenler",
+              "href": "https://www.youtube.com/watch?v=oZeI0X40EEY"
+            }
           }
         },
         {
@@ -208,7 +249,48 @@
                   "Bölgeye geri dönüş için izin bekle"
                 ]
               }
-            ]
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/heyelan/01-genel-infografik.png",
+                "alt": "Heyelan: toprağın hareketi ve yaşam infografiği",
+                "caption": "1. Heyelan nedenleri, risk haritası ve korunma yöntemleri."
+              },
+              {
+                "src": "/assets/afet/heyelan/02-uyari-levhasi.png",
+                "alt": "Heyelan ve kaya düşmesi uyarı levhası",
+                "caption": "2. Riskli yamaçlarda uyarı levhalarına dikkat edin."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/heyelan/03-kacamak-afad.png",
+                "alt": "Heyelandan kaçmak için yapılması gerekenler (AFAD)",
+                "caption": "3. Mümkünse yükseğe çıkın; zaman yoksa çök-kapan-tutun."
+              },
+              {
+                "src": "/assets/afet/heyelan/04-heyelan-sirasinda.png",
+                "alt": "Heyelan sırasında kapalı ve açık alanda yapılacaklar",
+                "caption": "4. İçeride veya dışarıda uygulanacak güvenlik adımları."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/heyelan/05-sonrasinda-afad.png",
+                "alt": "Heyelan sonrasında yapılması ve yapılmaması gerekenler (AFAD)",
+                "caption": "5. Hasarlı binaya girmeyin; elektrik, gaz ve suyu kapatın."
+              },
+              {
+                "src": "/assets/afet/heyelan/06-otoyol-heyelan.png",
+                "alt": "Heyelan sonrası yolu kapatan toprak kayması",
+                "caption": "6. Heyelan sonrası ulaşım ve bölge güvenliği riski."
+              }
+            ],
+            "footerVideo": {
+              "youtubeId": "nPUcxKI3PEs",
+              "title": "Heyelan hakkında bilgilendirme videosu",
+              "href": "https://www.youtube.com/watch?v=nPUcxKI3PEs"
+            }
           }
         },
         {
@@ -312,6 +394,42 @@
                   "Yol kapatma ve güvenlik uyarılarını dikkate al",
                   "Bölgeye geri dönmek için izin bekle"
                 ]
+              }
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/kaya-dusmesi/01-kaya-tutma-hendegi.png",
+                "alt": "Kaya tutma hendeği ve kaynak zonu",
+                "caption": "1. Yerleşim önünde kaya tutma hendeği örneği."
+              },
+              {
+                "src": "/assets/afet/kaya-dusmesi/02-sev-stabilizasyon.png",
+                "alt": "Çelik ağ ile şev stabilizasyonu",
+                "caption": "2. Kaya düşmesini önlemek için şev güçlendirme."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/kaya-dusmesi/03-koruma-bariyerleri.png",
+                "alt": "Kaya düşmesi koruma bariyeri kesitleri",
+                "caption": "3. MSE duvar ve jeosentetik bariyer örnekleri."
+              },
+              {
+                "src": "/assets/afet/kaya-dusmesi/04-duraysiz-kayalar.png",
+                "alt": "Kaynak zonunda duraysız kaya blokları",
+                "caption": "4. Dik süreksizlikler ve potansiyel düşecek bloklar."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/kaya-dusmesi/05-yol-kapanisi.png",
+                "alt": "Kaya düşmesi sonrası yolu kapatan kayalar",
+                "caption": "5. Yol güvenliği ve ulaşım kesintisi riski."
+              },
+              {
+                "src": "/assets/afet/kaya-dusmesi/06-buyuk-kaya-dusmesi.png",
+                "alt": "Yola düşen büyük kaya parçası",
+                "caption": "6. Kaya düşmesinin yol üzerindeki etkisi."
               }
             ]
           }
@@ -470,7 +588,48 @@
                   "Hasar tespiti ve yardım süreçlerine başvur"
                 ]
               }
-            ]
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/sel-taskin/01-oncesinde-onlemler.png",
+                "alt": "Sele karşı öncesinde yapılması gerekenler listesi",
+                "caption": "1. Sel riskini öğrenin; sel yataklarına yerleşmeyin."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/02-oncesinde-infografik.png",
+                "alt": "Sel ve taşkın öncesinde hazırlık infografiği",
+                "caption": "2. Uyarıları takip edin; kapı-pencere ve eşya güvenliği."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/sel-taskin/03-sirasinda-ne-yapilmali.png",
+                "alt": "Sel sırasında ne yapılmalı infografiği",
+                "caption": "3. Çukur alanlardan uzak durun; yüksek ve güvenli yerlere gidin."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/04-sel-sirasinda-yol.png",
+                "alt": "Sel sırasında su basmış yolda araçlar",
+                "caption": "4. Sel suyunda yürümeyin veya araç kullanmayın."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/sel-taskin/05-sonrasinda-onlemler.png",
+                "alt": "Sel ve taşkın sonrasında yapılması gerekenler",
+                "caption": "5. Sel suyuna girmeyin; hasarlı binalara girmeden önce onay alın."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/06-sel-sonrasi-sehir.png",
+                "alt": "Sel sonrası şehirde su birikintisi ve hasar",
+                "caption": "6. Sel sonrası ulaşım ve yapı hasarı riski."
+              }
+            ],
+            "footerVideo": {
+              "youtubeId": "jy2yf7a5A10",
+              "title": "Sel ve taşkın hakkında bilgilendirme videosu",
+              "href": "https://www.youtube.com/watch?v=jy2yf7a5A10"
+            }
           }
         },
         {
@@ -606,7 +765,48 @@
                   "Kurtarma ekiplerine yardımcı ol"
                 ]
               }
-            ]
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/cig/01-slab-cigi.png",
+                "alt": "Slab (levha) çığı nasıl oluşur diyagramı",
+                "caption": "1. Eğimli yamaçlarda kar tabakası kayabilir; riskli rotalardan kaçının."
+              },
+              {
+                "src": "/assets/afet/cig/02-afad-risk-onlem.png",
+                "alt": "AFAD çığ riskleri ve korunma yöntemleri broşürü",
+                "caption": "2. Çığ nedenlerini öğrenin; AFAD uyarılarını takip edin."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/cig/03-sirasinda-ne-yapilmali.png",
+                "alt": "Çığ sırasında ne yapılmalı rehberi 1-6",
+                "caption": "3. Sakin kalın; sırt çantanızı çıkarmayın; yüzme hareketi yapın."
+              },
+              {
+                "src": "/assets/afet/cig/04-sirasinda-07-12.png",
+                "alt": "Çığ sırasında ne yapılmalı rehberi 7-12",
+                "caption": "4. Nefes boşluğu oluşturun; çığ rotasının dışına yönelin."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/cig/05-once-sirasinda-sonra.png",
+                "alt": "Çığ öncesinde, sırasında ve sonrasında yapılacaklar özeti",
+                "caption": "5. Yaralı kontrolü yapın; 112’yi arayın; ikinci çığ riskine dikkat edin."
+              },
+              {
+                "src": "/assets/afet/cig/06-cig-akisi.png",
+                "alt": "Dağ yamacında akan büyük çığ",
+                "caption": "6. Çığ sonrası bölgede dikkatli olun; profesyonel ekipleri bekleyin."
+              }
+            ],
+            "footerVideo": {
+              "youtubeId": "RO1wOpWkOy0",
+              "title": "Çığ hakkında bilgilendirme videosu",
+              "href": "https://www.youtube.com/watch?v=RO1wOpWkOy0"
+            }
           }
         },
         {
@@ -740,7 +940,48 @@
                 "title": "İletişim ve destek",
                 "bullets": ["Resmi kurumların yönlendirmelerini takip et (örneğin AFAD)"]
               }
-            ]
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/orman-yangini/01-onlem-yap-yapma.png",
+                "alt": "Yangın riskini azaltmak için yapılması ve yapılmaması gerekenler",
+                "caption": "1. Yangına duyarlı olun; ateş ve anız yakmayın."
+              },
+              {
+                "src": "/assets/afet/orman-yangini/02-ogm-onleme.png",
+                "alt": "OGM orman yangını önleme davranışları infografiği",
+                "caption": "2. Ormanlık alanda ateş yakmayın; çöp ve izmarit atmayın."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/orman-yangini/03-akut-mudahale.png",
+                "alt": "Orman yangınında müdahale, ihbar ve uzaklaşma",
+                "caption": "3. Söndürebiliyorsanız müdahale edin; değilse 112’yi arayıp uzaklaşın."
+              },
+              {
+                "src": "/assets/afet/orman-yangini/04-yangin-havadan.png",
+                "alt": "Havadan görünen aktif orman yangını",
+                "caption": "4. Yangın sırasında dumandan korunun; rüzgâr yönüne dikkat edin."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/orman-yangini/05-turkiye-infografik.png",
+                "alt": "Türkiye’de orman yangınları nedenleri ve önleme rehberi",
+                "caption": "5. Yangın gördüğünüzde 112’yi arayın; yetkisiz müdahale etmeyin."
+              },
+              {
+                "src": "/assets/afet/orman-yangini/06-yangin-sonrasi.png",
+                "alt": "Orman yangını sonrası yapılması gerekenler",
+                "caption": "6. Yangın sonrası yetkililerin yönlendirmelerini takip edin."
+              }
+            ],
+            "footerVideo": {
+              "youtubeId": "-zK95LkYdJc",
+              "title": "Orman yangını hakkında bilgilendirme videosu",
+              "href": "https://www.youtube.com/watch?v=-zK95LkYdJc"
+            }
           }
         }
       ]

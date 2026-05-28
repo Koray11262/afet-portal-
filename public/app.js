@@ -316,9 +316,18 @@ async function setupMapIfPresent() {
   }
 }
 
+function setupDisasterMediaZoom() {
+  document.querySelectorAll(".disasterMediaStack__img").forEach((img) => {
+    img.addEventListener("click", () => {
+      window.open(img.currentSrc || img.src, "_blank", "noopener,noreferrer");
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupGlobalSearch();
   setupDisasterMaps();
   setupMapIfPresent();
+  setupDisasterMediaZoom();
 });
 

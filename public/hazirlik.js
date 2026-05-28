@@ -90,11 +90,37 @@
     return { text: "Güçlendirilmeli", tone: "low" };
   }
 
+  const LS_HAZIRLIK_SCORES = "hazirlik_last_scores_v1";
+
+  function saveHazirlikScores(catScores, overall) {
+    try {
+      localStorage.setItem(
+        LS_HAZIRLIK_SCORES,
+        JSON.stringify({
+          at: Date.now(),
+          overall,
+          categoryScores: Object.fromEntries(catScores.map((c) => [c.id, c.score])),
+        })
+      );
+    } catch {
+      /* depolama dolu olabilir */
+    }
+  }
+
+  function readHazirlikScores() {
+    try {
+      return JSON.parse(localStorage.getItem(LS_HAZIRLIK_SCORES) || "null");
+    } catch {
+      return null;
+    }
+  }
+
   function renderHazirlikResults() {
     const catScores = computeHazirlikCategoryScores();
     const overall =
       Math.round((catScores.reduce((a, c) => a + c.score, 0) / catScores.length) * 10) / 10;
     const label = overallLabel(overall);
+    saveHazirlikScores(catScores, overall);
 
     overallEl.innerHTML = `
       <div class="hazirlikOverall__score">${overall}<span>/10</span></div>
@@ -415,5 +441,230 @@
   /* URL hash ile sekme: #bilgi */
   if (window.location.hash === "#bilgi") {
     switchTab("bilgi");
+  }
+
+  /* —— Yapay zeka destekli bölgesel öneriler —— */
+  const aiForm = document.getElementById("hazirlikAiForm");
+  const aiIl = document.getElementById("hazirlikAiIl");
+  const aiIlce = document.getElementById("hazirlikAiIlce");
+  const aiStatus = document.getElementById("hazirlikAiStatus");
+  const aiResults = document.getElementById("hazirlikAiResults");
+  const aiSubmit = document.getElementById("hazirlikAiSubmit");
+
+  function aiEscape(s) {
+    return String(s || "")
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function renderAiBlock(title, items, tagClass, tagLabel) {
+    if (!items?.length) return "";
+    const lis = items.map((t) => `<li>${aiEscape(t)}</li>`).join("");
+    const tag = tagLabel
+      ? `<span class="hazirlikAi__tag hazirlikAi__tag--${tagClass}">${aiEscape(tagLabel)}</span>`
+      : "";
+    return `<section class="hazirlikAiBlock"><h3>${tag}${aiEscape(title)}</h3><ul class="hazirlikAiList">${lis}</ul></section>`;
+  }
+
+  function renderAiLiveAlerts(alerts) {
+    if (!alerts?.length) {
+      return `<div class="hazirlikAiLive hazirlikAiLive--ok panel">
+        <p class="muted" style="margin:0">Bu il için şu an MGM veya yangın haritasında öne çıkan aktif uyarı yok. Genel risk ve hazırlık önerileri aşağıda.</p>
+      </div>`;
+    }
+    return `<div class="hazirlikAiLive">
+      <h3 class="hazirlikAiCol__title">Canlı uyarılar (MGM + yangın haritası)</h3>
+      <div class="hazirlikAiLiveGrid">
+        ${alerts
+          .map((a) => {
+            const sev = a.severity || "info";
+            const prepLis = (a.prep || [])
+              .map((p) => `<li>${aiEscape(p)}</li>`)
+              .join("");
+            const link =
+              a.href && a.source === "mgm"
+                ? `<a class="refLink" href="${aiEscape(a.href)}" target="_blank" rel="noopener noreferrer">MGM MeteoUyarı →</a>`
+                : a.source === "yangin"
+                  ? `<span class="muted small">${aiEscape(a.note || "")}</span>`
+                  : "";
+            return `<article class="hazirlikAiLiveCard hazirlikAiLiveCard--${sev}">
+              <div class="hazirlikAiLiveCard__badge">${a.source === "mgm" ? "Hava" : "Yangın"}</div>
+              <h4>${aiEscape(a.title)}</h4>
+              <p class="hazirlikAiLiveCard__summary">${aiEscape(a.summary)}</p>
+              <ul class="hazirlikAiList">${prepLis}</ul>
+              ${link}
+            </article>`;
+          })
+          .join("")}
+      </div>
+    </div>`;
+  }
+
+  function renderAiResults(data) {
+    if (!aiResults) return;
+
+    const liveHtml = renderAiLiveAlerts(data.liveAlerts);
+
+    const riskCards = (data.riskyDisasters || [])
+      .map((r) => {
+        const levelClass =
+          r.level === "high" ? "high" : r.level === "medium" ? "mid" : "low";
+        const link = r.href
+          ? `<a class="refLink" href="${aiEscape(r.href)}">Rehberi oku →</a>`
+          : "";
+        return `<article class="hazirlikAiRisk hazirlikAiRisk--${levelClass}">
+          <div class="hazirlikAiRisk__top">
+            <strong>${aiEscape(r.label)}</strong>
+            <span class="hazirlikAiRisk__score">${r.score}/10 · ${aiEscape(r.levelLabel)}</span>
+          </div>
+          <p class="muted small">${aiEscape(r.intro)}</p>
+          ${link}
+        </article>`;
+      })
+      .join("");
+
+    const prepBlocks = (data.preparation || [])
+      .map((s) => renderAiBlock(s.title, s.items, "prep", "Hazırlık"))
+      .join("");
+    const equipBlocks = (data.equipment || [])
+      .map((s) => renderAiBlock(s.title, s.items, "equip", "Ekipman"))
+      .join("");
+    const personalBlocks = (data.personalized || [])
+      .map((s) => renderAiBlock(s.title, s.items, "you", "Size özel"))
+      .join("");
+    const extraBlocks = (data.regionalExtras || [])
+      .map((s) => renderAiBlock(s.title, s.items, "info", ""))
+      .join("");
+
+    aiResults.innerHTML = `
+      <div class="hazirlikAiSummary panel">
+        <p class="hazirlikAiSummary__text">${aiEscape(data.summary)}</p>
+        <p class="muted small">${data.totalRecommendations || 0} öneri maddesi · ${aiEscape(data.disclaimer || "")}</p>
+      </div>
+      ${liveHtml}
+      <div class="hazirlikAiGrid">
+        <div class="hazirlikAiCol">
+          <h3 class="hazirlikAiCol__title">Hangi afetler riskli?</h3>
+          <div class="hazirlikAiRiskGrid">${riskCards || "<p class='muted'>Risk verisi yok.</p>"}</div>
+        </div>
+        <div class="hazirlikAiCol hazirlikAiCol--wide">
+          <h3 class="hazirlikAiCol__title">Nasıl hazırlanmalı?</h3>
+          ${prepBlocks}
+          ${extraBlocks}
+        </div>
+        <div class="hazirlikAiCol">
+          <h3 class="hazirlikAiCol__title">Hangi ekipman gerekli?</h3>
+          ${equipBlocks}
+          ${personalBlocks}
+        </div>
+      </div>
+      <div class="hazirlikAiLinks">
+        <a class="btn btn--ghost btn--sm" href="/il-riskleri?il=${encodeURIComponent(data.location?.il || "")}">İl risk haritası</a>
+        <a class="btn btn--ghost btn--sm" href="/acil-canta">Acil çanta planlayıcı</a>
+        <a class="btn btn--ghost btn--sm" href="/aile-afet-plani">Aile afet planı</a>
+        <a class="btn btn--ghost btn--sm" href="/kaynaklar">Farkındalık Merkezi</a>
+      </div>
+    `;
+    aiResults.hidden = false;
+    aiResults.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  async function loadAiIller() {
+    if (!aiIl) return;
+    try {
+      const res = await fetch("/api/yerlesim/iller");
+      const json = await res.json();
+      if (!json.ok) return;
+      const names = (json.iller || []).slice().sort((a, b) => String(a).localeCompare(String(b), "tr"));
+      aiIl.innerHTML = `<option value="">İl seçin…</option>${names
+        .map((n) => `<option value="${aiEscape(n)}">${aiEscape(n)}</option>`)
+        .join("")}`;
+    } catch {
+      aiIl.innerHTML = `<option value="">İller yüklenemedi</option>`;
+    }
+  }
+
+  async function loadAiIlceler(il) {
+    if (!aiIlce) return;
+    aiIlce.disabled = true;
+    aiIlce.innerHTML = `<option value="">Yükleniyor…</option>`;
+    try {
+      const res = await fetch(`/api/yerlesim/ilceler?il=${encodeURIComponent(il)}`);
+      const json = await res.json();
+      const list = (json.ilceler || []).filter(Boolean);
+      aiIlce.innerHTML = `<option value="">İlçe seçmeyebilirsiniz</option>${list
+        .map((n) => `<option value="${aiEscape(n)}">${aiEscape(n)}</option>`)
+        .join("")}`;
+      aiIlce.disabled = false;
+    } catch {
+      aiIlce.innerHTML = `<option value="">İlçe yüklenemedi</option>`;
+    }
+  }
+
+  if (aiIl) {
+    aiIl.addEventListener("change", () => {
+      const il = aiIl.value;
+      if (!il) {
+        aiIlce.innerHTML = `<option value="">Önce il seçin</option>`;
+        aiIlce.disabled = true;
+        return;
+      }
+      loadAiIlceler(il);
+    });
+  }
+
+  aiForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const il = aiIl?.value?.trim();
+    const ilce = aiIlce?.value?.trim() || "";
+    if (!il) return;
+
+    const saved = readHazirlikScores();
+    if (aiStatus) {
+      aiStatus.textContent = saved
+        ? "Analiz ediliyor… MGM hava uyarıları, yangın haritası ve hazırlık testi skorlarınız birleştiriliyor."
+        : "Analiz ediliyor… MGM hava uyarıları ve yangın haritası kontrol ediliyor.";
+    }
+    if (aiSubmit) aiSubmit.disabled = true;
+    if (aiResults) aiResults.hidden = true;
+
+    try {
+      const res = await fetch("/api/hazirlik/akilli-oneri", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          il,
+          ilce,
+          categoryScores: saved?.categoryScores || null,
+          weakThreshold: hazirlikData?.weakThreshold ?? 7,
+        }),
+      });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.error || "Öneriler alınamadı");
+      renderAiResults(json);
+      if (aiStatus) {
+        aiStatus.textContent = `${json.location?.il}${
+          json.location?.ilce ? ` / ${json.location.ilce}` : ""
+        } için ${json.totalRecommendations || 0} öneri oluşturuldu.`;
+      }
+    } catch (err) {
+      if (aiStatus) aiStatus.textContent = err?.message || "Öneriler alınamadı.";
+    } finally {
+      if (aiSubmit) aiSubmit.disabled = false;
+    }
+  });
+
+  loadAiIller();
+
+  const params = new URLSearchParams(window.location.search);
+  const qIl = params.get("il");
+  if (qIl && aiIl) {
+    aiIl.value = qIl;
+    loadAiIlceler(qIl).then(() => {
+      const qIlce = params.get("ilce");
+      if (qIlce && aiIlce) aiIlce.value = qIlce;
+    });
   }
 })();

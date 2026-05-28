@@ -10,6 +10,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static(path.join(__dirname, "public")));
+app.use(express.json({ limit: "32kb" }));
 
 const afetler = require("./data/afetler.json");
 const db = require("./src/db");
@@ -27,6 +28,8 @@ const mgmMeteouyari = require("./src/mgm-meteouyari");
 const yanginCanli = require("./src/yangin-canli");
 const senaryo = require("./src/senaryo");
 const yerlesim = require("./src/yerlesim");
+const hazirlikOneri = require("./src/hazirlik-oneri-engine");
+const canliUyarilar = require("./src/canli-uyarilar");
 
 app.locals.karsilastirmalar = karsilastirmalar;
 
@@ -476,6 +479,70 @@ app.get("/il-riskleri", (req, res) => {
 
 app.get("/hazirlik-sorular.json", (req, res) => {
   res.sendFile(path.join(__dirname, "data", "hazirlik-sorular.json"));
+});
+
+app.post("/api/hazirlik/akilli-oneri", async (req, res) => {
+  const il = String(req.body?.il || req.query?.il || "").trim();
+  const ilce = String(req.body?.ilce || req.query?.ilce || "").trim();
+  const categoryScores = req.body?.categoryScores || null;
+  const weakThreshold = Number(req.body?.weakThreshold) || 7;
+
+  if (!il) {
+    return res.status(400).json({ ok: false, error: "İl seçimi gerekli." });
+  }
+
+  try {
+    const iller = await getIllerList();
+    const ilMatched = ilMatch.matchIl(il, iller);
+    if (!ilMatched) {
+      return res.status(404).json({ ok: false, error: "İl bulunamadı. Listeden seçin." });
+    }
+
+    const pool = db.getPool();
+    const [rows] = await pool.query(
+      `SELECT il, deprem, sel, heyelan, yangin, cig, kuraklik
+       FROM sehir_riskleri WHERE il = ? LIMIT 1`,
+      [ilMatched]
+    );
+    if (!rows.length) {
+      return res.status(404).json({ ok: false, error: "Bu il için risk verisi yok." });
+    }
+
+    const row = rows[0];
+    const risks = riskTurleri.map((t) => ({
+      key: t.key,
+      label: t.label,
+      slug: t.slug,
+      puan: row[t.key] != null ? Number(row[t.key]) : null,
+    }));
+
+    const coord = ilKoordinat[ilMatched] || null;
+    const [meteoToday, meteoTomorrow, fires] = await Promise.all([
+      mgmMeteouyari.getMeteoUyari(1),
+      mgmMeteouyari.getMeteoUyari(2),
+      yanginCanli.getLiveFireMap(),
+    ]);
+
+    const liveContext = canliUyarilar.buildForIl(ilMatched, {
+      meteoToday,
+      meteoTomorrow,
+      fires,
+      coord,
+    });
+
+    const payload = hazirlikOneri.buildRecommendations({
+      il: ilMatched,
+      ilce: ilce || null,
+      risks,
+      categoryScores,
+      weakThreshold,
+      liveContext,
+    });
+
+    res.json({ ok: true, ...payload });
+  } catch (err) {
+    res.status(500).json({ ok: false, error: String(err?.message || err) });
+  }
 });
 
 app.get("/afet-bilgi-sorular.json", (req, res) => {

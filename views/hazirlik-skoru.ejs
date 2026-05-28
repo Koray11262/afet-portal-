@@ -112,6 +112,40 @@
             </div>
           </section>
         </div>
+
+        <section class="panel hazirlikAi" id="hazirlikAi" aria-labelledby="hazirlikAiTitle">
+          <div class="hazirlikAi__head">
+            <div>
+              <h2 id="hazirlikAiTitle">Yapay zeka destekli bölgesel öneriler</h2>
+              <p class="muted">
+                Yaşadığınız il ve ilçeye göre risk profilinizi analiz eder; anasayfadaki
+                <strong>MGM hava durumu uyarıları</strong> ve <strong>canlı yangın haritası</strong> verilerini de
+                birleştirir. Örneğin Adana’da sağanak yağış uyarısı varsa sel hazırlığı önerileri öne çıkar.
+                Hazırlık testini tamamladıysanız skorlarınız da kişiselleştirmeye dahil edilir.
+              </p>
+            </div>
+            <span class="hazirlikAi__badge" aria-hidden="true">Akıllı analiz</span>
+          </div>
+
+          <form id="hazirlikAiForm" class="hazirlikAiForm">
+            <label class="hazirlikAiForm__field">
+              <span>İl</span>
+              <select id="hazirlikAiIl" required>
+                <option value="">İl seçin…</option>
+              </select>
+            </label>
+            <label class="hazirlikAiForm__field">
+              <span>İlçe (isteğe bağlı)</span>
+              <select id="hazirlikAiIlce" disabled>
+                <option value="">Önce il seçin</option>
+              </select>
+            </label>
+            <button type="submit" class="btn btn--primary" id="hazirlikAiSubmit">Önerileri oluştur</button>
+          </form>
+
+          <p id="hazirlikAiStatus" class="muted small hazirlikAi__status" aria-live="polite"></p>
+          <div id="hazirlikAiResults" class="hazirlikAiResults" hidden></div>
+        </section>
       </div>
     `,
   })
