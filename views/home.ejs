@@ -2,7 +2,7 @@
   include("layout", {
     pageTitle,
     nav,
-    extraScripts: `<script src="/hazirlik-ozet-lib.js"></script><script src="/home-hero.js"></script><script src="/home-tools.js"></script><script src="/home-slogan.js"></script><script src="/home-meteouyari.js"></script><script src="/home-yangin.js"></script><script src="/home-senaryo.js"></script><script src="/home-hazirlik-ozet.js"></script>`,
+    extraScripts: `<script src="/hazirlik-ozet-lib.js"></script><script src="/ilk-72-saat-prep.js"></script><script src="/home-hero.js"></script><script src="/home-tools.js"></script><script src="/home-slogan.js"></script><script src="/home-meteouyari.js"></script><script src="/home-yangin.js"></script><script src="/home-senaryo.js"></script><script src="/home-hazirlik-ozet.js"></script><script src="/home-72saat.js"></script>`,
     body: `
       <section class="homeTop" aria-label="Tanıtım ve hızlı araçlar">
         <div class="homeTop__inner">
@@ -76,6 +76,7 @@
       ${typeof yanginWidgetHtml !== "undefined" ? yanginWidgetHtml : ""}
       ${typeof senaryoWidgetHtml !== "undefined" ? senaryoWidgetHtml : ""}
       ${typeof hazirlikOzetWidgetHtml !== "undefined" ? hazirlikOzetWidgetHtml : ""}
+      ${typeof saat72WidgetHtml !== "undefined" ? saat72WidgetHtml : ""}
 
       <section class="homeIntro panel">
         <h2 class="homeIntro__title">Afet Portalı ile neler yapabilirsiniz?</h2>

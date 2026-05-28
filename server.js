@@ -91,7 +91,7 @@ app.get("/", async (req, res, next) => {
       deprem.getRecentEarthquakes(),
       afadDuyurular.getRecentAnnouncements(),
     ]);
-    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml, senaryoWidgetHtml, hazirlikOzetWidgetHtml] =
+    const [sonDepremlerHtml, afadDuyurularHtml, meteoUyariWidgetHtml, yanginWidgetHtml, senaryoWidgetHtml, hazirlikOzetWidgetHtml, saat72WidgetHtml] =
       await Promise.all([
         renderPartial(res, "partials/home-earthquakes", { sonDepremler }),
         renderPartial(res, "partials/home-afad-duyurular", { afadDuyurular: afadDuyuruData }),
@@ -99,6 +99,7 @@ app.get("/", async (req, res, next) => {
         renderPartial(res, "partials/home-yangin-widget"),
         renderPartial(res, "partials/home-senaryo-widget"),
         renderPartial(res, "partials/home-hazirlik-ozet-widget"),
+        renderPartial(res, "partials/home-72saat-widget"),
       ]);
     res.render("home", {
       pageTitle: "Anasayfa",
@@ -110,6 +111,7 @@ app.get("/", async (req, res, next) => {
       yanginWidgetHtml,
       senaryoWidgetHtml,
       hazirlikOzetWidgetHtml,
+      saat72WidgetHtml,
     });
   } catch (err) {
     next(err);
@@ -516,6 +518,10 @@ app.get("/il-riskleri", async (req, res, next) => {
 
 app.get("/hazirlik-sorular.json", (req, res) => {
   res.sendFile(path.join(__dirname, "data", "hazirlik-sorular.json"));
+});
+
+app.get("/data/ilk-72-saat.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "data", "ilk-72-saat.json"));
 });
 
 app.post("/api/hazirlik/akilli-oneri", async (req, res) => {

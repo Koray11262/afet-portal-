@@ -1,0 +1,405 @@
+{
+  "phases": [
+    { "id": "0-1", "label": "0–1 Saat", "subtitle": "Şok ve ilk tepki" },
+    { "id": "1-6", "label": "1–6 Saat", "subtitle": "İletişim ve güvenlik" },
+    { "id": "6-24", "label": "6–24 Saat", "subtitle": "Barınma ve sağlık" },
+    { "id": "24-48", "label": "24–48 Saat", "subtitle": "Su ve gıda yönetimi" },
+    { "id": "48-72", "label": "48–72 Saat", "subtitle": "Psikolojik ve fiziksel dayanıklılık" }
+  ],
+  "characters": [
+    { "id": "yetiskin", "label": "Yetişkin (tek başına)" },
+    { "id": "aile", "label": "Çocuklu aile" },
+    { "id": "yasli", "label": "65+ / hareket kısıtlı" },
+    { "id": "ogrenci", "label": "Öğrenci / yurt" }
+  ],
+  "environments": [
+    { "id": "apartman", "label": "Apartman / site" },
+    { "id": "mustakil", "label": "Müstakil ev" },
+    { "id": "kirsal", "label": "Kırsal / köy" },
+    { "id": "isyeri", "label": "İş yeri / okul" }
+  ],
+  "disasters": {
+    "deprem": {
+      "label": "Deprem",
+      "eventIntro": "Gece saat {time}’te güçlü bir deprem oldu.",
+      "phases": {
+        "0-1": [
+          {
+            "clock": "02:23",
+            "prompt": "Sarsıntı bitti. İlk ne yaparsın?",
+            "prepHooks": ["canta:fener", "plan:meeting1"],
+            "options": [
+              {
+                "text": "Asansörü kullanıp aşağı inerim",
+                "correct": false,
+                "feedback": "Kriz anında asansör kullanımı tehlikelidir; elektrik kesintisi veya yapı hasarında mahsur kalma riski vardır."
+              },
+              {
+                "text": "Hemen telefonla tüm yakınlarımı ararım",
+                "correct": false,
+                "feedback": "İlk dakikalarda şebeke tıkanır; önce kendi güvenliğinizi ve gaz/elektrik kontrolünü sağlayın, ardından kısa SMS tercih edin."
+              },
+              {
+                "text": "Gaz vanasını ve elektrik sigortasını kontrol ederim",
+                "correct": true,
+                "feedback": "Gaz kaçağı kontrolü yangın riskini azaltır. Sarsıntı tamamen bitmeden acele etmeyin; ayakkabı giyip çıkış yolunu kontrol edin."
+              },
+              {
+                "text": "Balkona çıkarım",
+                "correct": false,
+                "feedback": "Balkon ve merdiven boşlukları düşme ve kırık cam riski taşır; güvenli iç koridor veya masa altı daha uygundur."
+              }
+            ]
+          }
+        ],
+        "1-6": [
+          {
+            "clock": "04:10",
+            "prompt": "Binadan çıktınız. İletişim kurmak için ne yaparsın?",
+            "prepHooks": ["canta:powerbank", "plan:outContact"],
+            "options": [
+              {
+                "text": "Sürekli arama yaparak şebekeyi meşgul ederim",
+                "correct": false,
+                "feedback": "Yoğun arama şebekeyi daha da zorlar; kısa SMS ve şehir dışı irtibat kişisine tek mesaj daha etkilidir."
+              },
+              {
+                "text": "Şehir dışı irtibat kişime kısa SMS gönderirim",
+                "correct": true,
+                "feedback": "SMS, aramadan daha az bant genişliği kullanır. Konum ve durumunuzu kısa yazın."
+              },
+              {
+                "text": "Sosyal medyada canlı yayın açarım",
+                "correct": false,
+                "feedback": "Canlı yayın bataryayı tüketir ve şebekeyi yorar; önce güvenli alana geçin."
+              },
+              {
+                "text": "Hiç iletişim kurmadan beklerim",
+                "correct": false,
+                "feedback": "Aile planınızdaki buluşma noktasına yönelirken en az bir kişiye durumunuzu bildirmek önemlidir."
+              }
+            ]
+          }
+        ],
+        "6-24": [
+          {
+            "clock": "09:00",
+            "prompt": "Gece dışarıda kaldınız. Barınma için ne yaparsın?",
+            "prepHooks": ["canta:battaniye", "canta:ilkYardim", "plan:meeting1"],
+            "options": [
+              {
+                "text": "Hasarlı binaya geri girerim",
+                "correct": false,
+                "feedback": "Artçı sarsıntılar ve gaz sızıntısı riski devam eder; yetkililer izin vermeden girmeyin."
+              },
+              {
+                "text": "AFAD toplanma alanına veya planlı buluşma noktasına giderim",
+                "correct": true,
+                "feedback": "Toplanma alanları ve önceden belirlenmiş buluşma noktaları koordinasyonu kolaylaştırır."
+              },
+              {
+                "text": "Aracımda uyumaya çalışırım, camı kapalı tutarım",
+                "correct": false,
+                "feedback": "Kapalı alanda uzun süre kalmak ve tek başına izole olmak risklidir; güvenli açık alan tercih edin."
+              },
+              {
+                "text": "Komşulara haber vermeden uzaklaşırım",
+                "correct": false,
+                "feedback": "Yakın çevre dayanışması özellikle ilk 24 saatte kritiktir."
+              }
+            ]
+          }
+        ],
+        "24-48": [
+          {
+            "clock": "Ertesi gün",
+            "prompt": "Su ve gıda stokunuz sınırlı. Nasıl yönetirsiniz?",
+            "prepHooks": ["canta:su", "canta:gida"],
+            "options": [
+              {
+                "text": "Musluk suyunu hemen bol bol içerim",
+                "correct": false,
+                "feedback": "Şebeke suyu kirlenebilir; kaynatılmadan veya filtrelenmeden tüketmeyin."
+              },
+              {
+                "text": "Kişi başı günlük su paylaştırıp dayanıklı gıdayı ölçülü kullanırım",
+                "correct": true,
+                "feedback": "72 saatlik plan kişi başı yaklaşık 2–3 litre su ve bozulmayan gıda hedefler."
+              },
+              {
+                "text": "Market kavgasına girerim",
+                "correct": false,
+                "feedback": "Panik alışverişi güvenliği azaltır; önceden hazırlanan çanta bu saatlerde fark yaratır."
+              },
+              {
+                "text": "Sadece çocuklara su verir, kendim hiç içmem",
+                "correct": false,
+                "feedback": "Kendi sağlığınız da önemli; adil paylaşım ve hijyen kuralları uygulanmalıdır."
+              }
+            ]
+          }
+        ],
+        "48-72": [
+          {
+            "clock": "3. gün",
+            "prompt": "Yorgunluk ve stres arttı. Ne yaparsın?",
+            "prepHooks": ["canta:ilac", "plan:familyName"],
+            "options": [
+              {
+                "text": "Resmi uyarıları takip eder, kısa dinlenme ve rutin korurum",
+                "correct": true,
+                "feedback": "Psikolojik dayanıklılık için basit rutin, uyku ve doğru bilgi kaynağı önemlidir."
+              },
+              {
+                "text": "Sürekli haber ve sosyal medyayı takip eder, uyumam",
+                "correct": false,
+                "feedback": "Bilgi yorgunluğu stresi artırır; güvenilir kaynaklardan günde birkaç kez kontrol yeterlidir."
+              },
+              {
+                "text": "Kişisel ilaçlarımı kontrol etmeden devam ederim",
+                "correct": false,
+                "feedback": "Kronik ilaç kullananlar için 72 saatlik yedek stok hayati önem taşır."
+              },
+              {
+                "text": "Yardım tekliflerini tamamen reddederim",
+                "correct": false,
+                "feedback": "Toplumsal dayanışma ve resmi yardım hatları bu dönemde devreye girer."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "sel": {
+      "label": "Sel / Taşkın",
+      "eventIntro": "Saat {time}’te şiddetli yağış sonrası bulunduğunuz bölgede sel uyarısı ve su yükselmesi başladı.",
+      "phases": {
+        "0-1": [
+          {
+            "clock": "14:05",
+            "prompt": "Su hızla yükseliyor. İlk tepkiniz?",
+            "prepHooks": ["canta:duuduk", "plan:meeting2"],
+            "options": [
+              { "text": "Bodruma inip eşyaları kurtarmaya çalışırım", "correct": false, "feedback": "Su hızla yükselir; önce kendinizi yüksek kata veya güvenli alana alın." },
+              { "text": "Yüksek kata çıkar, elektrik ve gazı kapatırım", "correct": true, "feedback": "Yüksek nokta ve enerji kaynaklarını kapatmak ilk saatlerde hayati önem taşır." },
+              { "text": "Araçla su birikintisinden geçerim", "correct": false, "feedback": "30 cm su bile aracı sürükleyebilir; yürüyen su daha tehlikelidir." },
+              { "text": "Pencereyi açıp dışarıyı izlerim", "correct": false, "feedback": "Cam kırılması ve su basıncı riski vardır; güvenli iç alana geçin." }
+            ]
+          }
+        ],
+        "1-6": [
+          {
+            "clock": "17:30",
+            "prompt": "Tahliye kararı verildi. Ne yaparsın?",
+            "prepHooks": ["canta:belge", "plan:meeting1"],
+            "options": [
+              { "text": "Belge ve ilaçları alıp planlı buluşma yoluna çıkarım", "correct": true, "feedback": "Hafif çanta, belgeler ve ilaçlar tahliye sürecini kolaylaştırır." },
+              { "text": "Evde kalıp suyun çekilmesini beklerim", "correct": false, "feedback": "Resmi tahliye uyarılarına uymak zorunludur." },
+              { "text": "Tüm ağır eşyaları taşımaya çalışırım", "correct": false, "feedback": "İlk saatlerde hızlı ve güvenli çıkış önceliklidir." },
+              { "text": "Kopmuş elektrik hattının yanından geçerim", "correct": false, "feedback": "Islak ortamda elektrik çarpması riski çok yüksektir." }
+            ]
+          }
+        ],
+        "6-24": [
+          {
+            "clock": "Gece",
+            "prompt": "Geçici barınmadasınız. Sağlık için?",
+            "prepHooks": ["canta:hijyen", "canta:ilkYardim"],
+            "options": [
+              { "text": "Sel suyuyla temas eden yaraları temizler, hijyen kurallarına uyarım", "correct": true, "feedback": "Kirli su enfeksiyon riski taşır; temiz su ve hijyen seti kullanın." },
+              { "text": "Sel suyundan içerim", "correct": false, "feedback": "Sel suyu asla içilmez; kaynatma bile yeterli olmayabilir." },
+              { "text": "Islak kıyafetlerle uyurum", "correct": false, "feedback": "Kuru kıyafet ve battaniye hipotermi riskini azaltır." },
+              { "text": "İlaçları selde kalan kutudan kullanırım", "correct": false, "feedback": "Islanmış ilaçları kullanmayın; yedek stok bu aşamada devreye girer." }
+            ]
+          }
+        ],
+        "24-48": [
+          {
+            "clock": "2. gün",
+            "prompt": "Su ve gıda temini?",
+            "prepHooks": ["canta:su", "canta:gida"],
+            "options": [
+              { "text": "Resmi dağıtım noktalarından ve çantamdaki stoktan paylaştırırım", "correct": true, "feedback": "Önceden hazırlanan su ve gıda sel sonrası ilk 48 saatte kritiktir." },
+              { "text": "Bozulmuş gıdayı kokusu yoksa yerim", "correct": false, "feedback": "Elektrik kesintisinde buzdolabı gıdaları hızla bozulur." },
+              { "text": "Sadece meyve suyu içerim", "correct": false, "feedback": "Dengeli su ve gıda yönetimi gerekir." },
+              { "text": "Hiç yemek yemem", "correct": false, "feedback": "Uzun süre aç kalmak dayanıklılığı düşürür." }
+            ]
+          }
+        ],
+        "48-72": [
+          {
+            "clock": "3. gün",
+            "prompt": "Eve dönüş değerlendirmesi?",
+            "prepHooks": ["plan:notes"],
+            "options": [
+              { "text": "Yetkililer izin vermeden eve girmeden hasar raporu beklerim", "correct": true, "feedback": "Yapı güvenliği onayı olmadan içeri girmek tehlikelidir." },
+              { "text": "Hemen bodrumu temizlemeye başlarım", "correct": false, "feedback": "Elektrik ve yapı hasarı kontrol edilmeden çalışma yapmayın." },
+              { "text": "Çocukları önce eve gönderirim", "correct": false, "feedback": "Güvenlik onayı olmadan kimseyi göndermeyin." },
+              { "text": "Sigorta ve hasar fotoğraflarını düzenlerim", "correct": false, "feedback": "Fotoğraf önemli ama önce resmi güvenlik onayı şarttır." }
+            ]
+          }
+        ]
+      }
+    },
+    "yangin": {
+      "label": "Orman yangını",
+      "eventIntro": "Saat {time}’te yakınınızdaki ormanlık alanda yangın başladı ve duman yönünüze ilerliyor.",
+      "phases": {
+        "0-1": [
+          {
+            "clock": "16:40",
+            "prompt": "Duman kokusu ve uyarı geldi. İlk adım?",
+            "prepHooks": ["canta:duuduk", "plan:meeting1"],
+            "options": [
+              { "text": "Yetkililerin tahliye talimatını bekler, hazırlık çantamı alırım", "correct": true, "feedback": "Erken tahliye hayat kurtarır; düdük ve çanta kapı yanında olmalıdır." },
+              { "text": "Yangını izlemek için tepeye çıkarım", "correct": false, "feedback": "Yangın yönü hızla değişir; yüksek/dumanlı alanlardan uzak durun." },
+              { "text": "Bahçede yanıcı artık yakarım", "correct": false, "feedback": "Ek ateş kaynağı yangını büyütür." },
+              { "text": "Pencereyi açıp dumanı içeri alırım", "correct": false, "feedback": "Duman solunumunu zehirler; pencere ve havalandırmayı kapatın." }
+            ]
+          }
+        ],
+        "1-6": [
+          {
+            "clock": "18:00",
+            "prompt": "Tahliye yolundasınız. Ne yaparsın?",
+            "prepHooks": ["canta:powerbank", "plan:outContact"],
+            "options": [
+              { "text": "Ana yolu tıkayan araçta beklerim", "correct": false, "feedback": "Alternatif tahliye yolunu ve resmi yönlendirmeyi takip edin." },
+              { "text": "Alternatif rotayla düşük dumanlı güzergâha giderim", "correct": true, "feedback": "Önceden planlanmış tahliye rotası ve iletişim bu saatlerde kritiktir." },
+              { "text": "Evi su ile ıslatarak terk ederim", "correct": false, "feedback": "Kendi güvenliğiniz önceliklidir; uzman müdahaleye bırakın." },
+              { "text": "Geri dönüp eşya toplarım", "correct": false, "feedback": "Eşya toplamak tahliye penceresini daraltır." }
+            ]
+          }
+        ],
+        "6-24": [
+          {
+            "clock": "Gece",
+            "prompt": "Geçici barınmada neye dikkat edersin?",
+            "prepHooks": ["canta:battaniye", "canta:ilac"],
+            "options": [
+              { "text": "Solunum yolu ve ilaç ihtiyaçlarını kontrol ederim", "correct": true, "feedback": "Duman astım ve kalp hastalarını tetikler; ilaç yedeği şarttır." },
+              { "text": "Dumanlı havada koşarak panik yaparım", "correct": false, "feedback": "Sakin hareket ve kapalı solunum koruyucu tercih edin." },
+              { "text": "Yangın bölgesine habersiz dönerim", "correct": false, "feedback": "Resmi izin olmadan bölgeye girmeyin." },
+              { "text": "Uyumadan sürekli haber izlerim", "correct": false, "feedback": "Kısa dinlenme dayanıklılık için gereklidir." }
+            ]
+          }
+        ],
+        "24-48": [
+          {
+            "clock": "2. gün",
+            "prompt": "Su-gıda ve bilgi kaynağı?",
+            "prepHooks": ["canta:su", "canta:gida", "canta:radyo"],
+            "options": [
+              { "text": "Resmi duyuru + çanta stoğu ile ölçülü tüketim", "correct": true, "feedback": "Pilli radyo ve resmi kaynaklar yanlış bilgiyi azaltır." },
+              { "text": "Sosyal medyadaki her paylaşıma inanırım", "correct": false, "feedback": "Doğrulanmamış söylentiler paniği artırır." },
+              { "text": "Hiç su içmem", "correct": false, "feedback": "Dehidrasyon karar vermeyi zorlaştırır." },
+              { "text": "Yangın bölgesinden toplanan gıdayı paylaşırım", "correct": false, "feedback": "Kontrolsüz gıda dağıtımı hijyen riski taşır." }
+            ]
+          }
+        ],
+        "48-72": [
+          {
+            "clock": "3. gün",
+            "prompt": "Psikolojik toparlanma?",
+            "prepHooks": ["plan:familyName"],
+            "options": [
+              { "text": "Aile bireyleriyle kısa toplantı, görev paylaşımı ve dinlenme", "correct": true, "feedback": "Yapılandırılmış iletişim stresi azaltır." },
+              { "text": "Hiç konuşmadan izole kalırım", "correct": false, "feedback": "Sosyal destek iyileşmeyi hızlandırır." },
+              { "text": "Çocuklara detaylı korkutucu anlatım yaparım", "correct": false, "feedback": "Yaşa uygun, sade bilgi verin." },
+              { "text": "Yardım reddederim", "correct": false, "feedback": "Psikososyal destek hatları bu dönemde aktiftir." }
+            ]
+          }
+        ]
+      }
+    },
+    "heyelan": {
+      "label": "Heyelan",
+      "eventIntro": "Saat {time}’te şiddetli yağış sonrası yamaçta toprak kayması ve heyelan uyarısı yapıldı.",
+      "phases": {
+        "0-1": [
+          {
+            "clock": "03:15",
+            "prompt": "Gürültü ve zemin hareketi hissediyorsunuz. Ne yaparsın?",
+            "prepHooks": ["canta:fener", "plan:meeting2"],
+            "options": [
+              { "text": "Yamaç altındaysam yan ve yukarı yöne hızla uzaklaşırım", "correct": true, "feedback": "Heyelan yoluna dik kaçış en güvenli yöntemlerden biridir." },
+              { "text": "Pencereden dışarı bakarım", "correct": false, "feedback": "Cam kırılması ve ani kayma riski vardır." },
+              { "text": "Bodrumda kalırım", "correct": false, "feedback": "Alt katlar toprak ve su baskınına en açık alanlardır." },
+              { "text": "Araçla dar vadiden geçerim", "correct": false, "feedback": "Vadi ve dere yatağı heyelan akış yoludur." }
+            ]
+          }
+        ],
+        "1-6": [
+          {
+            "clock": "06:00",
+            "prompt": "Güvenli alandasınız. İletişim?",
+            "prepHooks": ["canta:powerbank", "plan:outContact"],
+            "options": [
+              { "text": "112 ve şehir dışı irtibat kişisine konum bilgisi gönderirim", "correct": true, "feedback": "Konum ve kişi sayısı kurtarma ekiplerine yardımcı olur." },
+              { "text": "Heyelan bölgesine fotoğraf için dönerim", "correct": false, "feedback": "İkinci heyelan riski yüksektir." },
+              { "text": "Sessiz kalırım", "correct": false, "feedback": "Durum bildirimi hayati önem taşır." },
+              { "text": "Tüm gün arama yaparım", "correct": false, "feedback": "Bataryayı idareli kullanın; SMS tercih edin." }
+            ]
+          }
+        ],
+        "6-24": [
+          {
+            "clock": "Öğle",
+            "prompt": "Barınma ve sağlık?",
+            "prepHooks": ["canta:ilkYardim", "canta:battaniye"],
+            "options": [
+              { "text": "Yaralıları taşımadan önce ilk yardım ve sıcak tutma", "correct": true, "feedback": "Yanlış taşıma omurilik yaralanmasına yol açabilir." },
+              { "text": "Ağır yaralıyı tek başıma sürüklerim", "correct": false, "feedback": "Profesyonel ekipleri bekleyin, mümkünse sabitleyin." },
+              { "text": "Islak ve soğuk ortamda beklerim", "correct": false, "feedback": "Termal battaniye ve kuru kıyafet hipotermiyi önler." },
+              { "text": "Evde kalırım", "correct": false, "feedback": "Riskli yapıdan uzak güvenli alan tercih edin." }
+            ]
+          }
+        ],
+        "24-48": [
+          {
+            "clock": "2. gün",
+            "prompt": "Su ve gıda?",
+            "prepHooks": ["canta:su", "canta:gida"],
+            "options": [
+              { "text": "Çanta stoğu ve resmi yardım noktalarını birlikte kullanırım", "correct": true, "feedback": "Ulaşım kesintisinde önceden hazırlanan stok kritiktir." },
+              { "text": "Kaynak sudan içerim", "correct": false, "feedback": "Heyelan sonrası su kaynakları bulanık ve kirli olabilir." },
+              { "text": "Yalnızca çikolata yerim", "correct": false, "feedback": "Dengeli beslenme dayanıklılığı korur." },
+              { "text": "Hiç plan yapmam", "correct": false, "feedback": "Paylaşım ve planlama gerekir." }
+            ]
+          }
+        ],
+        "48-72": [
+          {
+            "clock": "3. gün",
+            "prompt": "Eve dönüş ve psikolojik destek?",
+            "prepHooks": ["plan:notes", "canta:ilac"],
+            "options": [
+              { "text": "Uzman onayı + aile planı notlarına göre adım adım dönüş", "correct": true, "feedback": "Yapı güvenliği onayı olmadan dönülmez." },
+              { "text": "Hemen eşya toplamaya giderim", "correct": false, "feedback": "Yeni kayma riski devam edebilir." },
+              { "text": "Trauma konuşmaktan kaçınırım", "correct": false, "feedback": "Açık iletişim iyileşmeye yardımcı olur." },
+              { "text": "İlaçları kontrol etmeden kullanırım", "correct": false, "feedback": "Nem ve darbe ilaçları bozabilir." }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "prepLabels": {
+    "canta:su": "Su stoğu",
+    "canta:gida": "Dayanıklı gıda",
+    "canta:ilkYardim": "İlk yardım seti",
+    "canta:ilac": "Kişisel ilaçlar",
+    "canta:fener": "Fener / pil",
+    "canta:powerbank": "Powerbank",
+    "canta:radyo": "Pilli radyo",
+    "canta:battaniye": "Battaniye",
+    "canta:hijyen": "Hijyen seti",
+    "canta:belge": "Belge kopyaları",
+    "canta:duuduk": "Düdük",
+    "plan:meeting1": "Buluşma noktası (1)",
+    "plan:meeting2": "Buluşma noktası (2)",
+    "plan:outContact": "Şehir dışı irtibat",
+    "plan:familyName": "Aile planı",
+    "plan:notes": "Plan notları"
+  }
+}

@@ -4586,6 +4586,388 @@ body.senaryoModalOpen {
   text-transform: uppercase;
 }
 
+/* Afet sonrası 72 saat simülatörü — sol FAB + modal */
+.saat72FabWrap {
+  position: fixed;
+  left: 16px;
+  top: 50%;
+  transform: translateY(calc(-50% + 138px));
+  z-index: 900;
+}
+
+.saat72Fab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 72px;
+  padding: 12px 10px;
+  border: 1px solid #c4b5fd;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #f5f3ff 0%, #fff 100%);
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  color: #5b21b6;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+
+.saat72Fab:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.22);
+  transform: translateY(-2px);
+}
+
+.saat72Fab__icon svg {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.saat72Fab__label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.saat72Modal[hidden] {
+  display: none !important;
+}
+
+.saat72Modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+body.saat72ModalOpen {
+  overflow: hidden;
+}
+
+.saat72Modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+}
+
+.saat72Modal__panel {
+  position: relative;
+  width: min(720px, 100%);
+  max-height: min(92vh, 860px);
+  overflow: auto;
+  padding: 20px 22px 18px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+}
+
+.saat72Modal__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 14px;
+}
+
+.saat72Modal__title {
+  margin: 0 0 4px;
+  font-size: 1.2rem;
+  color: var(--text-heading);
+}
+
+.saat72Modal__meta {
+  margin: 0;
+  font-size: 13px;
+}
+
+.saat72Modal__close {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.saat72Setup__lead {
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+
+.saat72PrepHint {
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #f5f3ff;
+  border: 1px solid #ddd6fe;
+}
+
+.saat72PrepHint__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  font-size: 13px;
+}
+
+.saat72SetupForm {
+  display: grid;
+  gap: 12px;
+}
+
+.saat72Field {
+  display: grid;
+  gap: 6px;
+}
+
+.saat72Field select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.saat72Timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.saat72Phase {
+  padding: 8px 6px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-subtle);
+  text-align: center;
+  opacity: 0.55;
+}
+
+.saat72Phase.is-active {
+  opacity: 1;
+  border-color: #7c3aed;
+  background: #f5f3ff;
+  box-shadow: 0 0 0 1px #c4b5fd;
+}
+
+.saat72Phase.is-done {
+  opacity: 0.85;
+  border-color: #a7f3d0;
+  background: #ecfdf5;
+}
+
+.saat72Phase__label {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.saat72Phase__sub {
+  display: block;
+  font-size: 9px;
+  color: var(--muted);
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.saat72Event {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  color: #fff;
+}
+
+.saat72Event__clock {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.15);
+  margin-bottom: 8px;
+}
+
+.saat72Event__intro {
+  margin: 0 0 6px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.saat72Event__ctx {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.saat72Question__text {
+  margin: 0 0 12px;
+  font-size: 1.05rem;
+  color: var(--text-heading);
+}
+
+.saat72Options {
+  display: grid;
+  gap: 8px;
+}
+
+.saat72Option {
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.45;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.saat72Option:hover:not(:disabled) {
+  border-color: #7c3aed;
+  background: #faf5ff;
+}
+
+.saat72Option:disabled {
+  cursor: default;
+}
+
+.saat72Option--ok {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.saat72Option--bad {
+  border-color: #dc2626;
+  background: #fef2f2;
+}
+
+.saat72Feedback {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.saat72Feedback--ok {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+}
+
+.saat72Feedback--bad {
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+}
+
+.saat72Feedback p {
+  margin: 6px 0 0;
+}
+
+.saat72PrepNotes {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px dashed #f59e0b;
+  background: #fffbeb;
+}
+
+.saat72PrepNotes__title {
+  margin: 0 0 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.saat72PrepNotes__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.saat72PrepNotes__item p {
+  margin: 0 0 4px;
+  font-size: 13px;
+}
+
+.saat72PrepNotes__item a {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.saat72PlayActions {
+  margin-top: 14px;
+}
+
+.saat72Result__score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  text-align: center;
+}
+
+.saat72Result__emoji {
+  font-size: 2rem;
+}
+
+.saat72Result__pct {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #5b21b6;
+  line-height: 1;
+}
+
+.saat72Result__label {
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.saat72Result__summary p {
+  margin: 0 0 8px;
+}
+
+.saat72Result__prep {
+  margin: 14px 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--bg-subtle);
+  font-size: 14px;
+}
+
+.saat72Result__prep ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.saat72Result__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .saat72Timeline {
+    grid-template-columns: 1fr 1fr;
+  }
+  .saat72Phase:nth-child(5) {
+    grid-column: 1 / -1;
+  }
+}
+
 /* Kişisel hazırlık özeti — sol yüzen buton + modal */
 .hazirlikOzetFabWrap {
   position: fixed;
@@ -5376,22 +5758,28 @@ body.hazirlikOzetModalOpen {
   .yanginModal__side {
     max-height: 220px;
   }
+  .saat72FabWrap {
+    left: 10px;
+    top: auto;
+    bottom: 120px;
+    transform: none;
+  }
   .hazirlikOzetFabWrap {
     left: 10px;
     top: auto;
-    bottom: 248px;
+    bottom: 312px;
     transform: none;
   }
   .meteoFabWrap {
     left: 10px;
     top: auto;
-    bottom: 184px;
+    bottom: 248px;
     transform: none;
   }
   .senaryoFabWrap {
     left: 10px;
     top: auto;
-    bottom: 120px;
+    bottom: 184px;
     transform: none;
   }
   .yanginFabWrap {
@@ -5400,6 +5788,7 @@ body.hazirlikOzetModalOpen {
     bottom: 56px;
     transform: none;
   }
+  .saat72Fab,
   .hazirlikOzetFab,
   .meteoFab,
   .yanginFab,
@@ -5407,6 +5796,7 @@ body.hazirlikOzetModalOpen {
     width: 64px;
     padding: 10px 8px;
   }
+  .saat72Fab__label,
   .hazirlikOzetFab__label,
   .meteoFab__label,
   .yanginFab__label,
