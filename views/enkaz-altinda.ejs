@@ -1,0 +1,392 @@
+<%-
+  include("layout", {
+    pageTitle,
+    nav,
+    extraScripts,
+    pageHero: {
+      theme: "enkaz",
+      title: "Enkaz Altında Kalırsanız Ne Yapmalısınız?",
+      lead:
+        "Deprem sonrası doğru kararlar hayatta kalma şansını artırabilir. Bu rehber, enkaz altında güvenli kalabilmek için uygulanabilecek temel adımları içerir.",
+      crumbs: [
+        { label: "Anasayfa", href: "/" },
+        { label: pageTitle },
+      ],
+      actions: [
+        { label: "Acil Durum Adımları", href: "#acil-durum-adimlari", primary: true },
+        { label: "İlk 72 Saat Rehberi", href: "/?sim72=1" },
+        { label: "Deprem Sayfasına Dön", href: "/afet/deprem", ghost: true },
+      ],
+    },
+    body: `
+      <div class="enkazPage" id="enkazPage">
+        <section class="enkazSection panel" id="acil-durum-adimlari" aria-labelledby="enkaz-ilk-dakikalar-title">
+          <h2 class="enkazSection__title" id="enkaz-ilk-dakikalar-title">İlk Dakikalarda Ne Yapılmalı?</h2>
+
+          <div class="enkazSplit enkazSplit--intro">
+            <figure class="enkazSplit__media">
+              <img
+                src="/assets/enkaz-altinda/01-ilk-dakikalar.png"
+                alt="Enkaz üzerinde arama kurtarma çalışması"
+                loading="lazy"
+                class="enkazSplit__img"
+              />
+            </figure>
+            <div class="enkazSplit__text">
+              <p class="enkazIntro">
+                Deprem sonrası enkaz altında kalan bireylerin ilk dakikalarda sakin kalmaya çalışması önemlidir.
+                Ani hareketler yeni çökme riskleri oluşturabilir. Öncelikle nefes kontrolü sağlanmalı ve çevredeki
+                durum dikkatlice değerlendirilmelidir.
+              </p>
+            </div>
+          </div>
+
+          <div class="enkazSteps">
+            <article class="enkazStep">
+              <figure class="enkazStep__media">
+                <img
+                  src="/assets/enkaz-altinda/03-rehber-ozet.png"
+                  alt="Enkaz altında hayatta kalma rehberi özeti"
+                  loading="lazy"
+                  class="enkazStep__img"
+                />
+              </figure>
+              <div class="enkazStep__body">
+                <h3 class="enkazStep__title"><span class="enkazStep__num">1</span> Panik Yapmayın</h3>
+                <ul class="enkazStep__list">
+                  <li>Derin nefes almaya çalışın</li>
+                  <li>Hızlı hareket etmeyin</li>
+                  <li>Çevrenizi dinleyin</li>
+                  <li>
+                    Hareket kabiliyetiniz kısıtlanmışsa çıkış için hayatınızı riske atacak hareketlere kalkışmayın.
+                    Biliniz ki kurtarma ekipleri en kısa zamanda size ulaşmak için çaba gösterecektir.
+                  </li>
+                  <li>Enerjinizi en tasarruflu şekilde kullanmak için hareketlerinizi kontrol altında tutun.</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="enkazStep">
+              <figure class="enkazStep__media">
+                <img
+                  src="/assets/enkaz-altinda/02-vucut-koruma.png"
+                  alt="Çök, kapan, tutun — vücudu koruma pozisyonu"
+                  loading="lazy"
+                  class="enkazStep__img"
+                />
+              </figure>
+              <div class="enkazStep__body">
+                <h3 class="enkazStep__title"><span class="enkazStep__num">2</span> Vücudunuzu Koruyun</h3>
+                <ul class="enkazStep__list">
+                  <li>Başınızı koruyacak pozisyon alın</li>
+                  <li>Keskin cisimlere dikkat edin</li>
+                  <li>Gereksiz hareketlerden kaçının</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="enkazStep">
+              <figure class="enkazStep__media">
+                <img
+                  src="/assets/enkaz-altinda/04-tozdan-korunun.png"
+                  alt="Enkaz altında yapılması gerekenler — nefes ritmi ve korunma"
+                  loading="lazy"
+                  class="enkazStep__img"
+                />
+              </figure>
+              <div class="enkazStep__body">
+                <h3 class="enkazStep__title"><span class="enkazStep__num">3</span> Tozdan Korunun</h3>
+                <ul class="enkazStep__list">
+                  <li>Ağzınızı kumaşla kapatın</li>
+                  <li>Toz solumamaya çalışın</li>
+                  <li>Kontrollü nefes alın</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="enkazSection panel" id="yardim-cagirma-yontemleri" aria-labelledby="enkaz-yardim-title">
+          <h2 class="enkazSection__title" id="enkaz-yardim-title">Yardım Ekiplerinin Sizi Bulmasını Kolaylaştırın</h2>
+
+          <div class="enkazSplit enkazSplit--intro">
+            <figure class="enkazSplit__media">
+              <img
+                src="/assets/enkaz-altinda/07-afad-acil-app.png"
+                alt="AFAD Acil mobil uygulaması ekran görüntüleri"
+                loading="lazy"
+                class="enkazSplit__img"
+              />
+            </figure>
+            <div class="enkazSplit__text">
+              <p class="enkazIntro">
+                Enkaz altında sürekli bağırmak enerji kaybına neden olabilir. Bunun yerine belirli aralıklarla ses
+                çıkarmak veya sert yüzeylere vurmak daha etkili olabilir.
+              </p>
+            </div>
+          </div>
+
+          <div class="enkazSteps">
+            <article class="enkazStep">
+              <figure class="enkazStep__media">
+                <img
+                  src="/assets/enkaz-altinda/06-duduk.png"
+                  alt="Enkaz altında düdük ile yardım çağırma"
+                  loading="lazy"
+                  class="enkazStep__img"
+                />
+              </figure>
+              <div class="enkazStep__body">
+                <h3 class="enkazStep__title"><span class="enkazStep__num">1</span> Ses Çıkarma ve Vurma Yöntemi</h3>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Cisimlere Vurun</h4>
+                  <p>
+                    Elinizdeki bir taşı, metali veya sert cismi yakındaki bir boruya ya da duvara düzenli aralıklarla
+                    (3 kez) vurun. Bu yöntem, bağırmaktan çok daha az enerji harcatır ve arama ekiplerinin sizi duymasını
+                    kolaylaştırır.
+                  </p>
+                </div>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Düdük Kullanın</h4>
+                  <p>
+                    Afet çantalarında mutlaka bulunması gereken düdük, nefesinizi tüketmeden çok uzaklara tiz ses
+                    göndermenizi sağlar.
+                  </p>
+                </div>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Bağırmak</h4>
+                  <p>
+                    Sadece dışarıdan bir ses duyduğunuzda veya ekiplerin yaklaştığını hissettiğinizde sesinizi duyurmaya
+                    çalışın.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="enkazStep">
+              <figure class="enkazStep__media">
+                <img
+                  src="/assets/enkaz-altinda/05-yardim-cagirin.png"
+                  alt="Enkaz altında yardım için arama yöntemleri infografiği"
+                  loading="lazy"
+                  class="enkazStep__img"
+                />
+              </figure>
+              <div class="enkazStep__body">
+                <h3 class="enkazStep__title"><span class="enkazStep__num">2</span> Akıllı Telefon ve Mesajlaşma Yöntemleri</h3>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">SMS ve İnternet</h4>
+                  <p>
+                    Afet anlarında telefon hatları kilitlenebilir. Arama yapmak yerine kısa mesaj (SMS) atın veya internet
+                    tabanlı mesajlaşma uygulamalarını (WhatsApp, Telegram vb.) kullanın.
+                  </p>
+                </div>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Acil Durum Uygulamaları</h4>
+                  <p>
+                    Önceden telefonunuza yüklediğiniz AFAD Acil Mobil Uygulaması üzerinden tek tuşla 112 Acil Çağrı
+                    Merkezine mesajla veya internet üzerinden konumunuzu iletebilirsiniz. Uygulamada ayrıca arama
+                    köpeklerinin ve ekiplerin dikkatini çekecek özel yüksek frekanslı alarm/mors sesleri bulunur.
+                  </p>
+                </div>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Güvendeyim Bildirimi</h4>
+                  <p>
+                    AKUT gibi kurumların sunduğu Güvendeyim uygulaması gibi sistemleri kullanarak internet olmadan,
+                    önceden belirlediğiniz kişilere durumunuzu ve konumunuzu SMS ile gönderin.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="enkazStep">
+              <figure class="enkazStep__media">
+                <img
+                  src="/assets/enkaz-altinda/04-tozdan-korunun.png"
+                  alt="Enkaz altında nefes ve pozisyon yönetimi"
+                  loading="lazy"
+                  class="enkazStep__img"
+                />
+              </figure>
+              <div class="enkazStep__body">
+                <h3 class="enkazStep__title"><span class="enkazStep__num">3</span> Hareket ve Pozisyon Yönetimi</h3>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Enerjinizi Koruyun</h4>
+                  <p>
+                    Rastgele hareket etmeyin, panik yapmayın. Soğukkanlı kalmak oksijen tüketiminizi ve yaşamsal enerji
+                    kaybınızı azaltır.
+                  </p>
+                </div>
+                <div class="enkazSub">
+                  <h4 class="enkazSub__title">Pozisyon Alın</h4>
+                  <p>
+                    Toz solumamak için ağzınızı ve burnunuzu kıyafetinizle (tercihen bir maske veya atkıyla) kapatın.
+                    Bulunduğunuz yerde nefes alabileceğiniz küçük hava boşlukları oluşturmaya çalışın.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="enkazSection panel enkazSection--danger" id="tehlikeli-davranislar" aria-labelledby="enkaz-tehlike-title">
+          <h2 class="enkazSection__title enkazSection__title--danger" id="enkaz-tehlike-title">Yapılmaması Gerekenler</h2>
+          <ul class="enkazWarnGrid">
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Çakmak veya kibrit kullanmak</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Elektrik kablolarına dokunmak</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Rastgele enkaz kaldırmaya çalışmak</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Sürekli hareket etmek</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Tozlu ortamda hızlı nefes almak</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Rastgele bağırmak</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Bilinçsizce çıkmaya çalışmak</span>
+            </li>
+            <li class="enkazWarn">
+              <span class="enkazWarn__icon" aria-hidden="true">❌</span>
+              <span>Telefonu acil durumlar dışında kullanmak</span>
+            </li>
+          </ul>
+        </section>
+
+        <section class="enkazSection panel enkazSection--calm" id="psikolojik-dayaniklilik" aria-labelledby="enkaz-psikoloji-title">
+          <h2 class="enkazSection__title" id="enkaz-psikoloji-title">Sakin Kalmak Hayati Önem Taşır</h2>
+
+          <div class="enkazSplit enkazSplit--intro">
+            <figure class="enkazSplit__media">
+              <img
+                src="/assets/enkaz-altinda/09-umut-dayanisma.png"
+                alt="Enkaz altında dayanışma ve umut"
+                loading="lazy"
+                class="enkazSplit__img"
+              />
+            </figure>
+            <div class="enkazSplit__text">
+              <p class="enkazIntro">
+                Enkaz altında psikolojik dayanıklılık; zihni hayatta kalma amacına odaklamak, düzenli ve yavaş nefes
+                alarak panik halini yönetmek, kontrollü hareketlerle enerji tasarrufu yapmak ve dışarıdan gelecek seslere
+                odaklanarak umutlu düşünce yapısını (psikolojik sağlamlık) korumakla sağlanır.
+              </p>
+            </div>
+          </div>
+
+          <div class="enkazInfoGrid">
+            <article class="enkazInfoCard">
+              <h3 class="enkazInfoCard__title">Kontrollü Nefes</h3>
+              <p class="enkazInfoCard__text">
+                Derin ve yavaş nefesler almak panik atakları önler ve kalp atışını düzenler. Bu, beynin oksijen
+                tüketimini azaltarak hayatta kalma sürenizi uzatır.
+              </p>
+            </article>
+
+            <article class="enkazInfoCard">
+              <h3 class="enkazInfoCard__title">Zihni Aktif Tutma</h3>
+              <p class="enkazInfoCard__text">
+                Bilinci açık tutmak için mantra (olumlama) tekrarlamak veya planlar yapmak beynin izolasyonla baş etmesine
+                yardım eder.
+              </p>
+            </article>
+
+            <article class="enkazInfoCard enkazInfoCard--media">
+              <figure class="enkazInfoCard__media">
+                <img
+                  src="/assets/enkaz-altinda/11-arama-kurtarma.png"
+                  alt="Enkaz alanında arama kurtarma çalışması"
+                  loading="lazy"
+                />
+              </figure>
+              <h3 class="enkazInfoCard__title">Umudu Koruyun</h3>
+              <p class="enkazInfoCard__text">
+                Kurtarma ekipleri uzun süre arama çalışmalarını sürdürmektedir.
+              </p>
+            </article>
+
+            <article class="enkazInfoCard enkazInfoCard--media">
+              <figure class="enkazInfoCard__media">
+                <img
+                  src="/assets/enkaz-altinda/10-afad-ekipleri.png"
+                  alt="AFAD ve kurtarma ekipleri"
+                  loading="lazy"
+                />
+              </figure>
+              <h3 class="enkazInfoCard__title">Dış Uyaranlara Odaklanma</h3>
+              <p class="enkazInfoCard__text">
+                Kurtarma ekiplerinin seslerini dinlemek, belirli ritimlerle vurarak yerinizi belli etmek zihne aktif bir
+                amaç verir.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="enkazSection panel enkazSection--quiz" id="enkaz-interaktif" aria-labelledby="enkaz-quiz-title">
+          <h2 class="enkazSection__title" id="enkaz-quiz-title">Mini Senaryo</h2>
+          <p class="enkazQuizLead muted" id="enkazQuizLead">
+            Enkaz altında karşılaşabileceğiniz durumlar. Her soruda bir seçenek işaretleyin.
+          </p>
+
+          <div class="enkazQuiz" id="enkazQuiz">
+            <div class="enkazQuiz__play" id="enkazQuizPlay">
+              <p class="enkazQuiz__progress" id="enkazQuizProgress"></p>
+              <h3 class="enkazQuiz__prompt" id="enkazQuizPrompt"></h3>
+              <div class="enkazQuiz__options" id="enkazQuizOptions"></div>
+              <div class="enkazQuizFeedback" id="enkazQuizFeedback" hidden></div>
+              <button type="button" class="btn btn--primary enkazQuiz__next" id="enkazQuizNext" hidden>Sonraki soru</button>
+            </div>
+
+            <div class="enkazQuiz__result" id="enkazQuizResult" hidden>
+              <div class="enkazQuizResult__score" id="enkazQuizResultScore"></div>
+              <div class="enkazQuizResult__text" id="enkazQuizResultText"></div>
+              <div class="enkazQuizResult__actions">
+                <button type="button" class="btn btn--ghost" id="enkazQuizRestart">Yeniden dene</button>
+                <a class="btn btn--primary" href="/afet/deprem">Deprem sayfasına git →</a>
+                <a class="btn btn--ghost" href="/?sim72=1">İlk 72 saat simülasyonu</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="enkazSection panel enkazVideo disasterVideo" aria-labelledby="enkaz-video-title">
+          <h2 class="enkazSection__title" id="enkaz-video-title">Video</h2>
+          <p class="muted enkazVideo__lead">Enkaz altında doğru davranışlar hakkında görsel anlatım.</p>
+          <a
+            class="disasterVideoCard"
+            href="https://www.youtube.com/watch?v=ZFIx_dXOPNY"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="YouTube videosunu aç: Enkaz altında doğru davranışlar"
+          >
+            <span class="disasterVideoCard__thumb">
+              <img
+                src="https://i.ytimg.com/vi/ZFIx_dXOPNY/hqdefault.jpg"
+                alt="Video küçük resmi"
+                loading="lazy"
+                width="480"
+                height="360"
+              />
+              <span class="disasterVideoCard__play" aria-hidden="true"></span>
+            </span>
+            <span class="disasterVideoCard__title">YouTube'da izle →</span>
+          </a>
+        </section>
+      </div>
+    `,
+  })
+%>

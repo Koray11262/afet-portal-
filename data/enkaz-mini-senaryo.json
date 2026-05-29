@@ -1,0 +1,174 @@
+{
+  "title": "Mini Senaryo",
+  "lead": "Enkaz altında karşılaşabileceğiniz durumlar. Her soruda bir seçenek işaretleyin; ardından kısa açıklama göreceksiniz.",
+  "scenarios": [
+    {
+      "id": "battery",
+      "prompt": "Telefonunuzun şarjı %10. Ne yaparsınız?",
+      "options": [
+        {
+          "text": "Sürekli arama yaparım",
+          "correct": false,
+          "feedback": "Sürekli arama şarjı hızla tüketir ve şebekeyi meşgul eder. Kısa SMS veya AFAD Acil uygulaması daha verimlidir."
+        },
+        {
+          "text": "Güç tasarrufu modunu açar, tek bir kısa SMS ile konum ve durum bildiririm",
+          "correct": true,
+          "feedback": "Doğru yaklaşım: bataryayı koruyup tek, net mesajla iletişim kurmak hayati bilgiyi iletmenin en güvenilir yoludur."
+        },
+        {
+          "text": "Feneri sürekli açık bırakırım",
+          "correct": false,
+          "feedback": "Sürekli flaş/ışık bataryayı çok hızlı bitirir. Işığı yalnızca kısa süreli ihtiyaçta kullanın."
+        }
+      ]
+    },
+    {
+      "id": "rescue-sound",
+      "prompt": "Yukarıdan sesler duyuyorsunuz; ekiplerin yaklaştığını düşünüyorsunuz. Ne yaparsınız?",
+      "options": [
+        {
+          "text": "Sürekli bağırırım",
+          "correct": false,
+          "feedback": "Sürekli bağırmak enerji ve oksijen tüketir; sesiniz kısılır. Aralıklı ve kontrollü sinyal daha etkilidir."
+        },
+        {
+          "text": "Boruya veya duvara üç kez vurup durur, tekrar dinlerim",
+          "correct": true,
+          "feedback": "Uluslararası kurtarma sinyali olan üçlü vuruş, ekiplerin sizi tespit etmesini kolaylaştırır ve enerji tasarrufu sağlar."
+        },
+        {
+          "text": "Hiç ses çıkarmam, beklerim",
+          "correct": false,
+          "feedback": "Ekipler yakındayken konum sinyali vermek önemlidir; tam sessizlik fırsatı kaçırmanıza neden olabilir."
+        }
+      ]
+    },
+    {
+      "id": "gas-smell",
+      "prompt": "Hafif gaz kokusu alıyorsunuz. Ne yaparsınız?",
+      "options": [
+        {
+          "text": "Çakmak veya telefon flaşıyla etrafa bakarım",
+          "correct": false,
+          "feedback": "Gaz sızıntısında kıvılcım veya alev patlama riski oluşturur; asla alev veya kıvılcım çıkarmayın."
+        },
+        {
+          "text": "Hareketsiz kalır, kıvılcım çıkarabilecek hiçbir şeye dokunmam",
+          "correct": true,
+          "feedback": "Gaz kokusunda sabit kalmak ve kıvılcım riskinden kaçınmak doğru davranıştır; yardım gelene kadar bekleyin."
+        },
+        {
+          "text": "Hızlıca bulunduğum yerden çıkmaya çalışırım",
+          "correct": false,
+          "feedback": "Bilinmeyen enkazda ani hareket çökme ve yaralanma riskini artırır; önce güvenli pozisyonda kalın."
+        }
+      ]
+    },
+    {
+      "id": "dust",
+      "prompt": "Toz yoğunluğu artıyor, nefes almak zorlaşıyor. Elinizde ince bir kumaş parçası var.",
+      "options": [
+        {
+          "text": "Kumaşı ağız-burun üzerine kapatır, yavaş ve kontrollü nefes alırım",
+          "correct": true,
+          "feedback": "Toz filtrasyonu ve kontrollü nefes, solunum yolunu korur ve panikle hızlı solumayı azaltır."
+        },
+        {
+          "text": "Hızlı nefes alıp vererek havasızlığı gideririm",
+          "correct": false,
+          "feedback": "Hızlı nefes toz ve partikülleri daha derine çeker; hipoksi riski artar."
+        },
+        {
+          "text": "Kumaşı kullanmam, beklerim",
+          "correct": false,
+          "feedback": "Mevcut kumaş, maske veya atkı toz maruziyetini azaltmak için kullanılmalıdır."
+        }
+      ]
+    },
+    {
+      "id": "sms-vs-call",
+      "prompt": "Arama yapılamıyor ama SMS gidiyor. Şehir dışı irtibat kişinize ne yaparsınız?",
+      "options": [
+        {
+          "text": "Sürekli arama tuşuna basarım",
+          "correct": false,
+          "feedback": "Şebeke kilitliyken arama denemeleri bataryayı boşa harcar; SMS daha düşük bant genişliği kullanır."
+        },
+        {
+          "text": "Tek SMS: güvendeyim, enkaz altındayım, yaklaşık konum",
+          "correct": true,
+          "feedback": "Kısa ve net SMS, hem batarya hem şebeke açısından en verimli iletişim yöntemidir."
+        },
+        {
+          "text": "Hiç iletişim kurmam",
+          "correct": false,
+          "feedback": "En az bir kişiye durum bildirmek, arama kurtarma sürecini hızlandırabilir."
+        }
+      ]
+    },
+    {
+      "id": "aftershock",
+      "prompt": "Artçı sarsıntı hissediyorsunuz; üzerinizde hafif moloz hareket ediyor.",
+      "options": [
+        {
+          "text": "Hızla ayağa kalkıp çıkmaya çalışırım",
+          "correct": false,
+          "feedback": "Artçı sırasında ani kalkış düşme ve yeni çökme riskini artırır; önce baş-boyun koruyun."
+        },
+        {
+          "text": "Çök-kapan-tutun pozisyonuna geçer, başımı korurum",
+          "correct": true,
+          "feedback": "Artçılarda küçük hedef alanı ve baş koruması, ikincil yaralanmayı azaltır."
+        },
+        {
+          "text": "Etrafı temizlemek için molozları iterim",
+          "correct": false,
+          "feedback": "Enkazı itmek stabiliteyi bozabilir; gereksiz hareketten kaçının."
+        }
+      ]
+    },
+    {
+      "id": "water",
+      "prompt": "Susuzluğunuz var; yanında küçük bir su şişesi görüyorsunuz ama ulaşamıyorsunuz.",
+      "options": [
+        {
+          "text": "Ulaşmak için güçlü hareketler yaparım",
+          "correct": false,
+          "feedback": "Riskli hareket enerji kaybı ve enkaz kayması riski taşır; suya ulaşmak hayati değilse bekleyin."
+        },
+        {
+          "text": "Ağzımı nemli tutar, enerjimi korur, kurtarma beklerim",
+          "correct": true,
+          "feedback": "Enerji tasarrufu ve kontrollü bekleme, susuzlukta hayatta kalma süresini uzatır; su varsa kurtarıldıktan sonra verilir."
+        },
+        {
+          "text": "Susuzluğa dayanamayıp bağırmaya başlarım",
+          "correct": false,
+          "feedback": "Panik ve bağırmak hem enerji hem sıvı kaybını hızlandırır."
+        }
+      ]
+    },
+    {
+      "id": "whistle",
+      "prompt": "Çantanızda düdük var; uzun süredir ses duymuyorsunuz. Ne yaparsınız?",
+      "options": [
+        {
+          "text": "Düdüğü sürekli çalarım",
+          "correct": false,
+          "feedback": "Sürekli sinyal dikkat çeker ama enerjinizi ve ekiplerin yön bulmasını zorlaştırabilir; aralıklı kullanın."
+        },
+        {
+          "text": "Belirli aralıklarla kısa düdük sinyali veririm",
+          "correct": true,
+          "feedback": "Aralıklı düdük, az enerjiyle uzak mesafeden duyulabilir; ekipler yaklaştığında sinyali artırabilirsiniz."
+        },
+        {
+          "text": "Düdüğü kullanmam, sessiz kalırım",
+          "correct": false,
+          "feedback": "Düdük, bağırmadan konum bildirmenin etkili yöntemidir; uygun aralıklarla kullanın."
+        }
+      ]
+    }
+  ]
+}

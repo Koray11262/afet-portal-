@@ -2,6 +2,8 @@ const AFAD_FILTER_URL = "https://deprem.afad.gov.tr/apiv2/event/filter";
 const CACHE_MS = 3 * 60 * 1000;
 const DEFAULT_LIMIT = 15;
 const DAYS_BACK = 7;
+/** AFAD küçük limit değerlerinde aralığın eski ucundan kayıt döndürüyor; güncel veri için yüksek limit gerekir */
+const API_FETCH_LIMIT = 1000;
 
 let cache = { at: 0, data: null };
 
@@ -34,6 +36,10 @@ function magnitudeClass(mag) {
   return "homeEq__mag--minor";
 }
 
+function sortByDateDesc(items) {
+  return [...items].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
 function normalizeItem(raw) {
   const mag = Number(raw.magnitude);
   return {
@@ -59,12 +65,12 @@ function afadDateRange() {
   return { start: fmt(start), end: fmt(end) };
 }
 
-async function fetchFromAfad(limit = DEFAULT_LIMIT) {
+async function fetchFromAfad() {
   const { start, end } = afadDateRange();
   const url = new URL(AFAD_FILTER_URL);
   url.searchParams.set("start", start);
   url.searchParams.set("end", end);
-  url.searchParams.set("limit", String(Math.min(limit, 50)));
+  url.searchParams.set("limit", String(API_FETCH_LIMIT));
   url.searchParams.set("orderby", "timedesc");
 
   const res = await fetch(url.toString(), {
@@ -84,30 +90,43 @@ async function fetchFromAfad(limit = DEFAULT_LIMIT) {
     throw new Error("AFAD verisi beklenen formatta değil");
   }
 
-  return data.map(normalizeItem);
+  return sortByDateDesc(data.map(normalizeItem));
 }
 
 async function getRecentEarthquakes(limit = DEFAULT_LIMIT) {
   const now = Date.now();
+  const take = Math.min(Math.max(1, Number(limit) || DEFAULT_LIMIT), 30);
+
   if (cache.data && now - cache.at < CACHE_MS) {
-    return cache.data;
+    return {
+      ...cache.data,
+      items: cache.data.items.slice(0, take),
+    };
   }
 
   try {
-    const items = await fetchFromAfad(limit);
+    const items = await fetchFromAfad();
     const payload = {
       ok: true,
-      items: items.slice(0, limit),
+      items: items.slice(0, take),
+      daysBack: DAYS_BACK,
       updatedAt: formatUpdatedAt(new Date()),
       source: "AFAD",
       sourceUrl: "https://deprem.afad.gov.tr/",
     };
-    cache = { at: now, data: payload };
+    cache = {
+      at: now,
+      data: {
+        ...payload,
+        items,
+      },
+    };
     return payload;
   } catch (err) {
     if (cache.data?.ok) {
       return {
         ...cache.data,
+        items: cache.data.items.slice(0, take),
         stale: true,
         error: String(err?.message || err),
       };

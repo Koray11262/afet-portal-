@@ -1,0 +1,165 @@
+{
+  "perDay": 3,
+  "games": [
+    {
+      "id": "acil-canta",
+      "title": "Acil çanta: Doğru malzemeyi seç",
+      "goal": "Afet çantasına girmesi gerekenleri çantaya koy.",
+      "correctCount": 6,
+      "minToPass": 4,
+      "correct": [
+        { "id": "water", "label": "💧 Su" },
+        { "id": "flashlight", "label": "🔦 El feneri" },
+        { "id": "whistle", "label": "📣 Düdük" },
+        { "id": "snack", "label": "🥫 Bozulmayan gıda" },
+        { "id": "bandage", "label": "🩹 İlk yardım" },
+        { "id": "blanket", "label": "🧣 Battaniye" }
+      ],
+      "traps": [
+        { "id": "toy", "label": "🧸 Oyuncak" },
+        { "id": "perfume", "label": "🧴 Parfüm" },
+        { "id": "chips", "label": "🍟 Cips" }
+      ],
+      "tip": "Su, bozulmayan gıda, fener, düdük ve ilk yardım temel kalemlerdir.",
+      "link": {
+        "href": "https://www.afad.gov.tr/afet-ve-acil-durum-cantasi-nasil-hazirlanmali",
+        "label": "AFAD çanta rehberi →"
+      }
+    },
+    {
+      "id": "deprem-yanina-al",
+      "title": "Deprem anı: Yanına ne alırsın?",
+      "goal": "Deprem olunca yanına alman gerekenleri seç.",
+      "correctCount": 4,
+      "minToPass": 3,
+      "correct": [
+        { "id": "shoes", "label": "👟 Ayakkabı" },
+        { "id": "whistle", "label": "📣 Düdük" },
+        { "id": "phone", "label": "📱 Telefon" },
+        { "id": "light", "label": "🔦 Küçük fener" }
+      ],
+      "traps": [
+        { "id": "tablet", "label": "📱 Tablet (oyun)" },
+        { "id": "toy", "label": "🧸 Oyuncak" },
+        { "id": "book", "label": "📚 Kalın kitap yığını" }
+      ],
+      "tip": "Cam kırıklarına karşı ayakkabı ve iletişim için telefon önemlidir."
+    },
+    {
+      "id": "guvenli-kose",
+      "title": "Güvenli köşe: Ne bulunmalı?",
+      "goal": "Güvenli köşede olması gerekenleri seç.",
+      "correctCount": 5,
+      "minToPass": 3,
+      "correct": [
+        { "id": "pillow", "label": "🛏️ Yastık" },
+        { "id": "blanket", "label": "🧣 Battaniye" },
+        { "id": "water", "label": "💧 Su şişesi" },
+        { "id": "whistle", "label": "📣 Düdük" },
+        { "id": "shoes", "label": "👟 Ayakkabı" }
+      ],
+      "traps": [
+        { "id": "ball", "label": "⚽ Top" },
+        { "id": "candle", "label": "🕯️ Mum" },
+        { "id": "glass", "label": "🪟 Cam süs" }
+      ],
+      "tip": "Sağlam masa altı veya iç duvar köşesi; başını koruyacak yumuşak eşyalar."
+    },
+    {
+      "id": "cok-kapan-tutun",
+      "title": "Çök-Kapan-Tutun: Doğru hareket",
+      "goal": "Deprem sırasında doğru davranışları seç.",
+      "correctCount": 4,
+      "minToPass": 3,
+      "correct": [
+        { "id": "drop", "label": "🧎 Dizlerinin üzerine in" },
+        { "id": "cover", "label": "🛡️ Başını koru" },
+        { "id": "hold", "label": "✊ Sağlam yere tutun" },
+        { "id": "away", "label": "🚫 Pencereden uzak dur" }
+      ],
+      "traps": [
+        { "id": "run", "label": "🏃 Koşarak merdivene git" },
+        { "id": "lift", "label": "🛗 Asansöre bin" },
+        { "id": "window", "label": "🪟 Pencereye yaklaş" }
+      ],
+      "tip": "Çök, kapan, tutun — asansör ve merdiven deprem anında tehlikelidir."
+    },
+    {
+      "id": "aile-plani",
+      "title": "Aile planı: Hatırlanacaklar",
+      "goal": "Afet planında olması gerekenleri seç.",
+      "correctCount": 4,
+      "minToPass": 3,
+      "correct": [
+        { "id": "meeting", "label": "📍 Buluşma noktası" },
+        { "id": "contact", "label": "📞 Acil telefon listesi" },
+        { "id": "neighbor", "label": "🏠 Komşu yardımı" },
+        { "id": "bag", "label": "🎒 Hazır çanta" }
+      ],
+      "traps": [
+        { "id": "secret", "label": "🤫 Kimseye söyleme" },
+        { "id": "oneplace", "label": "🏢 Sadece okul (tek yer)" },
+        { "id": "later", "label": "⏳ Sonra planlarız" }
+      ],
+      "tip": "Aileyle buluşma yeri ve şehir dışı bir iletişim kişisi belirleyin."
+    },
+    {
+      "id": "sel-yagmur",
+      "title": "Yağmur ve sel: Hazırlık",
+      "goal": "Sel riskinde faydalı olacakları seç.",
+      "correctCount": 4,
+      "minToPass": 3,
+      "correct": [
+        { "id": "raincoat", "label": "🧥 Yağmurluk" },
+        { "id": "boots", "label": "🥾 Su geçirmez ayakkabı" },
+        { "id": "radio", "label": "📻 Pilli radyo" },
+        { "id": "docs", "label": "📄 Belge kopyası" }
+      ],
+      "traps": [
+        { "id": "swim", "label": "🏊 Suda yüzmeyi dene" },
+        { "id": "basement", "label": "⬇️ Bodruma in" },
+        { "id": "car", "label": "🚗 Su içinden araba sürmek" }
+      ],
+      "tip": "Selde yüksek kata çıkmak ve resmi uyarıları dinlemek gerekir."
+    },
+    {
+      "id": "yangin-duman",
+      "title": "Duman: Ne yapmalı?",
+      "goal": "Dumanlı ortamda doğru seçenekleri işaretle.",
+      "correctCount": 4,
+      "minToPass": 3,
+      "correct": [
+        { "id": "low", "label": "🧎 Alçak çök" },
+        { "id": "wetcloth", "label": "💧 Islak bez (ağız)" },
+        { "id": "exit", "label": "🚪 Çıkış yolunu takip et" },
+        { "id": "door", "label": "🚪 Kapıyı el ile kontrol et" }
+      ],
+      "traps": [
+        { "id": "hide", "label": "🛏️ Yatağa saklan" },
+        { "id": "elevator", "label": "🛗 Asansör kullan" },
+        { "id": "openwin", "label": "🪟 Pencereyi aç (duman girer)" }
+      ],
+      "tip": "Dumanda alçak hareket edin; asansör kullanmayın."
+    },
+    {
+      "id": "ilk-yardim-cocuk",
+      "title": "Mini ilk yardım çantası",
+      "goal": "İlk yardım için gerekli malzemeleri seç.",
+      "correctCount": 5,
+      "minToPass": 3,
+      "correct": [
+        { "id": "plaster", "label": "🩹 Yara bandı" },
+        { "id": "gauze", "label": "🩹 Gazlı bez" },
+        { "id": "wipes", "label": "🧴 Antiseptik mendil" },
+        { "id": "scissors", "label": "✂️ Makas" },
+        { "id": "gloves", "label": "🧤 Eldiven" }
+      ],
+      "traps": [
+        { "id": "candy", "label": "🍬 Şeker" },
+        { "id": "toy", "label": "🧸 Oyuncak" },
+        { "id": "cream", "label": "💄 Krem" }
+      ],
+      "tip": "Yara bandı, gazlı bez ve temizlik malzemeleri temel ilk yardım içeriğidir."
+    }
+  ]
+}

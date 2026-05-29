@@ -9,6 +9,7 @@
   const resultEl = document.getElementById("saat72Result");
   const setupForm = document.getElementById("saat72SetupForm");
   const prepHintEl = document.getElementById("saat72PrepHint");
+  const characterPreviewEl = document.getElementById("saat72CharacterPreview");
   const disasterSel = document.getElementById("saat72Disaster");
   const characterSel = document.getElementById("saat72Character");
   const environmentSel = document.getElementById("saat72Environment");
@@ -37,11 +38,68 @@
       .replace(/"/g, "&quot;");
   }
 
+  function labelFor(type, id) {
+    const list = type === "char" ? data?.characters : data?.environments;
+    return list?.find((x) => x.id === id)?.label || id;
+  }
+
+  /** Eski (tek prompt) veya yeni (variants) adım formatını çözümler */
+  function resolveStep(raw, characterId, environmentId) {
+    if (raw.variants?.[characterId]) {
+      const v = raw.variants[characterId];
+      const envScene = raw.sceneByEnv?.[environmentId] || raw.sceneByEnv?.default || "";
+      return {
+        clock: raw.clock,
+        prepHooks: raw.prepHooks || v.prepHooks || [],
+        prompt: v.prompt,
+        scene: envScene,
+        context: v.context || "",
+        options: v.options,
+      };
+    }
+    return {
+      clock: raw.clock,
+      prepHooks: raw.prepHooks || [],
+      prompt: raw.prompt,
+      scene: raw.sceneByEnv?.[environmentId] || "",
+      context: "",
+      options: raw.options || [],
+    };
+  }
+
+  function buildQuestionQueue(disasterId, characterId, environmentId) {
+    const disaster = data.disasters[disasterId];
+    const queue = [];
+    for (const phase of data.phases) {
+      const steps = disaster.phases[phase.id] || [];
+      for (const raw of steps) {
+        queue.push({
+          phase,
+          question: resolveStep(raw, characterId, environmentId),
+        });
+      }
+    }
+    return queue;
+  }
+
+  function renderCharacterPreview() {
+    if (!characterPreviewEl || !data) return;
+    const charId = characterSel?.value;
+    const char = data.characters?.find((c) => c.id === charId);
+    if (!char?.description) {
+      characterPreviewEl.hidden = true;
+      return;
+    }
+    characterPreviewEl.hidden = false;
+    characterPreviewEl.innerHTML = `<p class="saat72CharacterPreview__text"><strong>${escapeHtml(char.label)}:</strong> ${escapeHtml(char.description)}</p>`;
+  }
+
   function openModal() {
     modal.hidden = false;
     document.body.classList.add("saat72ModalOpen");
     fab.setAttribute("aria-expanded", "true");
     renderPrepHint();
+    renderCharacterPreview();
   }
 
   function closeModal() {
@@ -59,7 +117,7 @@
         <span>Acil çanta: <strong>${s.cantaDone}/${s.cantaTotal}</strong> madde</span>
         <span>Aile planı: <strong>${planOk ? "Hazır" : s.planMissing.length + " eksik alan"}</strong></span>
       </div>
-      <p class="muted small">Eksikler simülasyon sırasında karşınıza çıkar.</p>
+      <p class="muted small">Eksikler ve karakterinize özel senaryolar simülasyonda yansır.</p>
     `;
   }
 
@@ -74,38 +132,7 @@
     environmentSel.innerHTML = data.environments
       .map((e) => `<option value="${escapeHtml(e.id)}">${escapeHtml(e.label)}</option>`)
       .join("");
-  }
-
-  function characterNote(id) {
-    const notes = {
-      yetiskin: "Tek başına hızlı karar vermeniz beklenir.",
-      aile: "Çocukların güvenliği ve sakinlik önceliğinizdir.",
-      yasli: "Hareket kısıtı ve ilaç ihtiyacı ekstra dikkat gerektirir.",
-      ogrenci: "Yurt/okul tahliye kurallarına uyun.",
-    };
-    return notes[id] || "";
-  }
-
-  function environmentNote(id) {
-    const notes = {
-      apartman: "Asansör ve merdiven boşluğu riskleri yüksektir.",
-      mustakil: "Gaz vanası ve bahçe eşyaları kontrol edilmelidir.",
-      kirsal: "Ulaşım ve iletişim gecikebilir; stok kritiktir.",
-      isyeri: "İş yeri acil planı ve toplanma noktası önceliklidir.",
-    };
-    return notes[id] || "";
-  }
-
-  function buildQuestionQueue(disasterId) {
-    const disaster = data.disasters[disasterId];
-    const queue = [];
-    for (const phase of data.phases) {
-      const questions = disaster.phases[phase.id] || [];
-      for (const q of questions) {
-        queue.push({ phase, question: q });
-      }
-    }
-    return queue;
+    renderCharacterPreview();
   }
 
   function showScreen(name) {
@@ -115,17 +142,20 @@
   }
 
   function renderTimeline(activePhaseId, currentIdx, total) {
+    const activeIdx = data.phases.findIndex((p) => p.id === activePhaseId);
     timelineEl.innerHTML = data.phases
-      .map((p) => {
+      .map((p, i) => {
         const active = p.id === activePhaseId ? " is-active" : "";
-        const done = data.phases.findIndex((x) => x.id === activePhaseId) > data.phases.findIndex((x) => x.id === p.id);
+        const done = i < activeIdx;
         return `<div class="saat72Phase${active}${done ? " is-done" : ""}">
           <span class="saat72Phase__label">${escapeHtml(p.label)}</span>
           <span class="saat72Phase__sub">${escapeHtml(p.subtitle)}</span>
         </div>`;
       })
       .join("");
-    if (metaEl) metaEl.textContent = `Adım ${currentIdx + 1} / ${total}`;
+    if (metaEl) {
+      metaEl.textContent = `${labelFor("char", state.characterId)} · Adım ${currentIdx + 1}/${total}`;
+    }
   }
 
   function renderQuestion() {
@@ -138,14 +168,26 @@
     const { phase, question } = item;
     const disaster = data.disasters[state.disasterId];
     const eventTime = question.clock || "—";
-    const intro = (disaster.eventIntro || "").replace("{time}", eventTime);
+    let intro = (disaster.eventIntro || "").replace("{time}", eventTime);
+    if (disaster.eventIntroByChar?.[state.characterId]) {
+      intro = disaster.eventIntroByChar[state.characterId].replace("{time}", eventTime);
+    }
 
     renderTimeline(phase.id, state.index, state.queue.length);
+
+    const sceneHtml = question.scene
+      ? `<p class="saat72Event__scene">${escapeHtml(question.scene)}</p>`
+      : "";
+    const ctxHtml = question.context
+      ? `<p class="saat72Event__ctx">${escapeHtml(question.context)}</p>`
+      : "";
 
     eventEl.innerHTML = `
       <span class="saat72Event__clock">${escapeHtml(eventTime)}</span>
       <p class="saat72Event__intro">${escapeHtml(intro)}</p>
-      <p class="saat72Event__ctx muted small">${escapeHtml(characterNote(state.characterId))} ${escapeHtml(environmentNote(state.environmentId))}</p>
+      ${sceneHtml}
+      ${ctxHtml}
+      <p class="saat72Event__role muted small">${escapeHtml(labelFor("char", state.characterId))} · ${escapeHtml(labelFor("env", state.environmentId))}</p>
     `;
 
     questionEl.innerHTML = `<h3 class="saat72Question__text">${escapeHtml(question.prompt)}</h3>`;
@@ -171,7 +213,11 @@
     const opt = item.question.options[idx];
     if (!opt) return;
 
-    state.answers.push({ correct: !!opt.correct, phase: item.phase.id });
+    state.answers.push({
+      correct: !!opt.correct,
+      phase: item.phase.id,
+      character: state.characterId,
+    });
 
     optionsEl.querySelectorAll(".saat72Option").forEach((btn, i) => {
       btn.disabled = true;
@@ -236,9 +282,11 @@
     `;
 
     const disaster = data.disasters[state.disasterId];
+    const charLabel = labelFor("char", state.characterId);
+    const envLabel = labelFor("env", state.environmentId);
     resultSummaryEl.innerHTML = `
-      <p><strong>${escapeHtml(disaster.label)}</strong> simülasyonunu tamamladınız.</p>
-      <p class="muted">72 saatlik süreçte doğru kararlar hayat kurtarır; yanlış seçimlerin geri bildirimlerini tekrar okuyun.</p>
+      <p><strong>${escapeHtml(disaster.label)}</strong> simülasyonu — <strong>${escapeHtml(charLabel)}</strong>, ${escapeHtml(envLabel)}.</p>
+      <p class="muted">Her karakter farklı riskler ve önceliklerle karşılaşır; geri bildirimleri tekrar okuyun.</p>
     `;
 
     const uniquePrep = [];
@@ -264,8 +312,8 @@
       const s = Prep?.prepSummary();
       resultPrepEl.innerHTML =
         s && s.cantaDone === s.cantaTotal && s.planMissing.length === 0
-          ? `<p class="muted">Acil çanta ve aile planı verileriniz simülasyonda eksik olarak yansımadı. Harika!</p>`
-          : `<p class="muted">Genel hazırlığınızı güçlendirmek için <a href="/acil-canta">acil çanta</a> ve <a href="/aile-afet-plani">aile planı</a> araçlarını kullanın.</p>`;
+          ? `<p class="muted">Acil çanta ve aile planı verileriniz simülasyonda eksik olarak yansımadı.</p>`
+          : `<p class="muted"><a href="/acil-canta">Acil çanta</a> ve <a href="/aile-afet-plani">aile planı</a> ile hazırlığınızı güçlendirin.</p>`;
     }
 
     showScreen("result");
@@ -277,7 +325,7 @@
       disasterId,
       characterId,
       environmentId,
-      queue: buildQuestionQueue(disasterId),
+      queue: buildQuestionQueue(disasterId, characterId, environmentId),
       index: 0,
       answers: [],
       prepIssues: [],
@@ -290,7 +338,8 @@
     state = null;
     showScreen("setup");
     renderPrepHint();
-    if (metaEl) metaEl.textContent = "Saat saat karar verin; sonuçları öğrenin.";
+    renderCharacterPreview();
+    if (metaEl) metaEl.textContent = "Karakterinize göre farklı senaryolar yaşayacaksınız.";
   }
 
   fab.addEventListener("click", openModal);
@@ -300,6 +349,8 @@
   document.addEventListener("keydown", (e) => {
     if (!modal.hidden && e.key === "Escape") closeModal();
   });
+
+  characterSel?.addEventListener("change", renderCharacterPreview);
 
   setupForm?.addEventListener("submit", (e) => {
     e.preventDefault();

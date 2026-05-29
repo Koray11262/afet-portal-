@@ -1,384 +1,2460 @@
 {
   "phases": [
-    { "id": "0-1", "label": "0–1 Saat", "subtitle": "Şok ve ilk tepki" },
-    { "id": "1-6", "label": "1–6 Saat", "subtitle": "İletişim ve güvenlik" },
-    { "id": "6-24", "label": "6–24 Saat", "subtitle": "Barınma ve sağlık" },
-    { "id": "24-48", "label": "24–48 Saat", "subtitle": "Su ve gıda yönetimi" },
-    { "id": "48-72", "label": "48–72 Saat", "subtitle": "Psikolojik ve fiziksel dayanıklılık" }
+    {
+      "id": "0-1",
+      "label": "0–1 Saat",
+      "subtitle": "Şok ve ilk tepki"
+    },
+    {
+      "id": "1-6",
+      "label": "1–6 Saat",
+      "subtitle": "İletişim ve güvenlik"
+    },
+    {
+      "id": "6-24",
+      "label": "6–24 Saat",
+      "subtitle": "Barınma ve sağlık"
+    },
+    {
+      "id": "24-48",
+      "label": "24–48 Saat",
+      "subtitle": "Su ve gıda yönetimi"
+    },
+    {
+      "id": "48-72",
+      "label": "48–72 Saat",
+      "subtitle": "Psikolojik dayanıklılık"
+    }
   ],
   "characters": [
-    { "id": "yetiskin", "label": "Yetişkin (tek başına)" },
-    { "id": "aile", "label": "Çocuklu aile" },
-    { "id": "yasli", "label": "65+ / hareket kısıtlı" },
-    { "id": "ogrenci", "label": "Öğrenci / yurt" }
+    {
+      "id": "yetiskin",
+      "label": "Yetişkin (tek başına)",
+      "description": "Tek başınıza karar verirsiniz; hız ve soğukkanlılık önemlidir."
+    },
+    {
+      "id": "aile",
+      "label": "Çocuklu aile",
+      "description": "Çocukların güvenliği ve sakinleştirilmesi her kararda önceliklidir."
+    },
+    {
+      "id": "yasli",
+      "label": "65+ / hareket kısıtlı",
+      "description": "İlaç, yürüteç ve komşu desteği kritik; ani hareketten kaçının."
+    },
+    {
+      "id": "ogrenci",
+      "label": "Öğrenci / yurt",
+      "description": "Yurt veya kampüs kurallarına uyun; toplu tahliye ve iletişim önemlidir."
+    }
   ],
   "environments": [
-    { "id": "apartman", "label": "Apartman / site" },
-    { "id": "mustakil", "label": "Müstakil ev" },
-    { "id": "kirsal", "label": "Kırsal / köy" },
-    { "id": "isyeri", "label": "İş yeri / okul" }
+    {
+      "id": "apartman",
+      "label": "Apartman / site"
+    },
+    {
+      "id": "mustakil",
+      "label": "Müstakil ev"
+    },
+    {
+      "id": "kirsal",
+      "label": "Kırsal / köy"
+    },
+    {
+      "id": "isyeri",
+      "label": "İş yeri / okul"
+    }
   ],
   "disasters": {
     "deprem": {
       "label": "Deprem",
-      "eventIntro": "Gece saat {time}’te güçlü bir deprem oldu.",
+      "eventIntro": "Gece saat {time}'te güçlü bir deprem oldu.",
+      "eventIntroByChar": {
+        "yetiskin": "Gece saat {time}'te yalnız evdeyken güçlü bir deprem oldu.",
+        "aile": "Gece saat {time}'te çocuklar uyurken güçlü bir deprem oldu.",
+        "yasli": "Gece saat {time}'te yataktayken güçlü bir deprem oldu; ayağa kalkmak zor.",
+        "ogrenci": "Gece saat {time}'te yurtta uyurken alarm ve sarsıntı başladı."
+      },
       "phases": {
         "0-1": [
           {
             "clock": "02:23",
-            "prompt": "Sarsıntı bitti. İlk ne yaparsın?",
-            "prepHooks": ["canta:fener", "plan:meeting1"],
-            "options": [
-              {
-                "text": "Asansörü kullanıp aşağı inerim",
-                "correct": false,
-                "feedback": "Kriz anında asansör kullanımı tehlikelidir; elektrik kesintisi veya yapı hasarında mahsur kalma riski vardır."
+            "prepHooks": [
+              "canta:fener",
+              "plan:meeting1"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartmanda uyandınız; asansör kullanılmamalı, merdiven boşluğu risklidir.",
+              "mustakil": "Müstakil evdesiniz; gaz vanası genelde dışarıda veya mutfakta bulunur.",
+              "kirsal": "Kırsal bölgedesiniz; ulaşım ve şebeke gecikebilir, komşu desteği önemlidir.",
+              "isyeri": "İş yerinde veya okuldasınız; bina acil planı ve toplanma noktası geçerlidir."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Sarsıntı bitti. Tek başınasınız — ilk ne yaparsınız?",
+                "context": "Önce kendi güvenliğiniz, sonra binanın.",
+                "options": [
+                  {
+                    "text": "Asansörle hızla aşağı inerim",
+                    "correct": false,
+                    "feedback": "Asansör elektrik kesintisinde veya hasarda mahsur bırakabilir."
+                  },
+                  {
+                    "text": "Ayakkabı giyip gaz ve elektriği kontrol ederim",
+                    "correct": true,
+                    "feedback": "Gaz kaçağı yangın riskini azaltır; ayakkabı kırık cama korur."
+                  },
+                  {
+                    "text": "Hemen tüm akrabalarımı ararım",
+                    "correct": false,
+                    "feedback": "İlk dakikalarda şebeke tıkanır; önce güvenlik sonra kısa SMS."
+                  },
+                  {
+                    "text": "Balkondan aşağı bakarım",
+                    "correct": false,
+                    "feedback": "Balkon düşme ve cam kırılması riski taşır."
+                  }
+                ]
               },
-              {
-                "text": "Hemen telefonla tüm yakınlarımı ararım",
-                "correct": false,
-                "feedback": "İlk dakikalarda şebeke tıkanır; önce kendi güvenliğinizi ve gaz/elektrik kontrolünü sağlayın, ardından kısa SMS tercih edin."
+              "aile": {
+                "prompt": "Sarsıntı bitti. 6 ve 9 yaşındaki çocuklar korkmuş — ne yaparsınız?",
+                "context": "Çocukları sakinleştirmek ile güvenlik kontrolü dengelenmeli.",
+                "options": [
+                  {
+                    "text": "Önce çocukları kucaklayıp sakinleştiririm, sonra gazı kontrol ederim",
+                    "correct": true,
+                    "feedback": "Sakin yetişkin çocukların paniğini azaltır; ardından gaz ve elektrik kontrolü şart."
+                  },
+                  {
+                    "text": "Çocukları merdivende bekletip önce eşyaları toplarım",
+                    "correct": false,
+                    "feedback": "Eşya toplamak değil, hızlı ve güvenli tahliye önceliklidir."
+                  },
+                  {
+                    "text": "Asansörle çocuklarla birlikte inerim",
+                    "correct": false,
+                    "feedback": "Asansör aileler için de tehlikelidir."
+                  },
+                  {
+                    "text": "Çocuklara bağırmadan hemen dışarı çıkarım, kontrol etmem",
+                    "correct": false,
+                    "feedback": "Gaz ve elektrik kontrolü yangın riskini azaltır; çocukları alıp kontrollü çıkın."
+                  }
+                ]
               },
-              {
-                "text": "Gaz vanasını ve elektrik sigortasını kontrol ederim",
-                "correct": true,
-                "feedback": "Gaz kaçağı kontrolü yangın riskini azaltır. Sarsıntı tamamen bitmeden acele etmeyin; ayakkabı giyip çıkış yolunu kontrol edin."
+              "yasli": {
+                "prompt": "Sarsıntı bitti. Yürüteç kullanıyorsunuz ve diziniz ağrıyor — ne yaparsınız?",
+                "context": "Acele etmek düşme riskini artırır.",
+                "options": [
+                  {
+                    "text": "Hemen merdivenden tek başıma inmeye çalışırım",
+                    "correct": false,
+                    "feedback": "Merdivende düşme riski yüksek; mümkünse komşu desteği isteyin."
+                  },
+                  {
+                    "text": "Oturduğum yerde kalıp komşuya veya 112'ye seslenirim",
+                    "correct": true,
+                    "feedback": "Yardım çağırmak ve sabit kalmak, düşmeyi önler; komşu gaz kontrolünde yardımcı olabilir."
+                  },
+                  {
+                    "text": "İlaçlarımı unutup hemen dışarı çıkarım",
+                    "correct": false,
+                    "feedback": "İlaçlar 72 saatte kritik; önce güvenli çıkış planı."
+                  },
+                  {
+                    "text": "Asansöre binip inerim",
+                    "correct": false,
+                    "feedback": "Asansör 65+ bireyler için de yasaktır; mahsur kalma riski vardır."
+                  }
+                ]
               },
-              {
-                "text": "Balkona çıkarım",
-                "correct": false,
-                "feedback": "Balkon ve merdiven boşlukları düşme ve kırık cam riski taşır; güvenli iç koridor veya masa altı daha uygundur."
+              "ogrenci": {
+                "prompt": "Yurtta sarsıntı durdu. Koridor gürültülü — ne yaparsınız?",
+                "context": "Yurt görevlisinin talimatını bekleyin.",
+                "options": [
+                  {
+                    "text": "Yurt görevlisinin tahliye talimatını bekler, kapıyı açık bırakırım",
+                    "correct": true,
+                    "feedback": "Toplu tahliyede sıra ve kapı açık kalması hayat kurtarır."
+                  },
+                  {
+                    "text": "Pencereden atlayıp dışarı çıkarım",
+                    "correct": false,
+                    "feedback": "Yüksek kat atlaması ağır yaralanma riski taşır."
+                  },
+                  {
+                    "text": "Odamda kalıp Instagram canlı yayın açarım",
+                    "correct": false,
+                    "feedback": "Önce güvenli toplanma alanına gidin."
+                  },
+                  {
+                    "text": "Asansörle hızlıca inerim",
+                    "correct": false,
+                    "feedback": "Yurtlarda asansör depremde kullanılmaz."
+                  }
+                ]
               }
-            ]
+            }
           }
         ],
         "1-6": [
           {
             "clock": "04:10",
-            "prompt": "Binadan çıktınız. İletişim kurmak için ne yaparsın?",
-            "prepHooks": ["canta:powerbank", "plan:outContact"],
-            "options": [
-              {
-                "text": "Sürekli arama yaparak şebekeyi meşgul ederim",
-                "correct": false,
-                "feedback": "Yoğun arama şebekeyi daha da zorlar; kısa SMS ve şehir dışı irtibat kişisine tek mesaj daha etkilidir."
+            "prepHooks": [
+              "canta:powerbank",
+              "plan:outContact"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartmanda uyandınız; asansör kullanılmamalı, merdiven boşluğu risklidir.",
+              "mustakil": "Müstakil evdesiniz; gaz vanası genelde dışarıda veya mutfakta bulunur.",
+              "kirsal": "Kırsal bölgedesiniz; ulaşım ve şebeke gecikebilir, komşu desteği önemlidir.",
+              "isyeri": "İş yerinde veya okuldasınız; bina acil planı ve toplanma noktası geçerlidir."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Binadan çıktınız, tek başınasınız. İletişim?",
+                "options": [
+                  {
+                    "text": "Şehir dışı irtibat kişime tek SMS: güvendeyim + konum",
+                    "correct": true,
+                    "feedback": "SMS şebekeyi daha az yorar."
+                  },
+                  {
+                    "text": "Sürekli arama yaparım",
+                    "correct": false,
+                    "feedback": "Şebekeyi meşgul edersiniz."
+                  },
+                  {
+                    "text": "Sosyal medyada detaylı paylaşım yaparım",
+                    "correct": false,
+                    "feedback": "Batarya ve bant genişliği israfı."
+                  },
+                  {
+                    "text": "Kimseye haber vermem",
+                    "correct": false,
+                    "feedback": "En az bir kişiye durum bildirin."
+                  }
+                ]
               },
-              {
-                "text": "Şehir dışı irtibat kişime kısa SMS gönderirim",
-                "correct": true,
-                "feedback": "SMS, aramadan daha az bant genişliği kullanır. Konum ve durumunuzu kısa yazın."
+              "aile": {
+                "prompt": "Aile toplanma noktasına giderken çocuklar üşüyor. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Şehir dışı irtibat kişisine 'hepimiz güvendeyiz' SMS'i atarım",
+                    "correct": true,
+                    "feedback": "Kısa SMS aileyi bilgilendirir; çocukları battaniyeyle örtün."
+                  },
+                  {
+                    "text": "Çocukları bırakıp önce araba almaya giderim",
+                    "correct": false,
+                    "feedback": "Çocuklar gözetimsiz bırakılmamalı."
+                  },
+                  {
+                    "text": "Her akrabayı tek tek ararım",
+                    "correct": false,
+                    "feedback": "SMS daha verimli; çocukları soğuktan koruyun."
+                  },
+                  {
+                    "text": "Sadece eşime haber veririm",
+                    "correct": false,
+                    "feedback": "Planınızdaki şehir dışı irtibat kişisi de bilgilendirilmeli."
+                  }
+                ]
               },
-              {
-                "text": "Sosyal medyada canlı yayın açarım",
-                "correct": false,
-                "feedback": "Canlı yayın bataryayı tüketir ve şebekeyi yorar; önce güvenli alana geçin."
+              "yasli": {
+                "prompt": "Komşu sizi toplanma alanına götürüyor. İletişim?",
+                "options": [
+                  {
+                    "text": "Komşunun telefonuyla irtibat kişisine kısa mesaj gönderirim",
+                    "correct": true,
+                    "feedback": "Başkasının şarjı ve SMS iletişimi kritik."
+                  },
+                  {
+                    "text": "Kendi telefonum çalışmıyor diye vazgeçerim",
+                    "correct": false,
+                    "feedback": "Komşu veya yardım hattı alternatif sağlar."
+                  },
+                  {
+                    "text": "Tüm gece arama yaparım",
+                    "correct": false,
+                    "feedback": "Batarya idareli kullanılmalı."
+                  },
+                  {
+                    "text": "Kimseye haber vermem, rahatsız etmem",
+                    "correct": false,
+                    "feedback": "Yakınlarınız endişelenir; kısa bilgi verin."
+                  }
+                ]
               },
-              {
-                "text": "Hiç iletişim kurmadan beklerim",
-                "correct": false,
-                "feedback": "Aile planınızdaki buluşma noktasına yönelirken en az bir kişiye durumunuzu bildirmek önemlidir."
+              "ogrenci": {
+                "prompt": "Yurtta toplanma alanındasınız. İletişim?",
+                "options": [
+                  {
+                    "text": "Aileme tek SMS: yurttayım, güvendeyim",
+                    "correct": true,
+                    "feedback": "Kısa SMS yeterli; görevli talimatlarına uyun."
+                  },
+                  {
+                    "text": "Tüm sınıf grubuna sesli arama yaparım",
+                    "correct": false,
+                    "feedback": "Şebekeyi yorar."
+                  },
+                  {
+                    "text": "Hiç haber vermem",
+                    "correct": false,
+                    "feedback": "Aileniz endişelenir."
+                  },
+                  {
+                    "text": "Yurttan ayrılıp eve giderim",
+                    "correct": false,
+                    "feedback": "Resmi tahliye bitmeden ayrılmayın."
+                  }
+                ]
               }
-            ]
+            }
           }
         ],
         "6-24": [
           {
             "clock": "09:00",
-            "prompt": "Gece dışarıda kaldınız. Barınma için ne yaparsın?",
-            "prepHooks": ["canta:battaniye", "canta:ilkYardim", "plan:meeting1"],
-            "options": [
-              {
-                "text": "Hasarlı binaya geri girerim",
-                "correct": false,
-                "feedback": "Artçı sarsıntılar ve gaz sızıntısı riski devam eder; yetkililer izin vermeden girmeyin."
+            "prepHooks": [
+              "canta:battaniye",
+              "canta:ilkYardim",
+              "plan:meeting1"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartmanda uyandınız; asansör kullanılmamalı, merdiven boşluğu risklidir.",
+              "mustakil": "Müstakil evdesiniz; gaz vanası genelde dışarıda veya mutfakta bulunur.",
+              "kirsal": "Kırsal bölgedesiniz; ulaşım ve şebeke gecikebilir, komşu desteği önemlidir.",
+              "isyeri": "İş yerinde veya okuldasınız; bina acil planı ve toplanma noktası geçerlidir."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Gece dışarıda kaldınız. Barınma?",
+                "options": [
+                  {
+                    "text": "AFAD toplanma alanına veya planlı buluşma noktasına giderim",
+                    "correct": true,
+                    "feedback": "Koordinasyon ve güvenli alan."
+                  },
+                  {
+                    "text": "Hasarlı daireye geri girerim",
+                    "correct": false,
+                    "feedback": "Artçı ve gaz riski."
+                  },
+                  {
+                    "text": "Arabada kapalı camda uyurum",
+                    "correct": false,
+                    "feedback": "Havalandırma ve güvenlik riski."
+                  },
+                  {
+                    "text": "Komşuya haber vermeden uzaklaşırım",
+                    "correct": false,
+                    "feedback": "Dayanışma önemli."
+                  }
+                ]
               },
-              {
-                "text": "AFAD toplanma alanına veya planlı buluşma noktasına giderim",
-                "correct": true,
-                "feedback": "Toplanma alanları ve önceden belirlenmiş buluşma noktaları koordinasyonu kolaylaştırır."
+              "aile": {
+                "prompt": "Çocuklar gece uyuyamadı. Barınma?",
+                "options": [
+                  {
+                    "text": "Toplanma alanında çocuklara sakin aktivite ve planlı buluşma noktası",
+                    "correct": true,
+                    "feedback": "Çocuklara rutin ve güvenli alan stresi azaltır."
+                  },
+                  {
+                    "text": "Çocukları sıcak tutmak için hasarlı eve dönerim",
+                    "correct": false,
+                    "feedback": "Yapı güvenliği onayı olmadan girmeyin."
+                  },
+                  {
+                    "text": "Çocukları ayrı ayrı tanımadığımız yerlere bırakırım",
+                    "correct": false,
+                    "feedback": "Çocuklar gözetim altında kalmalı."
+                  },
+                  {
+                    "text": "Gece boyunca arabada sürüş yaparım",
+                    "correct": false,
+                    "feedback": "Dinlenme şart."
+                  }
+                ]
               },
-              {
-                "text": "Aracımda uyumaya çalışırım, camı kapalı tutarım",
-                "correct": false,
-                "feedback": "Kapalı alanda uzun süre kalmak ve tek başına izole olmak risklidir; güvenli açık alan tercih edin."
+              "yasli": {
+                "prompt": "Gece soğukta beklediniz. Barınma?",
+                "options": [
+                  {
+                    "text": "Toplanma alanında sıcak içecek ve battaniye ister, ilaç saatime dikkat ederim",
+                    "correct": true,
+                    "feedback": "Hipotermi ve ilaç düzeni 65+ için kritik."
+                  },
+                  {
+                    "text": "Tek başıma yürüyerek uzak bir akrabaya giderim",
+                    "correct": false,
+                    "feedback": "Yorgunluk ve düşme riski."
+                  },
+                  {
+                    "text": "Evde kalırım, zaten çok yoruldum",
+                    "correct": false,
+                    "feedback": "Hasarlı yapı riski devam eder."
+                  },
+                  {
+                    "text": "İlaçlarımı almadan çıktım, önemsemem",
+                    "correct": false,
+                    "feedback": "Kronik ilaçlar 72 saatte şart."
+                  }
+                ]
               },
-              {
-                "text": "Komşulara haber vermeden uzaklaşırım",
-                "correct": false,
-                "feedback": "Yakın çevre dayanışması özellikle ilk 24 saatte kritiktir."
+              "ogrenci": {
+                "prompt": "Yurtta kalıyor musunuz, dışarı mı?",
+                "options": [
+                  {
+                    "text": "Yurt görevlisinin yönlendirdiği güvenli alanda kalırım",
+                    "correct": true,
+                    "feedback": "Resmi talimat olmadan ayrılmayın."
+                  },
+                  {
+                    "text": "Arkadaşlarla şehir merkezine eğlenceye giderim",
+                    "correct": false,
+                    "feedback": "Afet sonrası ortam öngörülemez."
+                  },
+                  {
+                    "text": "Ailemin yanına habersiz giderim",
+                    "correct": false,
+                    "feedback": "Yol güvenliği ve izin kontrol edilmeli."
+                  },
+                  {
+                    "text": "Yurtta kalan eşyalarım için odaya girerim",
+                    "correct": false,
+                    "feedback": "Yapı güvenliği onayı gerekir."
+                  }
+                ]
               }
-            ]
+            }
           }
         ],
         "24-48": [
           {
             "clock": "Ertesi gün",
-            "prompt": "Su ve gıda stokunuz sınırlı. Nasıl yönetirsiniz?",
-            "prepHooks": ["canta:su", "canta:gida"],
-            "options": [
-              {
-                "text": "Musluk suyunu hemen bol bol içerim",
-                "correct": false,
-                "feedback": "Şebeke suyu kirlenebilir; kaynatılmadan veya filtrelenmeden tüketmeyin."
+            "prepHooks": [
+              "canta:su",
+              "canta:gida"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartmanda uyandınız; asansör kullanılmamalı, merdiven boşluğu risklidir.",
+              "mustakil": "Müstakil evdesiniz; gaz vanası genelde dışarıda veya mutfakta bulunur.",
+              "kirsal": "Kırsal bölgedesiniz; ulaşım ve şebeke gecikebilir, komşu desteği önemlidir.",
+              "isyeri": "İş yerinde veya okuldasınız; bina acil planı ve toplanma noktası geçerlidir."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Su ve gıda sınırlı. Tek kişilik plan?",
+                "options": [
+                  {
+                    "text": "Kişi başı günlük su payı ve dayanıklı gıdayı ölçülü kullanırım",
+                    "correct": true,
+                    "feedback": "2–3 litre/gün hedefi."
+                  },
+                  {
+                    "text": "Musluk suyunu kaynatmadan içerim",
+                    "correct": false,
+                    "feedback": "Şebeke kirlenebilir."
+                  },
+                  {
+                    "text": "Tüm stoğu ilk saatte tüketirim",
+                    "correct": false,
+                    "feedback": "72 saate yayın."
+                  },
+                  {
+                    "text": "Hiç yemem",
+                    "correct": false,
+                    "feedback": "Enerji gerekli."
+                  }
+                ]
               },
-              {
-                "text": "Kişi başı günlük su paylaştırıp dayanıklı gıdayı ölçülü kullanırım",
-                "correct": true,
-                "feedback": "72 saatlik plan kişi başı yaklaşık 2–3 litre su ve bozulmayan gıda hedefler."
+              "aile": {
+                "prompt": "4 kişilik ailesiniz; su ve gıda az. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Çocuklara öncelikli su payı, yetişkinler ölçülü; çanta stoğunu paylaşırım",
+                    "correct": true,
+                    "feedback": "Çocuklar dehidrasyona daha hızlı yatkın; adil paylaşım şart."
+                  },
+                  {
+                    "text": "Sadece yetişkinler içer, çocuklar bekler",
+                    "correct": false,
+                    "feedback": "Çocuklar öncelikli olmalı."
+                  },
+                  {
+                    "text": "Çocuklara şekerli gıda vermem",
+                    "correct": false,
+                    "feedback": "Uygun dayanıklı gıda verin."
+                  },
+                  {
+                    "text": "Market kavgasına girerim",
+                    "correct": false,
+                    "feedback": "Güvenlik riski."
+                  }
+                ]
               },
-              {
-                "text": "Market kavgasına girerim",
-                "correct": false,
-                "feedback": "Panik alışverişi güvenliği azaltır; önceden hazırlanan çanta bu saatlerde fark yaratır."
+              "yasli": {
+                "prompt": "İlaç için su gerekli. Gıda-su planı?",
+                "options": [
+                  {
+                    "text": "İlaç saatlerine göre su planı yapar, çanta stoğunu ölçülü kullanırım",
+                    "correct": true,
+                    "feedback": "İlaç + su 65+ için hayati."
+                  },
+                  {
+                    "text": "Susuzluğa dayanırım, ilaçları az suyla alırım",
+                    "correct": false,
+                    "feedback": "Dehidrasyon ilaç etkisini bozar."
+                  },
+                  {
+                    "text": "Komşudan sürekli istemekten çekinirim",
+                    "correct": false,
+                    "feedback": "Dayanışma bu dönemde normaldir."
+                  },
+                  {
+                    "text": "Sadece çay içerim",
+                    "correct": false,
+                    "feedback": "Kafein idrarı artırır."
+                  }
+                ]
               },
-              {
-                "text": "Sadece çocuklara su verir, kendim hiç içmem",
-                "correct": false,
-                "feedback": "Kendi sağlığınız da önemli; adil paylaşım ve hijyen kuralları uygulanmalıdır."
+              "ogrenci": {
+                "prompt": "Yurtta yemekhane kapalı. Su-gıda?",
+                "options": [
+                  {
+                    "text": "Yurt dağıtım noktası + kendi çanta stoğum",
+                    "correct": true,
+                    "feedback": "Resmi dağıtım ve kişisel stok birleşir."
+                  },
+                  {
+                    "text": "Hep dışarıdan fast food sipariş ederim",
+                    "correct": false,
+                    "feedback": "Teslimat kesilebilir."
+                  },
+                  {
+                    "text": "Hiç su içmem",
+                    "correct": false,
+                    "feedback": "Dehidrasyon riski."
+                  },
+                  {
+                    "text": "Arkadaşların stoğunu izinsiz alırım",
+                    "correct": false,
+                    "feedback": "Paylaşım ve planlama yapın."
+                  }
+                ]
               }
-            ]
+            }
           }
         ],
         "48-72": [
           {
             "clock": "3. gün",
-            "prompt": "Yorgunluk ve stres arttı. Ne yaparsın?",
-            "prepHooks": ["canta:ilac", "plan:familyName"],
-            "options": [
-              {
-                "text": "Resmi uyarıları takip eder, kısa dinlenme ve rutin korurum",
-                "correct": true,
-                "feedback": "Psikolojik dayanıklılık için basit rutin, uyku ve doğru bilgi kaynağı önemlidir."
+            "prepHooks": [
+              "canta:ilac",
+              "plan:familyName"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartmanda uyandınız; asansör kullanılmamalı, merdiven boşluğu risklidir.",
+              "mustakil": "Müstakil evdesiniz; gaz vanası genelde dışarıda veya mutfakta bulunur.",
+              "kirsal": "Kırsal bölgedesiniz; ulaşım ve şebeke gecikebilir, komşu desteği önemlidir.",
+              "isyeri": "İş yerinde veya okuldasınız; bina acil planı ve toplanma noktası geçerlidir."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "3. gün yorgunluğu. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Resmi uyarıları takip eder, kısa uyku ve rutin korurum",
+                    "correct": true,
+                    "feedback": "Bilgi yorgunluğundan kaçının."
+                  },
+                  {
+                    "text": "Sürekli haber izler, uyumam",
+                    "correct": false,
+                    "feedback": "Stres artar."
+                  },
+                  {
+                    "text": "İlaçlarımı kontrol etmem",
+                    "correct": false,
+                    "feedback": "Kronik kullanıcılar dikkat."
+                  },
+                  {
+                    "text": "Yardımı reddederim",
+                    "correct": false,
+                    "feedback": "Destek faydalı."
+                  }
+                ]
               },
-              {
-                "text": "Sürekli haber ve sosyal medyayı takip eder, uyumam",
-                "correct": false,
-                "feedback": "Bilgi yorgunluğu stresi artırır; güvenilir kaynaklardan günde birkaç kez kontrol yeterlidir."
+              "aile": {
+                "prompt": "Çocuklar korkuyor. 3. gün yaklaşımı?",
+                "options": [
+                  {
+                    "text": "Yaşa uygun kısa açıklama, rutin ve resmi bilgi kaynağı",
+                    "correct": true,
+                    "feedback": "Çocuklara sade dil; yetişkin sakinliği önemli."
+                  },
+                  {
+                    "text": "Çocuklara tüm korkunç detayları anlatırım",
+                    "correct": false,
+                    "feedback": "Travma riski artar."
+                  },
+                  {
+                    "text": "Çocukları başkalarından gizlerim",
+                    "correct": false,
+                    "feedback": "Açık iletişim güven verir."
+                  },
+                  {
+                    "text": "Televizyonu sürekli açık bırakırım",
+                    "correct": false,
+                    "feedback": "Medya maruziyetini sınırlayın."
+                  }
+                ]
               },
-              {
-                "text": "Kişisel ilaçlarımı kontrol etmeden devam ederim",
-                "correct": false,
-                "feedback": "Kronik ilaç kullananlar için 72 saatlik yedek stok hayati önem taşır."
+              "yasli": {
+                "prompt": "Yorgunluk ve ilaç saati. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "İlaçlarımı kontrol eder, kısa dinlenme ve resmi uyarıları takip ederim",
+                    "correct": true,
+                    "feedback": "İlaç düzeni ve dinlenme 65+ için kritik."
+                  },
+                  {
+                    "text": "İlaçları atlarım, çok yoruldum",
+                    "correct": false,
+                    "feedback": "Atlanan doz risklidir."
+                  },
+                  {
+                    "text": "Hiç uyumam, haber izlerim",
+                    "correct": false,
+                    "feedback": "Dinlenme şart."
+                  },
+                  {
+                    "text": "Yardım istemekten utanırım",
+                    "correct": false,
+                    "feedback": "Yardım almak normaldir."
+                  }
+                ]
               },
-              {
-                "text": "Yardım tekliflerini tamamen reddederim",
-                "correct": false,
-                "feedback": "Toplumsal dayanışma ve resmi yardım hatları bu dönemde devreye girer."
+              "ogrenci": {
+                "prompt": "Sınavlar ertelendi. 3. gün ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Resmi duyuruları takip eder, aile ve yurt ile iletişimi sürdürürüm",
+                    "correct": true,
+                    "feedback": "Doğru bilgi kaynağı önemli."
+                  },
+                  {
+                    "text": "Dedikodu gruplarına güvenirim",
+                    "correct": false,
+                    "feedback": "Yanlış bilgi panik yaratır."
+                  },
+                  {
+                    "text": "Yurda zorla girerim",
+                    "correct": false,
+                    "feedback": "Güvenlik onayı bekleyin."
+                  },
+                  {
+                    "text": "Hiç uyumam",
+                    "correct": false,
+                    "feedback": "Dinlenme gerekli."
+                  }
+                ]
               }
-            ]
+            }
           }
         ]
       }
     },
     "sel": {
       "label": "Sel / Taşkın",
-      "eventIntro": "Saat {time}’te şiddetli yağış sonrası bulunduğunuz bölgede sel uyarısı ve su yükselmesi başladı.",
+      "eventIntro": "Saat {time}'te şiddetli yağış sonrası sel uyarısı ve su yükselmesi başladı.",
+      "eventIntroByChar": {
+        "yetiskin": "Saat {time}'te yalnız evdeyken sel uyarısı aldınız.",
+        "aile": "Saat {time}'te çocuklarla birlikte sel uyarısı geldi.",
+        "yasli": "Saat {time}'te sel uyarısı; merdiven inmek zor.",
+        "ogrenci": "Saat {time}'te yurtta sel ve tahliye anonsu yapıldı."
+      },
       "phases": {
         "0-1": [
           {
             "clock": "14:05",
-            "prompt": "Su hızla yükseliyor. İlk tepkiniz?",
-            "prepHooks": ["canta:duuduk", "plan:meeting2"],
-            "options": [
-              { "text": "Bodruma inip eşyaları kurtarmaya çalışırım", "correct": false, "feedback": "Su hızla yükselir; önce kendinizi yüksek kata veya güvenli alana alın." },
-              { "text": "Yüksek kata çıkar, elektrik ve gazı kapatırım", "correct": true, "feedback": "Yüksek nokta ve enerji kaynaklarını kapatmak ilk saatlerde hayati önem taşır." },
-              { "text": "Araçla su birikintisinden geçerim", "correct": false, "feedback": "30 cm su bile aracı sürükleyebilir; yürüyen su daha tehlikelidir." },
-              { "text": "Pencereyi açıp dışarıyı izlerim", "correct": false, "feedback": "Cam kırılması ve su basıncı riski vardır; güvenli iç alana geçin." }
-            ]
+            "prepHooks": [
+              "canta:duuduk",
+              "plan:meeting2"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartman dairesindesiniz; bodrum ve zemin kat su basıyor.",
+              "mustakil": "Müstakil evde bahçe su altında kalıyor.",
+              "kirsal": "Köy yolunda su yükseliyor; tarla ve dere yatağına dikkat.",
+              "isyeri": "İş yerinin alt katı ve otopark su altında."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Sel uyarısı geldi. Tek başınasınız — ilk adım?",
+                "options": [
+                  {
+                    "text": "Yüksek kata çıkar, elektrik ve gazı kapatırım",
+                    "correct": true,
+                    "feedback": "Yüksek nokta ve enerji kesintisi öncelikli."
+                  },
+                  {
+                    "text": "Bodruma eşya kurtarmaya inerim",
+                    "correct": false,
+                    "feedback": "Su hızla yükselir."
+                  },
+                  {
+                    "text": "Araçla suyun içinden geçerim",
+                    "correct": false,
+                    "feedback": "30 cm su bile tehlikelidir."
+                  },
+                  {
+                    "text": "Balkondan izlerim",
+                    "correct": false,
+                    "feedback": "Güvenli iç alana geçin."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Su basıyor; çocuklar korkmuş. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Çocukları kucaklayıp yüksek kata çıkar, gazı kapatırım",
+                    "correct": true,
+                    "feedback": "Önce çocuklar, sonra enerji kesintisi."
+                  },
+                  {
+                    "text": "Önce eşyaları kurtarırım",
+                    "correct": false,
+                    "feedback": "Can güvenliği önce gelir."
+                  },
+                  {
+                    "text": "Çocukları alıp araçla sudan geçerim",
+                    "correct": false,
+                    "feedback": "Araç selde sürüklenir."
+                  },
+                  {
+                    "text": "Çocuklara bağırmadan bodruma inmemi söylerim",
+                    "correct": false,
+                    "feedback": "Bodrum en tehlikeli alandır."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Su giriyor; yürümeniz zor. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Komşudan destek isteyerek yüksek kata çıkarım",
+                    "correct": true,
+                    "feedback": "Yardım almak normaldir."
+                  },
+                  {
+                    "text": "Tek başıma bodruma inerim",
+                    "correct": false,
+                    "feedback": "Düşme ve boğulma riski."
+                  },
+                  {
+                    "text": "Asansörle inerim",
+                    "correct": false,
+                    "feedback": "Asansör selde tehlikelidir."
+                  },
+                  {
+                    "text": "Evde kalıp beklerim",
+                    "correct": false,
+                    "feedback": "Tahliye gerekebilir."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurtta su uyarısı var. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Yurt görevlisinin talimatıyla yüksek kata veya tahliye",
+                    "correct": true,
+                    "feedback": "Toplu yönetim önemli."
+                  },
+                  {
+                    "text": "Eşyalarımı kurtarmak için kalırım",
+                    "correct": false,
+                    "feedback": "Can güvenliği önce."
+                  },
+                  {
+                    "text": "Tek başıma dere yatağına bakarım",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Pencereyi açıp izlerim",
+                    "correct": false,
+                    "feedback": "Su basıncı riski."
+                  }
+                ]
+              }
+            }
           }
         ],
         "1-6": [
           {
             "clock": "17:30",
-            "prompt": "Tahliye kararı verildi. Ne yaparsın?",
-            "prepHooks": ["canta:belge", "plan:meeting1"],
-            "options": [
-              { "text": "Belge ve ilaçları alıp planlı buluşma yoluna çıkarım", "correct": true, "feedback": "Hafif çanta, belgeler ve ilaçlar tahliye sürecini kolaylaştırır." },
-              { "text": "Evde kalıp suyun çekilmesini beklerim", "correct": false, "feedback": "Resmi tahliye uyarılarına uymak zorunludur." },
-              { "text": "Tüm ağır eşyaları taşımaya çalışırım", "correct": false, "feedback": "İlk saatlerde hızlı ve güvenli çıkış önceliklidir." },
-              { "text": "Kopmuş elektrik hattının yanından geçerim", "correct": false, "feedback": "Islak ortamda elektrik çarpması riski çok yüksektir." }
-            ]
+            "prepHooks": [
+              "canta:belge",
+              "plan:meeting1"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartman dairesindesiniz; bodrum ve zemin kat su basıyor.",
+              "mustakil": "Müstakil evde bahçe su altında kalıyor.",
+              "kirsal": "Köy yolunda su yükseliyor; tarla ve dere yatağına dikkat.",
+              "isyeri": "İş yerinin alt katı ve otopark su altında."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Tahliye emri. Ne alırsınız?",
+                "options": [
+                  {
+                    "text": "Belge, ilaç, çanta — hafif ve planlı çıkış",
+                    "correct": true,
+                    "feedback": "Hızlı ve hafif tahliye."
+                  },
+                  {
+                    "text": "Tüm eşyaları taşırım",
+                    "correct": false,
+                    "feedback": "Yavaşlarsınız."
+                  },
+                  {
+                    "text": "Evde kalırım",
+                    "correct": false,
+                    "feedback": "Emre uyun."
+                  },
+                  {
+                    "text": "Elektrik hattı yanından geçerim",
+                    "correct": false,
+                    "feedback": "Islak + elektrik ölümcül."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Tahliye — çocuklar ve belgeler?",
+                "options": [
+                  {
+                    "text": "Çocukları, belgeleri ve ilaçları alıp planlı çıkış",
+                    "correct": true,
+                    "feedback": "Aile belgeleri ve ilaç öncelikli."
+                  },
+                  {
+                    "text": "Sadece çocukları alır, belgeleri bırakırım",
+                    "correct": false,
+                    "feedback": "Belgeler sonra sorun çıkarır."
+                  },
+                  {
+                    "text": "Çocukları bırakıp eşya toplarım",
+                    "correct": false,
+                    "feedback": "Asla."
+                  },
+                  {
+                    "text": "Tahliyeye uymam",
+                    "correct": false,
+                    "feedback": "Resmi emir."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Tahliye — hareket kısıtlı. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Komşu/afet ekibi desteğiyle belge ve ilaçla tahliye",
+                    "correct": true,
+                    "feedback": "Yardım isteyin."
+                  },
+                  {
+                    "text": "Yürümeden evde kalırım",
+                    "correct": false,
+                    "feedback": "Su yükselmeye devam edebilir."
+                  },
+                  {
+                    "text": "İlaçsız çıkarım",
+                    "correct": false,
+                    "feedback": "İlaçları alın."
+                  },
+                  {
+                    "text": "Tek başıma dere kenarından giderim",
+                    "correct": false,
+                    "feedback": "Sel yolu tehlikeli."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurt tahliyesi. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Kimlik, telefon, çanta ile görevli talimatına uyarım",
+                    "correct": true,
+                    "feedback": "Hafif ve düzenli tahliye."
+                  },
+                  {
+                    "text": "Odamda kalırım",
+                    "correct": false,
+                    "feedback": "Emre uyun."
+                  },
+                  {
+                    "text": "Herkese zıt yöne giderim",
+                    "correct": false,
+                    "feedback": "Talimata uyun."
+                  },
+                  {
+                    "text": "Islak priz yanından koşarım",
+                    "correct": false,
+                    "feedback": "Elektrik riski."
+                  }
+                ]
+              }
+            }
           }
         ],
         "6-24": [
           {
             "clock": "Gece",
-            "prompt": "Geçici barınmadasınız. Sağlık için?",
-            "prepHooks": ["canta:hijyen", "canta:ilkYardim"],
-            "options": [
-              { "text": "Sel suyuyla temas eden yaraları temizler, hijyen kurallarına uyarım", "correct": true, "feedback": "Kirli su enfeksiyon riski taşır; temiz su ve hijyen seti kullanın." },
-              { "text": "Sel suyundan içerim", "correct": false, "feedback": "Sel suyu asla içilmez; kaynatma bile yeterli olmayabilir." },
-              { "text": "Islak kıyafetlerle uyurum", "correct": false, "feedback": "Kuru kıyafet ve battaniye hipotermi riskini azaltır." },
-              { "text": "İlaçları selde kalan kutudan kullanırım", "correct": false, "feedback": "Islanmış ilaçları kullanmayın; yedek stok bu aşamada devreye girer." }
-            ]
+            "prepHooks": [
+              "canta:hijyen",
+              "canta:ilkYardim"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartman dairesindesiniz; bodrum ve zemin kat su basıyor.",
+              "mustakil": "Müstakil evde bahçe su altında kalıyor.",
+              "kirsal": "Köy yolunda su yükseliyor; tarla ve dere yatağına dikkat.",
+              "isyeri": "İş yerinin alt katı ve otopark su altında."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Geçici barınmada sağlık?",
+                "options": [
+                  {
+                    "text": "Sel suyu teması yok; hijyen ve temiz su",
+                    "correct": true,
+                    "feedback": "Enfeksiyon riski."
+                  },
+                  {
+                    "text": "Sel suyundan içerim",
+                    "correct": false,
+                    "feedback": "Asla içilmez."
+                  },
+                  {
+                    "text": "Islak kıyafetle uyurum",
+                    "correct": false,
+                    "feedback": "Hipotermi."
+                  },
+                  {
+                    "text": "Islanmış ilaç kullanırım",
+                    "correct": false,
+                    "feedback": "Bozulmuş olabilir."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Çocuklar ıslak. Sağlık?",
+                "options": [
+                  {
+                    "text": "Çocukları kuru kıyafetle değiştirir, sel suyundan uzak tutarım",
+                    "correct": true,
+                    "feedback": "Çocuklar enfeksiyona yatkın."
+                  },
+                  {
+                    "text": "Çocuklara sel suyuyla el yıkarım",
+                    "correct": false,
+                    "feedback": "Kirli su."
+                  },
+                  {
+                    "text": "Islak battaniyeyle uyuturum",
+                    "correct": false,
+                    "feedback": "Kuru ve temiz tutun."
+                  },
+                  {
+                    "text": "Aşıları ertelerim",
+                    "correct": false,
+                    "feedback": "Sağlık takibi önemli."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Soğuk ve nem. Sağlık?",
+                "options": [
+                  {
+                    "text": "Kuru kıyafet, sıcak içecek, ilaç saatine dikkat",
+                    "correct": true,
+                    "feedback": "65+ için hipotermi riski."
+                  },
+                  {
+                    "text": "Islak ortamda ilaçsız beklerim",
+                    "correct": false,
+                    "feedback": "İlaç düzeni şart."
+                  },
+                  {
+                    "text": "Sel suyundan içerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Yarayı pansumansız bırakırım",
+                    "correct": false,
+                    "feedback": "Enfeksiyon riski."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurt barınmasında sağlık?",
+                "options": [
+                  {
+                    "text": "Hijyen kuralları, resmi su kaynağı kullanırım",
+                    "correct": true,
+                    "feedback": "Toplu barınmada hijyen önemli."
+                  },
+                  {
+                    "text": "Şişe su yerine musluk",
+                    "correct": false,
+                    "feedback": "Musluk kirli olabilir."
+                  },
+                  {
+                    "text": "Hasta olduğumu gizlerim",
+                    "correct": false,
+                    "feedback": "Bildirin."
+                  },
+                  {
+                    "text": "Islanmış telefonu şarj ederim",
+                    "correct": false,
+                    "feedback": "Elektrik riski."
+                  }
+                ]
+              }
+            }
           }
         ],
         "24-48": [
           {
             "clock": "2. gün",
-            "prompt": "Su ve gıda temini?",
-            "prepHooks": ["canta:su", "canta:gida"],
-            "options": [
-              { "text": "Resmi dağıtım noktalarından ve çantamdaki stoktan paylaştırırım", "correct": true, "feedback": "Önceden hazırlanan su ve gıda sel sonrası ilk 48 saatte kritiktir." },
-              { "text": "Bozulmuş gıdayı kokusu yoksa yerim", "correct": false, "feedback": "Elektrik kesintisinde buzdolabı gıdaları hızla bozulur." },
-              { "text": "Sadece meyve suyu içerim", "correct": false, "feedback": "Dengeli su ve gıda yönetimi gerekir." },
-              { "text": "Hiç yemek yemem", "correct": false, "feedback": "Uzun süre aç kalmak dayanıklılığı düşürür." }
-            ]
+            "prepHooks": [
+              "canta:su",
+              "canta:gida"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartman dairesindesiniz; bodrum ve zemin kat su basıyor.",
+              "mustakil": "Müstakil evde bahçe su altında kalıyor.",
+              "kirsal": "Köy yolunda su yükseliyor; tarla ve dere yatağına dikkat.",
+              "isyeri": "İş yerinin alt katı ve otopark su altında."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Su-gıda yönetimi?",
+                "options": [
+                  {
+                    "text": "Resmi dağıtım + çanta stoğu",
+                    "correct": true,
+                    "feedback": "Ölçülü kullanım."
+                  },
+                  {
+                    "text": "Bozuk gıda yerim",
+                    "correct": false,
+                    "feedback": "Zehirlenme."
+                  },
+                  {
+                    "text": "Hiç su içmem",
+                    "correct": false,
+                    "feedback": "Dehidrasyon."
+                  },
+                  {
+                    "text": "Sadece meyve suyu",
+                    "correct": false,
+                    "feedback": "Dengeli beslenme."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Aile su-gıda payı?",
+                "options": [
+                  {
+                    "text": "Çocuklara öncelikli su, yetişkinler ölçülü",
+                    "correct": true,
+                    "feedback": "Adil paylaşım."
+                  },
+                  {
+                    "text": "Yetişkinler önce, çocuklar bekler",
+                    "correct": false,
+                    "feedback": "Çocuklar öncelikli."
+                  },
+                  {
+                    "text": "Çocuklara yetişkin porsiyonu",
+                    "correct": false,
+                    "feedback": "Yaşa uygun pay."
+                  },
+                  {
+                    "text": "Hiç plan yapmam",
+                    "correct": false,
+                    "feedback": "Plan şart."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "İlaç ve su?",
+                "options": [
+                  {
+                    "text": "İlaç saatine göre su, çanta stoğu",
+                    "correct": true,
+                    "feedback": "İlaç + su birlikte."
+                  },
+                  {
+                    "text": "Susuz kalırım",
+                    "correct": false,
+                    "feedback": "Riskli."
+                  },
+                  {
+                    "text": "Sadece çorba",
+                    "correct": false,
+                    "feedback": "Yeterli su da gerekli."
+                  },
+                  {
+                    "text": "Komşuya yük olmam diye istemem",
+                    "correct": false,
+                    "feedback": "Yardım alın."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurtta yemek?",
+                "options": [
+                  {
+                    "text": "Resmi dağıtım + çanta",
+                    "correct": true,
+                    "feedback": "Güvenli kaynak."
+                  },
+                  {
+                    "text": "Marketten her şeyi alırım",
+                    "correct": false,
+                    "feedback": "Stok sınırlı olabilir."
+                  },
+                  {
+                    "text": "Hiç yemem",
+                    "correct": false,
+                    "feedback": "Enerji gerekli."
+                  },
+                  {
+                    "text": "Arkadaşın stoğunu çalarım",
+                    "correct": false,
+                    "feedback": "Paylaşın."
+                  }
+                ]
+              }
+            }
           }
         ],
         "48-72": [
           {
             "clock": "3. gün",
-            "prompt": "Eve dönüş değerlendirmesi?",
-            "prepHooks": ["plan:notes"],
-            "options": [
-              { "text": "Yetkililer izin vermeden eve girmeden hasar raporu beklerim", "correct": true, "feedback": "Yapı güvenliği onayı olmadan içeri girmek tehlikelidir." },
-              { "text": "Hemen bodrumu temizlemeye başlarım", "correct": false, "feedback": "Elektrik ve yapı hasarı kontrol edilmeden çalışma yapmayın." },
-              { "text": "Çocukları önce eve gönderirim", "correct": false, "feedback": "Güvenlik onayı olmadan kimseyi göndermeyin." },
-              { "text": "Sigorta ve hasar fotoğraflarını düzenlerim", "correct": false, "feedback": "Fotoğraf önemli ama önce resmi güvenlik onayı şarttır." }
-            ]
+            "prepHooks": [
+              "plan:notes"
+            ],
+            "sceneByEnv": {
+              "apartman": "Apartman dairesindesiniz; bodrum ve zemin kat su basıyor.",
+              "mustakil": "Müstakil evde bahçe su altında kalıyor.",
+              "kirsal": "Köy yolunda su yükseliyor; tarla ve dere yatağına dikkat.",
+              "isyeri": "İş yerinin alt katı ve otopark su altında."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Eve dönüş?",
+                "options": [
+                  {
+                    "text": "Yetkili onayı olmadan girmem",
+                    "correct": true,
+                    "feedback": "Güvenlik."
+                  },
+                  {
+                    "text": "Hemen bodrumu temizlerim",
+                    "correct": false,
+                    "feedback": "Elektrik riski."
+                  },
+                  {
+                    "text": "Sigorta için hemen girerim",
+                    "correct": false,
+                    "feedback": "Önce onay."
+                  },
+                  {
+                    "text": "Komşuya sormadan girerim",
+                    "correct": false,
+                    "feedback": "Yapı kontrolü."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Çocuklarla eve dönüş?",
+                "options": [
+                  {
+                    "text": "Yetkili onayı + çocukları önce güvenli alanda tutarım",
+                    "correct": true,
+                    "feedback": "Çocuklar riskli yapıya girmesin."
+                  },
+                  {
+                    "text": "Çocukları önce eve gönderirim",
+                    "correct": false,
+                    "feedback": "Önce onay."
+                  },
+                  {
+                    "text": "Çocuklara korku anlatmadan hemen girerim",
+                    "correct": false,
+                    "feedback": "Yapı güvenliği."
+                  },
+                  {
+                    "text": "Çocukları başkasında bırakıp tek girerim",
+                    "correct": false,
+                    "feedback": "Aile birlikte plan."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Eve dönüş 65+?",
+                "options": [
+                  {
+                    "text": "Yapı onayı + komşu/refakat ile dönüş planı",
+                    "correct": true,
+                    "feedback": "Güvenli dönüş."
+                  },
+                  {
+                    "text": "Tek başıma hemen girerim",
+                    "correct": false,
+                    "feedback": "Düşme ve yapı riski."
+                  },
+                  {
+                    "text": "İlaçlarım evde kaldı diye zorla girerim",
+                    "correct": false,
+                    "feedback": "Önce onay."
+                  },
+                  {
+                    "text": "Merdiveni koşarak çıkarım",
+                    "correct": false,
+                    "feedback": "Düşme riski."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurda dönüş?",
+                "options": [
+                  {
+                    "text": "Yurt yönetimi onayı beklerim",
+                    "correct": true,
+                    "feedback": "Resmi süreç."
+                  },
+                  {
+                    "text": "Zorla odaya girerim",
+                    "correct": false,
+                    "feedback": "Güvenlik."
+                  },
+                  {
+                    "text": "Aile evine habersiz giderim",
+                    "correct": false,
+                    "feedback": "Yol güvenliği."
+                  },
+                  {
+                    "text": "Eşyalar için hemen girerim",
+                    "correct": false,
+                    "feedback": "Onay bekleyin."
+                  }
+                ]
+              }
+            }
           }
         ]
       }
     },
     "yangin": {
       "label": "Orman yangını",
-      "eventIntro": "Saat {time}’te yakınınızdaki ormanlık alanda yangın başladı ve duman yönünüze ilerliyor.",
+      "eventIntro": "Saat {time}'te yakınınızdaki ormanlık alanda yangın başladı.",
+      "eventIntroByChar": {
+        "yetiskin": "Saat {time}'te tek başınıza duman kokusu aldınız.",
+        "aile": "Saat {time}'te çocuklarla birlikte yangın tahliyesi başladı.",
+        "yasli": "Saat {time}'te yangın uyarısı; yavaş hareket ediyorsunuz.",
+        "ogrenci": "Saat {time}'te yurtta yangın alarmı çaldı."
+      },
       "phases": {
         "0-1": [
           {
             "clock": "16:40",
-            "prompt": "Duman kokusu ve uyarı geldi. İlk adım?",
-            "prepHooks": ["canta:duuduk", "plan:meeting1"],
-            "options": [
-              { "text": "Yetkililerin tahliye talimatını bekler, hazırlık çantamı alırım", "correct": true, "feedback": "Erken tahliye hayat kurtarır; düdük ve çanta kapı yanında olmalıdır." },
-              { "text": "Yangını izlemek için tepeye çıkarım", "correct": false, "feedback": "Yangın yönü hızla değişir; yüksek/dumanlı alanlardan uzak durun." },
-              { "text": "Bahçede yanıcı artık yakarım", "correct": false, "feedback": "Ek ateş kaynağı yangını büyütür." },
-              { "text": "Pencereyi açıp dumanı içeri alırım", "correct": false, "feedback": "Duman solunumunu zehirler; pencere ve havalandırmayı kapatın." }
-            ]
+            "prepHooks": [
+              "canta:duuduk",
+              "plan:meeting1"
+            ],
+            "sceneByEnv": {
+              "apartman": "Site yönetimi tahliye anonsu yapıyor; asansör kapalı.",
+              "mustakil": "Evden çıkış için bahçe kapısı ve ana yol açık olmalı.",
+              "kirsal": "Köy yolu duman altında; rüzgar yönü değişebilir.",
+              "isyeri": "Okul/iş yeri zil ve anons ile tahliye başlatıldı."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Duman kokusu. İlk adım?",
+                "options": [
+                  {
+                    "text": "Tahliye talimatını bekler, çantamı alırım",
+                    "correct": true,
+                    "feedback": "Erken tahliye."
+                  },
+                  {
+                    "text": "Tepeye yangını izlemeye giderim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Bahçede ateş yakarım",
+                    "correct": false,
+                    "feedback": "Yangını büyütür."
+                  },
+                  {
+                    "text": "Pencereyi açarım",
+                    "correct": false,
+                    "feedback": "Duman içeri girer."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Duman var; çocuklar evde. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Çocukları alıp çanta ile tahliye talimatına uyarım",
+                    "correct": true,
+                    "feedback": "Çocuklar önce."
+                  },
+                  {
+                    "text": "Önce eşyaları toplarım",
+                    "correct": false,
+                    "feedback": "Can önce."
+                  },
+                  {
+                    "text": "Çocukları arabada bekletip yangını izlerim",
+                    "correct": false,
+                    "feedback": "Tahliye."
+                  },
+                  {
+                    "text": "Çocuklara maske vermeden dumanlı koridorda koşarım",
+                    "correct": false,
+                    "feedback": "Solunum koruyun."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Duman uyarısı; hareket yavaş. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Komşu desteğiyle çanta ve ilaçla tahliye",
+                    "correct": true,
+                    "feedback": "Yardım alın."
+                  },
+                  {
+                    "text": "Tek başıma merdivenden inerim, düşerim",
+                    "correct": false,
+                    "feedback": "Düşme riski."
+                  },
+                  {
+                    "text": "Evde kalırım",
+                    "correct": false,
+                    "feedback": "Tahliye."
+                  },
+                  {
+                    "text": "Asansör kullanırım",
+                    "correct": false,
+                    "feedback": "Yasak."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurtta yangın alarmı. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Görevli talimatıyla tahliye, asansörsüz",
+                    "correct": true,
+                    "feedback": "Toplu tahliye."
+                  },
+                  {
+                    "text": "Odamda kalırım",
+                    "correct": false,
+                    "feedback": "Tahliye."
+                  },
+                  {
+                    "text": "Yangını izlemeye giderim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Pencereyi açıp duman alırım",
+                    "correct": false,
+                    "feedback": "Duman zehirler."
+                  }
+                ]
+              }
+            }
           }
         ],
         "1-6": [
           {
             "clock": "18:00",
-            "prompt": "Tahliye yolundasınız. Ne yaparsın?",
-            "prepHooks": ["canta:powerbank", "plan:outContact"],
-            "options": [
-              { "text": "Ana yolu tıkayan araçta beklerim", "correct": false, "feedback": "Alternatif tahliye yolunu ve resmi yönlendirmeyi takip edin." },
-              { "text": "Alternatif rotayla düşük dumanlı güzergâha giderim", "correct": true, "feedback": "Önceden planlanmış tahliye rotası ve iletişim bu saatlerde kritiktir." },
-              { "text": "Evi su ile ıslatarak terk ederim", "correct": false, "feedback": "Kendi güvenliğiniz önceliklidir; uzman müdahaleye bırakın." },
-              { "text": "Geri dönüp eşya toplarım", "correct": false, "feedback": "Eşya toplamak tahliye penceresini daraltır." }
-            ]
+            "prepHooks": [
+              "canta:powerbank",
+              "plan:outContact"
+            ],
+            "sceneByEnv": {
+              "apartman": "Site yönetimi tahliye anonsu yapıyor; asansör kapalı.",
+              "mustakil": "Evden çıkış için bahçe kapısı ve ana yol açık olmalı.",
+              "kirsal": "Köy yolu duman altında; rüzgar yönü değişebilir.",
+              "isyeri": "Okul/iş yeri zil ve anons ile tahliye başlatıldı."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Tahliye yolundasınız.",
+                "options": [
+                  {
+                    "text": "Alternatif rota, düşük duman",
+                    "correct": true,
+                    "feedback": "Planlı rota."
+                  },
+                  {
+                    "text": "Ana yolda beklerim",
+                    "correct": false,
+                    "feedback": "Tıkanır."
+                  },
+                  {
+                    "text": "Eve su serpip dönerim",
+                    "correct": false,
+                    "feedback": "Kendi güvenliği."
+                  },
+                  {
+                    "text": "Eşya için geri dönerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Aile tahliyesi.",
+                "options": [
+                  {
+                    "text": "Çocukları düşük dumanda önde, alternatif rota",
+                    "correct": true,
+                    "feedback": "Çocuklar solunum riski."
+                  },
+                  {
+                    "text": "Çocukları arabada unuturum",
+                    "correct": false,
+                    "feedback": "Asla."
+                  },
+                  {
+                    "text": "Ana yolda kalırım",
+                    "correct": false,
+                    "feedback": "Tıkanır."
+                  },
+                  {
+                    "text": "Çocuklara panik bağırmam",
+                    "correct": false,
+                    "feedback": "Sakin kalın."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Tahliye — yavaş hareket.",
+                "options": [
+                  {
+                    "text": "Refakat ile düşük dumandan alternatif rota",
+                    "correct": true,
+                    "feedback": "Refakat şart."
+                  },
+                  {
+                    "text": "Tek başıma dumanlı yoldan giderim",
+                    "correct": false,
+                    "feedback": "Solunum riski."
+                  },
+                  {
+                    "text": "Araca binemem diye kalırım",
+                    "correct": false,
+                    "feedback": "Yardım isteyin."
+                  },
+                  {
+                    "text": "Oksijensiz koşarım",
+                    "correct": false,
+                    "feedback": "Panik tehlikeli."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurt tahliyesi yolunda.",
+                "options": [
+                  {
+                    "text": "Görevli ve sınıf ile düzenli tahliye",
+                    "correct": true,
+                    "feedback": "Düzen."
+                  },
+                  {
+                    "text": "Tek başıma farklı yere giderim",
+                    "correct": false,
+                    "feedback": "Talimat."
+                  },
+                  {
+                    "text": "Dumanlı kısa yoldan keserim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Eşya için geri dönerim",
+                    "correct": false,
+                    "feedback": "Yasak."
+                  }
+                ]
+              }
+            }
           }
         ],
         "6-24": [
           {
             "clock": "Gece",
-            "prompt": "Geçici barınmada neye dikkat edersin?",
-            "prepHooks": ["canta:battaniye", "canta:ilac"],
-            "options": [
-              { "text": "Solunum yolu ve ilaç ihtiyaçlarını kontrol ederim", "correct": true, "feedback": "Duman astım ve kalp hastalarını tetikler; ilaç yedeği şarttır." },
-              { "text": "Dumanlı havada koşarak panik yaparım", "correct": false, "feedback": "Sakin hareket ve kapalı solunum koruyucu tercih edin." },
-              { "text": "Yangın bölgesine habersiz dönerim", "correct": false, "feedback": "Resmi izin olmadan bölgeye girmeyin." },
-              { "text": "Uyumadan sürekli haber izlerim", "correct": false, "feedback": "Kısa dinlenme dayanıklılık için gereklidir." }
-            ]
+            "prepHooks": [
+              "canta:battaniye",
+              "canta:ilac"
+            ],
+            "sceneByEnv": {
+              "apartman": "Site yönetimi tahliye anonsu yapıyor; asansör kapalı.",
+              "mustakil": "Evden çıkış için bahçe kapısı ve ana yol açık olmalı.",
+              "kirsal": "Köy yolu duman altında; rüzgar yönü değişebilir.",
+              "isyeri": "Okul/iş yeri zil ve anons ile tahliye başlatıldı."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Barınma — duman maruziyeti?",
+                "options": [
+                  {
+                    "text": "Solunum ve ilaç kontrolü",
+                    "correct": true,
+                    "feedback": "Duman etkisi."
+                  },
+                  {
+                    "text": "Dumanlı havada koşarım",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Bölgeye geri dönerim",
+                    "correct": false,
+                    "feedback": "Yasak."
+                  },
+                  {
+                    "text": "Uyumam",
+                    "correct": false,
+                    "feedback": "Dinlenme gerekli."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Çocuklar öksürüyor.",
+                "options": [
+                  {
+                    "text": "Çocukların solunumunu izler, ilaç ve sıcak tutma",
+                    "correct": true,
+                    "feedback": "Çocuklar hassas."
+                  },
+                  {
+                    "text": "Çocukları dumanlı alanda bırakırım",
+                    "correct": false,
+                    "feedback": "Risk."
+                  },
+                  {
+                    "text": "Çocuklara korku filmi izletirim",
+                    "correct": false,
+                    "feedback": "Stres artar."
+                  },
+                  {
+                    "text": "İlaçları unuturum",
+                    "correct": false,
+                    "feedback": "Astım vb. risk."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Nefes darlığı hissi.",
+                "options": [
+                  {
+                    "text": "İlaç, sıcak tutma, tıbbi yardım hattı",
+                    "correct": true,
+                    "feedback": "65+ ve duman riski."
+                  },
+                  {
+                    "text": "İnhaleri kullanmam",
+                    "correct": false,
+                    "feedback": "Reçete ilaçları."
+                  },
+                  {
+                    "text": "Dumanlı alanda egzersiz yaparım",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Yardım istemem",
+                    "correct": false,
+                    "feedback": "112/AFAD."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurt barınması sağlık.",
+                "options": [
+                  {
+                    "text": "Öksürük, ateş varsa bildiririm",
+                    "correct": true,
+                    "feedback": "Toplu yaşamda bildirin."
+                  },
+                  {
+                    "text": "Hastayım gizlerim",
+                    "correct": false,
+                    "feedback": "Bulaşır."
+                  },
+                  {
+                    "text": "Sigara içerim",
+                    "correct": false,
+                    "feedback": "Yangın riski."
+                  },
+                  {
+                    "text": "Uyumam",
+                    "correct": false,
+                    "feedback": "Dinlenme."
+                  }
+                ]
+              }
+            }
           }
         ],
         "24-48": [
           {
             "clock": "2. gün",
-            "prompt": "Su-gıda ve bilgi kaynağı?",
-            "prepHooks": ["canta:su", "canta:gida", "canta:radyo"],
-            "options": [
-              { "text": "Resmi duyuru + çanta stoğu ile ölçülü tüketim", "correct": true, "feedback": "Pilli radyo ve resmi kaynaklar yanlış bilgiyi azaltır." },
-              { "text": "Sosyal medyadaki her paylaşıma inanırım", "correct": false, "feedback": "Doğrulanmamış söylentiler paniği artırır." },
-              { "text": "Hiç su içmem", "correct": false, "feedback": "Dehidrasyon karar vermeyi zorlaştırır." },
-              { "text": "Yangın bölgesinden toplanan gıdayı paylaşırım", "correct": false, "feedback": "Kontrolsüz gıda dağıtımı hijyen riski taşır." }
-            ]
+            "prepHooks": [
+              "canta:su",
+              "canta:gida",
+              "canta:radyo"
+            ],
+            "sceneByEnv": {
+              "apartman": "Site yönetimi tahliye anonsu yapıyor; asansör kapalı.",
+              "mustakil": "Evden çıkış için bahçe kapısı ve ana yol açık olmalı.",
+              "kirsal": "Köy yolu duman altında; rüzgar yönü değişebilir.",
+              "isyeri": "Okul/iş yeri zil ve anons ile tahliye başlatıldı."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Bilgi ve su-gıda?",
+                "options": [
+                  {
+                    "text": "Resmi kaynak + çanta stoğu",
+                    "correct": true,
+                    "feedback": "Doğru bilgi."
+                  },
+                  {
+                    "text": "Her söylentiye inanırım",
+                    "correct": false,
+                    "feedback": "Panik."
+                  },
+                  {
+                    "text": "Su içmem",
+                    "correct": false,
+                    "feedback": "Gerekli."
+                  },
+                  {
+                    "text": "Yangın bölgesi gıdası",
+                    "correct": false,
+                    "feedback": "Hijyen."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Çocuklara bilgi?",
+                "options": [
+                  {
+                    "text": "Resmi kaynak, sade dil, ölçülü su-gıda",
+                    "correct": true,
+                    "feedback": "Çocuklara uygun bilgi."
+                  },
+                  {
+                    "text": "Sosyal medya söylentileri",
+                    "correct": false,
+                    "feedback": "Yanlış bilgi."
+                  },
+                  {
+                    "text": "Çocuklara korkutucu video",
+                    "correct": false,
+                    "feedback": "Travma."
+                  },
+                  {
+                    "text": "Hiç su vermem",
+                    "correct": false,
+                    "feedback": "Çocuklar su içmeli."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "İlaç ve bilgi?",
+                "options": [
+                  {
+                    "text": "Pilli radyo, resmi duyuru, ilaç düzeni",
+                    "correct": true,
+                    "feedback": "65+ için çoklu ihtiyaç."
+                  },
+                  {
+                    "text": "Sürekli TV, uyumam",
+                    "correct": false,
+                    "feedback": "Dinlenme."
+                  },
+                  {
+                    "text": "İlaçları atlarım",
+                    "correct": false,
+                    "feedback": "Risk."
+                  },
+                  {
+                    "text": "Yardım reddederim",
+                    "correct": false,
+                    "feedback": "Destek faydalı."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurt ve haber?",
+                "options": [
+                  {
+                    "text": "Resmi duyuru + yurt yönetimi",
+                    "correct": true,
+                    "feedback": "Doğru kaynak."
+                  },
+                  {
+                    "text": "TikTok söylentileri",
+                    "correct": false,
+                    "feedback": "Yanlış."
+                  },
+                  {
+                    "text": "Hiç su içmem",
+                    "correct": false,
+                    "feedback": "Dehidrasyon."
+                  },
+                  {
+                    "text": "Yurda zorla girerim",
+                    "correct": false,
+                    "feedback": "Onay."
+                  }
+                ]
+              }
+            }
           }
         ],
         "48-72": [
           {
             "clock": "3. gün",
-            "prompt": "Psikolojik toparlanma?",
-            "prepHooks": ["plan:familyName"],
-            "options": [
-              { "text": "Aile bireyleriyle kısa toplantı, görev paylaşımı ve dinlenme", "correct": true, "feedback": "Yapılandırılmış iletişim stresi azaltır." },
-              { "text": "Hiç konuşmadan izole kalırım", "correct": false, "feedback": "Sosyal destek iyileşmeyi hızlandırır." },
-              { "text": "Çocuklara detaylı korkutucu anlatım yaparım", "correct": false, "feedback": "Yaşa uygun, sade bilgi verin." },
-              { "text": "Yardım reddederim", "correct": false, "feedback": "Psikososyal destek hatları bu dönemde aktiftir." }
-            ]
+            "prepHooks": [
+              "plan:familyName"
+            ],
+            "sceneByEnv": {
+              "apartman": "Site yönetimi tahliye anonsu yapıyor; asansör kapalı.",
+              "mustakil": "Evden çıkış için bahçe kapısı ve ana yol açık olmalı.",
+              "kirsal": "Köy yolu duman altında; rüzgar yönü değişebilir.",
+              "isyeri": "Okul/iş yeri zil ve anons ile tahliye başlatıldı."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Psikolojik toparlanma?",
+                "options": [
+                  {
+                    "text": "Rutin, dinlenme, resmi bilgi",
+                    "correct": true,
+                    "feedback": "Stres yönetimi."
+                  },
+                  {
+                    "text": "İzole kalırım",
+                    "correct": false,
+                    "feedback": "Destek faydalı."
+                  },
+                  {
+                    "text": "Sürekli haber",
+                    "correct": false,
+                    "feedback": "Yorgunluk."
+                  },
+                  {
+                    "text": "Yardım reddederim",
+                    "correct": false,
+                    "feedback": "Destek alın."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Aile ile toparlanma?",
+                "options": [
+                  {
+                    "text": "Aile toplantısı, görev paylaşımı, çocuklara sade dil",
+                    "correct": true,
+                    "feedback": "Yapı destekler."
+                  },
+                  {
+                    "text": "Çocuklara detaylı korku anlatırım",
+                    "correct": false,
+                    "feedback": "Travma."
+                  },
+                  {
+                    "text": "Hiç konuşmam",
+                    "correct": false,
+                    "feedback": "İletişim iyileştirir."
+                  },
+                  {
+                    "text": "Çocukları suçlarım",
+                    "correct": false,
+                    "feedback": "Stres artar."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Yalnızlık ve stres?",
+                "options": [
+                  {
+                    "text": "Komşu/aile iletişimi, rutin, ilaç",
+                    "correct": true,
+                    "feedback": "Sosyal bağ önemli."
+                  },
+                  {
+                    "text": "Kimseyle konuşmam",
+                    "correct": false,
+                    "feedback": "İzolasyon."
+                  },
+                  {
+                    "text": "İlaçları bırakırım",
+                    "correct": false,
+                    "feedback": "Devam edin."
+                  },
+                  {
+                    "text": "Yardım istemem",
+                    "correct": false,
+                    "feedback": "Normaldir."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Sınav stresi + afet?",
+                "options": [
+                  {
+                    "text": "Resmi bilgi, aile/yurt iletişim, dinlenme",
+                    "correct": true,
+                    "feedback": "Denge."
+                  },
+                  {
+                    "text": "Sürekli sosyal medya",
+                    "correct": false,
+                    "feedback": "Stres."
+                  },
+                  {
+                    "text": "Uyumam",
+                    "correct": false,
+                    "feedback": "Dinlenme."
+                  },
+                  {
+                    "text": "Psikolojik destekten utanırım",
+                    "correct": false,
+                    "feedback": "Destek alın."
+                  }
+                ]
+              }
+            }
           }
         ]
       }
     },
     "heyelan": {
       "label": "Heyelan",
-      "eventIntro": "Saat {time}’te şiddetli yağış sonrası yamaçta toprak kayması ve heyelan uyarısı yapıldı.",
+      "eventIntro": "Saat {time}'te şiddetli yağış sonrası heyelan uyarısı yapıldı.",
+      "eventIntroByChar": {
+        "yetiskin": "Saat {time}'te yamaç altında heyelan riski uyarısı aldınız.",
+        "aile": "Saat {time}'te çocukları uyandırıp heyelan uyarısı geldi.",
+        "yasli": "Saat {time}'te heyelan sesi; komşu yardımı gerekebilir.",
+        "ogrenci": "Saat {time}'te yurtta heyelan ve tahliye uyarısı yapıldı."
+      },
       "phases": {
         "0-1": [
           {
             "clock": "03:15",
-            "prompt": "Gürültü ve zemin hareketi hissediyorsunuz. Ne yaparsın?",
-            "prepHooks": ["canta:fener", "plan:meeting2"],
-            "options": [
-              { "text": "Yamaç altındaysam yan ve yukarı yöne hızla uzaklaşırım", "correct": true, "feedback": "Heyelan yoluna dik kaçış en güvenli yöntemlerden biridir." },
-              { "text": "Pencereden dışarı bakarım", "correct": false, "feedback": "Cam kırılması ve ani kayma riski vardır." },
-              { "text": "Bodrumda kalırım", "correct": false, "feedback": "Alt katlar toprak ve su baskınına en açık alanlardır." },
-              { "text": "Araçla dar vadiden geçerim", "correct": false, "feedback": "Vadi ve dere yatağı heyelan akış yoludur." }
-            ]
+            "prepHooks": [
+              "canta:fener",
+              "plan:meeting2"
+            ],
+            "sceneByEnv": {
+              "apartman": "Yamaç altındaki apartman bloğunda uyarı var.",
+              "mustakil": "Ev yamaç altında; bahçe duvarında çatlak görülebilir.",
+              "kirsal": "Yamaç ve dere yatağı yakınındasınız.",
+              "isyeri": "Okul binası eğimli arazide; bahçe ve otopark riskli."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Gürültü ve zemin hareketi. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Yamaç altındaysam yana ve yukarı kaçarım",
+                    "correct": true,
+                    "feedback": "Dik kaçış."
+                  },
+                  {
+                    "text": "Pencereden bakarım",
+                    "correct": false,
+                    "feedback": "Cam riski."
+                  },
+                  {
+                    "text": "Bodrumda kalırım",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Dar vadiden araçla geçerim",
+                    "correct": false,
+                    "feedback": "Heyelan yolu."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Heyelan uyarısı; çocuklar uyuyor.",
+                "options": [
+                  {
+                    "text": "Çocukları alıp yamaç dışı güvenli alana",
+                    "correct": true,
+                    "feedback": "Çocuklar önce."
+                  },
+                  {
+                    "text": "Önce eşya toplarım",
+                    "correct": false,
+                    "feedback": "Can önce."
+                  },
+                  {
+                    "text": "Çocukları arabada bırakıp bakarım",
+                    "correct": false,
+                    "feedback": "Gözetim."
+                  },
+                  {
+                    "text": "Vadiden hızlı geçerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Heyelan sesi; hareket kısıtlı.",
+                "options": [
+                  {
+                    "text": "Komşuya seslenir, yamaçtan uzak güvenli alan",
+                    "correct": true,
+                    "feedback": "Yardım ve uzaklaşma."
+                  },
+                  {
+                    "text": "Tek başıma vadiye inerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Bodrumda kalırım",
+                    "correct": false,
+                    "feedback": "Risk."
+                  },
+                  {
+                    "text": "Koşmaya çalışırım, düşerim",
+                    "correct": false,
+                    "feedback": "Düşme riski."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurtta heyelan uyarısı.",
+                "options": [
+                  {
+                    "text": "Görevli talimatıyla tahliye alanına",
+                    "correct": true,
+                    "feedback": "Toplu yönetim."
+                  },
+                  {
+                    "text": "Dışarı izlemeye giderim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Odamda kalırım",
+                    "correct": false,
+                    "feedback": "Talimat."
+                  },
+                  {
+                    "text": "Vadiden kısayol",
+                    "correct": false,
+                    "feedback": "Yasak."
+                  }
+                ]
+              }
+            }
           }
         ],
         "1-6": [
           {
             "clock": "06:00",
-            "prompt": "Güvenli alandasınız. İletişim?",
-            "prepHooks": ["canta:powerbank", "plan:outContact"],
-            "options": [
-              { "text": "112 ve şehir dışı irtibat kişisine konum bilgisi gönderirim", "correct": true, "feedback": "Konum ve kişi sayısı kurtarma ekiplerine yardımcı olur." },
-              { "text": "Heyelan bölgesine fotoğraf için dönerim", "correct": false, "feedback": "İkinci heyelan riski yüksektir." },
-              { "text": "Sessiz kalırım", "correct": false, "feedback": "Durum bildirimi hayati önem taşır." },
-              { "text": "Tüm gün arama yaparım", "correct": false, "feedback": "Bataryayı idareli kullanın; SMS tercih edin." }
-            ]
+            "prepHooks": [
+              "canta:powerbank",
+              "plan:outContact"
+            ],
+            "sceneByEnv": {
+              "apartman": "Yamaç altındaki apartman bloğunda uyarı var.",
+              "mustakil": "Ev yamaç altında; bahçe duvarında çatlak görülebilir.",
+              "kirsal": "Yamaç ve dere yatağı yakınındasınız.",
+              "isyeri": "Okul binası eğimli arazide; bahçe ve otopark riskli."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Güvenli alandasınız. İletişim?",
+                "options": [
+                  {
+                    "text": "112 + şehir dışı SMS, konum",
+                    "correct": true,
+                    "feedback": "Konum kritik."
+                  },
+                  {
+                    "text": "Bölgeye fotoğraf için dönerim",
+                    "correct": false,
+                    "feedback": "İkinci heyelan."
+                  },
+                  {
+                    "text": "Sessiz kalırım",
+                    "correct": false,
+                    "feedback": "Bildirin."
+                  },
+                  {
+                    "text": "Gün boyu arama",
+                    "correct": false,
+                    "feedback": "Batarya."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Aile güvende mi?",
+                "options": [
+                  {
+                    "text": "Aile üyeleri ve irtibat kişisine kısa SMS",
+                    "correct": true,
+                    "feedback": "Koordinasyon."
+                  },
+                  {
+                    "text": "Sadece bir çocuğu ararım",
+                    "correct": false,
+                    "feedback": "Hepsini bilgilendirin."
+                  },
+                  {
+                    "text": "Çocukları ayırmadan tek tek ararım",
+                    "correct": false,
+                    "feedback": "SMS verimli."
+                  },
+                  {
+                    "text": "Kimseye haber vermem",
+                    "correct": false,
+                    "feedback": "Endişe."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Yardım ve iletişim?",
+                "options": [
+                  {
+                    "text": "Komşu telefonuyla 112 ve aileye SMS",
+                    "correct": true,
+                    "feedback": "Alternatif iletişim."
+                  },
+                  {
+                    "text": "Telefonum yok diye vazgeçerim",
+                    "correct": false,
+                    "feedback": "Komşu yardımı."
+                  },
+                  {
+                    "text": "Heyelan alanına dönerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Konumumu paylaşmam",
+                    "correct": false,
+                    "feedback": "Kurtarma için gerekli."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurtta iletişim?",
+                "options": [
+                  {
+                    "text": "Aileye SMS, yurt sayımına katılırım",
+                    "correct": true,
+                    "feedback": "Sayım önemli."
+                  },
+                  {
+                    "text": "Sosyal medyada konum paylaşırım",
+                    "correct": false,
+                    "feedback": "Güvenlik."
+                  },
+                  {
+                    "text": "Hiç haber vermem",
+                    "correct": false,
+                    "feedback": "Aile endişelenir."
+                  },
+                  {
+                    "text": "Bölgeye geri giderim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  }
+                ]
+              }
+            }
           }
         ],
         "6-24": [
           {
             "clock": "Öğle",
-            "prompt": "Barınma ve sağlık?",
-            "prepHooks": ["canta:ilkYardim", "canta:battaniye"],
-            "options": [
-              { "text": "Yaralıları taşımadan önce ilk yardım ve sıcak tutma", "correct": true, "feedback": "Yanlış taşıma omurilik yaralanmasına yol açabilir." },
-              { "text": "Ağır yaralıyı tek başıma sürüklerim", "correct": false, "feedback": "Profesyonel ekipleri bekleyin, mümkünse sabitleyin." },
-              { "text": "Islak ve soğuk ortamda beklerim", "correct": false, "feedback": "Termal battaniye ve kuru kıyafet hipotermiyi önler." },
-              { "text": "Evde kalırım", "correct": false, "feedback": "Riskli yapıdan uzak güvenli alan tercih edin." }
-            ]
+            "prepHooks": [
+              "canta:ilkYardim",
+              "canta:battaniye"
+            ],
+            "sceneByEnv": {
+              "apartman": "Yamaç altındaki apartman bloğunda uyarı var.",
+              "mustakil": "Ev yamaç altında; bahçe duvarında çatlak görülebilir.",
+              "kirsal": "Yamaç ve dere yatağı yakınındasınız.",
+              "isyeri": "Okul binası eğimli arazide; bahçe ve otopark riskli."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Yaralı var. Ne yaparsınız?",
+                "options": [
+                  {
+                    "text": "Yanlış taşımadan ilk yardım, profesyonel çağırırım",
+                    "correct": true,
+                    "feedback": "Omurilik riski."
+                  },
+                  {
+                    "text": "Ağır yaralıyı sürüklerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Islak soğukta beklerim",
+                    "correct": false,
+                    "feedback": "Hipotermi."
+                  },
+                  {
+                    "text": "İlk yardım bilmeden müdahale",
+                    "correct": false,
+                    "feedback": "Eğitim varsa."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Çocuk hafif yaralı.",
+                "options": [
+                  {
+                    "text": "Çocuğu sakinleştirir, ilk yardım, 112",
+                    "correct": true,
+                    "feedback": "Sakin yetişkin."
+                  },
+                  {
+                    "text": "Panikle koşarım, çocuğu sallarım",
+                    "correct": false,
+                    "feedback": "Sakin kalın."
+                  },
+                  {
+                    "text": "Yarayı görmezden gelirim",
+                    "correct": false,
+                    "feedback": "Enfeksiyon."
+                  },
+                  {
+                    "text": "Çocuğu taşımaya zorlarım",
+                    "correct": false,
+                    "feedback": "Boyun travması riski."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Düşme sonrası ağrı.",
+                "options": [
+                  {
+                    "text": "Hareket etmem, 112, komşu desteği",
+                    "correct": true,
+                    "feedback": "Omurilik şüphesi."
+                  },
+                  {
+                    "text": "Ayağa kalkıp yürürüm",
+                    "correct": false,
+                    "feedback": "Kırık riski."
+                  },
+                  {
+                    "text": "İlaçlarımı unuturum",
+                    "correct": false,
+                    "feedback": "Ağrı kesici reçete."
+                  },
+                  {
+                    "text": "Yaralıyı tek taşırım",
+                    "correct": false,
+                    "feedback": "Profesyonel yardım."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Arkadaş yaralı.",
+                "options": [
+                  {
+                    "text": "112, görevliye haber, yanlış taşımam",
+                    "correct": true,
+                    "feedback": "Profesyonel yardım."
+                  },
+                  {
+                    "text": "Fotoğraf çekerim",
+                    "correct": false,
+                    "feedback": "Önce yardım."
+                  },
+                  {
+                    "text": "Yaralıyı sürüklerim",
+                    "correct": false,
+                    "feedback": "Tehlikeli."
+                  },
+                  {
+                    "text": "Gizlerim",
+                    "correct": false,
+                    "feedback": "Bildirin."
+                  }
+                ]
+              }
+            }
           }
         ],
         "24-48": [
           {
             "clock": "2. gün",
-            "prompt": "Su ve gıda?",
-            "prepHooks": ["canta:su", "canta:gida"],
-            "options": [
-              { "text": "Çanta stoğu ve resmi yardım noktalarını birlikte kullanırım", "correct": true, "feedback": "Ulaşım kesintisinde önceden hazırlanan stok kritiktir." },
-              { "text": "Kaynak sudan içerim", "correct": false, "feedback": "Heyelan sonrası su kaynakları bulanık ve kirli olabilir." },
-              { "text": "Yalnızca çikolata yerim", "correct": false, "feedback": "Dengeli beslenme dayanıklılığı korur." },
-              { "text": "Hiç plan yapmam", "correct": false, "feedback": "Paylaşım ve planlama gerekir." }
-            ]
+            "prepHooks": [
+              "canta:su",
+              "canta:gida"
+            ],
+            "sceneByEnv": {
+              "apartman": "Yamaç altındaki apartman bloğunda uyarı var.",
+              "mustakil": "Ev yamaç altında; bahçe duvarında çatlak görülebilir.",
+              "kirsal": "Yamaç ve dere yatağı yakınındasınız.",
+              "isyeri": "Okul binası eğimli arazide; bahçe ve otopark riskli."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Su-gıda?",
+                "options": [
+                  {
+                    "text": "Çanta + resmi yardım",
+                    "correct": true,
+                    "feedback": "Stok kritik."
+                  },
+                  {
+                    "text": "Kaynak sudan içerim",
+                    "correct": false,
+                    "feedback": "Kirli."
+                  },
+                  {
+                    "text": "Hiç yemem",
+                    "correct": false,
+                    "feedback": "Enerji."
+                  },
+                  {
+                    "text": "Plan yapmam",
+                    "correct": false,
+                    "feedback": "Plan şart."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Aile su-gıda?",
+                "options": [
+                  {
+                    "text": "Çocuklara öncelikli paylaşım",
+                    "correct": true,
+                    "feedback": "Adil paylaşım."
+                  },
+                  {
+                    "text": "Yetişkinler önce",
+                    "correct": false,
+                    "feedback": "Çocuklar öncelik."
+                  },
+                  {
+                    "text": "Sadece çikolata",
+                    "correct": false,
+                    "feedback": "Dengeli."
+                  },
+                  {
+                    "text": "Hiç plan yok",
+                    "correct": false,
+                    "feedback": "Plan."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Ulaşım kesik; stok?",
+                "options": [
+                  {
+                    "text": "Çanta stoğu, komşu paylaşımı",
+                    "correct": true,
+                    "feedback": "Kırsalda stok hayati."
+                  },
+                  {
+                    "text": "Aç kalırım",
+                    "correct": false,
+                    "feedback": "Risk."
+                  },
+                  {
+                    "text": "Kirli sudan içerim",
+                    "correct": false,
+                    "feedback": "Sağlık."
+                  },
+                  {
+                    "text": "İlaçsız kalırım",
+                    "correct": false,
+                    "feedback": "İlaç alın."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurt dağıtımı?",
+                "options": [
+                  {
+                    "text": "Resmi dağıtım + çanta",
+                    "correct": true,
+                    "feedback": "Güvenli."
+                  },
+                  {
+                    "text": "Hiç su içmem",
+                    "correct": false,
+                    "feedback": "Gerekli."
+                  },
+                  {
+                    "text": "Dışarıdan her şey",
+                    "correct": false,
+                    "feedback": "Kesilebilir."
+                  },
+                  {
+                    "text": "Stok çalamam",
+                    "correct": false,
+                    "feedback": "Paylaşın."
+                  }
+                ]
+              }
+            }
           }
         ],
         "48-72": [
           {
             "clock": "3. gün",
-            "prompt": "Eve dönüş ve psikolojik destek?",
-            "prepHooks": ["plan:notes", "canta:ilac"],
-            "options": [
-              { "text": "Uzman onayı + aile planı notlarına göre adım adım dönüş", "correct": true, "feedback": "Yapı güvenliği onayı olmadan dönülmez." },
-              { "text": "Hemen eşya toplamaya giderim", "correct": false, "feedback": "Yeni kayma riski devam edebilir." },
-              { "text": "Trauma konuşmaktan kaçınırım", "correct": false, "feedback": "Açık iletişim iyileşmeye yardımcı olur." },
-              { "text": "İlaçları kontrol etmeden kullanırım", "correct": false, "feedback": "Nem ve darbe ilaçları bozabilir." }
-            ]
+            "prepHooks": [
+              "plan:notes",
+              "canta:ilac"
+            ],
+            "sceneByEnv": {
+              "apartman": "Yamaç altındaki apartman bloğunda uyarı var.",
+              "mustakil": "Ev yamaç altında; bahçe duvarında çatlak görülebilir.",
+              "kirsal": "Yamaç ve dere yatağı yakınındasınız.",
+              "isyeri": "Okul binası eğimli arazide; bahçe ve otopark riskli."
+            },
+            "variants": {
+              "yetiskin": {
+                "prompt": "Eve dönüş?",
+                "options": [
+                  {
+                    "text": "Uzman onayı beklerim",
+                    "correct": true,
+                    "feedback": "Güvenlik."
+                  },
+                  {
+                    "text": "Hemen girerim",
+                    "correct": false,
+                    "feedback": "Kayma riski."
+                  },
+                  {
+                    "text": "Eşya toplarım",
+                    "correct": false,
+                    "feedback": "Önce onay."
+                  },
+                  {
+                    "text": "Yalnız girerim",
+                    "correct": false,
+                    "feedback": "Refakat."
+                  }
+                ]
+              },
+              "aile": {
+                "prompt": "Çocuklarla dönüş?",
+                "options": [
+                  {
+                    "text": "Onay + çocukları güvenli alanda tutarım",
+                    "correct": true,
+                    "feedback": "Çocuklar riskli yapıya girmesin."
+                  },
+                  {
+                    "text": "Çocukları önce gönderirim",
+                    "correct": false,
+                    "feedback": "Önce onay."
+                  },
+                  {
+                    "text": "Çocuklara korku anlatırım",
+                    "correct": false,
+                    "feedback": "Sade dil."
+                  },
+                  {
+                    "text": "Hemen gireriz",
+                    "correct": false,
+                    "feedback": "Onay."
+                  }
+                ]
+              },
+              "yasli": {
+                "prompt": "Eve dönüş planı?",
+                "options": [
+                  {
+                    "text": "Onay + refakat + ilaç kontrolü",
+                    "correct": true,
+                    "feedback": "Güvenli dönüş."
+                  },
+                  {
+                    "text": "Tek başıma girerim",
+                    "correct": false,
+                    "feedback": "Düşme."
+                  },
+                  {
+                    "text": "Merdiveni hızlı çıkarım",
+                    "correct": false,
+                    "feedback": "Risk."
+                  },
+                  {
+                    "text": "İlaçsız girerim",
+                    "correct": false,
+                    "feedback": "İlaç alın."
+                  }
+                ]
+              },
+              "ogrenci": {
+                "prompt": "Yurda dönüş?",
+                "options": [
+                  {
+                    "text": "Yurt onayı beklerim",
+                    "correct": true,
+                    "feedback": "Resmi süreç."
+                  },
+                  {
+                    "text": "Zorla girerim",
+                    "correct": false,
+                    "feedback": "Güvenlik."
+                  },
+                  {
+                    "text": "Eşya için hemen",
+                    "correct": false,
+                    "feedback": "Onay."
+                  },
+                  {
+                    "text": "Aileye habersiz",
+                    "correct": false,
+                    "feedback": "Yol güvenliği."
+                  }
+                ]
+              }
+            }
           }
         ]
       }

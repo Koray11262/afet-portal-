@@ -524,6 +524,14 @@ app.get("/data/ilk-72-saat.json", (req, res) => {
   res.sendFile(path.join(__dirname, "data", "ilk-72-saat.json"));
 });
 
+app.get("/data/enkaz-mini-senaryo.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "data", "enkaz-mini-senaryo.json"));
+});
+
+app.get("/data/kids-mini-games.json", (req, res) => {
+  res.sendFile(path.join(__dirname, "data", "kids-mini-games.json"));
+});
+
 app.post("/api/hazirlik/akilli-oneri", async (req, res) => {
   const il = String(req.body?.il || req.query?.il || "").trim();
   const ilce = String(req.body?.ilce || req.query?.ilce || "").trim();
@@ -701,6 +709,15 @@ app.get("/afet-mudahale-plani", (req, res) => {
     pageTitle: afetMudahalePlani.title,
     nav: afetler,
     page: afetMudahalePlani,
+  });
+});
+
+app.get("/enkaz-altinda", (req, res) => {
+  res.render("enkaz-altinda", {
+    pageTitle: "Enkaz Altında Doğru Davranışlar",
+    nav: afetler,
+    lead: "",
+    extraScripts: `<script src="/enkaz-mini-senaryo.js"></script>`,
   });
 });
 

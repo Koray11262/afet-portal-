@@ -53,7 +53,7 @@
       </table>
     </div>
     <p class="homeEarthquakes__note muted">
-      Son <%= sonDepremler.items.length %> kayıt gösteriliyor (son 7 gün, Türkiye ve çevresi).
+      En güncel <%= sonDepremler.items.length %> kayıt (son <%= sonDepremler.daysBack || 7 %> gün, Türkiye ve çevresi).
       <a href="/afet/deprem">Deprem rehberi →</a>
     </p>
   <% } %>

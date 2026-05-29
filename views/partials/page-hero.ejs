@@ -1,20 +1,33 @@
 <% if (typeof pageHero !== "undefined" && pageHero) { %>
-  <div class="pageHero">
-    <% if (pageHero.crumbs && pageHero.crumbs.length) { %>
-      <nav class="pageHero__crumbs" aria-label="Breadcrumb">
-        <% pageHero.crumbs.forEach((c, i) => { %>
-          <% if (i > 0) { %><span class="pageHero__sep">/</span><% } %>
-          <% if (c.href) { %>
-            <a href="<%= c.href %>"><%= c.label %></a>
-          <% } else { %>
-            <span><%= c.label %></span>
-          <% } %>
-        <% }) %>
-      </nav>
-    <% } %>
-    <h1 class="pageHero__title"><%= pageHero.title || pageTitle %></h1>
-    <% if (pageHero.lead) { %>
-      <p class="pageHero__lead"><%= pageHero.lead %></p>
-    <% } %>
+  <div class="pageHero<%= pageHero.theme ? " pageHero--" + pageHero.theme : "" %>">
+    <div class="pageHero__inner">
+      <% if (pageHero.crumbs && pageHero.crumbs.length) { %>
+        <nav class="pageHero__crumbs" aria-label="Breadcrumb">
+          <% pageHero.crumbs.forEach((c, i) => { %>
+            <% if (i > 0) { %><span class="pageHero__sep">/</span><% } %>
+            <% if (c.href) { %>
+              <a href="<%= c.href %>"><%= c.label %></a>
+            <% } else { %>
+              <span><%= c.label %></span>
+            <% } %>
+          <% }) %>
+        </nav>
+      <% } %>
+      <h1 class="pageHero__title"><%= pageHero.title || pageTitle %></h1>
+      <% if (pageHero.lead) { %>
+        <p class="pageHero__lead"><%= pageHero.lead %></p>
+      <% } %>
+      <% if (pageHero.actions && pageHero.actions.length) { %>
+        <div class="pageHero__actions">
+          <% pageHero.actions.forEach((action) => { %>
+            <a
+              class="pageHero__btn btn <%= action.primary ? "btn--primary" : "btn--ghost" %>"
+              href="<%= action.href %>"
+              <%= action.external ? 'target="_blank" rel="noopener noreferrer"' : "" %>
+            ><%= action.label %></a>
+          <% }) %>
+        </div>
+      <% } %>
+    </div>
   </div>
 <% } %>

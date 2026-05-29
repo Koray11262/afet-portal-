@@ -5,6 +5,7 @@
     pageHero,
     extraScripts: `
       <script src="/farkindalik.js"></script>
+      <script src="/kids-mini-games.js"></script>
     `,
     body: `
       <div class="awareness">
@@ -62,48 +63,12 @@
                 <h3>Mini oyunlar</h3>
               </div>
               <p class="muted">
-                Amaç; “hazırlık = küçük adımlar” fikrini oyunla öğretmek. Aşağıdaki mini oyunda doğru malzemeleri acil çantaya koymaya çalışın.
-                (Çocuklar için: birlikte oynayın, her seçimin nedenini konuşun.)
+                Amaç; “hazırlık = küçük adımlar” fikrini oyunla öğretmek. Her gün üç farklı mini oyun gösterilir; birlikte oynayın ve her seçimin nedenini konuşun.
               </p>
 
-              <div class="kidsGame" data-kids-game="bag">
-                <div class="kidsGame__head">
-                  <strong>Acil Çanta: Doğru malzemeyi seç</strong>
-                  <span class="muted small" data-kids-score>0 / 6</span>
-                </div>
-
-                <div class="kidsGame__grid" aria-label="Mini oyun alanı">
-                  <div class="kidsGame__bag" aria-label="Acil çanta">
-                    <div class="kidsGame__bagTop">
-                      <span class="kidsGame__bagIcon" aria-hidden="true">🎒</span>
-                      <span><strong>Çanta</strong> <span class="muted small">(buraya bırak)</span></span>
-                    </div>
-                    <div class="kidsGame__drop" data-kids-drop></div>
-                    <div class="kidsGame__actions">
-                      <button type="button" class="btn btn--primary btn--sm" data-kids-action="check">Kontrol et</button>
-                      <button type="button" class="btn btn--ghost btn--sm" data-kids-action="reset">Sıfırla</button>
-                    </div>
-                    <div class="kidsGame__feedback" data-kids-feedback hidden></div>
-                  </div>
-
-                  <div class="kidsGame__items" aria-label="Malzemeler">
-                    <p class="muted small">Sürükle-bırak (veya tıkla) ile çantaya ekle:</p>
-                    <div class="kidsGame__itemGrid" data-kids-items>
-                      <button type="button" class="kidsItem" data-kids-item="water" data-kids-correct="1">💧 Su</button>
-                      <button type="button" class="kidsItem" data-kids-item="flashlight" data-kids-correct="1">🔦 El feneri</button>
-                      <button type="button" class="kidsItem" data-kids-item="whistle" data-kids-correct="1">📣 Düdük</button>
-                      <button type="button" class="kidsItem" data-kids-item="snack" data-kids-correct="1">🥫 Bozulmayan gıda</button>
-                      <button type="button" class="kidsItem" data-kids-item="bandage" data-kids-correct="1">🩹 İlk yardım</button>
-                      <button type="button" class="kidsItem" data-kids-item="blanket" data-kids-correct="1">🧣 Battaniye</button>
-
-                      <button type="button" class="kidsItem kidsItem--trap" data-kids-item="toy" data-kids-correct="0">🧸 Oyuncak</button>
-                      <button type="button" class="kidsItem kidsItem--trap" data-kids-item="perfume" data-kids-correct="0">🧴 Parfüm</button>
-                      <button type="button" class="kidsItem kidsItem--trap" data-kids-item="chips" data-kids-correct="0">🍟 Cips</button>
-                    </div>
-                    <p class="muted small">İpucu: AFAD çanta listesinde su, bozulmayan gıda, fener, düdük ve ilk yardım gibi temel kalemler öne çıkar.</p>
-                    <a class="btn btn--ghost btn--sm" href="https://www.afad.gov.tr/afet-ve-acil-durum-cantasi-nasil-hazirlanmali" target="_blank" rel="noopener noreferrer">AFAD çanta rehberi →</a>
-                  </div>
-                </div>
+              <div class="kidsGamesDaily" data-kids-games-daily>
+                <p class="kidsGamesDaily__meta muted small" data-kids-games-meta>Oyunlar yükleniyor…</p>
+                <div class="kidsGamesDaily__list" data-kids-games-list></div>
               </div>
               <a class="btn btn--ghost btn--sm" href="#cocuk-kaynaklari">Çocuk kaynakları →</a>
             </article>
@@ -482,7 +447,7 @@
                     <h3>Toplanma alanlarını öğren</h3>
                   </div>
                   <p class="muted">Konuma göre risk özeti ve yakın toplanma alanlarını gör.</p>
-                  <a class="btn btn--ghost btn--sm" href="/#konuma-gore-oneriler">Anasayfada aç →</a>
+                  <a class="btn btn--ghost btn--sm" href="/toplanma-alanlari">Toplanma alanları →</a>
                 </article>
                 <article class="panel awarenessCard">
                   <div class="awarenessCard__top">
