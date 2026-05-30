@@ -719,81 +719,352 @@
                 ]
               }
             ],
-            "beforeIntro": "Sel öncesinde riskleri azaltmak mümkündür.",
             "beforeSections": [
               {
-                "title": "Çevresel ve yapısal önlemler",
-                "bullets": [
-                  "Dere yataklarına ve taşkın alanlarına yapılaşmadan kaçın",
-                  "Yağmur suyu giderlerinin açık ve çalışır durumda olmasını sağla",
-                  "Bodrum katlarda değerli eşyaları bulundurmamaya dikkat et"
+                "title": "Vatandaşlar için hazırlık önerileri",
+                "paragraphs": []
+              },
+              {
+                "title": "Bölgenizdeki sel riskini öğrenin",
+                "paragraphs": [
+                  "Yaşadığınız bölgenin sel ve taşkın risk durumunu araştırın. Özellikle dere yatakları, nehir kenarları ve geçmişte sel yaşanmış alanlar hakkında bilgi sahibi olun. Sel riski yüksek bölgelerde yaşamaktan kaçının."
                 ]
               },
               {
-                "title": "Bilgi ve takip",
-                "bullets": [
-                  "Hava durumu ve yağış uyarılarını takip et (örneğin Meteoroloji Genel Müdürlüğü)",
-                  "Riskli bölgelerde yaşıyorsan erken tahliye planı yap"
+                "title": "Hava durumu ve resmî uyarıları takip edin",
+                "paragraphs": [
+                  "Meteorolojik uyarıları düzenli olarak takip edin. Televizyon, radyo, mobil uygulamalar ve resmî kurumların duyuruları olası risklere karşı erken önlem almanızı sağlar. Kısa süreli yoğun yağışların ani sellere, uzun süreli yağışların ise nehir taşkınlarına neden olabileceğini unutmayın."
                 ]
               },
               {
-                "title": "Hazırlık",
-                "bullets": [
-                  "Acil durum çantası hazır bulundur",
-                  "Elektrik ve gaz sistemlerini kapatma yöntemlerini öğren"
+                "title": "Aile afet planınızı hazırlayın",
+                "paragraphs": [
+                  "Aile bireyleriyle birlikte acil durum planı oluşturun. Toplanma noktalarını, iletişim yöntemlerini ve tahliye güzergâhlarını önceden belirleyin. Sel riskini planınızın önemli bir parçası haline getirin."
+                ]
+              },
+              {
+                "title": "Acil durum malzemeleri hazırlayın",
+                "paragraphs": [
+                  "Sel sırasında kullanılabilecek malzemeleri önceden temin edin. İlk yardım çantası, el feneri, yedek pil, powerbank, su, gıda ve gerekli durumlarda kum torbaları gibi ekipmanlar bulundurmak faydalı olacaktır."
+                ]
+              },
+              {
+                "title": "Konutunuzu sigortalatın",
+                "paragraphs": [
+                  "Ev ve iş yerinizi sel riskine karşı sigortalatmayı değerlendirin. Sigorta, afet sonrasında oluşabilecek maddi kayıpların azaltılmasına yardımcı olur."
+                ]
+              },
+              {
+                "title": "Uyarı ve tahliye sistemlerini öğrenin",
+                "paragraphs": [
+                  "Yaşadığınız bölgede bulunan sel uyarı işaretlerini, tahliye yollarını ve güvenli alanları önceden öğrenin. Acil durumlarda hızlı hareket edebilmek için bu bilgilerin tüm aile bireyleri tarafından bilinmesi önemlidir."
+                ]
+              },
+              {
+                "title": "Çevrenin korunmasına destek verin",
+                "paragraphs": [
+                  "Ağaçlandırma faaliyetlerini destekleyin, yeşil alanların korunmasına katkı sağlayın ve çevreye atık bırakmayın. Sağlıklı çevre, sel ve erozyon riskinin azaltılmasına yardımcı olur."
+                ]
+              },
+              {
+                "title": "Yerel yönetimler ve kurumlar tarafından alınması gereken önlemler",
+                "paragraphs": []
+              },
+              {
+                "title": "Erken uyarı sistemleri kurulmalıdır",
+                "paragraphs": [
+                  "Meteorolojik radarlar, uydu sistemleri ve erken uyarı teknolojileri kullanılarak olası sel riskleri önceden tespit edilmeli ve halka zamanında duyurulmalıdır."
+                ]
+              },
+              {
+                "title": "Acil müdahale ekipleri oluşturulmalıdır",
+                "paragraphs": [
+                  "İl ve ilçe düzeyinde kurtarma ekipleri oluşturulmalı, bu ekipler erken uyarı sistemleriyle koordineli şekilde çalışmalıdır."
+                ]
+              },
+              {
+                "title": "Halkın bilgilendirilmesi sağlanmalıdır",
+                "paragraphs": [
+                  "Yerel radyo, televizyon ve diğer iletişim kanalları aracılığıyla vatandaşlara olası riskler ve alınması gereken önlemler hakkında düzenli bilgilendirme yapılmalıdır."
+                ]
+              },
+              {
+                "title": "Dere yataklarında yapılaşma önlenmelidir",
+                "paragraphs": [
+                  "Taşkın riski bulunan dere yatakları ve su yolları çevresinde plansız yapılaşmaya izin verilmemelidir."
+                ]
+              },
+              {
+                "title": "Drenaj sistemleri düzenli olarak temizlenmelidir",
+                "paragraphs": [
+                  "Yağmur suyu kanalları, dere yatakları ve su tahliye sistemleri düzenli olarak kontrol edilmeli ve tıkanıklıklar giderilmelidir."
+                ]
+              },
+              {
+                "title": "Dere ve akarsu ıslah çalışmaları yapılmalıdır",
+                "paragraphs": [
+                  "Yerleşim yerlerinden geçen dere ve akarsuların düzenli bakımı yapılmalı, taşkın riskini azaltacak altyapı çalışmaları sürdürülmelidir."
+                ]
+              },
+              {
+                "title": "Erozyon ve sel riskini azaltacak çalışmalar yapılmalıdır",
+                "paragraphs": [
+                  "Yeşil alanlar korunmalı, ağaçlandırma faaliyetleri artırılmalı ve eğimli arazilerde teraslama gibi uygulamalar desteklenmelidir."
+                ]
+              },
+              {
+                "title": "Şehir altyapısı güçlendirilmelidir",
+                "paragraphs": [
+                  "Yağmur suyu drenaj sistemleri yeterli kapasitede olmalı ve düzenli bakım çalışmalarıyla sürekli çalışır durumda tutulmalıdır."
+                ]
+              },
+              {
+                "title": "Yapılaşmada sel riski dikkate alınmalıdır",
+                "paragraphs": [
+                  "Sel tehlikesi bulunan bölgelerde bodrum kat kullanımından kaçınılmalı, binaların giriş seviyeleri taşkın riskine karşı uygun yükseklikte planlanmalıdır."
                 ]
               }
             ],
-            "duringIntro": "Sel anında en önemli konu suyun gücünü hafife almamaktır.",
+            "beforeActions": [
+              {
+                "label": "Acil çantanı oluştur",
+                "href": "/acil-canta"
+              },
+              {
+                "label": "Aile afet planını yaz",
+                "href": "/aile-afet-plani"
+              },
+              {
+                "label": "Hazırlık skorunu ölç",
+                "href": "/hazirlik-skoru"
+              },
+              {
+                "label": "İl riskine bak",
+                "href": "/il-riskleri",
+                "dynamicIl": true
+              },
+              {
+                "label": "Toplanma alanını kaydet",
+                "href": "/toplanma-alanlari"
+              }
+            ],
             "duringSections": [
               {
-                "title": "Açık alandaysan",
-                "bullets": [
-                  "Hemen yüksek bir yere çık",
-                  "Akan sudan uzak dur, suyun derinliği ve akış hızı yanıltıcı olabilir"
+                "title": "Sel uyarısı yapıldığında yapılması gerekenler",
+                "paragraphs": []
+              },
+              {
+                "title": "Yüksek ve güvenli bölgelere hazırlanın",
+                "paragraphs": [
+                  "Sel riski bulunduğuna dair uyarı alırsanız, ani su baskınlarının oluşabileceğini göz önünde bulundurun. Gerektiğinde yüksek ve güvenli bölgelere çıkmak için hazırlıklı olun ve resmi talimatları takip edin."
                 ]
               },
               {
-                "title": "Araçtaysan",
-                "bullets": [
-                  "Su basmış yollara kesinlikle girme",
-                  "Araçta kalmak riskliyse güvenli bir yere çık"
+                "title": "Riskli alanlardan uzak durun",
+                "paragraphs": [
+                  "Dere yatakları, nehir kenarları, vadiler, hendekler ve kanyonlar gibi su baskını riski yüksek bölgelerden uzak durun. Bu alanlarda bulunuyorsanız güvenli bölgelere geçin."
                 ]
               },
               {
-                "title": "Kapalı alandaysan",
-                "bullets": [
-                  "Elektrik kaynaklarından uzak dur",
-                  "Üst katlara çık",
-                  "Gerekirse binayı terk et"
+                "title": "Acil durum çantanızı hazır bulundurun",
+                "paragraphs": [
+                  "Her an tahliye gerekebileceği için afet ve acil durum çantanızı kolay ulaşılabilir bir yerde bulundurun. Çantanızda su, kuru gıda, ilk yardım malzemeleri, el feneri ve gerekli ilaçlar yer almalıdır."
+                ]
+              },
+              {
+                "title": "Evinizi güvence altına alın",
+                "paragraphs": [
+                  "Elektrikli cihazların fişlerini çekin, sigortaları kapatın ve gaz ile su vanalarını kontrol edin. Aracınızı güvenli ve yüksek bir bölgeye park edin."
+                ]
+              },
+              {
+                "title": "Temiz su ve önemli belgeleri koruyun",
+                "paragraphs": [
+                  "Şebeke suyunun kirlenme ihtimaline karşı evinizde yeterli miktarda temiz su bulundurun. Kimlik, pasaport, tapu gibi önemli evraklarınızı su geçirmez bir dosyada muhafaza edin."
+                ]
+              },
+              {
+                "title": "Yakınlarınızı bilgilendirin",
+                "paragraphs": [
+                  "Komşularınızı, yaşlı bireyleri ve yardıma ihtiyaç duyabilecek kişileri sel riski konusunda uyarın. Evcil hayvanlarınızın da güvenli bir ortamda olduğundan emin olun."
+                ]
+              },
+              {
+                "title": "Sel sırasında yapılması gerekenler",
+                "paragraphs": []
+              },
+              {
+                "title": "Sakin kalın ve güvenli bölgeye geçin",
+                "paragraphs": [
+                  "Panik yapmadan sel bölgesini terk edin ve yüksek noktalara yönelin. Su seviyesinin hızla yükselebileceğini unutmayın."
+                ]
+              },
+              {
+                "title": "Sel sularına girmeyin",
+                "paragraphs": [
+                  "Ayak bileği seviyesindeki akıntılı su bile insanları sürükleyebilir. Daha derin sularda araçlar da kontrolünü kaybedebilir. Bu nedenle sel sularından geçmeye çalışmayın."
+                ]
+              },
+              {
+                "title": "Elektrik kaynaklarından uzak durun",
+                "paragraphs": [
+                  "Kopmuş elektrik hatları veya suyla temas eden elektrik kaynakları ölümcül risk oluşturabilir. Su birikintilerine yaklaşırken dikkatli olun."
+                ]
+              },
+              {
+                "title": "Çocukları ve evcil hayvanları koruyun",
+                "paragraphs": [
+                  "Sel suları kanalizasyon atıkları ve zararlı kimyasallar içerebilir. Çocukların sel sularında oynamasına kesinlikle izin vermeyin."
+                ]
+              },
+              {
+                "title": "Gıda güvenliğine dikkat edin",
+                "paragraphs": [
+                  "Sel sularıyla temas etmiş yiyecek ve içecekleri tüketmeyin. Bunlar sağlık açısından ciddi risk oluşturabilir."
+                ]
+              },
+              {
+                "title": "Gaz kaçağı riskine karşı önlem alın",
+                "paragraphs": [
+                  "Gaz kokusu alıyorsanız veya gaz sızıntısından şüpheleniyorsanız elektrikli cihazları kullanmayın. Aydınlatma için yalnızca pilli el feneri kullanın."
+                ]
+              },
+              {
+                "title": "Yapısal risklere karşı dikkatli olun",
+                "paragraphs": [
+                  "İstinat duvarları, bahçe duvarları ve suyun etkilediği yapıların çökme ihtimali bulunabilir. Bu bölgelerden uzak durun."
+                ]
+              },
+              {
+                "title": "Sel sırasında evinizi koruma yöntemleri",
+                "paragraphs": []
+              },
+              {
+                "title": "Geçici bariyerler oluşturun",
+                "paragraphs": [
+                  "Kapı ve pencerelerin önüne taşınabilir engeller veya kum torbaları yerleştirerek su girişini azaltabilirsiniz."
+                ]
+              },
+              {
+                "title": "Kum torbalarından yararlanın",
+                "paragraphs": [
+                  "Kum torbaları kullanarak akan suyun ve sürüklenen enkazın yönünü değiştirebilir, yapınızı kısmen koruyabilirsiniz."
+                ]
+              },
+              {
+                "title": "Yapı üzerindeki basınca dikkat edin",
+                "paragraphs": [
+                  "Bazı durumlarda suyun kontrollü şekilde binadan geçmesine izin verilmesi, dışarıdaki su basıncının bina duvarlarına zarar vermesini önleyebilir. Ancak bu tür uygulamalar yalnızca güvenli olduğu durumlarda yapılmalıdır."
+                ]
+              },
+              {
+                "title": "Sel sırasında araç içindeyseniz",
+                "paragraphs": []
+              },
+              {
+                "title": "Suyla kaplı yollara girmeyin",
+                "paragraphs": [
+                  "Sel nedeniyle kapanmış veya su altında kalmış yollarda araç kullanmaya çalışmayın. Su derinliği ve akıntının gücü tahmin edilenden çok daha fazla olabilir."
+                ]
+              },
+              {
+                "title": "Aracınızı terk etmekten çekinmeyin",
+                "paragraphs": [
+                  "Aracınız su içinde kaldıysa veya arıza yaptıysa, vakit kaybetmeden güvenli bir şekilde araçtan çıkın ve yüksek bir noktaya ulaşmaya çalışın."
+                ]
+              },
+              {
+                "title": "Akıntının gücünü hafife almayın",
+                "paragraphs": [
+                  "Yaklaşık 60 santimetre yüksekliğindeki hareketli su bile araçları sürükleyebilir. Bu nedenle araçla sel sularını geçmeye çalışmak ciddi risk oluşturur."
                 ]
               }
             ],
             "afterIntro": "Sel sonrası da sağlık ve güvenlik riskleri devam eder.",
             "afterSections": [
               {
-                "title": "Güvenlik kontrolü",
-                "bullets": [
-                  "Su çekilmeden binalara girme",
-                  "Elektrik sistemlerini kontrol etmeden kullanma"
+                "title": "Eve Dönüş Güvenliği",
+                "paragraphs": [
+                  "Yetkililer tarafından \"geri dönün\" uyarısı verilmeden evinize girmeyin. Binanın genel durumu kontrol edilmeden yaşam alanına geçiş yapılmamalıdır."
                 ]
               },
               {
-                "title": "Sağlık önlemleri",
+                "title": "Yapısal Kontroller",
                 "bullets": [
-                  "Kirli suyla temas etmekten kaçın",
-                  "İçme suyu olarak güvenli kaynakları kullan"
+                  "Duvar, zemin, pencere ve tavanlarda hasar olup olmadığı kontrol edilmelidir",
+                  "Sıva ve benzeri yapı malzemelerinin dökülme riski incelenmelidir",
+                  "Binanın taşıyıcı yapısında zayıflama olup olmadığına dikkat edilmelidir"
                 ]
               },
               {
-                "title": "İletişim ve destek",
+                "title": "Elektrik ve Gaz Güvenliği",
                 "bullets": [
-                  "Yetkililerin uyarılarını takip et (örneğin AFAD)",
-                  "Hasar tespiti ve yardım süreçlerine başvur"
+                  "Suyun temas ettiği elektrik tesisatına ve cihazlara dokunmayın",
+                  "Gaz sızıntısı ihtimaline karşı dikkatli olun, şüphe durumunda binayı terk edin",
+                  "Fırın, ocak ve elektrikli cihazların güvenli olduğundan emin olun",
+                  "Su dolu alanlara elektrik çarpması riski nedeniyle girilmemelidir"
+                ]
+              },
+              {
+                "title": "Su ve Hijyen Önlemleri",
+                "bullets": [
+                  "Sel suyuyla temas eden yüzeylere koruyucu ekipman olmadan dokunmayın",
+                  "Plastik çizme ve eldiven gibi koruyucu ekipmanlar kullanın",
+                  "Sel suyu ile temas eden giysi ve eşyalar detaylı şekilde temizlenmelidir",
+                  "Kaynağı bilinmeyen su kullanılmamalıdır, mümkünse şişe suyu tercih edilmelidir",
+                  "Atık su sistemleri ve kuyular yetkili kurumlara kontrol ettirilmelidir"
+                ]
+              },
+              {
+                "title": "Gıda Güvenliği",
+                "bullets": [
+                  "Sel sırasında evde kalan tüm yiyecekler, konserveler dahil, kesinlikle tüketilmemelidir"
+                ]
+              },
+              {
+                "title": "Hasar Tespiti ve Belgeler",
+                "bullets": [
+                  "Zarar gören alanların fotoğrafları çekilmelidir",
+                  "Bu görseller sigorta ve resmi işlemler için saklanmalıdır"
+                ]
+              },
+              {
+                "title": "Sağlık ve Riskler",
+                "bullets": [
+                  "Sel sonrası salgın hastalık riskine karşı hijyen kurallarına uyulmalıdır",
+                  "Yaralanma durumunda sağlık kuruluşlarına başvurulmalıdır",
+                  "Ev içinde zararlı hayvanların bulunma ihtimaline karşı dikkatli olunmalıdır"
+                ]
+              },
+              {
+                "title": "Toplumsal Dayanışma",
+                "bullets": [
+                  "Yaşlılar, çocuklar ve engelli bireyler gibi özel ilgiye ihtiyaç duyan kişilere destek olunmalıdır"
+                ]
+              },
+              {
+                "title": "Önemli Hatırlatma",
+                "paragraphs": [
+                  "Sel felaketi yalnızca suyun çekilmesiyle sona ermez. Yapı güvenliği ve yaşam alanına dönüş, yalnızca yetkili kurumların onayıyla gerçekleştirilmelidir."
                 ]
               }
             ],
             "beforeImages": [
+              {
+                "src": "/assets/afet/sel-taskin/08-firtina-baraji-altyapi.png",
+                "alt": "Fırtına bariyeri ve taşkın koruma altyapısı",
+                "caption": "Şehir altyapısı ve taşkın koruma sistemleri sel riskini azaltmaya yardımcı olur."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/09-drenaj-pompa-tesisi.png",
+                "alt": "Drenaj, pompa ve su yönetimi tesisi",
+                "caption": "Dere ıslahı, drenaj ve su tahliye altyapısının düzenli bakımı önemlidir."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/07-sel-sirasinda-akut.png",
+                "alt": "Sel sırasında yapılması gerekenler — AKUT infografiği",
+                "caption": "Yüksek kata çıkın, elektriği kapatın, su basmış yollarda araç kullanmayın. (Afet öncesi bu adımları öğrenin.)"
+              },
               {
                 "src": "/assets/afet/sel-taskin/01-oncesinde-onlemler.png",
                 "alt": "Sele karşı öncesinde yapılması gerekenler listesi",
@@ -807,26 +1078,56 @@
             ],
             "duringImages": [
               {
+                "src": "/assets/afet/sel-taskin/11-sel-aninda-sonrasinda-meb.png",
+                "alt": "Sel anında ve sonrasında yapılması gerekenler — MEB infografiği",
+                "caption": "Elektriği kesin, yüksek kata çıkın, suyla temas eden malzemeleri kullanmayın; yetkililerin uyarılarını dikkate alın."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/12-sel-akut-yuksek-kat.png",
+                "alt": "Sel sırasında üst katlara çıkma ve tesisatları kapatma — AKUT",
+                "caption": "Malzemelerle üst katlara çıkın, tesisatları kapatın, yüksek yerlere ulaşın; dere yataklarından uzak durun."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/10-sel-sakin-elektrik-fener.png",
+                "alt": "Sel başladığında sakin olun — elektrik ve fener güvenliği",
+                "caption": "Sakin kalın; kopmuş tellerle temas edebilecek su birikintilerinden uzak durun, pilli fener kullanın."
+              },
+              {
                 "src": "/assets/afet/sel-taskin/03-sirasinda-ne-yapilmali.png",
                 "alt": "Sel sırasında ne yapılmalı infografiği",
-                "caption": "3. Çukur alanlardan uzak durun; yüksek ve güvenli yerlere gidin."
+                "caption": "Çukur alanlardan uzak durun; yüksek ve güvenli yerlere gidin."
               },
               {
                 "src": "/assets/afet/sel-taskin/04-sel-sirasinda-yol.png",
                 "alt": "Sel sırasında su basmış yolda araçlar",
-                "caption": "4. Sel suyunda yürümeyin veya araç kullanmayın."
+                "caption": "Sel suyunda yürümeyin veya araç kullanmayın."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/13-sel-dunya-istatistik-2023.png",
+                "alt": "2023 dünya sel felaketleri istatistiği",
+                "caption": "Sel ve taşkınların yıkıcı etkisini gösteren küresel örnekler (AA, 2023)."
               }
             ],
             "afterImages": [
               {
+                "src": "/assets/afet/sel-taskin/14-sel-sonrasi-akut-bilincli-kal.png",
+                "alt": "Sel sonrası güvenlik önerileri — AKUT Bilinçli Kal",
+                "caption": "Güvensiz binalardan uzak durun; gaz kaçağı riskine karşı kapalı alanda ateş yakmayın; mümkünse şişe su kullanın; sudan kaçan hayvanlara dikkat edin."
+              },
+              {
+                "src": "/assets/afet/sel-taskin/15-sel-kilavuzu-ne-yapmali-gzt.png",
+                "alt": "Sel kılavuzu: sırasında ve sonrasında ne yapmalı — GZT",
+                "caption": "Sonrasında: koruyucu ekipman giyin, yüzeyleri temizleyin, dezenfekte edilemeyecek eşyaları atın; hijyene dikkat edin."
+              },
+              {
                 "src": "/assets/afet/sel-taskin/05-sonrasinda-onlemler.png",
                 "alt": "Sel ve taşkın sonrasında yapılması gerekenler",
-                "caption": "5. Sel suyuna girmeyin; hasarlı binalara girmeden önce onay alın."
+                "caption": "Sel suyuna girmeyin; hasarlı binalara girmeden önce onay alın."
               },
               {
                 "src": "/assets/afet/sel-taskin/06-sel-sonrasi-sehir.png",
                 "alt": "Sel sonrası şehirde su birikintisi ve hasar",
-                "caption": "6. Sel sonrası ulaşım ve yapı hasarı riski."
+                "caption": "Sel sonrası ulaşım ve yapı hasarı riski."
               }
             ],
             "footerVideo": {
@@ -840,10 +1141,89 @@
           "slug": "firtina",
           "title": "Fırtına / Şiddetli Rüzgâr",
           "content": {
-            "hideSections": { "before": true, "during": true, "after": true },
             "hidePanels": { "map": true },
             "summaryParagraphs": [
               "Fırtına ve şiddetli rüzgar, basınç farkları nedeniyle oluşan ve özellikle Marmara, Ege, Akdeniz ve Karadeniz kıyılarında etkili olan hava olaylarıdır; çatı uçması, ağaç devrilmesi ve enerji hatlarının zarar görmesi gibi riskler oluşturur. Bu tür durumlara karşı öncesinde balkon ve bahçedeki eşyalar sabitlenmeli, kapı ve pencereler kapatılmalı ve Meteoroloji Genel Müdürlüğü uyarıları takip edilmelidir. Fırtına sırasında mümkün olduğunca kapalı alanlarda kalınmalı, pencerelerden ve dış ortamlardan uzak durulmalı, açık alandaysa bina ve ağaçlardan uzaklaşılarak güvenli bir yere geçilmelidir. Araç kullanırken hız azaltılmalı ve gerekirse güvenli bir noktada durulmalıdır. Fırtına sonrasında ise kopmuş elektrik hatlarına yaklaşılmamalı, hasarlı yapılardan uzak durulmalı ve yetkili kurumların, özellikle AFAD yönlendirmeleri takip edilmelidir."
+            ],
+            "beforeSections": [
+              {
+                "title": "Fırtınadan önce",
+                "paragraphs": ["Hazırlıklı olun"],
+                "bullets": [
+                  "Fırtına uyarılarını radyo ve TV'den takip edin. Meteoroloji'den telefonla bilgi alın.",
+                  "Merdiven, bahçe mobilyası gibi serbest nesneleri ya da pencere ve camları kırıp içeri girebilecek her şeyi emniyete alın.",
+                  "Kapı ve pencereleri, özellikle evin rüzgar alan tarafında olanları, garaj kapısı gibi büyük kapıları kapatın ve emniyetli bir şekilde bağlayın.",
+                  "Araçları, varsa garaja park edin, yoksa onları bina, ağaç, duvar ve çitlerden uzakta tutun.",
+                  "Çatı katı / tavan arası kapılarını ya da kapaklarını kapatın ve sürgüyle emniyete alın.",
+                  "Eğer pencerelerde panjur / kepenk varsa bunların kapatılıp bağlandığından emin olun.",
+                  "Eğer bacalar uzun ve kötü durumdaysa mümkün olduğunca sağlamlaştırın.",
+                  "Afet ilk yardım çantasını yanınıza alın."
+                ]
+              }
+            ],
+            "duringSections": [
+              {
+                "title": "Fırtına sırasında",
+                "paragraphs": ["Güvende olun"],
+                "bullets": [
+                  "Mümkün olduğunca içerde kalın.",
+                  "Dışarı çıkarsanız, bina ve ağaçlara yakın yerlerde yürümeyin ve onlara sığınmayın.",
+                  "Duvar ve çitlerin korunaklı tarafından uzak durun, korunaklı tarafa yıkılacağını unutmayın.",
+                  "Fırtına devam ederken hasarı onarmak için dışarı çıkmayın.",
+                  "Evinize girerken ve çıkarken kapıları arkanızdan kapatın ve güvenli yolu tercih edin.",
+                  "İçerdeki kapıları yalnızca ihtiyacınız olduğunda açın ve arkanızdan kapatın.",
+                  "Fırtınaya maruz kalan yollarda araba kullanıyorsanız (köprüler ve viyadükler) dikkatli olun; mümkünse yolculuğunuzu erteleyin ya da alternatif yollar bulun.",
+                  "Eğer yüksek bir aracınız varsa ya da yüksek bir aracı çekiyorsanız daha da dikkatli olun, yavaşlayın ve yandan esen rüzgara dikkat edin.",
+                  "Gerçekten gerekli olmadığı sürece yolculuk yapmayın."
+                ]
+              }
+            ],
+            "afterSections": [
+              {
+                "title": "Fırtınadan sonra",
+                "paragraphs": ["Tedbiri elden bırakmayın"],
+                "bullets": [
+                  "Yere düşmüş ya da hala sallanmakta olan elektrik / telefon kablolarına dokunmayın.",
+                  "Duvar, bina ve ağaçlara yakın yürümeyin; fırtınanın zayıflatmış olabileceğini unutmayın.",
+                  "Savunmasız komşu ve yakınlarınızın güvende olduğundan emin olun ve tamirat için gerekli düzenlemeleri yapmalarına yardım edin."
+                ]
+              }
+            ],
+            "beforeImages": [
+              {
+                "src": "/assets/afet/firtina/01-ibb-lodos-firtina-onlemleri.png",
+                "alt": "Lodos ve fırtınaya karşı güvenlik önlemleri — İBB",
+                "caption": "Fırtınadan önce: çatı ve çevre güvenliği, evi güvenceye alma, araçları güvenli yere alma ve hazırlık çantası."
+              },
+              {
+                "src": "/assets/afet/firtina/02-oncesi-sirasinda-onlemler.png",
+                "alt": "Fırtınadan önce alınacak önlemler",
+                "caption": "Serbest nesneleri emniyete alın, kapı-pencere ve garajı kapatın, araçları güvenli yere park edin."
+              }
+            ],
+            "duringImages": [
+              {
+                "src": "/assets/afet/firtina/01-ibb-lodos-firtina-onlemleri.png",
+                "alt": "Fırtına sırasında güvenlik önlemleri — İBB",
+                "caption": "Kapalı alanda kalın; dışarıda bina, ağaç ve elektrik direklerinden uzak durun; gereksiz yere yola çıkmayın."
+              },
+              {
+                "src": "/assets/afet/firtina/02-oncesi-sirasinda-onlemler.png",
+                "alt": "Fırtına sürecinde dikkat edilmesi gerekenler",
+                "caption": "İçerde kalın; dışarıdaysanız devrilebilecek yapılardan uzak durun; fırtına devam ederken tamirat için çıkmayın."
+              }
+            ],
+            "afterImages": [
+              {
+                "src": "/assets/afet/firtina/01-ibb-lodos-firtina-onlemleri.png",
+                "alt": "Fırtınadan sonra alınacak önlemler — İBB",
+                "caption": "Elektrik kablolarından uzak durun, hasarlı alanlara dikkat edin, komşularınızın güvende olduğunu kontrol edin."
+              },
+              {
+                "src": "/assets/afet/firtina/03-sonrasi-agac-temizlik.png",
+                "alt": "Fırtına sonrası devrilen ağaç temizliği",
+                "caption": "Fırtına sonrası devrilen ağaç ve altyapı hasarı; hasarlı bölgelerden uzak durun."
+              }
             ]
           }
         },
