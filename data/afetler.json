@@ -25,18 +25,21 @@
                 ]
               }
             ],
-            "beforeIntro": "Deprem olmadan önce hazırlık yapmak en kritik adımdır.",
             "beforeSections": [
               {
                 "title": "Ev ve ortam güvenliği",
-                "bullets": [
-                  "Dolap, kitaplık, televizyon gibi devrilebilecek eşyaları duvara sabitle.",
-                  "Yatak üstüne ağır eşya koyma.",
-                  "Gaz, elektrik ve su vanalarının yerini öğren."
+                "paragraphs": [
+                  "Evinizde bulunan gardırop, televizyon ünitesi, portmanto, elektrik sobası gibi sarsıntı anında risk oluşturabilecek eşyaları mutlaka duvara sabitleyin ve bu işlemin sağlıklı yapıldığından emin olun. Bu esnada taşıyıcı kısımlara kesinlikle zarar vermeyin. Yaşadığınız yapı yıkılmasa dahi şiddetli bir sarsıntı durumunda sabitlemediğiniz eşyalar, ciddi yaralanmalara sebep olabilir.",
+                  "Evinizin içerisinde bulunan dolaplarınızın kapaklarının sağlam kapandığından emin olun. Kolay açılabilen, kilitleri sağlam olmayan dolapların içindeki eşyalar sarsıntı anında düşerek size ve sevdiklerinize zarar verebilir.",
+                  "Depremle birlikte gaz kaçağı ve yangın gibi riskler de ortaya çıkmaktadır. Bu sebeple evinizde bulunan gaz vanalarını ve elektrik sigortalarını otomatik hâle getirmeniz akıllıca olabilir.",
+                  "Yaşadığınız binalardaki ortak alanlarda muhakkak yangın söndürme cihazları yer almalıdır. Bu cihazların çalışıp çalışmadığı belirli aralıklarla kontrol edilmeli, gerekli bakımları da yönetim tarafından yaptırılmalıdır."
                 ]
               },
               {
                 "title": "Acil durum çantası hazırla",
+                "paragraphs": [
+                  "Enkazda kalmanız durumunda belirli bir süre acil ihtiyaçlarınızı karşılayabilmesi adına acil durum çantanız hazır bulunmalıdır. Yine evinizden çıkabilseniz dahi yardım gelene kadar sağlığınızı koruyabilmeniz adına bu çantaya ihtiyaç duyabilirsiniz. Özetle evinizde bir veya birden fazla acil durum çantası bulundurmanız depreme hazırlığın önemli bir parçasıdır."
+                ],
                 "bullets": [
                   "Su ve uzun ömürlü gıda",
                   "Fener ve yedek pil",
@@ -47,62 +50,167 @@
               },
               {
                 "title": "Plan yap",
+                "paragraphs": [
+                  "Deprem henüz gerçekleşmeden olası afetin sonuçlarına hazırlık yapmalısınız. Bu nedenle tüm aile bireylerinin katılacağı bir toplantı ile acil durum planı hazırlamalı, belirli aralıklarla da tatbikatlar gerçekleştirmelisiniz.",
+                  "6 ayda bir gözden geçireceğiniz bu planınızla; sarsıntı anında evin hangi bölümünde ne şekilde barınacağınız, sarsıntının ardından binayı terk ettiğinizde nerede toplanacağınız, birbirinizle nasıl iletişim kuracağınız gibi önemli detayları netleştirin. Bu sayede olası iletişim kopmalarında dahi daha önceden belirlediğiniz alanda aile bireylerinizle bir araya gelme ihtimaliniz artacaktır.",
+                  "Deprem sonrası evden çıkacaksanız nasıl çıkacağınızı, nereden çıkacağınızı ve dışarı çıktığınızda nerede toplanacağınızı önceden belirleyin."
+                ]
+              },
+              {
+                "title": "Risk Analizini İhmal Etmeyin",
+                "paragraphs": [
+                  "Öncelikle olası depremlerden nasıl etkileneceğinizi öğrenmek için gayrimenkulünüzün bulunduğu bölgedeki deprem riskini belirleyin. Faya yakınlık durumu, zemin kalitesi gibi pek çok teknik etkenin hesaba katılacağı bu risk analizi, bölgenize özel önlemler almanızı sağlayacaktır."
+                ]
+              },
+              {
+                "title": "Deprem Sigortasına Gereken Önemi Verin",
+                "paragraphs": [
+                  "Depremlerde birincil önceliğimiz gayet tabii can güvenliğimiz… Ancak bu felaketi sağlıklı şekilde atlatmanız durumunda, sonraki süreç için maddi anlamda da birikimlerinizi garanti altına almalısınız.",
+                  "Konutunuz için deprem sigortası yaptırmanız, maddi kayıplarınızı azaltması yönüyle depremden önce yapılması gerekenler konusunun önemli başlıklarından biridir. Doğal Afet Sigortaları Kurumu (DASK) zorunlu deprem sigortasının yanı sıra kapsamı daha geniş deprem sigortaları da bulunmaktadır. Eşyalarınızın da kapsam dahilinde olduğu bu sigortaları yaptırmak, depreme hazırlık sürecinde üzerinde durmanız gereken önemli başlıklardandır."
+                ]
+              },
+              {
+                "title": "Sarsıntı anında hatırlanacak kurallar",
+                "paragraphs": [
+                  "Deprem gerçekleşmeden önce afet anında ne yapacağınızı bilmek, panik anında doğru davranmanızı kolaylaştırır. Aşağıdaki kuralları aile bireyleriyle birlikte öğrenin ve ev içinde kısa tatbikatlarla pekiştirin."
+                ],
                 "bullets": [
-                  "Aile ile toplanma noktası belirle.",
-                  "Acil durumda kimi arayacağını önceden kararlaştır.",
-                  "Ev içinde güvenli alanları belirle (sağlam masa altı, koltuk yanı gibi)."
+                  "Panik yapmayın.",
+                  "Ellerinizle başınızı ve ensenizi kapatın.",
+                  "Pencerelerden ve üzerinize düşebilecek eşyalardan uzak durun.",
+                  "Sarsıntı bitmeden dışarı çıkmayın.",
+                  "Asansör ve merdivenleri kesinlikle kullanmayın.",
+                  "Elektrik düğmelerine dokunmayın."
+                ]
+              },
+              {
+                "title": "Güvenli pozisyon: çök, kapan, tutun",
+                "paragraphs": [
+                  "Kapalı alanda çök-kapan-tutun uygulayın: sağlam bir masa, koltuk veya iç duvar yanında çökün, baş ve boynunuzu koruyun, sarsıntı bitene kadar tutunun. Devrilebilecek ağır eşyaların altına girmeyin; mümkünse sağlam mobilyanın yanında koruma alanı oluşturun."
                 ]
               }
             ],
-            "duringIntro": "Deprem anında panik yapmadan doğru pozisyon almak gerekir.",
+            "beforeActions": [
+              {
+                "label": "Acil çantanı oluştur",
+                "href": "/acil-canta",
+                "related": "Acil durum çantası hazırla"
+              },
+              {
+                "label": "Aile afet planını yaz",
+                "href": "/aile-afet-plani",
+                "related": "Plan yap"
+              },
+              {
+                "label": "Hazırlık skorunu ölç",
+                "href": "/hazirlik-skoru"
+              },
+              {
+                "label": "İl riskine bak",
+                "href": "/il-riskleri",
+                "dynamicIl": true,
+                "related": "Risk Analizini İhmal Etmeyin"
+              },
+              {
+                "label": "Toplanma alanını kaydet",
+                "href": "/toplanma-alanlari",
+                "related": "Plan yap"
+              }
+            ],
+            "duringIntro": "Depremlerde can ve mal kayıplarının artmasının en önemli nedenlerinden biri de sarsıntı sırasında kişilerin kendilerini nasıl koruyacaklarını ve ne yapmaları gerektiğini bilmemeleridir.",
             "duringSections": [
               {
-                "title": "Kapalı alandaysan",
-                "bullets": [
-                  "Çök, kapan ve tutun hareketini uygula.",
-                  "Başını ve boynunu koru.",
-                  "Pencerelerden ve camlardan uzak dur.",
-                  "Asansör kullanma."
+                "title": "Bina içindeyseniz",
+                "paragraphs": [
+                  "Kesinlikle panik yapmayınız.",
+                  "Sabitlenmemiş dolap, raf, pencere vb. eşyalardan uzak durunuz.",
+                  "Varsa sağlam sandalyelerle desteklenmiş masa altına veya dolgun ve hacimli koltuk, kanepe, içi dolu sandık gibi koruma sağlayabilecek eşya yanına çömelerek veya uzanarak kendinize hayat üçgeni oluşturun. Başınızı iki elinizin arasına alarak veya bir koruyucu (yastık, kitap vb.) malzeme ile koruyun. Sarsıntı geçene dek bekleyin. Güvenli bir yer bulup, diz üstü ÇÖK, baş ve enseyi koruyacak şekilde KAPAN, düşmemek için sabit bir yere TUTUN hareketini yapın. Deprem sırasında sarsıntı durana kadar olduğunuz yerde kalın.",
+                  "Cam, pencere, dışarıya bakan duvar ve kapılardan, aydınlatma tesisatı veya armatürü gibi üzerinize düşecek her tür eşyadan uzak durun.",
+                  "Sarsıntı başladığında yataktaysanız orada kalın. Üzerinize düşecek ağır bir eşya yoksa bir yastıkla başınızı koruyun; varsa en yakındaki güvenli alana geçin.",
+                  "Size yakın çok sağlam ve yüke dayanıklı bildiğiniz bir kapı değilse, kapıyı kullanmayın. Çoğu iç mekan kapısı basitçe inşa edilmiştir ve sizi korumaktan uzaktır.",
+                  "Merdivenlere ya da çıkışlara doğru koşmayın. Sarsıntı bitene kadar içeride kalın, ancak sarsıntı bitince dışarı çıkmak güvenlidir. Sarsıntı sırasında binayı terk etmeye çalışmayın.",
+                  "Araştırmalar, çoğu yaralanmanın bina içinde hareket ederken veya dışarı çıkmaya çalışırken oluştuğunu göstermektedir.",
+                  "Balkona çıkmayın.",
+                  "Balkonlardan ya da pencerelerden atlamayın.",
+                  "Asansör kullanmayın.",
+                  "ACİL DURUMLARI ve YANGINLARI bildirmek dışında telefonları KULLANMAYIN. Kibrit ve çakmak YAKMAYIN, elektrik düğmelerine DOKUNMAYIN.",
+                  "Elektriklerin kesilebileceğinin; yangın alarmlarının çalışabileceğinin ve yangın söndürme sistemlerinin devreye girebileceğinin farkında olun.",
+                  "Tekerlekli sandalyede iseniz tekerlekleri kilitleyerek başınızı ve boynunuzu korumaya alın.",
+                  "Mutfak, imalathane, laboratuvar gibi iş aletlerinin bulunduğu yerlerde; ocak, fırın vb. cihazları kapatın. Dökülebilecek malzeme ve maddelerden uzaklaşın.",
+                  "Sarsıntı geçtikten sonra elektrik, gaz ve su vanalarını kapatın; soba ve ısıtıcıları söndürün. Diğer güvenlik önlemlerini alın; daha önceden hazırlanmış acil durum çantası ile gerekli olan eşya ve malzemeyi yanınıza alarak binayı daha önce tespit ettiğiniz yoldan derhal terk edip toplanma bölgesine gidin.",
+                  "Her büyük depremden sonra mutlaka artçı deprem olur. Artçı depremler zaman içerisinde seyrekleşir ve büyüklükleri azalır. Artçı depremler hasarlı binalarda zarara yol açabilir. Bu nedenle sarsıntılar tamamen bitene kadar hasarlı binalara girmeyin.",
+                  "Artçı depremler sırasında da ana depremde yapmanız gerekenleri yapın."
                 ]
               },
               {
-                "title": "Açık alandaysan",
-                "bullets": [
-                  "Binalardan, direklerden ve duvarlardan uzaklaş.",
-                  "Açık bir alana geç."
+                "title": "Bina dışında açık alandaysanız",
+                "paragraphs": [
+                  "Dışarıda kalın.",
+                  "Enerji hatlarından, diğer binalardan, direklerden, ağaçlardan ve duvar diplerinden uzaklaşın.",
+                  "Açık arazide çömelerek etraftan gelen tehlikelere karşı hazırlıklı olun.",
+                  "Deniz kıyısından uzaklaşın.",
+                  "Toprak kayması, taş veya kaya düşebilecek yamaç altlarında bulunmayın. Böyle bir ortamda bulunuyorsanız, en seri şekilde güvenli bir ortama geçin.",
+                  "Binalardan düşebilecek baca, cam kırıkları ve sıvalara karşı tedbirli olun.",
+                  "Toprak altındaki kanalizasyon, elektrik ve gaz hatlarından gelecek tehlikelere karşı dikkatli olun.",
+                  "En büyük tehlike binaların dış duvarlarının yıkılmasıdır. Depremlerdeki ölümlerin önemli bir kısmını bina içinden dışarı kaçarak enkaz altında kalanlar oluşturabilmektedir. Deprem sırasındaki yer hareketi nadiren ölüme veya yaralanmaya sebep olur. Depremle ilgili çoğu ölüm çöken duvarlar, parçalanan camlar ve düşen eşyalardan kaynaklanmaktadır."
                 ]
               },
               {
-                "title": "Araçtaysan",
-                "bullets": [
-                  "Aracı güvenli bir yerde durdur.",
-                  "Köprü, tünel ve viyadüklerden uzak dur."
+                "title": "Araç kullanıyorsan",
+                "paragraphs": [
+                  "Araç kara yolunda seyir halindeyken sarsıntı olursa ve bulunduğunuz yer güvenli ise (bina, ağaç, direkler yanında, üst geçit altlarında durmaktan sakınarak) yolu kapatmadan, sağa yanaşıp durun. Kontak anahtarını yerinde bırakıp, pencereler kapalı olarak araç içerisinde kalın.",
+                  "Sarsıntının geçmesini ihtiyatla bekleyin. Depremde hasar gören yol, köprü ve rampaları kullanmayın.",
+                  "Normal trafikten, ağaçlardan, direklerden ve enerji nakil hatlarından mümkün olduğu kadar uzaklaşın. Ancak sarsıntı durduktan sonra açık alanlara gidin.",
+                  "Araç meskun mahallerde ise ya da güvenli bir yerde değilse aracı durdurun; kontak anahtarını üzerinde bırakarak aracı terk edin ve açık alanlara gidin.",
+                  "Bir tünelin içinde iseniz ve çıkışa yakın değilseniz, aracınızı durdurup aşağıya inin ve aracınızın yanına yan yatarak ayaklarınızı karnınıza çekin, ellerinizi de başınızın üstüne kavuşturun.",
+                  "Kapalı bir otoparkta iseniz; arabanızın dışına çıkıp yanına yatın. Üzerinize yıkılacak tavan, tünel gibi büyük kitleler aracı belki ezecek, ama yok etmeyecektir. Araç içinde olduğunuz takdirde, üzerinize düşen bir parça ile ezilmenize sebep olabilir."
+                ]
+              },
+              {
+                "title": "Metroda veya diğer toplu taşıma araçlarındaysanız",
+                "paragraphs": [
+                  "Gerekmedikçe, kesinlikle metro ve trenden inmeyin. Elektriğe kapılabilir veya diğer bir trenin çarpması ile zarar görebilirsiniz.",
+                  "Trenin içinde sıkıca tutturulmuş askı, korkuluk veya herhangi bir yere tutunun.",
+                  "Metro veya tren personeli tarafından verilen talimatları izleyin."
+                ]
+              },
+              {
+                "title": "Enkaz altında kaldıysanız",
+                "paragraphs": [
+                  "Kibrit ve çakmak yakmayın.",
+                  "Hareket etmeyin ve toz kaldırmayın.",
+                  "Ağzınızı ve burnunuzu mendil ya da kıyafetinizle kapatın.",
+                  "Borulara ya da duvarlara vurarak yerinizi arama kurtarma ekiplerine bildirmeye çalışın ve ıslık çalın. Bağırmayı son çare olarak kullanın. Çünkü bağırmak tehlikeli boyutlarda toz yutmanıza neden olabilir."
                 ]
               }
             ],
-            "afterIntro": "Deprem bittikten sonra artçı sarsıntılar nedeniyle dikkatli olunmalıdır.",
             "afterSections": [
               {
-                "title": "Hemen yapılacaklar",
-                "bullets": [
-                  "Sakin ol ve çevreni kontrol et.",
-                  "Gaz, su ve elektriği kapat.",
-                  "Hasarlı binadan uzaklaş."
+                "title": "Deprem Sonrasında Kapalı Alanda Neler Yapılmalıdır?",
+                "paragraphs": [
+                  "İlk olarak kendi emniyetinizden, daha sonra da çevrenizde bulunan insanların emniyetinden emin olun. Eğer yardıma ihtiyacı olan biri varsa kendi güvenliğinizden feragat etmeden ona yardımcı olmaya çalışın. Bunun dışında yapmanız gerekenler şöyle sıralanır;",
+                  "Depremlerden sonra çıkan yangınlar oldukça sık görülen ikincil afetlerdir. Bu nedenle eğer gaz kokusu alırsanız, doğal gaz vanasını kapatın. Camları ve kapıları açın. Binayı hemen terk edin. Eğer gaz kokusu almıyorsanız sırasıyla elektrik, doğal gaz ve su vanalarını kapatın, soba ve ısıtıcıları söndürün.",
+                  "Dökülen tehlikeli maddeleri temizleyin.",
+                  "Yerinden oynayan telefon ahizelerini telefonun üstüne koyun.",
+                  "Acil durum çantanızı yanınıza alın ve acil durum eylem planı yaptıysanız bu plana sadık kalarak mahalledeki buluşma noktanıza gidin.",
+                  "Radyo ve televizyon gibi kitle iletişim araçlarıyla yapılacak uyarıları dinleyin.",
+                  "Cadde ve sokakları acil yardım araçları için boş bırakın.",
+                  "Her büyük depremden sonra mutlaka artçı depremler olur. Artçı depremler zaman içerisinde seyrekleşir ve büyüklükleri azalır. Artçı depremler hasarlı binalarda zarara yol açabilir. Bu nedenle sarsıntılar tamamen bitene kadar hasarlı binalara girmeyin. Artçı depremler sırasında da ana depremde yapılması gerekenleri uygulayın.",
+                  "Evinizi veya binanızı terk ederken kıymetli eşyalarınızı, kalın giyecek, battaniye gibi eşyaları yanınıza alın, kalın ayakkabılarınızı giyin, biraz yiyecek ve içme suyu temin edin."
                 ]
               },
               {
-                "title": "Güvenlik ve iletişim",
-                "bullets": [
-                  "Telefonu sadece acil durumlar için kullan.",
-                  "Yetkililerin uyarılarını takip et (örneğin AFAD)."
-                ]
-              },
-              {
-                "title": "Enkaz altındaysan",
-                "bullets": [
-                  "Bağırmak yerine enerjini koru.",
-                  "Duvara veya boruya vurarak ses çıkar.",
-                  "Düdük varsa kullan."
+                "title": "Deprem Sonrasında Açık Alanda Neler Yapılmalıdır?",
+                "paragraphs": [
+                  "İlk olarak yine kendi emniyetinizi almaya gayret göstermeniz gerekir. Daha sonra yapmanız gerekenler ise şöyle sıralanır;",
+                  "Çevrenizdeki hasara dikkat ederek bunları not edin.",
+                  "Hasarlı binalardan ve enerji nakil hatlarından uzak durun.",
+                  "Önce yakın çevrenizde acil yardıma gerek duyanlara yardım edin.",
+                  "Sonra mahalle toplanma noktanıza gidin.",
+                  "Yardım çalışmalarına katılın. Özel ilgiye ihtiyacı olan afetzedelere — yaşlılar, bebekler, hamileler, engelliler — yardımcı olun. Sağlık Bakanlığı tarafından verilen ilk yardım sertifikanız varsa yaralılara ilk yardım yapın.",
+                  "Kulaktan duyma sözlere itibar etmeyin, yerel yönetimlerin açıklamalarını takip edin; özellikle ilk üç gün içerisinde yetkililer izin vermedikçe, evlerinize girmeyin.",
+                  "Aile bireylerinizi bir arada tutun ve açık bir alanda bekleyin.",
+                  "Enkaz ve yıkıntılar arasında, cadde ve sokaklarda gelişigüzel dolaşmayın."
                 ]
               }
             ],
@@ -110,24 +218,54 @@
               {
                 "src": "/assets/afet/deprem/01-depreme-hazir-misiniz.png",
                 "alt": "Depreme hazır mısınız? Temel güvenlik adımları infografiği",
-                "caption": "1. Sakin olun; sağlam eşyaların yanında çökün ve kapanın."
+                "caption": "Deprem öncesi: ev güvenliği ve hazırlık adımları."
+              },
+              {
+                "src": "/assets/afet/deprem/03-deprem-cantasi.png",
+                "alt": "Deprem çantasında olması gerekenler",
+                "caption": "Acil durum çantası içeriği."
+              },
+              {
+                "src": "/assets/afet/deprem/07-deprem-aninda-ev-onlemleri.png",
+                "alt": "Deprem anında ev içinde altı temel kural infografiği",
+                "caption": "Sarsıntı sırasında ev içi: panik yapmayın, başınızı koruyun, pencere ve düşebilecek eşyalardan uzak durun, sarsıntı bitmeden çıkmayın, asansör ve merdiven kullanmayın, elektrik düğmelerine dokunmayın."
+              },
+              {
+                "src": "/assets/afet/deprem/08-guvenli-pozisyon-karsilastirma.png",
+                "alt": "Güvenli pozisyon: sağlam eşyanın yanında koruma alanı",
+                "caption": "Çök-kapan-tutun: sağlam mobilya veya iç duvar yanında baş ve boynunuzu koruyarak bekleyin."
               },
               {
                 "src": "/assets/afet/deprem/02-cok-kapan-tutun.png",
-                "alt": "Çök, kapan, tutun hayata infografiği",
-                "caption": "2. Çök-Kapan-Tutun: güvenli yerde hedefinizi küçültün."
+                "alt": "Çök, kapan, tutun infografiği",
+                "caption": "Çök-Kapan-Tutun hareketini önceden öğrenin ve tatbikat yapın."
               }
             ],
             "duringImages": [
               {
-                "src": "/assets/afet/deprem/03-deprem-cantasi.png",
-                "alt": "Deprem çantasında olması gerekenler",
-                "caption": "3. Afet ve acil durum çantası içeriği."
+                "src": "/assets/afet/deprem/10-deprem-esnasinda-sisad.png",
+                "alt": "Deprem esnasında yapılması gerekenler — kapalı alan, dışarı, araç ve kaçınılması gereken yerler",
+                "caption": "Kapalı alanda sağlam mobilya yanında çök-kapan-tutun; dışarıda açık alana geçin; araçta açık alana sürün; köprü, alt geçit ve direklerden uzak durun. (SiSAD)"
               },
               {
-                "src": "/assets/afet/deprem/04-konda-deprem-istatistik.png",
-                "alt": "Türkiye deprem farkındalığı istatistikleri (KONDA 2020)",
-                "caption": "4. Deprem hazırlığı ve bina güvenliği farkındalığı."
+                "src": "/assets/afet/deprem/09-guvenli-pozisyon-masa-yani.png",
+                "alt": "Deprem sırasında güvenli pozisyon: sağlam masa yanında çök-kapan-tutun",
+                "caption": "Sağlam mobilyanın yanında çökerek baş ve boynunuzu koruyun; üzerinize düşebilecek ağır yük altında kalmayın."
+              },
+              {
+                "src": "/assets/afet/deprem/02-cok-kapan-tutun.png",
+                "alt": "Çök, kapan, tutun infografiği",
+                "caption": "Çök-Kapan-Tutun hareketini sarsıntı bitene kadar uygulayın."
+              },
+              {
+                "src": "/assets/afet/deprem/07-deprem-aninda-ev-onlemleri.png",
+                "alt": "Deprem anında ev içinde altı temel kural infografiği",
+                "caption": "Ev içinde: panik yapmayın, başınızı koruyun, pencere ve düşebilecek eşyalardan uzak durun, sarsıntı bitmeden çıkmayın."
+              },
+              {
+                "src": "/assets/afet/deprem/08-guvenli-pozisyon-karsilastirma.png",
+                "alt": "Güvenli ve riskli pozisyon karşılaştırması",
+                "caption": "Koruma sağlayacak sağlam eşyanın yanında güvenli alan oluşturun."
               }
             ],
             "afterImages": [
@@ -175,78 +313,127 @@
                 ]
               }
             ],
-            "beforeIntro": "Heyelan öncesi riskleri fark etmek ve önlem almak çok önemlidir.",
             "beforeSections": [
               {
-                "title": "Çevresel işaretleri takip et",
-                "bullets": [
-                  "Toprakta, yollarda veya duvarlarda çatlaklar oluşması",
-                  "Ağaçların veya direklerin eğilmesi",
-                  "Kapı ve pencerelerin sıkışması"
+                "title": "Heyelanlardan korunma ve zararlarının azaltılması",
+                "paragraphs": [
+                  "Heyelan riskini azaltmak için arazi çalışmaları yapılmalı, risk olan bölgelerde yerleşimden uzak durulmalı.",
+                  "Risk olan yamaçlarda doğal denge bozulmadan drenaj kanalları açılmalı, tabakaların fazla su alınması önlenmeli.",
+                  "Heyelan görülebilecek yamaçların eteklerine istinat duvarı inşa edilmeli.",
+                  "Bitki ve toprak örtüsü korunmalı."
                 ]
               },
               {
-                "title": "Yapısal önlemler al",
+                "title": "Heyelana karşı duyarlı alanlar nerededir?",
                 "bullets": [
-                  "Evin etrafında su birikmesini önleyecek drenaj sistemi kur",
-                  "Yamaç bölgelerde ağaçlandırma yap",
-                  "Riskli alanlarda yapılaşmadan kaçın"
+                  "Eski heyelan bölgeleri",
+                  "Doğal yamaçların üst ve topuk kesimleri",
+                  "Eski dolguların üst ve topuk kesimleri",
+                  "Çok dik ve derin yamaçların üst ve topuk kesimleri",
+                  "Atık sistemlerinin kullanıldığı ve yerleşimin geliştiği tepelik alanlar"
                 ]
               },
               {
-                "title": "Planlama yap",
+                "title": "Heyelan açısından güvenli alanlar nerededir?",
                 "bullets": [
-                  "Aile ile acil durum planı oluştur",
-                  "Güvenli tahliye yollarını belirle",
-                  "Yetkili kurumların uyarılarını takip et"
+                  "Geçmişte herhangi bir hareketin meydana gelmediği sert ve masif kayaların oluşturduğu yamaçlar",
+                  "Yamaç eğiminde ani değişimlerin gözlenmediği nispeten düşük eğimli araziler",
+                  "Burun şeklinde çıkıntılı sırtların üstü veya çevresi"
+                ]
+              },
+              {
+                "title": "Heyelan tehlikesinden kuşku duyulduğunda ne yapılmalı?",
+                "bullets": [
+                  "Derhal yerel yönetimle temasa geçilmelidir.",
+                  "Heyelandan etkilenebilecek çevre bilgilendirilmelidir.",
+                  "Yapılar boşaltılmalıdır."
                 ]
               }
             ],
-            "duringIntro": "Heyelan anında hızlı ve doğru hareket etmek gerekir.",
+            "beforeActions": [
+              {
+                "label": "Acil çantanı oluştur",
+                "href": "/acil-canta"
+              },
+              {
+                "label": "Aile afet planını yaz",
+                "href": "/aile-afet-plani"
+              },
+              {
+                "label": "Hazırlık skorunu ölç",
+                "href": "/hazirlik-skoru"
+              },
+              {
+                "label": "İl riskine bak",
+                "href": "/il-riskleri",
+                "dynamicIl": true
+              },
+              {
+                "label": "Toplanma alanını kaydet",
+                "href": "/toplanma-alanlari"
+              }
+            ],
             "duringSections": [
               {
-                "title": "Açık alandaysan",
-                "bullets": [
-                  "Hemen heyelanın geldiği yönün tersine ve mümkünse yüksek bir noktaya doğru uzaklaş",
-                  "Akan toprak ve taşlardan uzak dur"
+                "title": "Kapalı alandaysanız",
+                "paragraphs": [
+                  "Binadan çıkmak ve heyelan bölgesinden uzaklaşmak için yeterli vaktiniz yoksa içeride kalın.",
+                  "Sağlam eşyaların altında veya yanında hayat üçgeni oluşturarak ÇÖK-KAPAN-TUTUN hareketini uygulayın."
                 ]
               },
               {
-                "title": "Kapalı alandaysan",
-                "bullets": [
-                  "Eğer güvenliyse hızlıca binayı terk et",
-                  "Çıkış mümkün değilse sağlam bir eşya yanında kendini koru"
+                "title": "Açık alandaysanız",
+                "paragraphs": [
+                  "Tehlike anında heyelan veya çamur akıntısının yolundan uzak durarak hemen mümkün olduğu kadar yükseklere doğru uzaklaşın ve çevrenizde yaşayan insanları toprak kaymasına karşı uyarın.",
+                  "Çamur ve moloz akmasından kaçabilecek zamanınız veya etrafınızda arkasına saklanacağınız sağlam bir yapı yoksa ÇÖK-KAPAN-TUTUN hareketi ile başınızı ve boynunuzu koruyun."
                 ]
               },
               {
-                "title": "Araçtaysan",
-                "bullets": [
-                  "Aracı durdur ve güvenli bir şekilde terk et",
-                  "Toprak akıntısının olduğu bölgeden uzaklaş"
+                "title": "Araçtaysanız",
+                "paragraphs": [
+                  "Eğer araçtaysanız ve toprak akıntısının ortasında kaldıysanız, hemen aracı terk edin ve çevredeki en yüksek noktalara yaya olarak çıkın."
+                ]
+              },
+              {
+                "title": "Heyelan sırasında nasıl güvende kalabilirsiniz?",
+                "paragraphs": [
+                  "Daha yukarı çıkın. Tahliye imkanınız yoksa, evinizin üst katlarına çıkın ve NOAA hava durumu radyosunu dinleyerek veya televizyondan hava durumu güncellemelerini izleyerek tetikte kalın.",
+                  "Akan suya dikkat edin. Aracınızdaysanız, dikkatli olun ve heyelan habercisi olabilecek akan suya dikkat edin.",
+                  "Dinleyin. Yürüyüş yapıyorsanız veya doğa yürüyüşüne çıkıyorsanız, kayaların birbirine çarpması veya ağaçların çıtırdaması gibi heyelan belirtisi olabilecek seslere dikkat edin. Genellikle yamaçlardan uzakta daha güvende olursunuz, bu nedenle gerekirse daha yüksek bir yere çıkın."
                 ]
               }
             ],
-            "afterIntro": "Heyelan sonrası da risk devam edebilir, dikkatli olunmalıdır.",
             "afterSections": [
               {
-                "title": "Güvenlik kontrolü yap",
-                "bullets": [
-                  "Bölgeden uzak dur, ikinci bir kayma olabilir",
-                  "Hasarlı yapılara girme"
+                "title": "Heyelan sonrasında yapılacaklar",
+                "paragraphs": [
+                  "Her şeyden önce güvencede olduğunuzdan emin olun. Gerekiyorsa tehlikeli bölgeden uzaklaşarak kendinizi güvenceye alın.",
+                  "Yakınınızda bulunan elektrik, gaz ve su kaynaklarını hemen kapatın. Çevrenizde gaz kaçağı olmadığından emin olana kadar bulunduğunuz yeri kibrit veya diğer yanıcı maddeler veya elektrikli aletlerle aydınlatmaya çalışmayın. Fener kullanın.",
+                  "Çevrenizde yaralı veya yardıma muhtaç kişiler varsa, yangın ve yeni bir heyelan gibi bir tehlike yoksa onları yerlerinden oynatmayın.",
+                  "Tehlikeli duvarlar, çatılar ve bacalara karşı çevrenizdekileri uyarın ve bunların etrafında dolaşmayın.",
+                  "Radyo ve televizyon gibi kitle iletişim araçlarıyla size yapılacak uyarıları dinleyin.",
+                  "Cadde ve sokakların acil yardım araçları için boş bırakın.",
+                  "Eşya almak için zarar görmüş binalara girmeyin."
                 ]
               },
               {
-                "title": "Yardım ve iletişim",
+                "title": "Heyelanların zararlarının en aza indirilmesi konusundaki sorumluluklar",
+                "paragraphs": []
+              },
+              {
+                "title": "Bireylerin sorumlulukları",
                 "bullets": [
-                  "Yaralı varsa ilk yardım uygula ve yetkililere haber ver",
-                  "Telefonu gereksiz kullanmaktan kaçın"
+                  "Yaşanılan bölgedeki potansiyel jeolojik afetler hakkında bilgi sahibi olmak,",
+                  "Heyelan açısından sorunlu alanlarla ilgili olarak yerbilimcilere ve mühendislere danışmak,",
+                  "Dik yamaçların topuk kesiminde desteği kaldırıcı kazı işlemlerinden ve dik yamaçların kenarında veya tabanında yapı inşasından kaçınmak, ayrıca eğimi fazla yamaçların üzerine dolgu malzemesi dökmemek,",
+                  "Arazi satın alınmasından, arazi paylaşımından ve inşaat işlemlerinden önce ilgili kurum ve kuruluşlardan konuyla ilgili bilgi almak ve buna göre karar vermek."
                 ]
               },
               {
-                "title": "Resmi uyarıları takip et",
-                "bullets": [
-                  "Yetkililerin yönlendirmelerine uy",
-                  "Bölgeye geri dönüş için izin bekle"
+                "title": "Yerel yönetimler ve teknik elemanların sorumlulukları",
+                "paragraphs": [
+                  "Yerleşim alanlarında yeteri kadar yerbilimleri ve mühendislik araştırmaları yapılmalıdır.",
+                  "Yerel yönetimler yeni yerleşim alanlarını belirlerken arazi çalışmaları ve değerlendirmeler yaptırarak, heyelana ve diğer afetlere maruz kalmış ve afetlerin beklenebilecek alanların belirlenmesiyle hazırlanacak duyarlılık haritaları yaptırmalı, bu haritalar aracılığıyla mühendislere, kent planlamacılarına yüksek riske sahip alanlardan kaçınılması konusunda veriler sunulmalıdır."
                 ]
               }
             ],
@@ -320,55 +507,67 @@
                 ]
               }
             ],
-            "beforeIntro": "Kaya düşmesi öncesinde riskleri fark etmek ve önlem almak önemlidir.",
             "beforeSections": [
               {
-                "title": "Çevresel işaretleri takip et",
-                "bullets": [
-                  "Yamaçlarda çatlaklar ve gevşek kaya parçaları",
-                  "Daha önce düşmüş taşların bulunması",
-                  "Yollarda “kaya düşmesi” uyarı levhaları"
+                "title": "Kaya düşmesini kontrol etme yöntemlerinden bazıları nelerdir?",
+                "paragraphs": [
+                  "Kaya düşmesini kontrol etmenin etkili birkaç yöntemi vardır; bunlar arasında kaya düşmesi koruma çitlerinin, kaya düşmesi bariyerlerinin ve örtülü ağ sistemlerinin kurulumu yer alır. Bu önlemler, yamaç kayması riski yüksek olan alanlarda kaya düşmesi tehlikelerini önlemek için tasarlanmıştır.",
+                  "Kaya düşmesi koruma çitleri ve bariyerleri genellikle çelik, beton veya diğer dayanıklı malzemelerden yapılır ve darbeyi emmek ve düşen kayaları inşaat alanlarından, yollardan ve diğer hassas alanlardan uzaklaştırmak için tasarlanmıştır. Örtülü ağ sistemleri ise düşen kayaları tutmak ve yere ulaşmalarını önlemek için tasarlanmıştır. Bu sistemler, yamaç yüzeyine serilen ve yere sabitlenen esnek bir ağdan oluşur."
                 ]
               },
               {
-                "title": "Yapısal önlemler al",
-                "bullets": [
-                  "Riskli yamaçların altına yapı kurmaktan kaçın",
-                  "Koruyucu bariyer ve tel sistemlerinin bulunduğu alanları tercih et",
-                  "Yolculuklarda riskli bölgelerde dikkatli ilerle"
+                "title": "Etkili bir kaya düşmesi kontrol sistemi sağlamak için hangi adımlar atılmalıdır?",
+                "paragraphs": [
+                  "Etkin bir kaya düşmesi kontrol sistemi sağlamak için birkaç adım atılmalıdır. Öncelikle, kaya düşmesi yörüngesi ve enerji modelleme değerlendirmesi de dahil olmak üzere, eğimin analizi yapılmalıdır. Bu analiz, potansiyel tehlikeler ve bunları azaltmak için gereken sistem türü hakkında kritik bilgiler sağlayacaktır.",
+                  "Analiz tamamlandıktan sonra, örtülü ağ veya sönümleyici sistemler gibi uygun bir yamaç içi uygulama sistemi seçilmelidir. Sistem, düşen kayaların hareketini kontrol altına alacak veya sınırlayacak şekilde tasarlanmalı, böylece altyapıya zarar vermesi veya can güvenliğini tehlikeye atması önlenmelidir.",
+                  "Sistemin kurulumu, mühendisler ve kaya onarım teknisyenleri de dahil olmak üzere deneyimli bir ekip tarafından gerçekleştirilmelidir. Sistemin doğru ve en yüksek standartlarda kurulmasını sağlamak için özel ekipman ve amaca yönelik, sınırlı erişimli kaya delici aletler kullanılmalıdır.",
+                  "Kaya düşmesi kontrol sisteminin etkinliğinin devamlılığını sağlamak için düzenli denetim ve bakım da gereklidir. Bu, hava koşulları veya diğer faktörlerden kaynaklanan sistemdeki hasarların izlenmesini ve onarılmasını içerir.",
+                  "Bu adımlar atılarak, her türlü kaya düşmesi önleme ve kaya yamacı stabilizasyonu için güvenli ve ekonomik çözümler sağlayan etkili bir kaya düşmesi kontrol sistemi kurulabilir."
                 ]
               },
               {
-                "title": "Planlama yap",
-                "bullets": [
-                  "Alternatif güzergahları önceden belirle",
-                  "Yetkili kurumların uyarılarını takip et"
+                "title": "Kaya düşmesi koruma sisteminin kullanımının faydaları nelerdir?",
+                "paragraphs": [
+                  "Kaya düşmesi koruma sistemlerinin kullanımının birçok faydası vardır. Öncelikle, bu sistemler potansiyel kaya düşmesi tehlikelerinin seyahat edenlere, altyapıya ve çevredeki alanlara zarar vermesini önler. Düşen kayayı kontrol ederek, eğimli yüzeylere yerleştirilen ağ veya sönümleyici sistemler gibi uygulamalar, dinamik hareket başladıktan sonra kayanın hareketini kontrol etmeye veya sınırlandırmaya yardımcı olabilir. Ek olarak, bu sistemlerin kullanımı, yüksek riskli yamaçlarda güvenli ve verimli seyahate olanak tanıyarak kaza veya yaralanma riskini azaltabilir.",
+                  "Ayrıca, kaya düşmesi koruma sistemlerinin entegre edilmesi, kaya düşmesi nedeniyle altyapı ve binalarda meydana gelebilecek maliyetli hasarların önlenmesine de yardımcı olabilir. Bu sistemler, sürekli onarım ve bakım ihtiyacını azaltarak uzun vadede önemli maliyet tasarrufu sağlayabilir."
                 ]
               }
             ],
-            "duringIntro": "Kaya düşmesi anında hızlı hareket etmek gerekir.",
             "duringSections": [
               {
-                "title": "Açık alandaysan",
-                "bullets": [
-                  "Hemen kaya düşmesinin olduğu yamaçtan uzaklaş",
-                  "Mümkünse yana doğru kaç, düşme hattından çık",
-                  "Başını koruyacak şekilde eğil veya sağlam bir engel arkasına geç"
+                "title": "Çök-kapan-tutun yapın",
+                "paragraphs": [
+                  "Başınızı ve boynunuzu koruyacak şekilde sağlam bir nesnenin yanında veya eğimli bir arazide kaya yüzeyine dönük olarak kapanın."
                 ]
               },
               {
-                "title": "Araçtaysan",
-                "bullets": [
-                  "Aracı durdur ve mümkünse terk et",
-                  "Kayaların geldiği hattan uzaklaş",
-                  "Köprü, tünel girişleri ve dik yamaç altlarından uzak dur"
+                "title": "Sırtınızı dönmeyin",
+                "paragraphs": [
+                  "Kayaların hareket yönünü ve hızını görmek için tehlikeye karşı yüzünüzü dönük tutun, doğrudan üzerinize gelen taşlardan yana doğru hamlelerle kaçmaya çalışın."
                 ]
               },
               {
-                "title": "Kapalı alandaysan",
-                "bullets": [
-                  "Pencerelerden uzak dur",
-                  "Sağlam bir eşya yanında korun"
+                "title": "Siper alın",
+                "paragraphs": [
+                  "Varsa büyük bir kaya kütlesi, ağaç gövdesi veya çukur bir alanın arkasına saklanarak siper alın."
+                ]
+              },
+              {
+                "title": "Başınızı koruyun",
+                "paragraphs": [
+                  "Ellerinizi başınızın üzerine kenetleyerek veya çantanızı/kaskınızı başınıza siper ederek hayati organlarınızı darbelerden koruyun."
+                ]
+              },
+              {
+                "title": "Tehlike geçene kadar bekleyin",
+                "paragraphs": [
+                  "Kaya düşmesi genellikle peş peşe gelir. İlk kaya geçti diye hemen ayağa kalkmayın; en az 1-2 dakika gizlendiğiniz yerde bekleyin."
+                ]
+              },
+              {
+                "title": "Uzaklaşın",
+                "paragraphs": [
+                  "Tehlike geçtikten sonra, kopmaların devam edebileceği vadi tabanlarından veya şev altlarından hızla ve güvenli bir şekilde uzaklaşın."
                 ]
               }
             ],
@@ -397,6 +596,11 @@
               }
             ],
             "beforeImages": [
+              {
+                "src": "/assets/afet/kaya-dusmesi/07-koruma-citi-bariyer.png",
+                "alt": "Yamaçta kaya düşmesi koruma çiti ve bariyer sistemi",
+                "caption": "Kaya düşmesi koruma çitleri ve bariyerleri, düşen kayaları yol ve yerleşim alanlarından uzaklaştırmak için kullanılır."
+              },
               {
                 "src": "/assets/afet/kaya-dusmesi/01-kaya-tutma-hendegi.png",
                 "alt": "Kaya tutma hendeği ve kaynak zonu",

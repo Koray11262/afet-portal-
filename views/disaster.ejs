@@ -1,8 +1,12 @@
-<%-
+<%- 
   include("layout", {
     pageTitle,
     nav,
     pageHero,
+    extraScripts:
+      disaster.content?.beforeActions?.length
+        ? `<script src="/disaster-prep-actions.js"></script>`
+        : undefined,
     body: `
       <div class="grid">
         <section class="panel">
@@ -178,20 +182,53 @@
                   ${
                     disaster.content?.beforeIntro
                       ? `<p>${disaster.content.beforeIntro}</p>`
-                      : `<p class="muted">İçerik eklenecek.</p>`
+                      : ``
                   }
                   ${
                     disaster.content?.beforeSections?.length
                       ? disaster.content.beforeSections
-                          .map(
-                            (s) => `
+                          .map((s) => {
+                            const paras = (s.paragraphs || [])
+                              .map((p) => `<p class="subsection__p">${p}</p>`)
+                              .join("");
+                            const list = (s.bullets || []).length
+                              ? `<ul>${s.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+                              : "";
+                            return `
                               <div class="subsection">
                                 <h3>${s.title}</h3>
-                                <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                                ${paras}
+                                ${list}
                               </div>
-                            `
-                          )
+                            `;
+                          })
                           .join("")
+                      : !disaster.content?.beforeIntro
+                        ? `<p class="muted">İçerik eklenecek.</p>`
+                        : ``
+                  }
+                  ${
+                    disaster.content?.beforeActions?.length
+                      ? `
+                    <nav class="disasterPrepActions" aria-label="Hazırlık araçları">
+                      <h3 class="disasterPrepActions__title">Hazırlığınızı tamamlayın</h3>
+                      <ul class="disasterPrepActions__list">
+                        ${disaster.content.beforeActions
+                          .map(
+                            (a) => `
+                          <li class="disasterPrepActions__item">
+                            <a
+                              class="disasterPrepActions__link"
+                              href="${a.href}"
+                              ${a.dynamicIl ? `data-dynamic-il-risk="1"` : ""}
+                              ${a.related ? `data-related-section="${a.related}"` : ""}
+                            >${a.label} →</a>
+                          </li>`
+                          )
+                          .join("")}
+                      </ul>
+                    </nav>
+                  `
                       : ``
                   }
                 </div>
@@ -226,21 +263,30 @@
                   ${
                     disaster.content?.duringIntro
                       ? `<p>${disaster.content.duringIntro}</p>`
-                      : `<p class="muted">İçerik eklenecek.</p>`
+                      : ``
                   }
                   ${
                     disaster.content?.duringSections?.length
                       ? disaster.content.duringSections
-                          .map(
-                            (s) => `
+                          .map((s) => {
+                            const paras = (s.paragraphs || [])
+                              .map((p) => `<p class="subsection__p">${p}</p>`)
+                              .join("");
+                            const list = (s.bullets || []).length
+                              ? `<ul>${s.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+                              : "";
+                            return `
                               <div class="subsection">
                                 <h3>${s.title}</h3>
-                                <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                                ${paras}
+                                ${list}
                               </div>
-                            `
-                          )
+                            `;
+                          })
                           .join("")
-                      : ``
+                      : !disaster.content?.duringIntro
+                        ? `<p class="muted">İçerik eklenecek.</p>`
+                        : ``
                   }
                 </div>
                 ${
@@ -274,21 +320,30 @@
                   ${
                     disaster.content?.afterIntro
                       ? `<p>${disaster.content.afterIntro}</p>`
-                      : `<p class="muted">İçerik eklenecek.</p>`
+                      : ``
                   }
                   ${
                     disaster.content?.afterSections?.length
                       ? disaster.content.afterSections
-                          .map(
-                            (s) => `
+                          .map((s) => {
+                            const paras = (s.paragraphs || [])
+                              .map((p) => `<p class="subsection__p">${p}</p>`)
+                              .join("");
+                            const list = (s.bullets || []).length
+                              ? `<ul>${s.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>`
+                              : "";
+                            return `
                               <div class="subsection">
                                 <h3>${s.title}</h3>
-                                <ul>${(s.bullets || []).map((b) => `<li>${b}</li>`).join("")}</ul>
+                                ${paras}
+                                ${list}
                               </div>
-                            `
-                          )
+                            `;
+                          })
                           .join("")
-                      : ``
+                      : !disaster.content?.afterIntro
+                        ? `<p class="muted">İçerik eklenecek.</p>`
+                        : ``
                   }
                 </div>
                 ${
